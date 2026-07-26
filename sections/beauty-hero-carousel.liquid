@@ -1,0 +1,596 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --carousel-bg: {{ section.settings.bg_color }};
+    --carousel-text: {{ section.settings.text_color }};
+    --carousel-accent: {{ section.settings.accent_color }};
+    --slide-height: {{ section.settings.slide_height }}px;
+    background: var(--carousel-bg);
+    overflow: hidden;
+    position: relative;
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .beauty-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: var(--slide-height) !important;
+    overflow: hidden;
+    display: block !important;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+
+  .beauty-carousel-inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .beauty-carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .beauty-carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+    transition: opacity 0.8s ease-in-out, visibility 0s;
+  }
+
+  .beauty-carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+  }
+
+  .beauty-carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(45, 27, 27, 0.85) 0%, rgba(45, 27, 27, 0.55) 45%, rgba(45, 27, 27, 0.2) 70%, rgba(45, 27, 27, 0.4) 100%);
+    z-index: 2;
+  }
+
+  .beauty-carousel-content {
+    position: relative;
+    z-index: 3;
+    max-width: 650px;
+    padding: 30px 40px;
+    margin-left: 8%;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(2px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(2px) saturate(120%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+
+  .beauty-carousel-slide.active .beauty-carousel-content {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.3s;
+  }
+
+  .beauty-carousel-tag {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #FFFFFF;
+    background: rgba(232, 138, 174, 0.95);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(232, 138, 174, 0.3);
+  }
+
+  .beauty-carousel-title {
+    font-size: 56px;
+    font-weight: 500; /* Increased font weight slightly for better text definition */
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+    font-family: "Comfortaa", "Outfit", sans-serif;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4), 0 4px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .beauty-carousel-desc {
+    font-size: 18px;
+    font-weight: 400; /* Increased description font weight for reading density */
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .beauty-carousel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    color: #5C3A47;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    padding: 16px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .beauty-carousel-btn:hover {
+    background: var(--carousel-accent);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Navigation Arrows */
+  .beauty-carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    color: #FFFFFF;
+  }
+
+  .beauty-carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .beauty-carousel-nav.prev {
+    left: 30px;
+  }
+
+  .beauty-carousel-nav.next {
+    right: 30px;
+  }
+
+  .beauty-carousel-nav svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  /* Dots Indicator */
+  .beauty-carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+  }
+
+  .beauty-carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .beauty-carousel-dot.active {
+    background: #FFFFFF;
+    transform: scale(1.2);
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      --slide-height: 550px !important;
+      display: block !important;
+    }
+    .beauty-carousel-wrapper {
+      height: 550px !important;
+      display: block !important;
+    }
+    .beauty-carousel-slide {
+      display: flex !important;
+    }
+    .beauty-carousel-title {
+      font-size: 44px;
+    }
+    .beauty-carousel-content {
+      margin-left: 6%;
+      max-width: 80%;
+      padding: 0 20px;
+      display: block !important;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      --slide-height: auto !important;
+      display: block !important;
+    }
+    .beauty-carousel-wrapper {
+      height: calc(100vh - 120px) !important;
+      display: block !important;
+    }
+    .beauty-carousel-inner {
+      height: 100% !important;
+      display: block !important;
+    }
+    .beauty-carousel-slide {
+      position: absolute !important; /* Keep absolute stack for overlap fading */
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      height: 100% !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out !important;
+    }
+    .beauty-carousel-slide.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      z-index: 2 !important;
+      transition: opacity 0.8s ease-in-out, visibility 0s !important;
+    }
+    .beauty-carousel-image {
+      position: relative !important;
+      height: 50% !important;
+      width: 100% !important;
+      object-fit: cover !important;
+    }
+    .beauty-carousel-overlay {
+      display: none !important; /* Hide overlay so image is clear */
+    }
+    .beauty-carousel-content {
+      margin: 0 !important;
+      max-width: 100% !important;
+      height: 50% !important;
+      padding: 20px 20px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center;
+      background: #fdf2f8 !important; /* Nice blush background below image */
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+      box-sizing: border-box !important;
+    }
+    .beauty-carousel-tag {
+      background: #ec4899 !important;
+      color: #fff !important;
+      box-shadow: none !important;
+    }
+    .beauty-carousel-title {
+      font-size: 24px !important;
+      color: #5C3A47 !important;
+      text-shadow: none !important;
+      margin-bottom: 12px;
+    }
+    .beauty-carousel-desc {
+      font-size: 14px !important;
+      color: #704d5a !important;
+      text-shadow: none !important;
+      margin-bottom: 20px;
+    }
+    .beauty-carousel-nav {
+      display: none;
+    }
+    .beauty-carousel-btn {
+      padding: 12px 28px !important;
+      background: linear-gradient(135deg, #f9a8d4 0%, #ec4899 100%) !important;
+      color: #fff !important;
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25) !important;
+    }
+    /* Position dots indicators below the content block */
+    .beauty-carousel-dots {
+      bottom: 15px !important;
+      background: rgba(92, 58, 71, 0.1);
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .beauty-carousel-dot {
+      background: rgba(92, 58, 71, 0.3) !important;
+    }
+    .beauty-carousel-dot.active {
+      background: #ec4899 !important;
+    }
+  }
+{%- endstyle -%}
+
+<div class="beauty-carousel-wrapper" id="BeautyCarousel-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000 }}">
+  <div class="beauty-carousel-inner">
+    {%- for block in section.blocks -%}
+      <div class="beauty-carousel-slide{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 2000 | image_tag: class: 'beauty-carousel-image', loading: 'lazy' }}
+        {%- else -%}
+          {%- comment -%} Fallback to generated high-quality assets if settings image is empty {%- endcomment -%}
+          {%- assign slide_index = forloop.index -%}
+          {%- if slide_index == 1 -%}
+            <img src="{{ 'skincare_hero_face_mask.png' | asset_url }}" class="beauty-carousel-image" alt="Red Light LED Face Masks" loading="eager">
+          {%- elsif slide_index == 2 -%}
+            <img src="{{ 'skincare_hero_serum.png' | asset_url }}" class="beauty-carousel-image" alt="Hydrating Hydrosol Serums" loading="lazy">
+          {%- elsif slide_index == 3 -%}
+            <img src="{{ 'skincare_hero_devices.png' | asset_url }}" class="beauty-carousel-image" alt="Intelligent Facial Devices" loading="lazy">
+          {%- else -%}
+            {%- capture placeholder_index -%}{% cycle 1, 2 %}{%- endcapture -%}
+            {{ 'lifestyle-' | append: placeholder_index | placeholder_svg_tag: 'beauty-carousel-image' }}
+          {%- endif -%}
+        {%- endif -%}
+        
+        <div class="beauty-carousel-overlay"></div>
+        
+        <div class="beauty-carousel-content">
+          {%- if block.settings.tagline != blank -%}
+            <span class="beauty-carousel-tag">{{ block.settings.tagline }}</span>
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h2 class="beauty-carousel-title">{{ block.settings.title }}</h2>
+          {%- endif -%}
+          {%- if block.settings.subtitle != blank -%}
+            <p class="beauty-carousel-desc">{{ block.settings.subtitle }}</p>
+          {%- endif -%}
+          {%- if block.settings.button_text != blank -%}
+            <a href="{{ block.settings.button_link | default: '#' }}" class="beauty-carousel-btn">{{ block.settings.button_text }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.blocks.size > 1 -%}
+    <button class="beauty-carousel-nav prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="beauty-carousel-nav next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+
+    <div class="beauty-carousel-dots">
+      {%- for block in section.blocks -%}
+        <div class="beauty-carousel-dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}"></div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  (function() {
+    function initCarousel() {
+      const wrapper = document.getElementById('BeautyCarousel-{{ section.id }}');
+      if (!wrapper) return;
+
+      const slides = wrapper.querySelectorAll('.beauty-carousel-slide');
+      const dots = wrapper.querySelectorAll('.beauty-carousel-dot');
+      const prevBtn = wrapper.querySelector('.beauty-carousel-nav.prev');
+      const nextBtn = wrapper.querySelector('.beauty-carousel-nav.next');
+      let currentIndex = 0;
+      let timer = null;
+
+      const autoplay = wrapper.getAttribute('data-autoplay') === 'true';
+      const autoplaySpeed = parseInt(wrapper.getAttribute('data-autoplay-speed')) || 5000;
+
+      function goToSlide(index) {
+        slides[currentIndex].classList.remove('active');
+        if (dots.length > 0) dots[currentIndex].classList.remove('active');
+        
+        currentIndex = (index + slides.length) % slides.length;
+        
+        slides[currentIndex].classList.add('active');
+        if (dots.length > 0) dots[currentIndex].classList.add('active');
+        resetTimer();
+      }
+
+      function nextSlide() {
+        goToSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(currentIndex - 1);
+      }
+
+      function startTimer() {
+        if (autoplay) {
+          timer = setInterval(nextSlide, autoplaySpeed);
+        }
+      }
+
+      function resetTimer() {
+        if (timer) {
+          clearInterval(timer);
+          startTimer();
+        }
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+      if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          goToSlide(parseInt(this.getAttribute('data-index')));
+        });
+      });
+
+      startTimer();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCarousel);
+    } else {
+      initCarousel();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Beauty Hero Carousel",
+  "class": "section-beauty-hero-carousel",
+  "settings": [
+    {
+      "type": "range",
+      "id": "slide_height",
+      "label": "Desktop height",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "default": 650,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FCEEF3"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#5C3A47"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Pink Color",
+      "default": "#E88AAE"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay slideshow",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay speed (seconds)",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "beauty_slide",
+      "name": "Carousel Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "tagline",
+          "label": "Tagline",
+          "default": "New Arrivals"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "The Future of Skincare"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subheading / Description",
+          "default": "Unlock glowing, youthful skin with our premium cosmetic devices and serums."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Label",
+          "default": "Shop Collection"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Beauty Hero Carousel",
+      "blocks": [
+        {
+          "type": "beauty_slide",
+          "settings": {
+            "tagline": "✨ Glow Therapy",
+            "title": "Premium LED Face Masks",
+            "subtitle": "Harness clinical phototherapy at home for flawless, rejuvenated skin."
+          }
+        },
+        {
+          "type": "beauty_slide",
+          "settings": {
+            "tagline": "🌸 Natural Radiance",
+            "title": "Organic Serums & Oils",
+            "subtitle": "Formulated with active ingredients to restore your natural hydration barrier."
+          }
+        },
+        {
+          "type": "beauty_slide",
+          "settings": {
+            "tagline": "💖 Beauty Rituals",
+            "title": "Elegant Facial Devices",
+            "subtitle": "Sculpt, lift, and detoxify your face with rose quartz and smart massagers."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

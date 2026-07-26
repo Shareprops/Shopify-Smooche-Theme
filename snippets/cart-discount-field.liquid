@@ -1,0 +1,41 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+<div class="cart-discount">
+  <form id="cart-discount-form" class="cart-discount-form" onsubmit="handleDiscountForm(event)">
+    <div class="cart-discount-form__row">
+      <div class="field">
+        <input
+          class="field__input"
+          autocomplete="off"
+          type="text"
+          name="cart-discount-field"
+          placeholder="{{ settings.cart_discount_placeholder }}"
+          oninput="handleDiscountFormChange(event)"
+        >
+        <label class="field__label" for="cart-discount-field">{{ settings.cart_discount_placeholder }}</label>
+      </div>
+      <button class="button" type="submit">{{ settings.cart_discount_btn_label }}</button>
+    </div>
+
+    <p
+      class="cart-discount-form__message cart-discount-form__message--error form__message"
+      role="alert"
+      data-empty-message="Please enter a discount code!"
+      data-invalid-message="This discount code is invalid or has expired."
+      hidden
+    >
+      {%- render 'icon-error' -%}
+      <span class="cart-discount-form__message-text"></span>
+    </p>
+
+    <p
+      class="cart-discount-form__message cart-discount-form__message--success form__message"
+      role="status"
+      data-success-message="Discount code [code] applied!"
+      hidden
+    >
+      {%- render 'icon-success' -%}
+      <span class="cart-discount-form__message-text"></span>
+    </p>
+  </form>
+</div>

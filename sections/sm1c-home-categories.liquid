@@ -1,0 +1,121 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-cat-wrap {
+  font-family: 'Work Sans', sans-serif;
+  padding: 60px 44px;
+  background: oklch(94% 0.03 30);
+  color: oklch(20% 0.02 20);
+}
+#shopify-section-{{ section.id }} .sm1c-cat-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 32px;
+}
+#shopify-section-{{ section.id }} .sm1c-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-cat-tile {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 320px;
+  display: block;
+  text-decoration: none;
+  background: #ccc;
+}
+#shopify-section-{{ section.id }} .sm1c-cat-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55), transparent 55%);
+}
+#shopify-section-{{ section.id }} .sm1c-cat-label {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-cat-cta {
+  text-align: center;
+  margin-top: 30px;
+}
+#shopify-section-{{ section.id }} .sm1c-cat-cta a {
+  background: #111;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-cat-wrap { padding: 44px 20px; }
+  #shopify-section-{{ section.id }} .sm1c-cat-grid { grid-template-columns: 1fr; }
+}
+{%- endstyle -%}
+
+<div class="sm1c-cat-wrap">
+  <h2 class="sm1c-cat-title">{{ section.settings.title }}</h2>
+  <div class="sm1c-cat-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'category' -%}
+        <a href="{{ block.settings.link }}" class="sm1c-cat-tile" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.label }}
+          {%- endif -%}
+          <div class="sm1c-cat-overlay"></div>
+          <div class="sm1c-cat-label">{{ block.settings.label }}</div>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  {%- if section.settings.cta_label != blank -%}
+    <div class="sm1c-cat-cta"><a href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a></div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Shop by Category",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Shop by Category" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop All" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category tile",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Face" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "SM1C Shop by Category",
+      "blocks": [
+        { "type": "category", "settings": { "label": "Face" } },
+        { "type": "category", "settings": { "label": "Lips & Cheeks" } },
+        { "type": "category", "settings": { "label": "Eyes" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

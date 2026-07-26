@@ -1,0 +1,128 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-bh-banner {
+  position: relative;
+  height: 380px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+#shopify-section-{{ section.id }} .sm1c-bh-img {
+  height: 380px;
+  background: #eee;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .sm1c-bh-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-bh-title {
+  position: absolute;
+  left: 44px;
+  bottom: 36px;
+  color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  text-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+#shopify-section-{{ section.id }} .sm1c-bh-trust {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 22px 44px;
+  border-bottom: 1px solid oklch(90% 0.01 40);
+  font-family: 'Work Sans', sans-serif;
+  flex-wrap: wrap;
+}
+#shopify-section-{{ section.id }} .sm1c-bh-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-bh-banner {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bh-img {
+    height: 220px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bh-title {
+    font-size: 32px;
+    left: 20px;
+    bottom: 16px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bh-trust {
+    gap: 24px;
+    padding: 18px 20px;
+  }
+}
+{%- endstyle -%}
+
+{%- assign sm1c_collection = section.settings.collection | default: collection -%}
+<div class="sm1c-bh-banner">
+  {%- for i in (1..4) -%}
+    {%- assign img_key = 'banner_image_' | append: i -%}
+    <div class="sm1c-bh-img">
+      {%- assign img = section.settings[img_key] -%}
+      {%- if img != blank -%}
+        {{ img | image_url: width: 500 | image_tag: loading: 'eager', alt: '' }}
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+  <div class="sm1c-bh-title">{{ section.settings.heading | default: sm1c_collection.title }}</div>
+</div>
+
+{%- if section.blocks.size > 0 -%}
+  <div class="sm1c-bh-trust">
+    {%- for block in section.blocks -%}
+      <div class="sm1c-bh-trust-item" {{ block.shopify_attributes }}>{{ block.settings.icon }} {{ block.settings.label }}</div>
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SM1C Bestsellers Hero",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection (used for the heading default)"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (defaults to collection title if blank)"
+    },
+    { "type": "image_picker", "id": "banner_image_1", "label": "Banner image 1" },
+    { "type": "image_picker", "id": "banner_image_2", "label": "Banner image 2" },
+    { "type": "image_picker", "id": "banner_image_3", "label": "Banner image 3" },
+    { "type": "image_picker", "id": "banner_image_4", "label": "Banner image 4" }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust item",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon glyph", "default": "✦" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Proven results" }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "SM1C Bestsellers Hero",
+      "blocks": [
+        { "type": "trust_item", "settings": { "icon": "✦", "label": "Proven results" } },
+        { "type": "trust_item", "settings": { "icon": "⟡", "label": "100% natural" } },
+        { "type": "trust_item", "settings": { "icon": "◫", "label": "Free shipping" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

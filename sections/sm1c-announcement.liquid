@@ -1,0 +1,45 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-announce {
+  background: {{ section.settings.bg_color }};
+  color: {{ section.settings.text_color }};
+  text-align: center;
+  padding: 10px 0;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+{%- endstyle -%}
+
+<div class="sm1c-announce">{{ section.settings.text }}</div>
+
+{% schema %}
+{
+  "name": "SM1C Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Summer Sale — 60% Off + Free Mystery Gift"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#c24a2e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SM1C Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

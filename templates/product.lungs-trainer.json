@@ -1,0 +1,543 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "c5728eab-5b1d-44e7-8e74-220cfef92c9b": {
+          "type": "urgency",
+          "settings": {
+            "urgency": "Only 293 Left!",
+            "color_scheme": "accent-1"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "text_size": "h2",
+            "title_alignment": "left",
+            "uppercase_title": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "layout": "price_second"
+          }
+        },
+        "de244682-4323-4802-b4ba-b79b08e0c71d": {
+          "type": "emoji_benefits",
+          "settings": {
+            "benefits": "<p>🌬️ Boosts lung capacity</p><p>💨 Increases respiratory strength</p><p>💪 Promotes healthy breathing</p><p>🌱 Supports overall lung health</p><p>🍃 Improves oxygen intake</p>"
+          }
+        },
+        "44f9cdc2-f4bf-466e-87d5-fb765ad4864a": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "enable_color_swatches": false,
+            "custom_swatch_option_name": "",
+            "enable_swatches_custom_colors": false
+          }
+        },
+        "074f248d-8d73-4c8f-a97e-d8e82c5be5fc": {
+          "type": "quantity_selector",
+          "settings": {
+            "enable_quantity_discounts": false,
+            "headline": "BUNDLE & SAVE",
+            "preselected": "option_1",
+            "display_badge": "none",
+            "badge_text": "Most Popular",
+            "option_1_quantity": 1,
+            "option_1_label": "",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount]",
+            "option_1_discount_type": "none",
+            "option_1_percentage_off": 0,
+            "option_1_fixed_amount_off": "0",
+            "option_2_quantity": 2,
+            "option_2_label": "",
+            "option_2_benefit": "",
+            "option_2_caption": "You save [amount]",
+            "option_2_discount_type": "none",
+            "option_2_percentage_off": 0,
+            "option_2_fixed_amount_off": "0",
+            "option_3_quantity": 3,
+            "option_3_label": "",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount]",
+            "option_3_discount_type": "none",
+            "option_3_percentage_off": 0,
+            "option_3_fixed_amount_off": "0",
+            "option_4_quantity": 4,
+            "option_4_label": "",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount]",
+            "option_4_discount_type": "none",
+            "option_4_percentage_off": 0,
+            "option_4_fixed_amount_off": "0"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "skip_cart": false,
+            "uppercase_text": true
+          }
+        },
+        "d505cdfe-d5cf-4aff-8e9e-abca6dae66eb": {
+          "type": "sticky_atc",
+          "settings": {
+            "display_when": "after_scroll",
+            "button_label": "Add to cart",
+            "show_price": true,
+            "show_price_badge": true,
+            "color_scheme": "background-1"
+          }
+        },
+        "98db29ee-a7dc-429e-8129-bf71131627da": {
+          "type": "payment_badges",
+          "settings": {}
+        },
+        "2edbf491-d07c-4718-b71e-18ffe22ab7dc": {
+          "type": "estimated_shipping",
+          "settings": {
+            "display_icon": true,
+            "icon_size": "medium",
+            "icon_alignment": "top",
+            "message": "<p>Get it between <strong>[start_date]</strong> and <strong>[end_date]</strong>.</p>",
+            "min_shipping_days": 8,
+            "max_shipping_days": 13,
+            "date_format": "day_mm_dd",
+            "days_labels": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+            "months_labels": "January, February, March, April, May, June, July, August, September, October, November, December",
+            "padding_top": 10,
+            "padding_bottom": 10
+          }
+        },
+        "149aabfb-9fd8-4472-a633-6032dbe01ed0": {
+          "type": "reviews",
+          "settings": {
+            "display_stars": true,
+            "avatar_alignment": "top",
+            "author_1": "- Sarah",
+            "text_1": "<p>\"The lung trainer has given me a new level of endurance. 🏃‍♂️💨\"</p>",
+            "author_2": "- James",
+            "text_2": "<p>\"Prime delivery got this lung trainer to me in a flash, and it's been a lifesaver! 🚚✨\" </p>",
+            "author_3": "- Olivia",
+            "text_3": "<p>\"The difference in my breathing is unbelievable. 🌟😮\"</p>",
+            "padding_top": 10,
+            "padding_bottom": 10
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "41d0b123-8a64-474a-b350-0350903727f5": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What's your return policy?",
+            "icon": "none",
+            "content": "<p>We love our Lungs Trainer and are confident you will too! That's why we're offering a 30-Day, Risk-Free Trial. If you're not satisfied, we'll gladly issue a full refund in accordance with our Return & Refund Policy.</p>",
+            "page": ""
+          }
+        },
+        "bfe6d02c-fd3c-49aa-9671-abc9fbde15ca": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How do I use it?",
+            "icon": "none",
+            "content": "<p><strong>Step 1: Prepare Your Trainer</strong></p><p>Before you begin, ensure that your air resistance trainer is clean. Insert the mouthpiece in your mouth with the engraved word \"top\" at the base of the mouthpiece facing up. Bite down the inner sides of the mouthpiece to hold it in place.</p><p><strong>Step 2: Proper Breathing Technique<br/></strong><br/>Stand or sit comfortably in an upright position maintaining good posture, or use as a part of your workout routine. Adjust the resistance level to your desired level of breathing resistance (make it challenging, but not uncomfortable). Inhale deeply through the mouthpiece until you can't anymore, and then exhale through the mouthpiece until you're almost out of breath. Focus on filling your lungs completely with air. This action engages your inspiratory muscles.</p><p><strong>Step 3: Controlled Exhalation<br/></strong><br/>Remove the unit from your mouth and breathe normally until you catch your breath. Then repeat the above exercise 10 times to complete one set. Do 2 to 4<br/>sets per day, preferably before any meals.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "c5728eab-5b1d-44e7-8e74-220cfef92c9b",
+        "title",
+        "price",
+        "de244682-4323-4802-b4ba-b79b08e0c71d",
+        "44f9cdc2-f4bf-466e-87d5-fb765ad4864a",
+        "074f248d-8d73-4c8f-a97e-d8e82c5be5fc",
+        "buy_buttons",
+        "d505cdfe-d5cf-4aff-8e9e-abca6dae66eb",
+        "98db29ee-a7dc-429e-8129-bf71131627da",
+        "2edbf491-d07c-4718-b71e-18ffe22ab7dc",
+        "149aabfb-9fd8-4472-a633-6032dbe01ed0",
+        "description",
+        "41d0b123-8a64-474a-b350-0350903727f5",
+        "bfe6d02c-fd3c-49aa-9671-abc9fbde15ca"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "trust_badge_position": "top-right",
+        "trust_badge_size": "medium",
+        "padding_top": 24,
+        "padding_bottom": 44
+      }
+    },
+    "f4212229-be4d-4fee-b392-88e40aeaf5df": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Boosts Stamina",
+            "icon": "none",
+            "row_content": "<p>The lung trainer air resistance trainer adds an extra challenge to your breathing during<br/>workouts. As you work against the resistance, your respiratory muscles must work harder.<br/>Over time, this increases their endurance and capacity, allowing you to sustain physical<br/>activities for longer durations.</p>",
+            "page": ""
+          }
+        },
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Tone Your Core",
+            "icon": "none",
+            "row_content": "<p>The act of breathing against resistance engages your core muscles, particularly the<br/>diaphragm and abdominal muscles. As you repeatedly use these muscles during training,<br/>you'll notice increased strength and toning in your core area, helping you achieve more<br/>defined abs.</p>",
+            "page": ""
+          }
+        },
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Improved Lung Capacity",
+            "icon": "none",
+            "row_content": "<p>Training with the resistance trainer encourages deeper, more efficient breathing. This<br/>leads to a gradual expansion of your lung capacity, allowing you to take in more oxygen<br/>with each breath and hold your breath for longer periods. Stretching your diaphragm and<br/>intercostal muscles allows you to decrease the residual volume and increase the amount<br/>of usable air. This, of course, is good news for athletes, as well as patients with asthma or<br/>COPD.</p>",
+            "page": ""
+          }
+        },
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Reduced Fatigue",
+            "icon": "none",
+            "row_content": "<p>By consistently training with the resistance trainer, you can optimize your breathing<br/>technique. This improved respiratory efficiency leads to better oxygen utilization, reducing<br/>fatigue, and ultimately boosting your stamina for extended workout sessions.</p>",
+            "page": ""
+          }
+        },
+        "71bb35ab-e8e3-4e1a-bb54-6aeb7e6f610e": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Master Your Performance",
+            "icon": "none",
+            "row_content": "<p>The air resistance trainer empowers you to take control of your breath, a fundamental<br/>aspect of fitness and well-being. By mastering your breath, you gain mastery over your<br/>performance, whether in sports, workouts, or daily life challenges. Your ability to control<br/>and optimize your breath will empower you to achieve new heights in your athletic<br/>endeavors and lead a healthier, more active lifestyle.</p>",
+            "page": ""
+          }
+        },
+        "604b9681-fc5a-4917-a7c0-9f9d076dd12f": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Helps With Asthma",
+            "icon": "none",
+            "row_content": "<p>Respiratory muscle training reduces the 3 most common asthma symptoms: shortage of<br/>breath, chest tightness and wheezing/coughing. Researchers have found it helps improve<br/>effects of medication (Lista-Paz et al, 2023) and reduce attacks in children & teens<br/>(David et al., 2018).</p>",
+            "page": ""
+          }
+        },
+        "549a8fa2-bf2e-4475-bff9-c62a02a79a78": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Decreased Stress Levels",
+            "icon": "none",
+            "row_content": "<p>Meditative breathing patterns stimulate your Vagus nerve, allowing you to achieve better<br/>relaxation. From those who need to boost recovery between sports events, to those who<br/>work in stressful environments and need to relax after long days in the office.</p>",
+            "page": ""
+          }
+        },
+        "72208734-e295-4b46-912f-0cfb621c009f": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Better Sleep",
+            "icon": "none",
+            "row_content": "<p>Meditative breathing patterns will allow you to relax and recover during the night and<br/>maintain a lower heart rate during exercise, so you recover faster in between efforts.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-1",
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-2",
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-3",
+        "template--21096093384982__f4212229-be4d-4fee-b392-88e40aeaf5df-collapsible_row-4",
+        "71bb35ab-e8e3-4e1a-bb54-6aeb7e6f610e",
+        "604b9681-fc5a-4917-a7c0-9f9d076dd12f",
+        "549a8fa2-bf2e-4475-bff9-c62a02a79a78",
+        "72208734-e295-4b46-912f-0cfb621c009f"
+      ],
+      "settings": {
+        "caption": "Why Choose Us?",
+        "heading": "Benifits of use",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "accent-1",
+        "container_color_scheme": "accent-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "8ca42659-52fc-4161-8a45-9bbd583e5dd6": {
+      "type": "image-banner",
+      "blocks": {
+        "template--21440150241558__8ca42659-52fc-4161-8a45-9bbd583e5dd6-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Backed By Clinical Studies.",
+            "heading_size": "h1"
+          }
+        },
+        "template--21440150241558__8ca42659-52fc-4161-8a45-9bbd583e5dd6-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "Simple, Yet Breathtaking Science. Increase Your Oxygen Intake by up to 5X using the lung trainer.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--21440150241558__8ca42659-52fc-4161-8a45-9bbd583e5dd6-heading-1",
+        "template--21440150241558__8ca42659-52fc-4161-8a45-9bbd583e5dd6-text-1"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Untitled_design_7.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "ecc9f497-e1f7-47db-844b-10f8fbed0f4b": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--21440150241558__ecc9f497-e1f7-47db-844b-10f8fbed0f4b-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "4 reasons why you should use the Lung Trainer.",
+            "heading_size": "h2"
+          }
+        },
+        "template--21440150241558__ecc9f497-e1f7-47db-844b-10f8fbed0f4b-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>1. Enhanced Respiratory Fitness</strong>: Strengthens breathing muscles for better respiratory fitness.<br/><br/><strong>2. Increased Stamina and Endurance</strong>: Boosts lung capacity, reducing fatigue and improving stamina.</p><p><br/><strong>3. Core Muscle Strengthening</strong>: Engages core muscles for improved tone and strength.</p><p><br/><strong>4. Customizable Training</strong>: Tailor workouts to your fitness level<br/>with adjustable resistance.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--21440150241558__ecc9f497-e1f7-47db-844b-10f8fbed0f4b-heading-1",
+        "template--21440150241558__ecc9f497-e1f7-47db-844b-10f8fbed0f4b-text-1"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/IMG-3319.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "95ab5839-119b-4fc2-abc0-18cb6153fa24": {
+      "type": "comparison-table",
+      "blocks": {
+        "template--21440150241558__95ab5839-119b-4fc2-abc0-18cb6153fa24-row-1": {
+          "type": "row",
+          "settings": {
+            "benefit": "Lasts for lifetime",
+            "us": true,
+            "others": false
+          }
+        },
+        "template--21440150241558__95ab5839-119b-4fc2-abc0-18cb6153fa24-row-2": {
+          "type": "row",
+          "settings": {
+            "benefit": "Scientifically Proven",
+            "us": true,
+            "others": false
+          }
+        },
+        "template--21440150241558__95ab5839-119b-4fc2-abc0-18cb6153fa24-row-3": {
+          "type": "row",
+          "settings": {
+            "benefit": "Money back guarantee",
+            "us": true,
+            "others": false
+          }
+        },
+        "170cc143-4768-4e92-8ba8-a8e8e1dd7e08": {
+          "type": "row",
+          "settings": {
+            "benefit": "Customer Satisfaction",
+            "us": true,
+            "others": false
+          }
+        },
+        "bc3524ee-20aa-4250-9d18-ac2c175a6279": {
+          "type": "row",
+          "settings": {
+            "benefit": "Costs $$$",
+            "us": false,
+            "others": true
+          }
+        }
+      },
+      "block_order": [
+        "template--21440150241558__95ab5839-119b-4fc2-abc0-18cb6153fa24-row-1",
+        "template--21440150241558__95ab5839-119b-4fc2-abc0-18cb6153fa24-row-2",
+        "template--21440150241558__95ab5839-119b-4fc2-abc0-18cb6153fa24-row-3",
+        "170cc143-4768-4e92-8ba8-a8e8e1dd7e08",
+        "bc3524ee-20aa-4250-9d18-ac2c175a6279"
+      ],
+      "settings": {
+        "title": "Why ShopZenith?",
+        "heading_size": "h1",
+        "text": "<p>Here are few reasons why you should choose us over others.</p>",
+        "button_label": "",
+        "link": "",
+        "button_style_secondary": false,
+        "layout": "table_second",
+        "color_scheme": "background-1",
+        "logo_width": 75,
+        "us_label": "",
+        "others_label": "OTHERS",
+        "benefit_color_scheme": "accent-1",
+        "checkmark_color": "#53af01",
+        "icon_cells_color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "7b385b23-0466-485e-8240-78358525f956": {
+      "type": "vertical-ticker",
+      "blocks": {
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-1": {
+          "type": "text",
+          "settings": {
+            "title": "Endurance Boosting"
+          }
+        },
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-2": {
+          "type": "text",
+          "settings": {
+            "title": "Boosts Stamina"
+          }
+        },
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-3": {
+          "type": "text",
+          "settings": {
+            "title": "Core Toning"
+          }
+        },
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-4": {
+          "type": "text",
+          "settings": {
+            "title": "Healthy lungs"
+          }
+        },
+        "fc942851-4379-4f1d-b1ab-c764b827218d": {
+          "type": "text",
+          "settings": {
+            "title": "Enhance Fitness"
+          }
+        }
+      },
+      "block_order": [
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-1",
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-2",
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-3",
+        "template--21440150241558__7b385b23-0466-485e-8240-78358525f956-text-4",
+        "fc942851-4379-4f1d-b1ab-c764b827218d"
+      ],
+      "settings": {
+        "number_of_rows": 8,
+        "speed": 3,
+        "text_size": "4",
+        "italic_text": false,
+        "uppercase_text": false,
+        "bold_text": false,
+        "ticker_color_scheme": "accent-1",
+        "layout": "ticker_first",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "display_content": "always",
+        "content_heading": "Endless Benifits",
+        "content_heading_size": "h1",
+        "content_text": "",
+        "button_label": "",
+        "link": "",
+        "button_style_secondary": false,
+        "content_color_scheme": "background-1",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "content_padding_top": 36,
+        "content_padding_bottom": 24
+      }
+    },
+    "16955067973eeb62c1": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f4212229-be4d-4fee-b392-88e40aeaf5df",
+    "8ca42659-52fc-4161-8a45-9bbd583e5dd6",
+    "related-products",
+    "ecc9f497-e1f7-47db-844b-10f8fbed0f4b",
+    "95ab5839-119b-4fc2-abc0-18cb6153fa24",
+    "7b385b23-0466-485e-8240-78358525f956",
+    "16955067973eeb62c1"
+  ]
+}

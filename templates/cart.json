@@ -1,0 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_cart_main": {
+      "type": "sm1c-cart-main",
+      "settings": {
+        "heading": "Your Cart",
+        "summary_title": "Order Summary",
+        "summary_note": "Taxes and shipping calculated at checkout",
+        "checkout_label": "CHECKOUT",
+        "empty_title": "Your cart is empty",
+        "empty_subtitle": "Looks like you haven't added anything yet.",
+        "empty_cta_label": "Continue Shopping",
+        "empty_cta_link": "/collections/all"
+      }
+    }
+  },
+  "order": [
+    "sm1c_cart_main"
+  ]
+}

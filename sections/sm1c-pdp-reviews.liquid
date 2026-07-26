@@ -1,0 +1,131 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-rev-wrap {
+  padding: 60px 44px;
+  font-family: 'Work Sans', sans-serif;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto 28px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-score {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-count {
+  font-size: 13px;
+  color: oklch(60% 0.16 25);
+}
+#shopify-section-{{ section.id }} .sm1c-rev-write {
+  background: #111;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-card {
+  background: oklch(94% 0.03 30);
+  border-radius: 16px;
+  padding: 16px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-photo {
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-stars {
+  font-size: 11px;
+  color: oklch(60% 0.16 25);
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-rev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+{%- endstyle -%}
+
+<div class="sm1c-rev-wrap">
+  <div class="sm1c-rev-head">
+    <div>
+      <div class="sm1c-rev-score">{{ section.settings.average_rating }}</div>
+      <div class="sm1c-rev-count">★★★★★ {{ section.settings.review_count }}</div>
+    </div>
+    {%- if section.settings.write_review_label != blank -%}
+      <a href="{{ section.settings.write_review_link | default: '#' }}" class="sm1c-rev-write">{{ section.settings.write_review_label }}</a>
+    {%- endif -%}
+  </div>
+  <div class="sm1c-rev-grid">
+    {%- for block in section.blocks -%}
+      <div class="sm1c-rev-card" {{ block.shopify_attributes }}>
+        <div class="sm1c-rev-photo">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.name }}
+          {%- endif -%}
+        </div>
+        <div class="sm1c-rev-name">{{ block.settings.name }}</div>
+        <div class="sm1c-rev-stars">{{ block.settings.rating_text }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Reviews",
+  "settings": [
+    { "type": "text", "id": "average_rating", "label": "Average rating", "default": "4.9" },
+    { "type": "text", "id": "review_count", "label": "Review count text", "default": "522 reviews" },
+    { "type": "text", "id": "write_review_label", "label": "Write review button label", "default": "Write a Review" },
+    { "type": "url", "id": "write_review_link", "label": "Write review link" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Isabella T." },
+        { "type": "text", "id": "rating_text", "label": "Rating text", "default": "★★★★★" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "SM1C Reviews",
+      "blocks": [
+        { "type": "review", "settings": { "name": "Isabella T." } },
+        { "type": "review", "settings": { "name": "Jessica M." } },
+        { "type": "review", "settings": { "name": "Mia K." } },
+        { "type": "review", "settings": { "name": "Hannah D." } },
+        { "type": "review", "settings": { "name": "Chloe C." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

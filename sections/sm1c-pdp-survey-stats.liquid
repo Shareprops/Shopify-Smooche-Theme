@@ -1,0 +1,147 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-stat-wrap {
+  padding: 70px 44px;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-title span {
+  color: oklch(60% 0.16 25);
+}
+#shopify-section-{{ section.id }} .sm1c-stat-sub {
+  font-size: 14px;
+  color: oklch(40% 0.02 30);
+  max-width: 560px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  text-align: left;
+  align-items: stretch;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-pct {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-headline {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  max-width: 320px;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-body {
+  font-size: 13px;
+  color: oklch(40% 0.02 30);
+  line-height: 1.6;
+  margin-top: 12px;
+  max-width: 460px;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-track {
+  height: 8px;
+  border-radius: 100px;
+  background: oklch(90% 0.02 30);
+  margin-top: 16px;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-fill {
+  display: block;
+  height: 100%;
+  border-radius: 100px;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-img {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-stat-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+{%- endstyle -%}
+
+<div class="sm1c-stat-wrap">
+  <div class="sm1c-stat-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
+  <div class="sm1c-stat-sub">{{ section.settings.subheading }}</div>
+  <div class="sm1c-stat-grid">
+    <div class="sm1c-stat-list">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          <div class="sm1c-stat-row">
+            <div class="sm1c-stat-pct">{{ block.settings.percent }}%</div>
+            <div class="sm1c-stat-headline">{{ block.settings.headline }}</div>
+          </div>
+          <div class="sm1c-stat-body">{{ block.settings.body }}</div>
+          <div class="sm1c-stat-track"><div class="sm1c-stat-fill" style="width:{{ block.settings.percent }}%;background:{{ block.settings.bar_color }}"></div></div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="sm1c-stat-img">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: '' }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Survey Stats",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What women told us in" },
+    { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "our survey" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Formulated with botanical ingredients to support balance, confidence, and consistency over time." },
+    { "type": "image_picker", "id": "image", "label": "Lifestyle image" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "range", "id": "percent", "label": "Percent", "min": 0, "max": 100, "default": 90 },
+        { "type": "text", "id": "headline", "label": "Headline", "default": "reported they felt the difference." },
+        { "type": "textarea", "id": "body", "label": "Body" },
+        { "type": "color", "id": "bar_color", "label": "Bar color", "default": "#c24a2e" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "SM1C Survey Stats",
+      "blocks": [
+        { "type": "stat", "settings": { "percent": 92, "headline": "reported they felt the spark and emotional closeness in their relationship return.", "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.", "bar_color": "#c24a2e" } },
+        { "type": "stat", "settings": { "percent": 87, "headline": "reported intimacy started feeling natural again, with more energy and desire to initiate.", "body": "Many said they went from \"not tonight\" to initiating again without pressure, without forcing it.", "bar_color": "#2a6f6a" } },
+        { "type": "stat", "settings": { "percent": 89, "headline": "reported steadier energy through the entire day.", "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.", "bar_color": "#c24a2e" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

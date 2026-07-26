@@ -1,0 +1,130 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-tm-wrap {
+  font-family: 'Work Sans', sans-serif;
+  padding: 60px 44px;
+  color: oklch(20% 0.02 20);
+}
+#shopify-section-{{ section.id }} .sm1c-tm-eyebrow {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: oklch(60% 0.16 25);
+  letter-spacing: .05em;
+  margin-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-card {
+  background: oklch(94% 0.03 30);
+  border-radius: 20px;
+  padding: 22px;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-name {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-verified {
+  font-size: 11px;
+  color: oklch(60% 0.16 25);
+  margin-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-quote {
+  font-size: 13px;
+  line-height: 1.5;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-media {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #eee;
+  min-height: 132px;
+}
+#shopify-section-{{ section.id }} .sm1c-tm-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-tm-wrap { padding: 44px 20px; }
+  #shopify-section-{{ section.id }} .sm1c-tm-grid { grid-template-columns: repeat(2, 1fr); }
+}
+{%- endstyle -%}
+
+<div class="sm1c-tm-wrap">
+  {%- if section.settings.eyebrow != blank -%}
+    <div class="sm1c-tm-eyebrow">{{ section.settings.eyebrow }}</div>
+  {%- endif -%}
+  <h2 class="sm1c-tm-title">{{ section.settings.title }}</h2>
+  <div class="sm1c-tm-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'testimonial' -%}
+        <div class="sm1c-tm-card" {{ block.shopify_attributes }}>
+          <div class="sm1c-tm-name">{{ block.settings.name }}</div>
+          <div class="sm1c-tm-verified">★★★★★ Verified</div>
+          <div class="sm1c-tm-quote">&ldquo;{{ block.settings.quote }}&rdquo;</div>
+        </div>
+      {%- elsif block.type == 'media' -%}
+        <div class="sm1c-tm-media" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "REAL RESULTS" },
+    { "type": "text", "id": "title", "label": "Title", "default": "There's a reason women are raving about us." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Lauren" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Absolutely love this product." }
+      ]
+    },
+    {
+      "type": "media",
+      "name": "Photo/video tile",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "SM1C Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "name": "Lauren", "quote": "One conversation away from giving up. Now I love my routine again." } },
+        { "type": "testimonial", "settings": { "name": "Tracey", "quote": "So glad I tried this — real, visible difference." } },
+        { "type": "media" },
+        { "type": "testimonial", "settings": { "name": "Lana", "quote": "Noticed a difference in three weeks." } },
+        { "type": "media" },
+        { "type": "testimonial", "settings": { "name": "Sienna", "quote": "Noticed a difference within days." } },
+        { "type": "media" },
+        { "type": "testimonial", "settings": { "name": "Janelle", "quote": "Three weeks in and it's already part of my routine." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

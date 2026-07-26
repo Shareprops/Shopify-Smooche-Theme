@@ -1,0 +1,550 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-cart-wrap {
+  font-family: 'Work Sans', sans-serif;
+  padding: 48px 44px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 32px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-items {
+  display: flex;
+  flex-direction: column;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid oklch(90% 0.01 30);
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-variant {
+  font-size: 12px;
+  color: oklch(50% 0.02 30);
+  margin-top: 2px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-price {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid oklch(88% 0.01 30);
+  border-radius: 100px;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-stepper-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-stepper-btn:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-qty-input {
+  width: 34px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  text-align: center;
+  background: none;
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-remove {
+  font-size: 12px;
+  color: oklch(50% 0.02 30);
+  text-decoration: underline;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-total {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-update {
+  margin-top: 20px;
+  align-self: flex-start;
+  background: none;
+  border: 1.5px solid #111;
+  color: #111;
+  padding: 12px 22px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-summary {
+  background: oklch(97% 0.015 30);
+  border-radius: 20px;
+  padding: 28px;
+  position: sticky;
+  top: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-summary-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-summary-total {
+  font-weight: 800;
+  font-size: 16px;
+  border-top: 1px solid oklch(90% 0.01 30);
+  padding-top: 14px;
+  margin-top: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-note {
+  font-size: 11px;
+  color: oklch(50% 0.02 30);
+  margin: 6px 0 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-applied {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: oklch(94% 0.05 145);
+  border: 1.5px dashed oklch(45% 0.15 145);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: oklch(35% 0.15 145);
+  margin-bottom: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-applied-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: oklch(35% 0.15 145);
+}
+#shopify-section-{{ section.id }} .sm1c-cart-applied-remove {
+  border: none;
+  background: none;
+  color: oklch(50% 0.02 30);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px;
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-discount-wrap {
+  margin-bottom: 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-discount {
+  display: flex;
+  gap: 8px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: oklch(94% 0.05 25);
+  border: 1.5px dashed oklch(50% 0.2 25);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: oklch(45% 0.2 25);
+  margin-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-error[hidden] {
+  display: none;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-discount-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid oklch(88% 0.01 30);
+  font-size: 13px;
+  font-family: inherit;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-discount-apply {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-checkout {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: oklch(60% 0.16 25);
+  color: #fff;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-empty-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-empty-sub {
+  font-size: 14px;
+  color: oklch(45% 0.02 30);
+  margin-bottom: 26px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-empty-cta {
+  background: #111;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+}
+@media (max-width: 800px) {
+  #shopify-section-{{ section.id }} .sm1c-cart-wrap {
+    padding: 32px 20px 60px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-cart-grid {
+    grid-template-columns: 1fr;
+  }
+  #shopify-section-{{ section.id }} .sm1c-cart-summary {
+    position: static;
+  }
+}
+{%- endstyle -%}
+
+<div class="sm1c-cart-wrap" data-sm1c-cart-section="{{ section.id }}">
+  {%- if cart.item_count == 0 -%}
+    <div class="sm1c-cart-empty">
+      <div class="sm1c-cart-empty-title">{{ section.settings.empty_title }}</div>
+      <div class="sm1c-cart-empty-sub">{{ section.settings.empty_subtitle }}</div>
+      <a href="{{ section.settings.empty_cta_link | default: '/collections/all' }}" class="sm1c-cart-empty-cta">{{ section.settings.empty_cta_label }}</a>
+    </div>
+  {%- else -%}
+    <div class="sm1c-cart-title">{{ section.settings.heading }}</div>
+    {%- form 'cart', cart, class: '' -%}
+      <div class="sm1c-cart-grid">
+        <div>
+          <div class="sm1c-cart-items">
+            {%- for item in cart.items -%}
+              <div class="sm1c-cart-item">
+                <div class="sm1c-cart-item-img">
+                  {%- if item.image != blank -%}
+                    {{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: item.title }}
+                  {%- endif -%}
+                </div>
+                <div>
+                  <div class="sm1c-cart-item-title">{{ item.product.title }}</div>
+                  {%- unless item.variant.title == 'Default Title' -%}
+                    <div class="sm1c-cart-item-variant">{{ item.variant.title }}</div>
+                  {%- endunless -%}
+                  <div class="sm1c-cart-item-price">{{ item.final_price | money }}</div>
+                  <div class="sm1c-cart-item-qty">
+                    <div class="sm1c-cart-stepper" data-sm1c-stepper data-key="{{ item.key }}">
+                      <button type="button" class="sm1c-cart-stepper-btn" data-sm1c-decrease aria-label="Decrease quantity">−</button>
+                      <input
+                        class="sm1c-cart-qty-input"
+                        type="text"
+                        inputmode="numeric"
+                        name="updates[{{ item.key }}]"
+                        value="{{ item.quantity }}"
+                        data-sm1c-qty-value
+                        aria-label="Quantity"
+                        readonly
+                      >
+                      <button type="button" class="sm1c-cart-stepper-btn" data-sm1c-increase aria-label="Increase quantity">+</button>
+                    </div>
+                    <a class="sm1c-cart-remove" href="{{ item.url_to_remove }}" data-sm1c-remove-item data-key="{{ item.key }}">Remove</a>
+                  </div>
+                </div>
+                <div class="sm1c-cart-item-total">{{ item.final_line_price | money }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+          <button type="submit" name="update" class="sm1c-cart-update">Update cart</button>
+        </div>
+
+        <div class="sm1c-cart-summary">
+          <div class="sm1c-cart-summary-title">{{ section.settings.summary_title }}</div>
+
+          {%- if cart.cart_level_discount_applications.size > 0 -%}
+            {%- for discount in cart.cart_level_discount_applications -%}
+              <div class="sm1c-cart-applied">
+                <span>{{ discount.title }} applied</span>
+                <span class="sm1c-cart-applied-right">
+                  <span>-{{ discount.total_allocated_amount | money }}</span>
+                  <button type="button" class="sm1c-cart-applied-remove" data-sm1c-remove-discount aria-label="Remove discount">✕</button>
+                </span>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+
+          <div
+            class="sm1c-cart-discount-wrap"
+            data-sm1c-discount-form
+            data-known-codes="{{ section.settings.known_discount_codes }}"
+          >
+            <div class="sm1c-cart-error" data-sm1c-discount-error hidden>
+              <span data-sm1c-error-text></span>
+              <button type="button" class="sm1c-cart-applied-remove" data-sm1c-dismiss-error aria-label="Dismiss">✕</button>
+            </div>
+            <div class="sm1c-cart-discount">
+              <input type="text" class="sm1c-cart-discount-input" placeholder="Discount code" data-sm1c-discount-input aria-label="Discount code">
+              <button type="button" class="sm1c-cart-discount-apply" data-sm1c-discount-apply>Apply</button>
+            </div>
+          </div>
+
+          <div class="sm1c-cart-summary-row sm1c-cart-summary-total">
+            <span>Subtotal</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+          <div class="sm1c-cart-note">{{ section.settings.summary_note }}</div>
+          <button type="submit" name="checkout" class="sm1c-cart-checkout">{{ section.settings.checkout_label }}</button>
+        </div>
+      </div>
+    {%- endform -%}
+  {%- endif -%}
+</div>
+
+<script>
+(function () {
+  var root = document.currentScript.previousElementSibling;
+  if (!root) return;
+  var sectionId = root.getAttribute('data-sm1c-cart-section');
+
+  function updateSection(sections) {
+    var html = sections && sections[sectionId];
+    if (!html) {
+      window.location.reload();
+      return;
+    }
+    var newRoot = new DOMParser().parseFromString(html, 'text/html').querySelector('[data-sm1c-cart-section]');
+    if (!newRoot) {
+      window.location.reload();
+      return;
+    }
+    root.innerHTML = newRoot.innerHTML;
+    bindEvents();
+  }
+
+  function bindEvents() {
+    root.querySelectorAll('[data-sm1c-remove-discount]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btn.disabled = true;
+        fetch('/cart/update.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ discount: '' })
+        })
+          .then(function () { window.location.reload(); })
+          .catch(function () { window.location.reload(); });
+      });
+    });
+
+    root.querySelectorAll('[data-sm1c-remove-item]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var key = link.getAttribute('data-key');
+        link.style.pointerEvents = 'none';
+        fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: key, quantity: 0, sections: [sectionId], sections_url: window.location.pathname })
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (cart) { updateSection(cart.sections); })
+          .catch(function () { window.location.reload(); });
+      });
+    });
+
+    root.querySelectorAll('[data-sm1c-stepper]').forEach(function (stepper) {
+      var key = stepper.getAttribute('data-key');
+      var input = stepper.querySelector('[data-sm1c-qty-value]');
+      var decreaseBtn = stepper.querySelector('[data-sm1c-decrease]');
+      var increaseBtn = stepper.querySelector('[data-sm1c-increase]');
+
+      function setQuantity(newQty) {
+        newQty = Math.max(0, newQty);
+        decreaseBtn.disabled = true;
+        increaseBtn.disabled = true;
+        fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: key, quantity: newQty, sections: [sectionId], sections_url: window.location.pathname })
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (cart) { updateSection(cart.sections); })
+          .catch(function () { window.location.reload(); });
+      }
+
+      if (decreaseBtn) {
+        decreaseBtn.addEventListener('click', function () {
+          var current = parseInt(input.value, 10) || 0;
+          setQuantity(current - 1);
+        });
+      }
+      if (increaseBtn) {
+        increaseBtn.addEventListener('click', function () {
+          var current = parseInt(input.value, 10) || 0;
+          setQuantity(current + 1);
+        });
+      }
+    });
+
+    var discountForm = root.querySelector('[data-sm1c-discount-form]');
+    if (discountForm) {
+    var discountInput = discountForm.querySelector('[data-sm1c-discount-input]');
+    var applyBtn = discountForm.querySelector('[data-sm1c-discount-apply]');
+    var errorBox = discountForm.querySelector('[data-sm1c-discount-error]');
+    var errorText = errorBox ? errorBox.querySelector('[data-sm1c-error-text]') : null;
+    var dismissBtn = errorBox ? errorBox.querySelector('[data-sm1c-dismiss-error]') : null;
+    var knownCodes = (discountForm.getAttribute('data-known-codes') || '')
+      .split(',')
+      .map(function (c) { return c.trim().toUpperCase(); })
+      .filter(Boolean);
+    var applyBtnDefaultText = applyBtn.textContent;
+
+    function showError(code) {
+      if (!errorBox || !errorText) return;
+      var isKnownCode = knownCodes.indexOf(code.toUpperCase()) !== -1;
+      errorText.textContent = isKnownCode ? 'Discount code expired' : 'Discount code is Invalid';
+      errorBox.hidden = false;
+    }
+
+    function applyDiscount() {
+      var code = (discountInput.value || '').trim();
+      if (!code) return;
+      if (errorBox) errorBox.hidden = true;
+
+      applyBtn.disabled = true;
+      applyBtn.textContent = 'Applying...';
+
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ discount: code })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (cart) {
+          var discountCodes = cart.discount_codes || [];
+          var match = discountCodes.filter(function (discountCode) {
+            return discountCode.code.toUpperCase() === code.toUpperCase();
+          })[0];
+          var applied = !!match && match.applicable;
+
+          if (applied) {
+            window.location.reload();
+            return;
+          }
+
+          showError(code);
+          applyBtn.disabled = false;
+          applyBtn.textContent = applyBtnDefaultText;
+        })
+        .catch(function () {
+          showError(code);
+          applyBtn.disabled = false;
+          applyBtn.textContent = applyBtnDefaultText;
+        });
+    }
+
+    applyBtn.addEventListener('click', applyDiscount);
+    discountInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyDiscount();
+      }
+    });
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', function () {
+        errorBox.hidden = true;
+      });
+    }
+    }
+  }
+
+  bindEvents();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "SM1C Cart",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your Cart" },
+    { "type": "text", "id": "summary_title", "label": "Summary title", "default": "Order Summary" },
+    { "type": "text", "id": "summary_note", "label": "Summary note", "default": "Taxes and shipping calculated at checkout" },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button label", "default": "CHECKOUT" },
+    { "type": "text", "id": "known_discount_codes", "label": "Known codes (comma-separated)", "default": "SCRATCH10, SCRATCH15, SCRATCH20" },
+    { "type": "text", "id": "empty_title", "label": "Empty cart title", "default": "Your cart is empty" },
+    { "type": "text", "id": "empty_subtitle", "label": "Empty cart subtitle", "default": "Looks like you haven't added anything yet." },
+    { "type": "text", "id": "empty_cta_label", "label": "Empty cart button label", "default": "Continue Shopping" },
+    { "type": "url", "id": "empty_cta_link", "label": "Empty cart button link" }
+  ],
+  "presets": [
+    { "name": "SM1C Cart" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,383 @@
+{%- liquid
+  if cart.item_count >= 3
+    assign sm1c_prize_pct = 20
+    assign sm1c_prize_code = section.settings.code_20
+  elsif cart.item_count == 2
+    assign sm1c_prize_pct = 15
+    assign sm1c_prize_code = section.settings.code_15
+  else
+    assign sm1c_prize_pct = 10
+    assign sm1c_prize_code = section.settings.code_10
+  endif
+-%}
+{%- style -%}
+#sm1c-scratch-{{ section.id }} {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(20,14,10,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Work Sans', sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+#sm1c-scratch-{{ section.id }}.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-card {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  min-height: 460px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 44% 56%;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  transform: scale(.94);
+  transition: transform .25s ease;
+}
+#sm1c-scratch-{{ section.id }}.is-visible .sm1c-sp-card {
+  transform: scale(1);
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-close {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 3;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #111;
+  padding: 4px;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 40px 40px 56px;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-logo {
+  width: 130px;
+  max-height: 40px;
+  object-fit: contain;
+  margin-bottom: 28px;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-sub {
+  font-size: 14px;
+  color: oklch(45% 0.02 30);
+  margin-top: 10px;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-cardwrap {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 180px;
+  border-radius: 18px;
+  margin-top: 30px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,.14);
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-prize {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: oklch(97% 0.02 30);
+  text-align: center;
+  padding: 12px;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-prize-pct {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: oklch(60% 0.16 25);
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-prize-code {
+  font-family: ui-monospace, monospace;
+  font-size: 15px;
+  font-weight: 700;
+  background: #fff;
+  border: 1.5px dashed oklch(60% 0.16 25);
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-prize-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-prize-actions button,
+#sm1c-scratch-{{ section.id }} .sm1c-sp-prize-actions a {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-copy {
+  background: #fff;
+  border: 1.5px solid #111 !important;
+  color: #111;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-apply {
+  background: #111;
+  color: #fff;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  touch-action: none;
+  transition: opacity .4s ease;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-canvas.is-cleared {
+  opacity: 0;
+  pointer-events: none;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-right {
+  position: relative;
+  background: #eee;
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 700px) {
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-right {
+    display: none;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-left {
+    padding: 56px 24px 32px;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-title {
+    font-size: 28px;
+  }
+}
+{%- endstyle -%}
+
+<div id="sm1c-scratch-{{ section.id }}" data-sm1c-scratch-popup hidden>
+  <div class="sm1c-sp-card">
+    <button type="button" class="sm1c-sp-close" data-sm1c-close aria-label="Close">✕</button>
+    <div class="sm1c-sp-left">
+      {%- if section.settings.logo != blank -%}
+        <img class="sm1c-sp-logo" src="{{ section.settings.logo | image_url: width: 260 }}" alt="">
+      {%- endif -%}
+      <div class="sm1c-sp-title">{{ section.settings.title }}</div>
+      <div class="sm1c-sp-sub">{{ section.settings.subtitle }}</div>
+
+      <div class="sm1c-sp-cardwrap">
+        <div class="sm1c-sp-prize">
+          <div class="sm1c-sp-prize-pct">{{ sm1c_prize_pct }}% OFF</div>
+          <div class="sm1c-sp-prize-code">{{ sm1c_prize_code }}</div>
+          <div class="sm1c-sp-prize-actions">
+            <button type="button" class="sm1c-sp-copy" data-sm1c-copy data-code="{{ sm1c_prize_code }}">Copy code</button>
+            <a class="sm1c-sp-apply" href="/discount/{{ sm1c_prize_code }}?redirect=%2Fcollections%2Fall">Apply &amp; Shop</a>
+          </div>
+        </div>
+        <canvas class="sm1c-sp-canvas" data-sm1c-canvas></canvas>
+      </div>
+    </div>
+    <div class="sm1c-sp-right">
+      {%- if section.settings.photo != blank -%}
+        {{ section.settings.photo | image_url: width: 900 | image_tag: loading: 'lazy', alt: '' }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('sm1c-scratch-{{ section.id }}');
+  if (!root) return;
+  var STORAGE_KEY = 'sm1c_scratch_seen';
+  var DELAY_MS = {{ section.settings.delay_seconds | default: 1.5 }} * 1000;
+  var THRESHOLD = {{ section.settings.scratch_threshold | default: 55 }};
+
+  function markSeen() {
+    try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+  }
+
+  function hidePopup() {
+    root.classList.remove('is-visible');
+    markSeen();
+    setTimeout(function () { root.hidden = true; }, 250);
+  }
+
+  function showPopup() {
+    root.hidden = false;
+    requestAnimationFrame(function () {
+      root.classList.add('is-visible');
+    });
+  }
+
+  var closeBtn = root.querySelector('[data-sm1c-close]');
+  if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+  root.addEventListener('click', function (e) {
+    if (e.target === root) hidePopup();
+  });
+
+  var copyBtn = root.querySelector('[data-sm1c-copy]');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var code = copyBtn.getAttribute('data-code');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(function () {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(function () { copyBtn.textContent = 'Copy code'; }, 1500);
+        });
+      }
+    });
+  }
+
+  var canvas = root.querySelector('[data-sm1c-canvas]');
+  if (canvas) {
+    var ctx = canvas.getContext('2d');
+    var cleared = false;
+
+    function resizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      drawScratchLayer();
+    }
+
+    function drawScratchLayer() {
+      var w = canvas.width, h = canvas.height;
+      var grad = ctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, '#e9c869');
+      grad.addColorStop(0.45, '#d9a24a');
+      grad.addColorStop(1, '#e9c869');
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.strokeStyle = 'rgba(255,255,255,.25)';
+      ctx.lineWidth = 2;
+      for (var i = -h; i < w; i += 10) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i + h, h);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = 'rgba(255,255,255,.6)';
+      ctx.font = '700 15px "Bricolage Grotesque", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('SCRATCH HERE', w / 2, h / 2);
+    }
+
+    function scratchAt(x, y) {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 24, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function getScratchedPercent() {
+      var w = canvas.width, h = canvas.height;
+      if (!w || !h) return 0;
+      var data;
+      try {
+        data = ctx.getImageData(0, 0, w, h).data;
+      } catch (e) {
+        return 0;
+      }
+      var total = 0, cleared_px = 0;
+      for (var i = 3; i < data.length; i += 4 * 6) {
+        total++;
+        if (data[i] < 40) cleared_px++;
+      }
+      return total ? (cleared_px / total) * 100 : 0;
+    }
+
+    function revealPrize() {
+      if (cleared) return;
+      cleared = true;
+      canvas.classList.add('is-cleared');
+      markSeen();
+    }
+
+    var isDown = false;
+
+    function pointerPos(evt) {
+      var rect = canvas.getBoundingClientRect();
+      var point = evt.touches ? evt.touches[0] : evt;
+      return { x: point.clientX - rect.left, y: point.clientY - rect.top };
+    }
+
+    function handleMove(evt) {
+      if (!isDown || cleared) return;
+      evt.preventDefault();
+      var p = pointerPos(evt);
+      scratchAt(p.x, p.y);
+      if (getScratchedPercent() >= THRESHOLD) revealPrize();
+    }
+
+    canvas.addEventListener('mousedown', function (evt) { isDown = true; handleMove(evt); });
+    canvas.addEventListener('mousemove', handleMove);
+    window.addEventListener('mouseup', function () { isDown = false; });
+    canvas.addEventListener('touchstart', function (evt) { isDown = true; handleMove(evt); }, { passive: false });
+    canvas.addEventListener('touchmove', handleMove, { passive: false });
+    canvas.addEventListener('touchend', function () { isDown = false; });
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  }
+
+  var alreadySeen = false;
+  try { alreadySeen = localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) {}
+  if (!alreadySeen) {
+    setTimeout(showPopup, DELAY_MS);
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "SM1C Scratch to Win",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "text", "id": "title", "label": "Headline", "default": "Try your luck" },
+    { "type": "text", "id": "subtitle", "label": "Subheading", "default": "Scratch below to see what you win" },
+    { "type": "image_picker", "id": "photo", "label": "Campaign photo" },
+    { "type": "text", "id": "code_10", "label": "Discount code — 1 item in cart", "default": "SCRATCH10" },
+    { "type": "text", "id": "code_15", "label": "Discount code — 2 items in cart", "default": "SCRATCH15" },
+    { "type": "text", "id": "code_20", "label": "Discount code — 3+ items in cart", "default": "SCRATCH20" },
+    { "type": "range", "id": "delay_seconds", "label": "Delay before showing (seconds)", "min": 0, "max": 10, "default": 2 },
+    { "type": "range", "id": "scratch_threshold", "label": "Scratch % required to reveal", "min": 20, "max": 90, "step": 5, "default": 55 }
+  ],
+  "presets": [
+    { "name": "SM1C Scratch to Win" }
+  ]
+}
+{% endschema %}

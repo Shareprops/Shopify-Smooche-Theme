@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_catalog_hero": {
+      "type": "sm1c-bestsellers-hero",
+      "blocks": {
+        "trust_1": { "type": "trust_item", "settings": { "icon": "✦", "label": "Proven results" } },
+        "trust_2": { "type": "trust_item", "settings": { "icon": "⟡", "label": "100% natural" } },
+        "trust_3": { "type": "trust_item", "settings": { "icon": "◫", "label": "Free shipping" } }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3"],
+      "settings": {
+        "heading": ""
+      }
+    },
+    "sm1c_catalog_grid": {
+      "type": "sm1c-bestsellers-grid",
+      "settings": {
+        "products_per_page": 24,
+        "bg_color": "#fdfaf6",
+        "sale_badge_color": "#c24a2e",
+        "tag_badge_color": "#111111",
+        "show_ratings": true,
+        "default_rating_text": "★★★★★"
+      }
+    }
+  },
+  "order": [
+    "sm1c_catalog_hero",
+    "sm1c_catalog_grid"
+  ]
+}

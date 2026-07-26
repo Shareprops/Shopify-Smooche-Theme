@@ -1,0 +1,115 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-hiw-wrap {
+  padding: 70px 44px;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-title span {
+  color: oklch(60% 0.16 25);
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-sub {
+  font-size: 14px;
+  color: oklch(40% 0.02 30);
+  max-width: 520px;
+  margin: 0 auto 44px;
+  line-height: 1.6;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-img {
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-step-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-step-body {
+  font-size: 13px;
+  color: oklch(40% 0.02 30);
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-hiw-grid {
+    grid-template-columns: 1fr;
+  }
+}
+{%- endstyle -%}
+
+<div class="sm1c-hiw-wrap">
+  <div class="sm1c-hiw-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
+  <div class="sm1c-hiw-sub">{{ section.settings.subheading }}</div>
+  <div class="sm1c-hiw-grid">
+    <div class="sm1c-hiw-img">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: '' }}
+      {%- endif -%}
+    </div>
+    <div class="sm1c-hiw-steps">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          <div class="sm1c-hiw-step-title">{{ forloop.index }}. {{ block.settings.title }}</div>
+          <div class="sm1c-hiw-step-body">{{ block.settings.body }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C How It Works",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Here's how it" },
+    { "type": "text", "id": "heading_accent", "label": "Heading accent word", "default": "works" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Designed to support real confidence and consistency, one simple daily ritual that fits your routine." },
+    { "type": "image_picker", "id": "image", "label": "Image" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "We start with your foundation" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Botanical actives support balance, confidence, and overall wellbeing." }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "SM1C How It Works",
+      "blocks": [
+        { "type": "step", "settings": { "title": "We start with your foundation", "body": "Botanical actives support balance, confidence, and overall wellbeing." } },
+        { "type": "step", "settings": { "title": "Then we address what's missing", "body": "Fast-acting support activity while the long-term formula builds over time." } },
+        { "type": "step", "settings": { "title": "Results become consistent", "body": "Instead of relying on stimulants, consistent use builds lasting results." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

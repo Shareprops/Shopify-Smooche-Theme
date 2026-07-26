@@ -1,0 +1,223 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_hero": {
+      "type": "sm1c-hero",
+      "settings": {
+        "badge_text": "Loved by 50,000+ customers",
+        "title": "Beauty inspired by you.",
+        "subtext": "Skin-loving formulas designed for real routines — and the real you.",
+        "button_1_label": "Shop Bestsellers",
+        "button_1_link": "shopify://collections/frontpage",
+        "button_2_label": "Shop The Foundation",
+        "button_2_link": "shopify://collections/frontpage",
+        "chip_text": "Clinicians' Choice — 197 clinicians recommend Smooche",
+        "height": 600,
+        "gradient_from": "#e6b98a",
+        "gradient_to": "#dd8f7a"
+      }
+    },
+    "sm1c_bestsellers_row": {
+      "type": "sm1c-bestsellers-row",
+      "blocks": {
+        "row_1": {
+          "type": "item",
+          "settings": {
+            "badge_text": "BEST SELLER",
+            "title": "Peel-off Lip Stain",
+            "price": "$29.00",
+            "compare_at_price": "",
+            "link": ""
+          }
+        },
+        "row_2": {
+          "type": "item",
+          "settings": {
+            "badge_text": "-33%",
+            "title": "Color Changing Foundation",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": ""
+          }
+        },
+        "row_3": {
+          "type": "item",
+          "settings": {
+            "badge_text": "1+1 FREE",
+            "title": "Extreme Lip Plumper",
+            "price": "$39.00",
+            "compare_at_price": "$48.00",
+            "link": ""
+          }
+        },
+        "row_4": {
+          "type": "item",
+          "settings": {
+            "badge_text": "SALE",
+            "title": "Eyebrow Growth Serum",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": ""
+          }
+        },
+        "row_5": {
+          "type": "item",
+          "settings": {
+            "badge_text": "NEW",
+            "title": "Silk Blush Stick",
+            "price": "$24.00",
+            "compare_at_price": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5"],
+      "settings": {
+        "heading": "Top 5 Best-Sellers This Week",
+        "subheading": "Updated every Monday",
+        "bg_color": "#fdfaf6",
+        "accent_color": "#c24a2e"
+      }
+    },
+    "sm1c_bestsellers_grid": {
+      "type": "sm1c-home-bestsellers-grid",
+      "blocks": {
+        "card_1": {
+          "type": "item",
+          "settings": {
+            "badge_text": "VIRAL",
+            "title": "Peel-off Lip Stain",
+            "rating_text": "★★★★★ 1,204",
+            "price": "$29.00",
+            "compare_at_price": "",
+            "link": "",
+            "show_wishlist": true
+          }
+        },
+        "card_2": {
+          "type": "item",
+          "settings": {
+            "badge_text": "BESTSELLER",
+            "title": "Color Changing Foundation",
+            "rating_text": "★★★★★ 834",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": "",
+            "show_wishlist": true
+          }
+        },
+        "card_3": {
+          "type": "item",
+          "settings": {
+            "badge_text": "1+1 FREE",
+            "title": "Extreme Lip Plumper",
+            "rating_text": "★★★★★ 2,910",
+            "price": "$39.00",
+            "compare_at_price": "$48.00",
+            "link": "",
+            "show_wishlist": true
+          }
+        },
+        "card_4": {
+          "type": "item",
+          "settings": {
+            "badge_text": "SALE",
+            "title": "Eyebrow Growth Serum",
+            "rating_text": "★★★★★ 561",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": "",
+            "show_wishlist": true
+          }
+        }
+      },
+      "block_order": ["card_1", "card_2", "card_3", "card_4"],
+      "settings": {
+        "heading": "Bestsellers",
+        "view_all_link": "",
+        "bg_color": "#ffffff",
+        "pill_bg": "#f6e6dd",
+        "accent_color": "#c24a2e"
+      }
+    },
+    "sm1c_categories": {
+      "type": "sm1c-categories",
+      "blocks": {
+        "tile_1": { "type": "tile", "settings": { "label": "Face", "link": "" } },
+        "tile_2": { "type": "tile", "settings": { "label": "Lips & Cheeks", "link": "" } },
+        "tile_3": { "type": "tile", "settings": { "label": "Eyes", "link": "" } }
+      },
+      "block_order": ["tile_1", "tile_2", "tile_3"],
+      "settings": {
+        "heading": "Shop by Category",
+        "bg_color": "#f6e6dd",
+        "cta_label": "Shop All",
+        "cta_link": ""
+      }
+    },
+    "sm1c_testimonials": {
+      "type": "sm1c-testimonials",
+      "blocks": {
+        "t_1": { "type": "review", "settings": { "author": "Lauren", "rating_text": "★★★★★ Verified", "quote": "One conversation away from counseling. Now we're laughing again." } },
+        "t_2": { "type": "review", "settings": { "author": "Tracey", "rating_text": "★★★★★ Verified", "quote": "So glad I tried these — helped through a dry spell." } },
+        "t_3": { "type": "media", "settings": { "alt": "customer video" } },
+        "t_4": { "type": "review", "settings": { "author": "Lana", "rating_text": "★★★★★ Verified", "quote": "47 and perimenopausal — noticed a difference in three weeks." } },
+        "t_5": { "type": "media", "settings": { "alt": "customer photo" } },
+        "t_6": { "type": "review", "settings": { "author": "Sienna", "rating_text": "★★★★★ Verified", "quote": "Noticed a difference within days — more energy and focus all day." } },
+        "t_7": { "type": "media", "settings": { "alt": "customer photo" } },
+        "t_8": { "type": "review", "settings": { "author": "Janelle", "rating_text": "★★★★★ Verified", "quote": "Two kids, no time — three weeks in and it's already part of my routine." } }
+      },
+      "block_order": ["t_1", "t_2", "t_3", "t_4", "t_5", "t_6", "t_7", "t_8"],
+      "settings": {
+        "eyebrow": "REAL RESULTS",
+        "heading": "There's a reason women are raving about us.",
+        "bg_color": "#ffffff",
+        "card_bg": "#f6e6dd",
+        "accent_color": "#c24a2e"
+      }
+    },
+    "sm1c_bundles": {
+      "type": "sm1c-bundles",
+      "blocks": {
+        "b_1": { "type": "bundle", "settings": { "badge_text": "SAVE 58%", "title": "Triple Lip Plumper Bundle", "price": "$48.00", "compare_at_price": "$115.00", "link": "" } },
+        "b_2": { "type": "bundle", "settings": { "badge_text": "SALE", "title": "Lash & Brow Growth Kit", "price": "$48.00", "compare_at_price": "$77.00", "link": "" } },
+        "b_3": { "type": "bundle", "settings": { "badge_text": "SAVE 65%", "title": "Bestseller Duo Kit", "price": "$58.00", "compare_at_price": "$168.00", "link": "" } },
+        "b_4": { "type": "bundle", "settings": { "badge_text": "SAVE 54%", "title": "Bestseller Mega Lip Bundle", "price": "$68.00", "compare_at_price": "$150.00", "link": "" } }
+      },
+      "block_order": ["b_1", "b_2", "b_3", "b_4"],
+      "settings": {
+        "heading": "Bundle & Save",
+        "view_all_link": "",
+        "bg_color": "#ffffff",
+        "pill_bg": "#f6e6dd"
+      }
+    },
+    "sm1c_lifestyle": {
+      "type": "sm1c-lifestyle-banner",
+      "settings": {
+        "heading": "Fuller lips, naturally.",
+        "body": "Crafted from natural ingredients — hydrated, nourished volume, without harsh chemicals.",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/frontpage",
+        "bg_color": "#f6e6dd"
+      }
+    }
+  },
+  "order": [
+    "sm1c_hero",
+    "sm1c_bestsellers_row",
+    "sm1c_bestsellers_grid",
+    "sm1c_categories",
+    "sm1c_testimonials",
+    "sm1c_bundles",
+    "sm1c_lifestyle"
+  ]
+}

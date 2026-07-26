@@ -1,0 +1,252 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-cmp-wrap {
+  padding: 60px 44px;
+  background: oklch(97% 0.015 30);
+  font-family: 'Work Sans', sans-serif;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-title span {
+  color: oklch(60% 0.16 25);
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-sub {
+  font-size: 13px;
+  color: oklch(40% 0.02 30);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-table {
+  max-width: 900px;
+  margin: 0 auto;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: end;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-brand {
+  background: oklch(60% 0.16 25);
+  border-radius: 16px 16px 0 0;
+  text-align: center;
+  padding: 22px 10px 16px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-brand-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-col {
+  text-align: center;
+  padding: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-col-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-col-price {
+  font-size: 12px;
+  color: oklch(45% 0.02 30);
+  margin-top: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-rows {
+  display: flex;
+  flex-direction: column;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-row:nth-child(odd) {
+  background: oklch(94% 0.02 30);
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-row:nth-child(even) {
+  background: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-feature {
+  padding: 18px 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cell {
+  text-align: center;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cell-smooche {
+  padding: 12px;
+  background: oklch(75% 0.12 20);
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-row:last-child .sm1c-cmp-cell-smooche {
+  padding: 12px 12px 20px;
+  border-radius: 0 0 16px 16px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-mark {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-mark-yes {
+  background: #fff;
+  color: oklch(60% 0.16 25);
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-mark-no {
+  background: oklch(60% 0.16 20);
+  color: #fff;
+  font-size: 12px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid oklch(90% 0.01 30);
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cta-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cta-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cta-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-cta-btn {
+  background: oklch(60% 0.16 25);
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+@media (max-width: 700px) {
+  #shopify-section-{{ section.id }} .sm1c-cmp-feature {
+    font-size: 12px;
+    padding: 14px 10px;
+  }
+}
+{%- endstyle -%}
+
+<div class="sm1c-cmp-wrap">
+  <div class="sm1c-cmp-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
+  <div class="sm1c-cmp-sub">{{ section.settings.subheading }}</div>
+  <div class="sm1c-cmp-table">
+    <div class="sm1c-cmp-head">
+      <div></div>
+      <div class="sm1c-cmp-head-brand">
+        <div class="sm1c-cmp-head-brand-name">{{ section.settings.brand_name }}</div>
+      </div>
+      <div class="sm1c-cmp-head-col">
+        <div class="sm1c-cmp-head-col-name">{{ section.settings.competitor_1_name }}</div>
+        <div class="sm1c-cmp-head-col-price">{{ section.settings.competitor_1_price }}</div>
+      </div>
+      <div class="sm1c-cmp-head-col">
+        <div class="sm1c-cmp-head-col-name">{{ section.settings.competitor_2_name }}</div>
+        <div class="sm1c-cmp-head-col-price">{{ section.settings.competitor_2_price }}</div>
+      </div>
+    </div>
+    <div class="sm1c-cmp-rows">
+      {%- for block in section.blocks -%}
+        <div class="sm1c-cmp-row" {{ block.shopify_attributes }}>
+          <div class="sm1c-cmp-feature">{{ block.settings.feature }}</div>
+          <div class="sm1c-cmp-cell sm1c-cmp-cell-smooche">
+            <span class="sm1c-cmp-mark sm1c-cmp-mark-yes">✓</span>
+          </div>
+          <div class="sm1c-cmp-cell">
+            <span class="sm1c-cmp-mark {% if block.settings.competitor_1 %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if block.settings.competitor_1 %}✓{% else %}✕{% endif %}</span>
+          </div>
+          <div class="sm1c-cmp-cell">
+            <span class="sm1c-cmp-mark {% if block.settings.competitor_2 %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if block.settings.competitor_2 %}✓{% else %}✕{% endif %}</span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="sm1c-cmp-cta">
+      <div class="sm1c-cmp-cta-left">
+        <div class="sm1c-cmp-cta-img">
+          {%- if product.featured_image != blank -%}
+            {{ product.featured_image | image_url: width: 100 | image_tag: loading: 'lazy', alt: product.title }}
+          {%- endif -%}
+        </div>
+        <div class="sm1c-cmp-cta-name">{{ product.title }}</div>
+      </div>
+      {%- form 'product', product -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+        <button type="submit" class="sm1c-cmp-cta-btn" {% unless current_variant.available %}disabled{% endunless %}>
+          {%- if current_variant.available -%}ADD TO CART{%- else -%}Sold out{%- endif -%}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Comparison",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Lip Plumper" },
+    { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "vs The Usual Options" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Most serums try to force volume. Smooche removes what blocks it — no stinging, no stimulants, just consistent results." },
+    { "type": "text", "id": "brand_name", "label": "Brand column name", "default": "smooche" },
+    { "type": "text", "id": "competitor_1_name", "label": "Competitor 1 name", "default": "Other Serums" },
+    { "type": "text", "id": "competitor_1_price", "label": "Competitor 1 price note", "default": "From $3.67/unit" },
+    { "type": "text", "id": "competitor_2_name", "label": "Competitor 2 name", "default": "Generic Balms" },
+    { "type": "text", "id": "competitor_2_price", "label": "Competitor 2 price note", "default": "From $2.84/unit" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison row",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature label", "default": "Long-lasting volume" },
+        { "type": "checkbox", "id": "competitor_1", "label": "Competitor 1 has this", "default": false },
+        { "type": "checkbox", "id": "competitor_2", "label": "Competitor 2 has this", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "SM1C Comparison",
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Long-lasting volume" } },
+        { "type": "row", "settings": { "feature": "No harsh chemicals" } },
+        { "type": "row", "settings": { "feature": "Hydrates while plumping" } },
+        { "type": "row", "settings": { "feature": "Dermatologist-tested" } },
+        { "type": "row", "settings": { "feature": "Works without stimulants" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

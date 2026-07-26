@@ -1,0 +1,98 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-faq-wrap {
+  padding: 60px 44px;
+  background: oklch(94% 0.03 30);
+  font-family: 'Work Sans', sans-serif;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 32px;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-title span {
+  color: oklch(60% 0.16 25);
+}
+#shopify-section-{{ section.id }} .sm1c-faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-item {
+  border-bottom: 1px solid oklch(88% 0.01 30);
+}
+#shopify-section-{{ section.id }} .sm1c-faq-item:first-child {
+  border-top: 1px solid oklch(88% 0.01 30);
+}
+#shopify-section-{{ section.id }} .sm1c-faq-summary {
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-summary::-webkit-details-marker {
+  display: none;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-summary::after {
+  content: "+";
+}
+#shopify-section-{{ section.id }} .sm1c-faq-item[open] .sm1c-faq-summary::after {
+  content: "\2212";
+}
+#shopify-section-{{ section.id }} .sm1c-faq-body {
+  padding: 0 0 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: oklch(40% 0.02 30);
+}
+{%- endstyle -%}
+
+<div class="sm1c-faq-wrap">
+  <div class="sm1c-faq-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
+  <div class="sm1c-faq-list">
+    {%- for block in section.blocks -%}
+      <details class="sm1c-faq-item" {{ block.shopify_attributes }}>
+        <summary class="sm1c-faq-summary">{{ block.settings.question }}</summary>
+        <div class="sm1c-faq-body">{{ block.settings.answer }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C FAQ",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked" },
+    { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "Questions" }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "How do I use this product?" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "SM1C FAQ",
+      "blocks": [
+        { "type": "question", "settings": { "question": "How do I use the Lip Plumper?" } },
+        { "type": "question", "settings": { "question": "How soon will I see results?" } },
+        { "type": "question", "settings": { "question": "Is it safe for sensitive skin?" } },
+        { "type": "question", "settings": { "question": "Do you offer a money-back guarantee?" } },
+        { "type": "question", "settings": { "question": "Can I subscribe and save?" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

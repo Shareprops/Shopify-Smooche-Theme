@@ -1,0 +1,222 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-bd-wrap {
+  font-family: 'Work Sans', sans-serif;
+  padding: 0 44px 60px;
+  color: oklch(20% 0.02 20);
+}
+#shopify-section-{{ section.id }} .sm1c-bd-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 26px;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-head a {
+  font-size: 12px;
+  font-weight: 700;
+  background: oklch(94% 0.03 30);
+  padding: 8px 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  color: inherit;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-img-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 210px;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #111;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-name {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-price {
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+#shopify-section-{{ section.id }} .sm1c-bd-compare {
+  text-decoration: line-through;
+  color: oklch(60% 0.01 30);
+  font-weight: 500;
+  font-size: 13px;
+}
+#shopify-section-{{ section.id }} .sm1c-promo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 44px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: oklch(94% 0.03 30);
+}
+#shopify-section-{{ section.id }} .sm1c-promo-img {
+  height: 400px;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-promo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-promo-body {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .sm1c-promo-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+#shopify-section-{{ section.id }} .sm1c-promo-text {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 340px;
+  margin-bottom: 22px;
+  color: oklch(30% 0.02 30);
+}
+#shopify-section-{{ section.id }} .sm1c-promo-cta {
+  background: #111;
+  color: #fff;
+  padding: 15px 28px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-bd-wrap { padding: 0 20px 44px; }
+  #shopify-section-{{ section.id }} .sm1c-bd-grid { grid-template-columns: repeat(2, 1fr); }
+  #shopify-section-{{ section.id }} .sm1c-promo { grid-template-columns: 1fr; }
+  #shopify-section-{{ section.id }} .sm1c-promo-body { padding: 32px 24px; }
+}
+{%- endstyle -%}
+
+<div class="sm1c-bd-wrap">
+  <div class="sm1c-bd-head">
+    <h2 class="sm1c-bd-title">{{ section.settings.title }}</h2>
+    {%- if section.settings.cta_label != blank -%}
+      <a href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+    {%- endif -%}
+  </div>
+  <div class="sm1c-bd-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'bundle_product' and block.settings.product != blank -%}
+        {%- assign p = block.settings.product -%}
+        <a href="{{ p.url }}" class="sm1c-bd-card" {{ block.shopify_attributes }}>
+          <div class="sm1c-bd-img-wrap">
+            {%- if p.featured_image != blank -%}
+              {{ p.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: p.title }}
+            {%- endif -%}
+            {%- if block.settings.badge_text != blank -%}
+              <div class="sm1c-bd-badge">{{ block.settings.badge_text }}</div>
+            {%- endif -%}
+          </div>
+          <div class="sm1c-bd-name">{{ p.title }}</div>
+          <div class="sm1c-bd-price">
+            {{ p.price | money }}
+            {%- if p.compare_at_price > p.price -%}
+              <span class="sm1c-bd-compare">{{ p.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.promo_heading != blank -%}
+    <div class="sm1c-promo">
+      <div class="sm1c-promo-img">
+        {%- if section.settings.promo_image != blank -%}
+          {{ section.settings.promo_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: '' }}
+        {%- endif -%}
+      </div>
+      <div class="sm1c-promo-body">
+        <div class="sm1c-promo-title">{{ section.settings.promo_heading }}</div>
+        {%- if section.settings.promo_text != blank -%}
+          <div class="sm1c-promo-text">{{ section.settings.promo_text }}</div>
+        {%- endif -%}
+        {%- if section.settings.promo_button_label != blank -%}
+          <a href="{{ section.settings.promo_button_link }}" class="sm1c-promo-cta">{{ section.settings.promo_button_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Bundles & Promo",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Bundle & Save" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop All" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "image_picker", "id": "promo_image", "label": "Promo banner image" },
+    { "type": "text", "id": "promo_heading", "label": "Promo heading", "default": "Fuller lips, naturally." },
+    { "type": "textarea", "id": "promo_text", "label": "Promo text", "default": "Crafted from natural ingredients — hydrated, nourished volume, without harsh chemicals." },
+    { "type": "text", "id": "promo_button_label", "label": "Promo button label", "default": "Shop Now" },
+    { "type": "url", "id": "promo_button_link", "label": "Promo button link" }
+  ],
+  "blocks": [
+    {
+      "type": "bundle_product",
+      "name": "Bundle product",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "badge_text", "label": "Badge text", "default": "SAVE" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "SM1C Bundles & Promo",
+      "blocks": [
+        { "type": "bundle_product" },
+        { "type": "bundle_product" },
+        { "type": "bundle_product" },
+        { "type": "bundle_product" }
+      ]
+    }
+  ]
+}
+{% endschema %}

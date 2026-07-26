@@ -1,0 +1,983 @@
+{{ 'section-led-mask-product.css' | asset_url | stylesheet_tag }}
+{{ 'product-form.js' | asset_url | script_tag }}
+
+{%- liquid
+  assign product_form_id = 'led-mask-form-' | append: section.id
+  assign current_variant = product.selected_or_first_available_variant
+  assign base_price = current_variant.price
+  assign base_compare = current_variant.compare_at_price
+-%}
+
+<div class="led-mask-page" id="LedMaskPage-{{ section.id }}">
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 1 · ANNOUNCEMENT BAR
+  ══════════════════════════════════════════════ -->
+  {%- if section.settings.show_announcement -%}
+  <div class="lm-announcement-bar" role="banner" aria-label="Promotional announcement">
+    <p>
+      {{ section.settings.announcement_text }}
+    </p>
+  </div>
+  {%- endif -%}
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 2 · HERO: GALLERY + BUY BOX
+  ══════════════════════════════════════════════ -->
+  <section class="lm-hero" aria-label="Product information">
+    <div class="lm-container">
+      <div class="lm-hero-grid">
+
+        <!-- LEFT · MEDIA GALLERY -->
+        <div class="lm-gallery" id="LedMaskGallery" style="display:flex;align-items:flex-start;gap:20px;">
+          
+          <!-- Bloomin Style Vertical Benefit Badges Stack -->
+          <div class="bloomin-left-badges" style="display:flex;flex-direction:column;gap:24px;width:100px;flex-shrink:0;padding-top:20px;">
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+              <div style="width:56px;height:56px;border-radius:50%;background:#be185d;color:white;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 10px rgba(190,24,93,0.25);">💖</div>
+              <span style="font-size:10px;font-weight:700;color:#5c3a47;line-height:1.2;">Women-loved favorite</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+              <div style="width:56px;height:56px;border-radius:50%;background:#be185d;color:white;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 10px rgba(190,24,93,0.25);">🛡️</div>
+              <span style="font-size:10px;font-weight:700;color:#5c3a47;line-height:1.2;">Clinically-proven safety</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+              <div style="width:56px;height:56px;border-radius:50%;background:#be185d;color:white;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 10px rgba(190,24,93,0.25);">✨</div>
+              <span style="font-size:10px;font-weight:700;color:#5c3a47;line-height:1.2;">Boosts glow naturally</span>
+            </div>
+          </div>
+
+          <div class="lm-gallery-main" id="LedMaskMainImage" style="flex:1;">
+            <span class="lm-gallery-badge">✦ Clinical Grade Tech</span>
+
+            {%- if product.featured_image -%}
+              <img
+                id="led-mask-main-img"
+                src="{{ product.featured_image | image_url: width: 900 }}"
+                alt="{{ product.featured_image.alt | escape | default: product.title }}"
+                loading="eager"
+                width="900"
+                height="900"
+                fetchpriority="high"
+              >
+            {%- else -%}
+              <div class="lm-img-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>Product Image</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- if product.images.size > 1 -%}
+          <div class="lm-thumbnails" role="list" aria-label="Product image gallery">
+            {%- for image in product.images limit: 6 -%}
+              <div
+                class="lm-thumb{% if forloop.first %} active{% endif %}"
+                role="listitem"
+                data-src="{{ image | image_url: width: 900 }}"
+                tabindex="0"
+                aria-label="View image {{ forloop.index }}"
+                onclick="ledMaskThumbClick(this)"
+                onkeydown="if(event.key==='Enter')ledMaskThumbClick(this)"
+              >
+                <img
+                  src="{{ image | image_url: width: 150 }}"
+                  alt="{{ image.alt | escape | default: product.title | append: ' - Image ' | append: forloop.index }}"
+                  loading="lazy"
+                  width="72"
+                  height="72"
+                >
+              </div>
+            {%- endfor -%}
+          </div>
+          {%- endif -%}
+        </div>
+
+        <!-- RIGHT · BUY BOX -->
+        <div class="lm-buybox" id="LedMaskBuybox">
+
+          <!-- Stars + Reviews -->
+          <div class="lm-stars-row lm-animate-in">
+            <div class="lm-stars" aria-label="5 out of 5 stars" role="img">
+              {%- for i in (1..5) -%}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M10 1l2.5 5.5L18 7.5l-4 4 1 5.5L10 14.5l-5 2.5 1-5.5-4-4 5.5-1z"/>
+              </svg>
+              {%- endfor -%}
+            </div>
+            <a href="#led-mask-reviews" class="lm-review-link" aria-label="Read 1,420 verified reviews">
+              ({{ section.settings.review_count | default: '1,420+' }} Verified Reviews)
+            </a>
+          </div>
+
+          <!-- Product Title -->
+          <h1 class="lm-product-title lm-animate-in lm-animate-delay-1">
+            {{ product.title | default: 'Advanced LED Light Therapy Face Mask' }}
+          </h1>
+
+          <!-- Value Propositions -->
+          <div class="lm-value-props lm-animate-in lm-animate-delay-2">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'value_prop' -%}
+                <div class="lm-value-prop" {{ block.shopify_attributes }}>
+                  <span class="lm-value-prop-check" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+                      <path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{{ block.settings.text }}</span>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- assign value_props = section.blocks | where: 'type', 'value_prop' -%}
+            {%- if value_props.size == 0 -%}
+              <div class="lm-value-prop">
+                <span class="lm-value-prop-check" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>3 Clinically-Proven Light Wave Modes</span>
+              </div>
+              <div class="lm-value-prop">
+                <span class="lm-value-prop-check" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Reduces Fine Lines &amp; Clears Blemishes in 4 Weeks</span>
+              </div>
+              <div class="lm-value-prop">
+                <span class="lm-value-prop-check" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>100% Wireless &amp; Eye-Safe Comfort Design</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <!-- Bundle / Quantity Tier Selector -->
+          <div class="lm-animate-in lm-animate-delay-3">
+            <p class="lm-bundle-title">Select Your Bundle</p>
+
+            <product-form class="product-form" id="LedMaskProductForm-{{ section.id }}">
+              <div class="product-form__error-message-wrapper" role="alert" hidden>
+                <svg aria-hidden="true" focusable="false" class="icon icon-error" viewBox="0 0 13 13">
+                  <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                  <path d="M5.87 3.53L5.97 7.57h1.05l.10-4.04H5.87zM6.50 9.66c.38 0 .68-.29.68-.66s-.30-.65-.68-.65-.68.28-.68.65.30.66.68.66z" fill="white"/>
+                </svg>
+                <span class="product-form__error-message"></span>
+              </div>
+
+              {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                <input type="hidden" name="id" value="{{ current_variant.id }}" class="product-variant-id" id="led-mask-variant-id-{{ section.id }}">
+
+                <!-- Bloomin Style Limited Time Offer Box -->
+                <div class="bloomin-limited-offer" style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px 16px;margin-bottom:18px;color:#166534;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:16px;">🎁</span>
+                  <span><strong>Limited Time Offer:</strong> Buy 2 get 1 free + Free Woman's E-Book!</span>
+                </div>
+
+                <div class="lm-bundle-cards" role="radiogroup" aria-label="Select bundle quantity">
+
+                  <!-- TIER 1: Standard Pack (60% Save) -->
+                  <input
+                    type="radio"
+                    class="lm-bundle-card-input"
+                    name="led_bundle_qty"
+                    id="led-bundle-1-{{ section.id }}"
+                    value="1"
+                    aria-label="Buy 1 Pack Save 60%"
+                  >
+                  <label
+                    class="lm-bundle-card"
+                    for="led-bundle-1-{{ section.id }}"
+                    data-qty="1"
+                    data-price="{{ base_price }}"
+                    style="border-radius:12px;padding:16px 16px 16px 50px;margin-bottom:12px;"
+                  >
+                    <div class="lm-bundle-card-body">
+                      <div>
+                        <div class="lm-bundle-card-name" style="font-size:15px;color:#5c3a47;">Buy 1 <span style="color:#ec4899;font-weight:700;">(Save 60%)</span></div>
+                        <div class="lm-bundle-card-sub" style="font-size:11px;color:#704d5a;">30 Day Glow Therapy Supply</div>
+                      </div>
+                      <div class="lm-bundle-card-price">
+                        <span class="price" id="led-bundle-price-1-{{ section.id }}" style="font-size:18px;color:#5c3a47;">{{ base_price | money }}</span>
+                        {%- if base_compare > base_price -%}
+                        <span class="compare" style="font-size:12px;color:#9ca3af;">{{ base_compare | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </label>
+
+                  <!-- TIER 2: Best Value Buy 2 get 1 Free (highlighted, checked by default) -->
+                  <input
+                    type="radio"
+                    class="lm-bundle-card-input"
+                    name="led_bundle_qty"
+                    id="led-bundle-2-{{ section.id }}"
+                    value="2"
+                    checked
+                    aria-label="Buy 2 get 1 free Save 73%"
+                  >
+                  <label
+                    class="lm-bundle-card"
+                    for="led-bundle-2-{{ section.id }}"
+                    data-qty="2"
+                    data-price="{{ base_price | times: 2 | times: 0.60 | round }}"
+                    style="border-radius:12px;padding:16px 16px 16px 50px;margin-bottom:12px;border:2px solid #ec4899;background:#fdf2f8;"
+                  >
+                    <span class="lm-best-value-badge" style="background:linear-gradient(135deg,#f472b6,#ec4899);color:white;border-radius:0 0 8px 8px;font-size:9px;padding:4px 8px;font-weight:700;">BEST VALUE</span>
+                    <div class="lm-bundle-card-body">
+                      <div>
+                        <div class="lm-bundle-card-name" style="font-size:15px;color:#5c3a47;">Buy 2 get 1 free <span style="color:#ec4899;font-weight:700;">(Save 73%)</span></div>
+                        <div class="lm-bundle-card-sub" style="font-size:11px;color:#704d5a;">90 Day Supply • Free Shipping & E-Book</div>
+                      </div>
+                      <div class="lm-bundle-card-price">
+                        <span class="price" id="led-bundle-price-2-{{ section.id }}" style="font-size:18px;color:#ec4899;">{{ base_price | times: 2 | times: 0.60 | round | money }}</span>
+                        <span class="compare" style="font-size:12px;color:#9ca3af;">{{ base_price | times: 3 | money }}</span>
+                      </div>
+                    </div>
+                  </label>
+
+                </div>
+
+                <input type="hidden" name="quantity" value="2" id="led-mask-quantity-{{ section.id }}">
+
+                <!-- Bloomin Style Urgency Progress Bar -->
+                <div class="bloomin-urgency-container" style="margin:20px 0 16px;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:12px;font-weight:700;color:#5c3a47;">
+                    <span>🔥 Only a few left!</span>
+                    <span style="color:#ec4899;">8% remaining</span>
+                  </div>
+                  <div style="background:#e5e7eb;height:8px;border-radius:10px;overflow:hidden;width:100%;">
+                    <div style="width:8%;height:100%;background:linear-gradient(90deg,#f472b6,#ec4899);border-radius:10px;"></div>
+                  </div>
+                </div>
+
+                <!-- Price Display -->
+                <div class="lm-price-display" id="led-mask-price-display-{{ section.id }}" style="margin-top:16px;">
+                  <span class="lm-price-current" id="led-mask-price-current-{{ section.id }}" style="color:#5c3a47;">
+                    {{ base_price | times: 2 | times: 0.60 | round | money }}
+                  </span>
+                  <span class="lm-price-compare" id="led-mask-price-compare-{{ section.id }}">
+                    {{ base_price | times: 3 | money }}
+                  </span>
+                  <span class="lm-price-save-badge" id="led-mask-save-badge-{{ section.id }}" style="background:#fbcfe8;color:#be185d;">You Save 73%</span>
+                </div>
+
+                <!-- ATC Button (Pink Glow) -->
+                <div class="product-form__buttons" style="margin-top:18px;">
+                  <button
+                    id="led-mask-atc-{{ section.id }}"
+                    type="submit"
+                    name="add"
+                    class="lm-atc-btn"
+                    aria-label="Activate Your Glow — Add to Cart"
+                    style="background:linear-gradient(135deg,#f9a8d4,#ec4899) !important;box-shadow:0 6px 20px rgba(236,72,153,0.4) !important;"
+                  >
+                    <span class="atc-btn-text" style="font-weight:700;font-size:15px;letter-spacing:0.06em;">ADD TO CART</span>
+                    <div class="loading-overlay__spinner hidden" aria-hidden="true">
+                      <svg viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                        <circle class="path" fill="none" stroke="white" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              {%- endform -%}
+            </product-form>
+          </div>
+
+          <!-- Bloomin Style 'We Don't Do...' Warnings Widget -->
+          <div class="bloomin-warnings-card" style="background:#faf5ff;border:1px solid #f3e8ff;border-radius:16px;padding:24px 20px;margin-top:20px;text-align:center;position:relative;z-index:5;">
+            <h3 style="font-family:'Comfortaa',sans-serif;font-size:20px;font-weight:700;color:#5c3a47;margin:0 0 16px;">We don't do...</h3>
+            <p style="font-size:12px;color:#704d5a;margin:0 0 20px;line-height:1.5;">Your skin isn't a trend. We keep our technology clean, gentle, and intentionally designed—only what supports you, nothing extra.</p>
+            <div style="display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:16px;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:72px;">
+                <span style="font-size:24px;">🚫</span>
+                <span style="font-size:10px;font-weight:700;color:#5c3a47;">No Hormones</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:72px;">
+                <span style="font-size:24px;">🧪</span>
+                <span style="font-size:10px;font-weight:700;color:#5c3a47;">No Additives</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:72px;">
+                <span style="font-size:24px;">☕</span>
+                <span style="font-size:10px;font-weight:700;color:#5c3a47;">No Stimulants</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:72px;">
+                <span style="font-size:24px;">🌿</span>
+                <span style="font-size:10px;font-weight:700;color:#5c3a47;">No Blends</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="lm-trust-badges" role="list" aria-label="Trust and safety badges" style="border-top:1px solid rgba(236,72,153,0.15);margin-top:20px;padding-top:16px;">
+            <div class="lm-trust-item" role="listitem">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" color="#ec4899" style="width:22px;height:22px;">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span style="font-size:10px;">90-Day Risk-Free Trial</span>
+            </div>
+            <div class="lm-trust-divider" aria-hidden="true"></div>
+            <div class="lm-trust-item" role="listitem">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" color="#ec4899" style="width:22px;height:22px;">
+                <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+              <span style="font-size:10px;">FDA-Cleared Tech</span>
+            </div>
+            <div class="lm-trust-divider" aria-hidden="true"></div>
+            <div class="lm-trust-item" role="listitem">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" color="#ec4899" style="width:22px;height:22px;">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <span style="font-size:10px;">Secure Checkout</span>
+            </div>
+          </div>
+
+        </div><!-- /lm-buybox -->
+
+      </div><!-- /lm-hero-grid -->
+    </div><!-- /lm-container -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 3 · SOCIAL PROOF MARQUEE TICKER
+  ══════════════════════════════════════════════ -->
+  <div class="lm-ticker-bar" role="marquee" aria-label="Social proof ticker" aria-live="off">
+    <div class="lm-ticker-track" id="lm-ticker-track">
+      {%- assign ticker_items = "VISIBLE RESULTS IN 4 WEEKS,★,DERMATOLOGIST APPROVED,★,10,000+ HAPPY SKINS,★,CLINICAL GRADE TECHNOLOGY,★,FREE EXPRESS WORLDWIDE SHIPPING,★,90-DAY MONEY-BACK GUARANTEE,★" | split: "," -%}
+      {%- for i in (1..4) -%}
+        {%- assign alt_toggle = forloop.index | modulo: 2 -%}
+        <span class="lm-ticker-item {% if alt_toggle == 0 %}teal-text{% else %}navy-text{% endif %}" aria-hidden="true">VISIBLE RESULTS IN 4 WEEKS</span>
+        <span class="lm-ticker-sep" aria-hidden="true">★</span>
+        <span class="lm-ticker-item teal-text" aria-hidden="true">DERMATOLOGIST APPROVED</span>
+        <span class="lm-ticker-sep" aria-hidden="true">★</span>
+        <span class="lm-ticker-item navy-text" aria-hidden="true">10,000+ HAPPY SKINS</span>
+        <span class="lm-ticker-sep" aria-hidden="true">★</span>
+        <span class="lm-ticker-item teal-text" aria-hidden="true">CLINICAL GRADE TECHNOLOGY</span>
+        <span class="lm-ticker-sep" aria-hidden="true">★</span>
+        <span class="lm-ticker-item navy-text" aria-hidden="true">FREE EXPRESS WORLDWIDE SHIPPING</span>
+        <span class="lm-ticker-sep" aria-hidden="true">★</span>
+        <span class="lm-ticker-item teal-text" aria-hidden="true">90-DAY MONEY-BACK GUARANTEE</span>
+        <span class="lm-ticker-sep" aria-hidden="true">★</span>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 4 · HOW IT WORKS — 3-COLUMN GRID
+  ══════════════════════════════════════════════ -->
+  <section class="lm-how-it-works" aria-labelledby="how-it-works-title">
+    <div class="lm-container">
+      <div class="lm-section-header">
+        <span class="lm-section-tag">Science-Backed Technology</span>
+        <h2 class="lm-section-title" id="how-it-works-title">Three Wavelengths. One Mask.<br>Infinite Results.</h2>
+        <p class="lm-section-subtitle">Our multi-modal LED system combines three clinically-validated light frequencies to address every major skin concern simultaneously.</p>
+      </div>
+
+      <div class="lm-wavelength-grid">
+
+        <!-- Red Light Mode -->
+        <article class="lm-wave-card red-light" aria-labelledby="red-light-title">
+          <div class="lm-wave-card-header">
+            <div class="lm-wave-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm-1 2h2v8h-2zm-5.66-3.07L3.93 7.5l1.42-1.42 1.41 1.41zm11.3-1.41 1.41-1.41 1.42 1.42-1.41 1.41zM2 13h3v2H2zm17 0h3v2h-3zM4.35 17.07l1.42-1.42 1.41 1.41-1.42 1.42zm12.84 0 1.41-1.41 1.42 1.42-1.42 1.41z"/>
+              </svg>
+            </div>
+            <p class="lm-wave-nm">630–660nm</p>
+            <h3 class="lm-wave-name" id="red-light-title">Red Light</h3>
+          </div>
+          <div class="lm-wave-card-body">
+            <p class="lm-wave-benefit-title">Anti-Aging &amp; Collagen Production</p>
+            <p class="lm-wave-desc">Penetrates deep into the dermis to stimulate fibroblasts, triggering natural collagen and elastin synthesis for visibly firmer, plumper skin.</p>
+            <ul class="lm-wave-benefits">
+              <li>Reduces fine lines &amp; wrinkles</li>
+              <li>Firms and plumps sagging skin</li>
+              <li>Improves skin texture &amp; tone</li>
+              <li>Accelerates cell turnover</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Blue Light Mode -->
+        <article class="lm-wave-card blue-light" aria-labelledby="blue-light-title">
+          <div class="lm-wave-card-header">
+            <div class="lm-wave-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67C14.5 20.88 13.38 22 12 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5 0-.16-.08-.28-.14-.35-.41-.46-.63-1.05-.63-1.65 0-1.38 1.12-2.5 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z"/>
+                <circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/>
+              </svg>
+            </div>
+            <p class="lm-wave-nm">415–430nm</p>
+            <h3 class="lm-wave-name" id="blue-light-title">Blue Light</h3>
+          </div>
+          <div class="lm-wave-card-body">
+            <p class="lm-wave-benefit-title">Acne Elimination &amp; Bacteria Target</p>
+            <p class="lm-wave-desc">Destroys P. acnes bacteria at the source by generating singlet oxygen, clearing active breakouts without harsh chemicals or UV damage.</p>
+            <ul class="lm-wave-benefits">
+              <li>Eliminates acne-causing bacteria</li>
+              <li>Reduces inflammation &amp; redness</li>
+              <li>Prevents future breakouts</li>
+              <li>Calms hormonal flare-ups</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Near-Infrared Mode -->
+        <article class="lm-wave-card nir-light" aria-labelledby="nir-light-title">
+          <div class="lm-wave-card-header">
+            <div class="lm-wave-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17.66 7.93 12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31A7.98 7.98 0 0 0 12 21.58a7.98 7.98 0 0 0 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/>
+              </svg>
+            </div>
+            <p class="lm-wave-nm">810–850nm</p>
+            <h3 class="lm-wave-name" id="nir-light-title">Near-Infrared</h3>
+          </div>
+          <div class="lm-wave-card-body">
+            <p class="lm-wave-benefit-title">Deep Tissue Healing &amp; Cellular Repair</p>
+            <p class="lm-wave-desc">Penetrates beyond the skin's surface to energize mitochondria at the cellular level, dramatically accelerating natural healing and repair processes.</p>
+            <ul class="lm-wave-benefits">
+              <li>Boosts mitochondrial ATP production</li>
+              <li>Heals post-acne scarring &amp; PIH</li>
+              <li>Reduces chronic puffiness &amp; inflammation</li>
+              <li>Accelerates wound recovery</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 5 · THE RESULTS — SPLIT SCREEN
+  ══════════════════════════════════════════════ -->
+  <section class="lm-results" aria-labelledby="results-title">
+    <div class="lm-container">
+      <div class="lm-section-header" style="text-align:center;margin-bottom:56px;">
+        <span class="lm-section-tag">Clinical Evidence</span>
+        <h2 class="lm-section-title" id="results-title" style="color:white;">Real Results. Real People.<br>Real Transformation.</h2>
+      </div>
+
+      <div class="lm-results-grid">
+
+        <!-- Before/After Slider -->
+        <div
+          class="lm-ba-container"
+          id="led-mask-ba-{{ section.id }}"
+          role="img"
+          aria-label="Before and after comparison of skin treated with LED Light Therapy"
+        >
+          <!-- AFTER image (full width) -->
+          <div class="lm-ba-after">
+            {%- if section.settings.after_image -%}
+              <img
+                src="{{ section.settings.after_image | image_url: width: 800 }}"
+                alt="After 4 weeks of LED Light Therapy — clear, glowing skin"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            {%- else -%}
+              <div class="lm-img-placeholder" style="background:linear-gradient(135deg,#001e35,#003d6b);color:rgba(255,255,255,0.5);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                <span>After — 4 Weeks</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <!-- BEFORE image (clipped) -->
+          <div class="lm-ba-before" id="led-mask-ba-before-{{ section.id }}">
+            {%- if section.settings.before_image -%}
+              <img
+                src="{{ section.settings.before_image | image_url: width: 800 }}"
+                alt="Before LED Light Therapy"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            {%- else -%}
+              <div class="lm-img-placeholder" style="background:linear-gradient(135deg,#2C4458,#1a2f3f);color:rgba(255,255,255,0.4);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                <span>Before</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="lm-ba-slider-line" id="led-mask-ba-line-{{ section.id }}" aria-hidden="true"></div>
+          <div class="lm-ba-handle" id="led-mask-ba-handle-{{ section.id }}" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="m15 18 6-6-6-6M9 6l-6 6 6 6"/>
+            </svg>
+          </div>
+          <span class="lm-ba-label lm-ba-label-before" aria-hidden="true">Before</span>
+          <span class="lm-ba-label lm-ba-label-after" aria-hidden="true">After</span>
+        </div>
+
+        <!-- Stats Column -->
+        <div class="lm-stats-col">
+
+          <div class="lm-stat-item">
+            <div class="lm-stat-number" aria-label="96 percent">96%</div>
+            <div class="lm-stat-text">
+              <p class="lm-stat-label">noticed a visible reduction in fine lines and wrinkles</p>
+              <p class="lm-stat-sub">In an 8-week independent clinical study with 200+ participants</p>
+            </div>
+          </div>
+
+          <div class="lm-stat-divider" aria-hidden="true"></div>
+
+          <div class="lm-stat-item">
+            <div class="lm-stat-number" aria-label="91 percent">91%</div>
+            <div class="lm-stat-text">
+              <p class="lm-stat-label">reported clearer, calmer skin within 4 weeks</p>
+              <p class="lm-stat-sub">Measured across diverse skin types and tones</p>
+            </div>
+          </div>
+
+          <div class="lm-stat-divider" aria-hidden="true"></div>
+
+          <div class="lm-stat-item">
+            <div class="lm-stat-number" aria-label="4 weeks">4 wks</div>
+            <div class="lm-stat-text">
+              <p class="lm-stat-label">average time to first visible transformation</p>
+              <p class="lm-stat-sub">Using just 10 minutes per day, 5× weekly protocol</p>
+            </div>
+          </div>
+
+          <div class="lm-stat-divider" aria-hidden="true"></div>
+
+          <!-- Customer Testimonial -->
+          <blockquote class="lm-testimonial-block">
+            <p class="lm-testimonial-quote">
+              "I was skeptical at first, but after 6 weeks my skin looks genuinely better than it did in my 20s. The texture is smoother, my acne spots have almost completely faded, and people keep asking what I'm doing differently. This mask is the real deal."
+            </p>
+            <div class="lm-testimonial-author">
+              <div class="lm-testimonial-avatar" aria-hidden="true">S</div>
+              <div>
+                <div class="lm-testimonial-name">Sarah M.</div>
+                <div class="lm-testimonial-verified">✓ Verified Buyer — 6 weeks use</div>
+              </div>
+              <div class="lm-testimonial-stars" aria-label="5 out of 5 stars">
+                {%- for i in (1..5) -%}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M10 1l2.5 5.5L18 7.5l-4 4 1 5.5L10 14.5l-5 2.5 1-5.5-4-4 5.5-1z"/>
+                </svg>
+                {%- endfor -%}
+              </div>
+            </div>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 6 · FAQ ACCORDION
+  ══════════════════════════════════════════════ -->
+  <section class="lm-faq" aria-labelledby="faq-title">
+    <div class="lm-container">
+      <div class="lm-section-header">
+        <span class="lm-section-tag">Got Questions?</span>
+        <h2 class="lm-section-title" id="faq-title">Frequently Asked Questions</h2>
+        <p class="lm-section-subtitle">Everything you need to know before starting your glow journey.</p>
+      </div>
+
+      <div class="lm-faq-list" role="list" id="led-mask-faq-{{ section.id }}">
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq' -%}
+          <div class="lm-faq-item" role="listitem" {{ block.shopify_attributes }}>
+            <button
+              class="lm-faq-question"
+              aria-expanded="false"
+              aria-controls="faq-answer-{{ block.id }}"
+              id="faq-btn-{{ block.id }}"
+              onclick="ledMaskFaqToggle(this)"
+            >
+              {{ block.settings.question }}
+              <span class="lm-faq-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </span>
+            </button>
+            <div class="lm-faq-answer" id="faq-answer-{{ block.id }}" role="region" aria-labelledby="faq-btn-{{ block.id }}">
+              <p>{{ block.settings.answer }}</p>
+            </div>
+          </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign faq_blocks = section.blocks | where: 'type', 'faq' -%}
+        {%- if faq_blocks.size == 0 -%}
+          {%- assign default_faqs = "Is LED Light Therapy safe for all skin types?|Yes — our mask is clinically tested and suitable for all Fitzpatrick skin types I–VI. The wavelengths used are entirely non-thermal and UV-free, making them safe for sensitive, dry, oily, and combination skin. It is also non-invasive and FDA-cleared for home use.,How often should I use the mask?|For best results, we recommend 10-minute daily sessions, 5 days per week for the first 4 weeks (intensive phase), then 2–3 times per week for ongoing maintenance. Most users notice visible improvements within 2–3 weeks of consistent use.,Is the mask truly wireless?|Absolutely. The Advanced Glow Mask operates on a rechargeable lithium battery with up to 90 minutes of continuous use per charge. No cords, no clips, no restrictions. The USB-C charging port allows a full charge in under 90 minutes.,Does it come with a warranty?|Yes — every mask comes with our industry-leading 1-Year Hardware Warranty covering manufacturing defects, plus our exclusive 90-Day Risk-Free Glow Guarantee. If you don't see results within 90 days, we'll refund your purchase in full, no questions asked.,How long does shipping take?|We offer free express shipping worldwide. Orders placed before 2PM EST ship the same business day. Domestic US orders arrive in 2–4 business days; international orders typically arrive in 5–10 business days. You'll receive full tracking information via email." | split: "," -%}
+          {%- for faq in default_faqs -%}
+            {%- assign faq_parts = faq | split: "|" -%}
+            {%- assign faq_q = faq_parts[0] -%}
+            {%- assign faq_a = faq_parts[1] -%}
+            <div class="lm-faq-item" role="listitem">
+              <button
+                class="lm-faq-question"
+                aria-expanded="false"
+                aria-controls="faq-default-{{ forloop.index }}-{{ section.id }}"
+                id="faq-default-btn-{{ forloop.index }}-{{ section.id }}"
+                onclick="ledMaskFaqToggle(this)"
+              >
+                {{ faq_q }}
+                <span class="lm-faq-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="lm-faq-answer" id="faq-default-{{ forloop.index }}-{{ section.id }}" role="region" aria-labelledby="faq-default-btn-{{ forloop.index }}-{{ section.id }}">
+                <p>{{ faq_a }}</p>
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+
+      </div>
+    </div>
+  </section>
+
+</div><!-- /led-mask-page -->
+
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT — Gallery, Bundle, Before/After, FAQ
+══════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ─── Gallery Thumbnail Click ─── */
+  window.ledMaskThumbClick = function(el) {
+    var mainImg = document.getElementById('led-mask-main-img');
+    if (mainImg && el.dataset.src) {
+      mainImg.src = el.dataset.src;
+      // update active state
+      var thumbs = el.closest('.lm-thumbnails').querySelectorAll('.lm-thumb');
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      el.classList.add('active');
+    }
+  };
+
+  /* ─── Bundle Tier Selection ─── */
+  document.addEventListener('DOMContentLoaded', function() {
+    var sectionId = '{{ section.id }}';
+    var bundleInputs = document.querySelectorAll('[name="led_bundle_qty"]');
+    var qtyInput = document.getElementById('led-mask-quantity-' + sectionId);
+    var currentPrice = document.getElementById('led-mask-price-current-' + sectionId);
+    var comparePrice = document.getElementById('led-mask-price-compare-' + sectionId);
+    var saveBadge = document.getElementById('led-mask-save-badge-' + sectionId);
+
+    var basePrice = {{ base_price }};
+    var discounts = { '1': 0, '2': 0.40, '3': 0.45 };
+    var saveLabels = { '1': '', '2': 'You Save 40%', '3': 'You Save 45%' };
+
+    function formatMoney(cents) {
+      return '{{ cart.currency.symbol }}' + (cents / 100).toFixed(2);
+    }
+
+    bundleInputs.forEach(function(input) {
+      input.addEventListener('change', function() {
+        var qty = parseInt(this.value);
+        var discount = discounts[String(qty)] || 0;
+        var originalTotal = basePrice * qty;
+        var discountedTotal = Math.round(originalTotal * (1 - discount));
+
+        if (qtyInput) qtyInput.value = qty;
+        if (currentPrice) currentPrice.textContent = formatMoney(discountedTotal);
+
+        if (comparePrice) {
+          if (discount > 0) {
+            comparePrice.textContent = formatMoney(originalTotal);
+            comparePrice.style.display = '';
+          } else {
+            comparePrice.style.display = 'none';
+          }
+        }
+
+        if (saveBadge) {
+          var label = saveLabels[String(qty)] || '';
+          if (label) {
+            saveBadge.textContent = label;
+            saveBadge.style.display = '';
+          } else {
+            saveBadge.style.display = 'none';
+          }
+        }
+      });
+    });
+
+    /* ─── Before/After Slider ─── */
+    var baContainer = document.getElementById('led-mask-ba-{{ section.id }}');
+    if (baContainer) {
+      var baBefore = document.getElementById('led-mask-ba-before-{{ section.id }}');
+      var baLine = document.getElementById('led-mask-ba-line-{{ section.id }}');
+      var baHandle = document.getElementById('led-mask-ba-handle-{{ section.id }}');
+      var isDragging = false;
+
+      function setSliderPos(pct) {
+        pct = Math.max(5, Math.min(95, pct));
+        if (baBefore) baBefore.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        if (baLine) baLine.style.left = pct + '%';
+        if (baHandle) baHandle.style.left = pct + '%';
+      }
+
+      function getPos(e) {
+        var rect = baContainer.getBoundingClientRect();
+        var clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        return ((clientX - rect.left) / rect.width) * 100;
+      }
+
+      baContainer.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        setSliderPos(getPos(e));
+        e.preventDefault();
+      });
+
+      baContainer.addEventListener('touchstart', function(e) {
+        isDragging = true;
+        setSliderPos(getPos(e));
+      }, { passive: true });
+
+      document.addEventListener('mousemove', function(e) {
+        if (isDragging) setSliderPos(getPos(e));
+      });
+
+      document.addEventListener('touchmove', function(e) {
+        if (isDragging) setSliderPos(getPos(e));
+      }, { passive: true });
+
+      document.addEventListener('mouseup', function() { isDragging = false; });
+      document.addEventListener('touchend', function() { isDragging = false; });
+
+      // Initialize at 50%
+      setSliderPos(50);
+    }
+
+    /* ─── Scroll-triggered animations ─── */
+    if ('IntersectionObserver' in window) {
+      var animEls = document.querySelectorAll('.lm-wave-card, .lm-stat-item, .lm-faq-item');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      animEls.forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        observer.observe(el);
+      });
+    }
+  });
+
+  /* ─── FAQ Toggle ─── */
+  window.ledMaskFaqToggle = function(btn) {
+    var item = btn.closest('.lm-faq-item');
+    var isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.lm-faq-item.open').forEach(function(openItem) {
+      openItem.classList.remove('open');
+      openItem.querySelector('.lm-faq-question').setAttribute('aria-expanded', 'false');
+    });
+    // Open clicked (if it was closed)
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  };
+
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "LED Mask Product Page",
+  "tag": "section",
+  "class": "led-mask-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement Bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "🚀 Free Express Shipping Worldwide  ✦  90-Day Money-Back Guarantee  ✦  FDA-Cleared Technology"
+    },
+    {
+      "type": "header",
+      "content": "Buy Box"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count display",
+      "default": "1,420+"
+    },
+    {
+      "type": "text",
+      "id": "atc_label",
+      "label": "Add to Cart button label",
+      "default": "ACTIVATE YOUR GLOW — ADD TO CART"
+    },
+    {
+      "type": "header",
+      "content": "Before/After Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value_prop",
+      "name": "Value Proposition",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Proposition text",
+          "default": "3 Clinically-Proven Light Wave Modes"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Is LED Light Therapy safe for all skin types?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Yes — our mask is clinically tested and FDA-cleared for all skin types.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LED Mask Product Page",
+      "blocks": [
+        {
+          "type": "value_prop",
+          "settings": {
+            "text": "3 Clinically-Proven Light Wave Modes"
+          }
+        },
+        {
+          "type": "value_prop",
+          "settings": {
+            "text": "Reduces Fine Lines & Clears Blemishes in 4 Weeks"
+          }
+        },
+        {
+          "type": "value_prop",
+          "settings": {
+            "text": "100% Wireless & Eye-Safe Comfort Design"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is LED Light Therapy safe for all skin types?",
+            "answer": "<p>Yes — our mask is clinically tested and suitable for all Fitzpatrick skin types I–VI. The wavelengths used are entirely non-thermal and UV-free, making them safe for all skin types.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How often should I use the mask?",
+            "answer": "<p>For best results, we recommend 10-minute daily sessions, 5 days per week for the first 4 weeks, then 2–3 times per week for ongoing maintenance.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is the mask truly wireless?",
+            "answer": "<p>Absolutely. The Advanced Glow Mask operates on a rechargeable lithium battery with up to 90 minutes of continuous use per charge. USB-C charging in under 90 minutes.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Does it come with a warranty?",
+            "answer": "<p>Yes — every mask includes our 1-Year Hardware Warranty plus our 90-Day Risk-Free Glow Guarantee. Full refund if you don't see results.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Free express shipping worldwide. US orders: 2–4 business days. International: 5–10 business days. Same-day dispatch for orders placed before 2PM EST.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

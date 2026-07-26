@@ -1,0 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "sm1c_footer": {
+      "type": "sm1c-footer",
+      "blocks": {
+        "col_1": { "type": "link_column", "settings": { "title": "MAIN MENU", "menu": "main-menu" } },
+        "col_2": { "type": "link_column", "settings": { "title": "USEFUL LINKS", "menu": "footer" } }
+      },
+      "block_order": ["col_1", "col_2"],
+      "settings": {
+        "logo_text": "smooche",
+        "blurb": "A solutions-oriented beauty brand, creating a world where everyone feels confident.",
+        "signup_title": "STAY IN TOUCH",
+        "copyright": "© 2026 Smooche",
+        "social_text": "Instagram · TikTok · Follow on Shop",
+        "bg_color": "#2e1810",
+        "text_color": "#f0e6df",
+        "accent_color": "#c24a2e"
+      }
+    }
+  },
+  "order": [
+    "sm1c_footer"
+  ]
+}

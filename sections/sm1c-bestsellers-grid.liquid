@@ -1,0 +1,251 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-pg-wrap {
+  font-family: 'Work Sans', sans-serif;
+  background: {{ section.settings.bg_color }};
+}
+#shopify-section-{{ section.id }} .sm1c-pg-toolbar {
+  padding: 28px 44px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-sort {
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-count {
+  font-size: 13px;
+  color: oklch(50% 0.02 30);
+}
+#shopify-section-{{ section.id }} .sm1c-pg-grid {
+  padding: 24px 44px 64px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-imgwrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: oklch(94% 0.03 30);
+}
+#shopify-section-{{ section.id }} .sm1c-pg-img {
+  height: 230px;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 100px;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-name {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-swatches {
+  display: flex;
+  gap: 6px;
+  margin: 8px 0 2px;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,.1);
+}
+#shopify-section-{{ section.id }} .sm1c-pg-price {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-compare {
+  text-decoration: line-through;
+  color: oklch(60% 0.01 30);
+  font-weight: 500;
+  font-size: 12px;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-rating {
+  font-size: 12px;
+  color: oklch(50% 0.02 30);
+  margin-top: 4px;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 44px 64px;
+  font-size: 13px;
+  font-weight: 600;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-pagination a {
+  color: oklch(60% 0.16 25);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-pg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+{%- endstyle -%}
+
+<div class="sm1c-pg-wrap">
+  {%- assign collection = section.settings.collection -%}
+  <div class="sm1c-pg-toolbar">
+    <select class="sm1c-pg-sort" onchange="window.location.href=this.value">
+      <option value="{{ collection.url }}?sort_by=manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Sort by: Featured</option>
+      <option value="{{ collection.url }}?sort_by=best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best selling</option>
+      <option value="{{ collection.url }}?sort_by=title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>Alphabetically, A-Z</option>
+      <option value="{{ collection.url }}?sort_by=title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>Alphabetically, Z-A</option>
+      <option value="{{ collection.url }}?sort_by=price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price, low to high</option>
+      <option value="{{ collection.url }}?sort_by=price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price, high to low</option>
+      <option value="{{ collection.url }}?sort_by=created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+    </select>
+    <div class="sm1c-pg-count">{{ collection.products_count }} products</div>
+  </div>
+
+    <div class="sm1c-pg-grid">
+      {%- for product in collection.products limit: section.settings.products_per_page -%}
+        {%- liquid
+          assign current_variant = product.selected_or_first_available_variant
+          assign badge_text = ''
+          assign badge_bg = section.settings.sale_badge_color
+          if current_variant.compare_at_price > current_variant.price
+            assign badge_text = 'SALE'
+          else
+            assign tags_lower = product.tags | join: ',' | downcase
+            if tags_lower contains 'bestseller'
+              assign badge_text = 'BESTSELLER'
+              assign badge_bg = section.settings.tag_badge_color
+            elsif tags_lower contains 'viral'
+              assign badge_text = 'VIRAL'
+              assign badge_bg = section.settings.tag_badge_color
+            elsif tags_lower contains 'new'
+              assign badge_text = 'NEW'
+              assign badge_bg = section.settings.tag_badge_color
+            endif
+          endif
+
+          assign color_values = blank
+          for option in product.options_with_values
+            if option.name == 'Color' or option.name == 'Colour'
+              assign color_values = option.values
+            endif
+          endfor
+        -%}
+        <a href="{{ product.url }}" class="sm1c-pg-card">
+          <div class="sm1c-pg-imgwrap">
+            <div class="sm1c-pg-img">
+              {%- if product.featured_image != blank -%}
+                {{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: product.title }}
+              {%- endif -%}
+            </div>
+            {%- if badge_text != blank -%}
+              <div class="sm1c-pg-badge" style="background:{{ badge_bg }}">{{ badge_text }}</div>
+            {%- endif -%}
+          </div>
+          <div class="sm1c-pg-name">{{ product.title }}</div>
+          {%- if color_values != blank -%}
+            <div class="sm1c-pg-swatches">
+              {%- for value in color_values limit: 5 -%}
+                <span class="sm1c-pg-swatch" style="background:{{ value | escape }}"></span>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+          <div class="sm1c-pg-price">
+            {{ current_variant.price | money }}
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              <span class="sm1c-pg-compare">{{ current_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.show_ratings -%}
+            <div class="sm1c-pg-rating">{{ section.settings.default_rating_text }}</div>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+
+    {%- if collection.products_count > section.settings.products_per_page -%}
+      <div class="sm1c-pg-pagination">
+        <a href="{{ collection.url }}">View all {{ collection.products_count }} products →</a>
+      </div>
+    {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Bestsellers Grid",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection to display"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fdfaf6"
+    },
+    {
+      "type": "color",
+      "id": "sale_badge_color",
+      "label": "Sale badge color",
+      "default": "#c24a2e"
+    },
+    {
+      "type": "color",
+      "id": "tag_badge_color",
+      "label": "Tag badge color (bestseller/viral/new)",
+      "default": "#111111"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ratings",
+      "label": "Show star ratings",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "default_rating_text",
+      "label": "Default rating text",
+      "default": "★★★★★"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SM1C Bestsellers Grid"
+    }
+  ]
+}
+{% endschema %}

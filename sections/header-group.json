@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "sm1c_announcement": {
+      "type": "sm1c-announcement",
+      "settings": {
+        "text": "Summer Sale — 60% Off + Free Mystery Gift",
+        "bg_color": "#c24a2e",
+        "text_color": "#ffffff"
+      }
+    },
+    "sm1c_header": {
+      "type": "sm1c-header",
+      "settings": {
+        "logo_text": "smooche",
+        "menu": "main-menu",
+        "accent_color": "#c24a2e"
+      }
+    },
+    "sm1c_scratch_popup": {
+      "type": "sm1c-scratch-popup",
+      "settings": {
+        "title": "Try your luck",
+        "subtitle": "Scratch below to see what you win",
+        "code_10": "SCRATCH10",
+        "code_15": "SCRATCH15",
+        "code_20": "SCRATCH20",
+        "delay_seconds": 2,
+        "scratch_threshold": 55
+      }
+    }
+  },
+  "order": [
+    "sm1c_announcement",
+    "sm1c_header",
+    "sm1c_scratch_popup"
+  ]
+}

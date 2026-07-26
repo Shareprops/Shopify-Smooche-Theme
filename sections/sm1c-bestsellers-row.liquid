@@ -1,0 +1,241 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-bsr-wrap {
+  padding: 60px 44px 24px;
+  background: {{ section.settings.bg_color }};
+  font-family: 'Work Sans', sans-serif;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-sub {
+  font-size: 13px;
+  color: rgba(0,0,0,.55);
+  margin-bottom: 28px;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-row {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-item {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-num {
+  flex: none;
+  width: 70px;
+  text-align: right;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 120px;
+  font-weight: 800;
+  line-height: 1;
+  color: #111;
+  user-select: none;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-card {
+  flex: 1;
+  margin-left: -10%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.14);
+  background: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-img {
+  height: 170px;
+  background: #eee;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: {{ section.settings.accent_color }};
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 100px;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-info {
+  padding: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-price {
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-compare {
+  text-decoration: line-through;
+  color: rgba(0,0,0,.4);
+  font-weight: 500;
+  font-size: 12px;
+  margin-left: 4px;
+}
+@media (max-width: 989px) {
+  #shopify-section-{{ section.id }} .sm1c-bsr-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bsr-item {
+    min-width: 220px;
+  }
+}
+{%- endstyle -%}
+
+<div class="sm1c-bsr-wrap">
+  <div class="sm1c-bsr-title">{{ section.settings.heading }}</div>
+  <div class="sm1c-bsr-sub">{{ section.settings.subheading }}</div>
+  <div class="sm1c-bsr-row">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign item_title = block.settings.title
+        assign item_price = block.settings.price
+        assign item_image = block.settings.image
+        assign item_url = block.settings.link
+        if block.settings.product != blank
+          assign item_title = block.settings.product.title
+          assign item_price = block.settings.product.price | money
+          assign item_image = block.settings.product.featured_image
+          assign item_url = block.settings.product.url
+        endif
+      -%}
+      <div class="sm1c-bsr-item" {{ block.shopify_attributes }}>
+        <div class="sm1c-bsr-num">{{ forloop.index }}</div>
+        <div class="sm1c-bsr-card">
+          <a href="{{ item_url | default: '#' }}">
+            <div class="sm1c-bsr-img">
+              {%- if item_image != blank -%}
+                {{ item_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: item_title }}
+              {%- endif -%}
+            </div>
+            {%- if block.settings.badge_text != blank -%}
+              <div class="sm1c-bsr-badge">{{ block.settings.badge_text }}</div>
+            {%- endif -%}
+            <div class="sm1c-bsr-info">
+              <div class="sm1c-bsr-name">{{ item_title }}</div>
+              <div class="sm1c-bsr-price">
+                {{ item_price }}
+                {%- if block.settings.compare_at_price != blank -%}
+                  <span class="sm1c-bsr-compare">{{ block.settings.compare_at_price }}</span>
+                {%- endif -%}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Bestsellers Row",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Top 5 Best-Sellers This Week"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Updated every Monday"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fdfaf6"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Badge accent color",
+      "default": "#c24a2e"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product (optional, overrides fields below)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "BEST SELLER"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Peel-off Lip Stain"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$29.00"
+        },
+        {
+          "type": "text",
+          "id": "compare_at_price",
+          "label": "Compare-at price (optional)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "SM1C Bestsellers Row",
+      "blocks": [
+        { "type": "item", "settings": { "badge_text": "BEST SELLER", "title": "Peel-off Lip Stain", "price": "$29.00" } },
+        { "type": "item", "settings": { "badge_text": "-33%", "title": "Color Changing Foundation", "price": "$39.00", "compare_at_price": "$58.00" } },
+        { "type": "item", "settings": { "badge_text": "1+1 FREE", "title": "Extreme Lip Plumper", "price": "$39.00", "compare_at_price": "$48.00" } },
+        { "type": "item", "settings": { "badge_text": "SALE", "title": "Eyebrow Growth Serum", "price": "$39.00", "compare_at_price": "$58.00" } },
+        { "type": "item", "settings": { "badge_text": "NEW", "title": "Silk Blush Stick", "price": "$24.00" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

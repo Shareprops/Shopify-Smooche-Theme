@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "led_mask_product": {
+      "type": "led-mask-product",
+      "blocks": {
+        "value_prop_1": {
+          "type": "value_prop",
+          "settings": {
+            "text": "3 Clinically-Proven Light Wave Modes"
+          }
+        },
+        "value_prop_2": {
+          "type": "value_prop",
+          "settings": {
+            "text": "Reduces Fine Lines & Clears Blemishes in 4 Weeks"
+          }
+        },
+        "value_prop_3": {
+          "type": "value_prop",
+          "settings": {
+            "text": "100% Wireless & Eye-Safe Comfort Design"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Is LED Light Therapy safe for all skin types?",
+            "answer": "<p>Yes — our mask is clinically tested and suitable for all Fitzpatrick skin types I–VI. The wavelengths used are entirely non-thermal and UV-free, making them safe for sensitive, dry, oily, and combination skin. It is also non-invasive and FDA-cleared for home use.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "How often should I use the mask?",
+            "answer": "<p>For best results, we recommend 10-minute daily sessions, 5 days per week for the first 4 weeks (intensive phase), then 2–3 times per week for ongoing maintenance. Most users notice visible improvements within 2–3 weeks of consistent use.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Is the mask truly wireless?",
+            "answer": "<p>Absolutely. The Advanced Glow Mask operates on a rechargeable lithium battery with up to 90 minutes of continuous use per charge. No cords, no clips, no restrictions. The USB-C charging port allows a full charge in under 90 minutes.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it come with a warranty?",
+            "answer": "<p>Yes — every mask comes with our industry-leading 1-Year Hardware Warranty covering manufacturing defects, plus our exclusive 90-Day Risk-Free Glow Guarantee. If you don't see results within 90 days, we'll refund your purchase in full, no questions asked.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>We offer free express shipping worldwide. Orders placed before 2PM EST ship the same business day. Domestic US orders arrive in 2–4 business days; international orders typically arrive in 5–10 business days. You'll receive full tracking information via email.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "value_prop_1",
+        "value_prop_2",
+        "value_prop_3",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "show_announcement": true,
+        "announcement_text": "🚀 Free Express Shipping Worldwide  ✦  90-Day Money-Back Guarantee  ✦  FDA-Cleared Technology",
+        "review_count": "1,420+",
+        "atc_label": "ACTIVATE YOUR GLOW — ADD TO CART",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "led_mask_product"
+  ]
+}

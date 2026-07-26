@@ -1,0 +1,150 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_pdp_main": {
+      "type": "sm1c-pdp-main",
+      "blocks": {
+        "badge_1": { "type": "trust_badge", "settings": { "icon": "♡", "label": "Customer favorite" } },
+        "badge_2": { "type": "trust_badge", "settings": { "icon": "✓", "label": "Dermatologist formula" } },
+        "badge_3": { "type": "trust_badge", "settings": { "icon": "✦", "label": "Boosts confidence naturally" } },
+        "tier_1": { "type": "tier", "settings": { "label": "Buy 3 Get 1 Free", "badge_text": "BEST VALUE", "quantity": 3, "note_text": "Free shipping · Free travel case", "highlighted": true } },
+        "tier_2": { "type": "tier", "settings": { "label": "Buy 1", "badge_text": "", "quantity": 1, "note_text": "One-time purchase", "highlighted": false } },
+        "media_1": { "type": "media_tile", "settings": {} },
+        "media_2": { "type": "media_tile", "settings": {} },
+        "media_3": { "type": "media_tile", "settings": {} },
+        "media_4": { "type": "media_tile", "settings": {} },
+        "media_5": { "type": "media_tile", "settings": {} },
+        "acc_1": { "type": "accordion_item", "settings": { "title": "Product Details" } },
+        "acc_2": { "type": "accordion_item", "settings": { "title": "Discreet Shipping" } },
+        "acc_3": { "type": "accordion_item", "settings": { "title": "Return & Refund Policy" } },
+        "fb_1": { "type": "feedback_bar", "settings": { "label": "Daily Impact & Wellbeing", "percent": 82 } },
+        "fb_2": { "type": "feedback_bar", "settings": { "label": "Taste & Feel", "percent": 74 } },
+        "fb_3": { "type": "feedback_bar", "settings": { "label": "Convenience & Everyday Use", "percent": 90 } }
+      },
+      "block_order": ["badge_1", "badge_2", "badge_3", "tier_1", "tier_2", "media_1", "media_2", "media_3", "media_4", "media_5", "acc_1", "acc_2", "acc_3", "fb_1", "fb_2", "fb_3"],
+      "settings": {
+        "rating_text": "5,000+ reviews",
+        "facts_label": "SUPPLEMENT FACTS",
+        "offer_text": "Limited Time Offer — Buy 2 Get 1 Free",
+        "urgency_text": "Only a few left!",
+        "urgency_percent": 8,
+        "atc_label": "ADD TO CART",
+        "ship_note_left": "● Shipped today",
+        "ship_note_right": "Free shipping over $50",
+        "social_proof_text": "10,000+ Happy Customers",
+        "feedback_title": "Feedback from the Smooche Community"
+      }
+    },
+    "sm1c_pdp_how_it_works": {
+      "type": "sm1c-pdp-how-it-works",
+      "blocks": {
+        "step_1": { "type": "step", "settings": { "title": "We start with your foundation", "body": "Botanical actives support balance, confidence, and overall wellbeing." } },
+        "step_2": { "type": "step", "settings": { "title": "Then we address what's missing", "body": "Fast-acting support activity while the long-term formula builds over time." } },
+        "step_3": { "type": "step", "settings": { "title": "Results become consistent", "body": "Instead of relying on stimulants, consistent use builds lasting results." } }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "heading": "Here's how it",
+        "heading_accent": "works",
+        "subheading": "Designed to support real confidence and consistency, one simple daily ritual that fits your routine."
+      }
+    },
+    "sm1c_pdp_comparison": {
+      "type": "sm1c-pdp-comparison",
+      "blocks": {
+        "row_1": { "type": "row", "settings": { "feature": "Long-lasting volume", "competitor_1": false, "competitor_2": false } },
+        "row_2": { "type": "row", "settings": { "feature": "No harsh chemicals", "competitor_1": false, "competitor_2": false } },
+        "row_3": { "type": "row", "settings": { "feature": "Hydrates while plumping", "competitor_1": false, "competitor_2": false } },
+        "row_4": { "type": "row", "settings": { "feature": "Dermatologist-tested", "competitor_1": false, "competitor_2": false } },
+        "row_5": { "type": "row", "settings": { "feature": "Works without stimulants", "competitor_1": false, "competitor_2": false } }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5"],
+      "settings": {
+        "heading": "Lip Plumper",
+        "heading_accent": "vs The Usual Options",
+        "subheading": "Most serums try to force volume. Smooche removes what blocks it — no stinging, no stimulants, just consistent results.",
+        "brand_name": "smooche",
+        "competitor_1_name": "Other Serums",
+        "competitor_1_price": "From $3.67/unit",
+        "competitor_2_name": "Generic Balms",
+        "competitor_2_price": "From $2.84/unit"
+      }
+    },
+    "sm1c_pdp_survey_stats": {
+      "type": "sm1c-pdp-survey-stats",
+      "blocks": {
+        "stat_1": { "type": "stat", "settings": { "percent": 92, "headline": "reported they felt the spark and emotional closeness in their relationship return.", "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.", "bar_color": "#c24a2e" } },
+        "stat_2": { "type": "stat", "settings": { "percent": 87, "headline": "reported intimacy started feeling natural again, with more energy and desire to initiate.", "body": "Many said they went from \"not tonight\" to initiating again without pressure, without forcing it.", "bar_color": "#2a6f6a" } },
+        "stat_3": { "type": "stat", "settings": { "percent": 89, "headline": "reported steadier energy through the entire day.", "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.", "bar_color": "#c24a2e" } }
+      },
+      "block_order": ["stat_1", "stat_2", "stat_3"],
+      "settings": {
+        "heading": "What women told us in",
+        "heading_accent": "our survey",
+        "subheading": "Formulated with botanical ingredients to support balance, confidence, and consistency over time."
+      }
+    },
+    "sm1c_pdp_ingredients": {
+      "type": "sm1c-pdp-ingredients",
+      "blocks": {
+        "ing_1": { "type": "ingredient", "settings": { "name": "Vitamin E", "tag": "HYDRATION", "support_text": "Used to support: nourished, softer lips" } },
+        "ing_2": { "type": "ingredient", "settings": { "name": "Peptide Complex", "tag": "VOLUME", "support_text": "Used to support: fullness & definition" } },
+        "ing_3": { "type": "ingredient", "settings": { "name": "Shea Butter", "tag": "MOISTURE", "support_text": "Used to support: everyday comfort" } }
+      },
+      "block_order": ["ing_1", "ing_2", "ing_3"],
+      "settings": {
+        "cta_label": "SHOP THIS SALE",
+        "cta_link": ""
+      }
+    },
+    "sm1c_pdp_reviews": {
+      "type": "sm1c-pdp-reviews",
+      "blocks": {
+        "rev_1": { "type": "review", "settings": { "name": "Isabella T.", "rating_text": "★★★★★" } },
+        "rev_2": { "type": "review", "settings": { "name": "Jessica M.", "rating_text": "★★★★★" } },
+        "rev_3": { "type": "review", "settings": { "name": "Mia K.", "rating_text": "★★★★★" } },
+        "rev_4": { "type": "review", "settings": { "name": "Hannah D.", "rating_text": "★★★★★" } },
+        "rev_5": { "type": "review", "settings": { "name": "Chloe C.", "rating_text": "★★★★★" } }
+      },
+      "block_order": ["rev_1", "rev_2", "rev_3", "rev_4", "rev_5"],
+      "settings": {
+        "average_rating": "4.9",
+        "review_count": "522 reviews",
+        "write_review_label": "Write a Review",
+        "write_review_link": ""
+      }
+    },
+    "sm1c_pdp_faq": {
+      "type": "sm1c-pdp-faq",
+      "blocks": {
+        "q_1": { "type": "question", "settings": { "question": "How do I use the Lip Plumper?", "answer": "" } },
+        "q_2": { "type": "question", "settings": { "question": "How soon will I see results?", "answer": "" } },
+        "q_3": { "type": "question", "settings": { "question": "Is it safe for sensitive skin?", "answer": "" } },
+        "q_4": { "type": "question", "settings": { "question": "Do you offer a money-back guarantee?", "answer": "" } },
+        "q_5": { "type": "question", "settings": { "question": "Can I subscribe and save?", "answer": "" } }
+      },
+      "block_order": ["q_1", "q_2", "q_3", "q_4", "q_5"],
+      "settings": {
+        "heading": "Frequently Asked",
+        "heading_accent": "Questions"
+      }
+    }
+  },
+  "order": [
+    "sm1c_pdp_main",
+    "sm1c_pdp_how_it_works",
+    "sm1c_pdp_comparison",
+    "sm1c_pdp_survey_stats",
+    "sm1c_pdp_ingredients",
+    "sm1c_pdp_reviews",
+    "sm1c_pdp_faq"
+  ]
+}
