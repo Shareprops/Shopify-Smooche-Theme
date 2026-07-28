@@ -31,24 +31,44 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+#shopify-section-{{ section.id }} .sm1c-bg-card {
+  background: var(--sm1c-surface, #fff);
+  border: 1px solid var(--sm1c-border, rgba(17, 17, 17, .06));
+  border-radius: 24px;
+  padding: 12px;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, .04), 0 10px 30px -14px rgba(17, 17, 17, .15);
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s cubic-bezier(.22, 1, .36, 1);
+}
+#shopify-section-{{ section.id }} .sm1c-bg-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 10px rgba(17, 17, 17, .06), 0 28px 48px -16px rgba(17, 17, 17, .25);
+}
 #shopify-section-{{ section.id }} .sm1c-bg-card a {
   color: inherit;
   text-decoration: none;
 }
 #shopify-section-{{ section.id }} .sm1c-bg-imgwrap {
   position: relative;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-bg-img {
   height: 250px;
   background: #eee;
+  overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-bg-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+}
+#shopify-section-{{ section.id }} .sm1c-bg-card:hover .sm1c-bg-img img {
+  transform: scale(1.07);
+}
+#shopify-section-{{ section.id }} .sm1c-bg-name {
+  padding: 0 2px;
 }
 #shopify-section-{{ section.id }} .sm1c-bg-badge {
   position: absolute;
@@ -98,6 +118,24 @@
 @media (max-width: 989px) {
   #shopify-section-{{ section.id }} .sm1c-bg-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 749px) {
+  #shopify-section-{{ section.id }} .sm1c-bg-wrap {
+    padding: 40px 16px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bg-title {
+    font-size: 22px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bg-grid {
+    gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bg-card {
+    padding: 8px;
+    border-radius: 18px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-bg-img {
+    height: 190px;
   }
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-bg-wrap {

@@ -31,6 +31,16 @@
   text-decoration: none;
   color: inherit;
   display: block;
+  background: var(--sm1c-surface, #fff);
+  border: 1px solid var(--sm1c-border, rgba(17, 17, 17, .06));
+  border-radius: 22px;
+  padding: 12px;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, .04), 0 10px 30px -14px rgba(17, 17, 17, .15);
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s cubic-bezier(.22, 1, .36, 1), border-color .3s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 10px rgba(17, 17, 17, .06), 0 28px 48px -16px rgba(17, 17, 17, .25);
 }
 #shopify-section-{{ section.id }} .sm1c-pg-imgwrap {
   position: relative;
@@ -41,12 +51,25 @@
 #shopify-section-{{ section.id }} .sm1c-pg-img {
   height: 230px;
   background: #eee;
+  overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-pg-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+}
+#shopify-section-{{ section.id }} .sm1c-pg-card:hover .sm1c-pg-img img {
+  transform: scale(1.07);
+}
+#shopify-section-{{ section.id }} .sm1c-pg-name {
+  padding: 0 2px;
+}
+#shopify-section-{{ section.id }} .sm1c-pg-price,
+#shopify-section-{{ section.id }} .sm1c-pg-swatches,
+#shopify-section-{{ section.id }} .sm1c-pg-rating {
+  padding: 0 2px;
 }
 #shopify-section-{{ section.id }} .sm1c-pg-badge {
   position: absolute;
@@ -106,6 +129,22 @@
 @media (max-width: 900px) {
   #shopify-section-{{ section.id }} .sm1c-pg-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 749px) {
+  #shopify-section-{{ section.id }} .sm1c-pg-toolbar {
+    padding: 20px 16px 0;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pg-grid {
+    padding: 16px 16px 44px;
+    gap: 20px 12px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pg-card {
+    padding: 8px;
+    border-radius: 18px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pg-img {
+    height: 190px;
   }
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-wrap {

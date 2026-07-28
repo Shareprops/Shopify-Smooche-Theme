@@ -1,4 +1,9 @@
-{{ 'sm1c-theme-init.js' | asset_url | script_tag }}
+{%- comment -%}
+  Dark mode is temporarily disabled for launch (light theme only).
+  To re-enable: uncomment the script_tag below and re-add the theme
+  toggle button in sections/sm1c-header.liquid.
+  {{ 'sm1c-theme-init.js' | asset_url | script_tag }}
+{%- endcomment -%}
 <style>
   :root {
     --sm1c-bg: #ffffff;

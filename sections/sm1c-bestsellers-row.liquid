@@ -1,50 +1,117 @@
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-bsr-wrap {
-  padding: 60px 44px 24px;
+  padding: 56px 0 28px;
   background: {{ section.settings.bg_color }};
   font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-title {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 28px;
+  font-size: clamp(22px, 3.4vw, 28px);
   font-weight: 800;
   margin: 0 0 6px;
+  padding: 0 clamp(20px, 4vw, 44px);
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-sub {
   font-size: 13px;
   color: rgba(0,0,0,.55);
   margin-bottom: 28px;
+  padding: 0 clamp(20px, 4vw, 44px);
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-rail {
+  position: relative;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-row {
   display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(4px, 1.5vw, 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 20px clamp(20px, 4vw, 44px) 18px;
 }
-#shopify-section-{{ section.id }} .sm1c-bsr-item {
-  flex: 1;
-  min-width: 200px;
+#shopify-section-{{ section.id }} .sm1c-bsr-row::-webkit-scrollbar {
+  display: none;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sm1c-surface, #fff);
+  border: none;
+  box-shadow: 0 4px 16px rgba(17, 17, 17, .2);
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--sm1c-text, #111);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-rail:hover .sm1c-bsr-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-arrow:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-arrow[disabled] {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-arrow-prev {
+  left: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-arrow-next {
+  right: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 749px) {
+  #shopify-section-{{ section.id }} .sm1c-bsr-arrow {
+    display: none;
+  }
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-item {
+  flex: none;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-num {
   flex: none;
-  width: 70px;
-  text-align: right;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 120px;
+  font-size: clamp(150px, 24vw, 240px);
   font-weight: 800;
-  line-height: 1;
-  color: #111;
+  line-height: .8;
+  color: var(--sm1c-text, #111);
   user-select: none;
+  margin-right: clamp(-38px, -3vw, -18px);
+  position: relative;
+  z-index: 1;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-card {
-  flex: 1;
-  margin-left: -10%;
+  flex: none;
+  width: clamp(160px, 30vw, 230px);
   position: relative;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,.14);
-  background: #fff;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, .04), 0 12px 30px rgba(0, 0, 0, .14);
+  background: var(--sm1c-surface, #fff);
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s cubic-bezier(.22, 1, .36, 1);
+  z-index: 2;
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 10px rgba(17, 17, 17, .06), 0 28px 48px -14px rgba(17, 17, 17, .28);
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-card a {
   color: inherit;
@@ -52,7 +119,7 @@
   display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-img {
-  height: 170px;
+  aspect-ratio: 1 / 1;
   background: #eee;
   overflow: hidden;
 }
@@ -61,6 +128,10 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+}
+#shopify-section-{{ section.id }} .sm1c-bsr-card:hover .sm1c-bsr-img img {
+  transform: scale(1.07);
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-badge {
   position: absolute;
@@ -74,14 +145,19 @@
   border-radius: 100px;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-info {
-  padding: 14px;
+  padding: 10px 12px 12px;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-bsr-price {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   margin-top: 4px;
 }
@@ -89,18 +165,8 @@
   text-decoration: line-through;
   color: rgba(0,0,0,.4);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   margin-left: 4px;
-}
-@media (max-width: 989px) {
-  #shopify-section-{{ section.id }} .sm1c-bsr-row {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 12px;
-  }
-  #shopify-section-{{ section.id }} .sm1c-bsr-item {
-    min-width: 220px;
-  }
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-bsr-wrap {
   background: var(--sm1c-bg);
@@ -122,47 +188,88 @@
 <div class="sm1c-bsr-wrap">
   <div class="sm1c-bsr-title">{{ section.settings.heading }}</div>
   <div class="sm1c-bsr-sub">{{ section.settings.subheading }}</div>
-  <div class="sm1c-bsr-row">
-    {%- for block in section.blocks -%}
-      {%- liquid
-        assign item_title = block.settings.title
-        assign item_price = block.settings.price
-        assign item_image = block.settings.image
-        assign item_url = block.settings.link
-        if block.settings.product != blank
-          assign item_title = block.settings.product.title
-          assign item_price = block.settings.product.price | money
-          assign item_image = block.settings.product.featured_image
-          assign item_url = block.settings.product.url
-        endif
-      -%}
-      <div class="sm1c-bsr-item" {{ block.shopify_attributes }}>
-        <div class="sm1c-bsr-num">{{ forloop.index }}</div>
-        <div class="sm1c-bsr-card">
-          <a href="{{ item_url | default: '#' }}">
-            <div class="sm1c-bsr-img">
-              {%- if item_image != blank -%}
-                {{ item_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: item_title }}
-              {%- endif -%}
-            </div>
-            {%- if block.settings.badge_text != blank -%}
-              <div class="sm1c-bsr-badge">{{ block.settings.badge_text }}</div>
-            {%- endif -%}
-            <div class="sm1c-bsr-info">
-              <div class="sm1c-bsr-name">{{ item_title }}</div>
-              <div class="sm1c-bsr-price">
-                {{ item_price }}
-                {%- if block.settings.compare_at_price != blank -%}
-                  <span class="sm1c-bsr-compare">{{ block.settings.compare_at_price }}</span>
+  <div class="sm1c-bsr-rail">
+    <button type="button" class="sm1c-bsr-arrow sm1c-bsr-arrow-prev" data-sm1c-bsr-prev aria-label="Scroll left" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="sm1c-bsr-row" data-sm1c-bsr-row>
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign item_title = block.settings.title
+          assign item_price = block.settings.price
+          assign item_image = block.settings.image
+          assign item_url = block.settings.link
+          if block.settings.product != blank
+            assign item_title = block.settings.product.title
+            assign item_price = block.settings.product.price | money
+            assign item_image = block.settings.product.featured_image
+            assign item_url = block.settings.product.url
+          endif
+        -%}
+        <div class="sm1c-bsr-item" {{ block.shopify_attributes }}>
+          <div class="sm1c-bsr-num">{{ forloop.index }}</div>
+          <div class="sm1c-bsr-card">
+            <a href="{{ item_url | default: '#' }}">
+              <div class="sm1c-bsr-img">
+                {%- if item_image != blank -%}
+                  {{ item_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: item_title }}
                 {%- endif -%}
               </div>
-            </div>
-          </a>
+              {%- if block.settings.badge_text != blank -%}
+                <div class="sm1c-bsr-badge">{{ block.settings.badge_text }}</div>
+              {%- endif -%}
+              <div class="sm1c-bsr-info">
+                <div class="sm1c-bsr-name">{{ item_title }}</div>
+                <div class="sm1c-bsr-price">
+                  {{ item_price }}
+                  {%- if block.settings.compare_at_price != blank -%}
+                    <span class="sm1c-bsr-compare">{{ block.settings.compare_at_price }}</span>
+                  {%- endif -%}
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-    {%- endfor -%}
+      {%- endfor -%}
+    </div>
+    <button type="button" class="sm1c-bsr-arrow sm1c-bsr-arrow-next" data-sm1c-bsr-next aria-label="Scroll right">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
 </div>
+
+<script>
+(function () {
+  var root = document.currentScript.closest('.shopify-section');
+  if (!root) return;
+  var row = root.querySelector('[data-sm1c-bsr-row]');
+  var prevBtn = root.querySelector('[data-sm1c-bsr-prev]');
+  var nextBtn = root.querySelector('[data-sm1c-bsr-next]');
+  if (!row || !prevBtn || !nextBtn) return;
+
+  function scrollByStep(direction) {
+    row.scrollBy({ left: direction * row.clientWidth * 0.8, behavior: 'smooth' });
+  }
+  prevBtn.addEventListener('click', function () { scrollByStep(-1); });
+  nextBtn.addEventListener('click', function () { scrollByStep(1); });
+
+  function updateArrows() {
+    var maxScroll = row.scrollWidth - row.clientWidth - 1;
+    prevBtn.disabled = row.scrollLeft <= 0;
+    nextBtn.disabled = row.scrollLeft >= maxScroll;
+  }
+  row.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+
+  row.addEventListener('wheel', function (evt) {
+    if (Math.abs(evt.deltaY) > Math.abs(evt.deltaX)) {
+      evt.preventDefault();
+      row.scrollLeft += evt.deltaY;
+    }
+  }, { passive: false });
+})();
+</script>
 
 {% schema %}
 {
