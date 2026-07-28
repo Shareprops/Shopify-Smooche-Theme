@@ -59,6 +59,13 @@
     grid-template-columns: 1fr;
   }
 }
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hiw-sub,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hiw-step-body {
+  color: rgba(240, 237, 232, .65);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hiw-img {
+  background: var(--sm1c-surface);
+}
 {%- endstyle -%}
 
 <div class="sm1c-hiw-wrap">

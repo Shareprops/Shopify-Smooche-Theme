@@ -66,6 +66,13 @@
     grid-template-columns: 1fr;
   }
 }
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-test-wrap {
+  background: var(--sm1c-bg);
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-test-card {
+  background: var(--sm1c-surface);
+}
 {%- endstyle -%}
 
 <div class="sm1c-test-wrap">

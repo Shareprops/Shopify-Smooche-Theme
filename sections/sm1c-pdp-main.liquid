@@ -466,6 +466,59 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-wrap {
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-main-img,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-thumb,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-media-tile,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-img {
+  background: var(--sm1c-surface);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-text,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-label {
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-ship-row,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-tier-note,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-accordion-body,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-price {
+  color: rgba(240, 237, 232, .65);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-tier-compare {
+  color: rgba(240, 237, 232, .45);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-tag-badge {
+  background: var(--sm1c-surface);
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-viewing,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-offer,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-urgency,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feedback {
+  background: var(--sm1c-surface);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc {
+  background: var(--sm1c-surface);
+  border-top-color: var(--sm1c-border);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-divider,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-accordion details {
+  border-color: var(--sm1c-border);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-tier,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-variant-select {
+  border-color: var(--sm1c-border);
+  background: var(--sm1c-surface);
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-tier.is-selected {
+  background: var(--sm1c-bg);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-fb-track {
+  background: rgba(255, 255, 255, .12);
+}
 {%- endstyle -%}
 
 {{ 'sm1c-viewing-badge.js' | asset_url | script_tag }}

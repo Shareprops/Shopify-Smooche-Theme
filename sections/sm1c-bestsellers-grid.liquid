@@ -108,87 +108,80 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-wrap {
+  background: var(--sm1c-bg);
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-sort {
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-count,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-compare,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-rating {
+  color: rgba(240, 237, 232, .65);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-imgwrap,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pg-img {
+  background: var(--sm1c-surface);
+}
 {%- endstyle -%}
 
 <div class="sm1c-pg-wrap">
-  {%- assign collection = section.settings.collection -%}
+  {%- assign collection = section.settings.collection | default: collection -%}
+  {%- assign tag_filter = section.settings.tag_filter -%}
+
+  {%- assign match_count = 0 -%}
+  {%- if tag_filter != blank -%}
+    {%- for product in collections.all.products -%}
+      {%- if product.tags contains tag_filter -%}
+        {%- assign match_count = match_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- assign match_count = collection.products_count -%}
+  {%- endif -%}
+
   <div class="sm1c-pg-toolbar">
-    <select class="sm1c-pg-sort" onchange="window.location.href=this.value">
-      <option value="{{ collection.url }}?sort_by=manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Sort by: Featured</option>
-      <option value="{{ collection.url }}?sort_by=best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best selling</option>
-      <option value="{{ collection.url }}?sort_by=title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>Alphabetically, A-Z</option>
-      <option value="{{ collection.url }}?sort_by=title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>Alphabetically, Z-A</option>
-      <option value="{{ collection.url }}?sort_by=price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price, low to high</option>
-      <option value="{{ collection.url }}?sort_by=price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price, high to low</option>
-      <option value="{{ collection.url }}?sort_by=created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
-    </select>
-    <div class="sm1c-pg-count">{{ collection.products_count }} products</div>
+    {%- if tag_filter == blank -%}
+      <select class="sm1c-pg-sort" onchange="window.location.href=this.value">
+        <option value="{{ collection.url }}?sort_by=manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Sort by: Featured</option>
+        <option value="{{ collection.url }}?sort_by=best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best selling</option>
+        <option value="{{ collection.url }}?sort_by=title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>Alphabetically, A-Z</option>
+        <option value="{{ collection.url }}?sort_by=title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>Alphabetically, Z-A</option>
+        <option value="{{ collection.url }}?sort_by=price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price, low to high</option>
+        <option value="{{ collection.url }}?sort_by=price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price, high to low</option>
+        <option value="{{ collection.url }}?sort_by=created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+      </select>
+    {%- endif -%}
+    <div class="sm1c-pg-count">{{ match_count }} products</div>
   </div>
 
     <div class="sm1c-pg-grid">
-      {%- for product in collection.products limit: section.settings.products_per_page -%}
-        {%- liquid
-          assign current_variant = product.selected_or_first_available_variant
-          assign badge_text = ''
-          assign badge_bg = section.settings.sale_badge_color
-          if current_variant.compare_at_price > current_variant.price
-            assign badge_text = 'SALE'
-          else
-            assign tags_lower = product.tags | join: ',' | downcase
-            if tags_lower contains 'bestseller'
-              assign badge_text = 'BESTSELLER'
-              assign badge_bg = section.settings.tag_badge_color
-            elsif tags_lower contains 'viral'
-              assign badge_text = 'VIRAL'
-              assign badge_bg = section.settings.tag_badge_color
-            elsif tags_lower contains 'new'
-              assign badge_text = 'NEW'
-              assign badge_bg = section.settings.tag_badge_color
-            endif
-          endif
-
-          assign color_values = blank
-          for option in product.options_with_values
-            if option.name == 'Color' or option.name == 'Colour'
-              assign color_values = option.values
-            endif
-          endfor
-        -%}
-        <a href="{{ product.url }}" class="sm1c-pg-card">
-          <div class="sm1c-pg-imgwrap">
-            <div class="sm1c-pg-img">
-              {%- if product.featured_image != blank -%}
-                {{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: product.title }}
-              {%- endif -%}
-            </div>
-            {%- if badge_text != blank -%}
-              <div class="sm1c-pg-badge" style="background:{{ badge_bg }}">{{ badge_text }}</div>
+      {%- if tag_filter != blank -%}
+        {%- assign shown_count = 0 -%}
+        {%- for product in collections.all.products -%}
+          {%- if product.tags contains tag_filter -%}
+            {%- if shown_count >= section.settings.products_per_page -%}
+              {%- break -%}
             {%- endif -%}
-          </div>
-          <div class="sm1c-pg-name">{{ product.title }}</div>
-          {%- if color_values != blank -%}
-            <div class="sm1c-pg-swatches">
-              {%- for value in color_values limit: 5 -%}
-                <span class="sm1c-pg-swatch" style="background:{{ value | escape }}"></span>
-              {%- endfor -%}
-            </div>
+            {%- assign shown_count = shown_count | plus: 1 -%}
+            {%- render 'sm1c-bestsellers-card', product: product, section: section -%}
           {%- endif -%}
-          <div class="sm1c-pg-price">
-            {{ current_variant.price | money }}
-            {%- if current_variant.compare_at_price > current_variant.price -%}
-              <span class="sm1c-pg-compare">{{ current_variant.compare_at_price | money }}</span>
-            {%- endif -%}
-          </div>
-          {%- if section.settings.show_ratings -%}
-            <div class="sm1c-pg-rating">{{ section.settings.default_rating_text }}</div>
-          {%- endif -%}
-        </a>
-      {%- endfor -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for product in collection.products limit: section.settings.products_per_page -%}
+          {%- render 'sm1c-bestsellers-card', product: product, section: section -%}
+        {%- endfor -%}
+      {%- endif -%}
     </div>
 
-    {%- if collection.products_count > section.settings.products_per_page -%}
+    {%- if match_count > section.settings.products_per_page -%}
       <div class="sm1c-pg-pagination">
-        <a href="{{ collection.url }}">View all {{ collection.products_count }} products →</a>
+        {%- if tag_filter != blank -%}
+          <div>Showing {{ section.settings.products_per_page }} of {{ match_count }} products</div>
+        {%- else -%}
+          <a href="{{ collection.url }}">View all {{ collection.products_count }} products →</a>
+        {%- endif -%}
       </div>
     {%- endif -%}
 </div>
@@ -201,6 +194,12 @@
       "type": "collection",
       "id": "collection",
       "label": "Collection to display"
+    },
+    {
+      "type": "text",
+      "id": "tag_filter",
+      "label": "Filter by product tag (optional)",
+      "info": "If set, shows products from the whole store with this exact tag instead of the collection above."
     },
     {
       "type": "range",

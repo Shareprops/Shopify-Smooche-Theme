@@ -85,6 +85,16 @@
     grid-template-columns: 1fr;
   }
 }
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-stat-sub,
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-stat-body {
+  color: rgba(240, 237, 232, .65);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-stat-track {
+  background: rgba(255, 255, 255, .12);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-stat-img {
+  background: var(--sm1c-surface);
+}
 {%- endstyle -%}
 
 <div class="sm1c-stat-wrap">

@@ -83,6 +83,16 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-bun-wrap {
+  background: var(--sm1c-bg);
+  color: var(--sm1c-text);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-bun-compare {
+  color: rgba(240, 237, 232, .55);
+}
+:root[data-theme='dark'] #shopify-section-{{ section.id }} .sm1c-bun-img {
+  background: var(--sm1c-surface);
+}
 {%- endstyle -%}
 
 <div class="sm1c-bun-wrap">

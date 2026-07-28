@@ -12,7 +12,6 @@
   function updateButtons(theme) {
     document.querySelectorAll('[data-sm1c-theme-toggle]').forEach(function (btn) {
       btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-      btn.textContent = theme === 'dark' ? '☀' : '☾';
       btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     });
   }

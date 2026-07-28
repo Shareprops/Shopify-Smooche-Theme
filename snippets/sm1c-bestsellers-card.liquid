@@ -1,0 +1,56 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign badge_text = ''
+  assign badge_bg = section.settings.sale_badge_color
+  if current_variant.compare_at_price > current_variant.price
+    assign badge_text = 'SALE'
+  else
+    assign tags_lower = product.tags | join: ',' | downcase
+    if tags_lower contains 'bestseller'
+      assign badge_text = 'BESTSELLER'
+      assign badge_bg = section.settings.tag_badge_color
+    elsif tags_lower contains 'viral'
+      assign badge_text = 'VIRAL'
+      assign badge_bg = section.settings.tag_badge_color
+    elsif tags_lower contains 'new'
+      assign badge_text = 'NEW'
+      assign badge_bg = section.settings.tag_badge_color
+    endif
+  endif
+
+  assign color_values = blank
+  for option in product.options_with_values
+    if option.name == 'Color' or option.name == 'Colour'
+      assign color_values = option.values
+    endif
+  endfor
+-%}
+<a href="{{ product.url }}" class="sm1c-pg-card">
+  <div class="sm1c-pg-imgwrap">
+    <div class="sm1c-pg-img">
+      {%- if product.featured_image != blank -%}
+        {{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: product.title }}
+      {%- endif -%}
+    </div>
+    {%- if badge_text != blank -%}
+      <div class="sm1c-pg-badge" style="background:{{ badge_bg }}">{{ badge_text }}</div>
+    {%- endif -%}
+  </div>
+  <div class="sm1c-pg-name">{{ product.title }}</div>
+  {%- if color_values != blank -%}
+    <div class="sm1c-pg-swatches">
+      {%- for value in color_values limit: 5 -%}
+        <span class="sm1c-pg-swatch" style="background:{{ value | escape }}"></span>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+  <div class="sm1c-pg-price">
+    {{ current_variant.price | money }}
+    {%- if current_variant.compare_at_price > current_variant.price -%}
+      <span class="sm1c-pg-compare">{{ current_variant.compare_at_price | money }}</span>
+    {%- endif -%}
+  </div>
+  {%- if section.settings.show_ratings -%}
+    <div class="sm1c-pg-rating">{{ section.settings.default_rating_text }}</div>
+  {%- endif -%}
+</a>

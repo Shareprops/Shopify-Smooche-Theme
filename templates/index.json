@@ -9,22 +9,6 @@
  */
 {
   "sections": {
-    "sm1c_announcement": {
-      "type": "sm1c-announcement",
-      "settings": {
-        "text": "Summer Sale — 60% Off + Free Mystery Gift",
-        "bg_color": "#c24a2e",
-        "text_color": "#ffffff"
-      }
-    },
-    "sm1c_header": {
-      "type": "sm1c-header",
-      "settings": {
-        "logo_text": "smooche",
-        "menu": "main-menu",
-        "accent_color": "#c24a2e"
-      }
-    },
     "sm1c_hero": {
       "type": "sm1c-hero",
       "settings": {
@@ -136,36 +120,15 @@
         "button_link": "shopify://collections/frontpage",
         "bg_color": "#f6e6dd"
       }
-    },
-    "sm1c_footer": {
-      "type": "sm1c-footer",
-      "blocks": {
-        "col_1": { "type": "link_column", "settings": { "title": "MAIN MENU", "menu": "main-menu" } },
-        "col_2": { "type": "link_column", "settings": { "title": "USEFUL LINKS", "menu": "footer" } }
-      },
-      "block_order": ["col_1", "col_2"],
-      "settings": {
-        "logo_text": "smooche",
-        "blurb": "A solutions-oriented beauty brand, creating a world where everyone feels confident.",
-        "signup_title": "STAY IN TOUCH",
-        "copyright": "© 2026 Smooche",
-        "social_text": "Instagram · TikTok · Follow on Shop",
-        "bg_color": "#2e1810",
-        "text_color": "#f0e6df",
-        "accent_color": "#c24a2e"
-      }
     }
   },
   "order": [
-    "sm1c_announcement",
-    "sm1c_header",
     "sm1c_hero",
     "sm1c_bestsellers_row",
     "sm1c_home_bestsellers",
     "sm1c_categories",
     "sm1c_testimonials",
     "sm1c_bundles",
-    "sm1c_lifestyle",
-    "sm1c_footer"
+    "sm1c_lifestyle"
   ]
 }

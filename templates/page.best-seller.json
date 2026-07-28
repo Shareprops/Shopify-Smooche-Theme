@@ -25,7 +25,7 @@
     "sm1c_bestsellers_grid": {
       "type": "sm1c-bestsellers-grid",
       "settings": {
-        "collection": "bestsellers",
+        "tag_filter": "Best Seller",
         "products_per_page": 24,
         "bg_color": "#fdfaf6",
         "sale_badge_color": "#c24a2e",
