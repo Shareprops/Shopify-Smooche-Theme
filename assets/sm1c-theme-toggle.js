@@ -6,7 +6,7 @@
   }
 
   function getCurrentTheme() {
-    return document.documentElement.getAttribute('data-theme') || getSystemTheme();
+    return document.documentElement.getAttribute('data-sm1c-theme') || getSystemTheme();
   }
 
   function updateButtons(theme) {
@@ -17,7 +17,7 @@
   }
 
   function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-sm1c-theme', theme);
     try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
     updateButtons(theme);
   }
