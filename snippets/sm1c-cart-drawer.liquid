@@ -70,6 +70,7 @@
   border-bottom: 1px solid oklch(93% 0.01 30);
 }
 .sm1c-cart-drawer-item-img {
+  display: block;
   width: 64px;
   height: 64px;
   border-radius: 10px;
@@ -83,9 +84,20 @@
   display: block;
 }
 .sm1c-cart-drawer-item-title {
+  display: block;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.3;
+  color: inherit;
+  text-decoration: none;
+}
+.sm1c-cart-drawer-item-title:hover {
+  text-decoration: underline;
+}
+.sm1c-cart-drawer-item-variant {
+  font-size: 12px;
+  color: oklch(50% 0.02 30);
+  margin-top: 2px;
 }
 .sm1c-cart-drawer-item-meta {
   font-size: 12px;
@@ -149,6 +161,7 @@
   background: var(--sm1c-bg);
 }
 :root[data-sm1c-theme='dark'] .sm1c-cart-drawer-item-meta,
+:root[data-sm1c-theme='dark'] .sm1c-cart-drawer-item-variant,
 :root[data-sm1c-theme='dark'] .sm1c-cart-drawer-empty {
   color: rgba(240, 237, 232, .55);
 }
@@ -171,13 +184,17 @@
       {%- else -%}
         {%- for item in cart.items -%}
           <div class="sm1c-cart-drawer-item">
-            <div class="sm1c-cart-drawer-item-img">
+            <a href="{{ item.url }}" class="sm1c-cart-drawer-item-img">
               {%- if item.image != blank -%}
                 {{ item.image | image_url: width: 130 | image_tag: loading: 'lazy', alt: item.title }}
               {%- endif -%}
-            </div>
+            </a>
             <div>
-              <div class="sm1c-cart-drawer-item-title">{{ item.product.title }}</div>
+              <a href="{{ item.url }}" class="sm1c-cart-drawer-item-title">{{ item.product.title }}</a>
+              {%- assign variant_title_downcase = item.variant.title | strip | downcase -%}
+              {%- unless variant_title_downcase == 'default title' or variant_title_downcase == 'n/a' or variant_title_downcase == blank -%}
+                <div class="sm1c-cart-drawer-item-variant">{{ item.variant.title }}</div>
+              {%- endunless -%}
               <div class="sm1c-cart-drawer-item-meta">Qty {{ item.quantity }}</div>
             </div>
             <div class="sm1c-cart-drawer-item-price">{{ item.final_line_price | money }}</div>

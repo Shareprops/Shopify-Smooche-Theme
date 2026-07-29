@@ -15,6 +15,12 @@
     return div.innerHTML;
   }
 
+  function isRealVariantTitle(title) {
+    if (!title) return false;
+    var normalized = title.trim().toLowerCase();
+    return normalized !== '' && normalized !== 'default title' && normalized !== 'n/a';
+  }
+
   function openDrawer() {
     if (!drawer) return;
     drawer.hidden = false;
@@ -61,6 +67,7 @@
               '<div class="sm1c-cart-drawer-item-img">' + (item.image ? '<img src="' + item.image + '" alt="' + escapeHtml(item.product_title) + '">' : '') + '</div>' +
               '<div>' +
                 '<div class="sm1c-cart-drawer-item-title">' + escapeHtml(item.product_title) + '</div>' +
+                (isRealVariantTitle(item.variant_title) ? '<div class="sm1c-cart-drawer-item-variant">' + escapeHtml(item.variant_title) + '</div>' : '') +
                 '<div class="sm1c-cart-drawer-item-meta">Qty ' + item.quantity + '</div>' +
               '</div>' +
               '<div class="sm1c-cart-drawer-item-price">' + formatMoney(item.final_line_price) + '</div>' +
