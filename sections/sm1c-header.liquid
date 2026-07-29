@@ -113,6 +113,16 @@
   width: 20px;
   height: 20px;
 }
+#shopify-section-{{ section.id }} .sm1c-icon-btn-account {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: none;
+}
+#shopify-section-{{ section.id }} .sm1c-icon-btn-account svg {
+  width: 28px;
+  height: 28px;
+}
 #shopify-section-{{ section.id }} .sm1c-icon-btn .sm1c-icon-moon {
   display: block;
 }
@@ -296,6 +306,13 @@
 
   <div class="sm1c-header-icons">
     {%- comment -%} Favorites icon and theme toggle temporarily removed for launch; dark-mode/wishlist code is kept elsewhere in the theme for future re-enable. {%- endcomment -%}
+    <a href="{{ routes.account_url }}" class="sm1c-icon-btn sm1c-icon-btn-account" aria-label="{% if customer %}Account{% else %}Log in or sign up{% endif %}">
+      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" viewBox="0 0 192 192" fill="none" stroke-width="8">
+        <path d="M96 168c39.765 0 72-32.235 72-72 0-39.764-32.235-72-72-72-39.764 0-72 32.236-72 72 0 39.765 32.236 72 72 72Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M96 120c16.569 0 30-13.431 30-30 0-16.569-13.431-30-30-30-16.569 0-30 13.431-30 30 0 16.569 13.431 30 30 30Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M47.85 149.55a54.002 54.002 0 0 1 76.399-21.577 54.005 54.005 0 0 1 19.901 21.577" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
     <a href="{{ routes.cart_url }}" class="sm1c-icon-btn" aria-label="Cart" data-sm1c-cart-icon>
       {%- render 'icon-cart' -%}
       <span class="sm1c-icon-badge" data-sm1c-cart-count>{{ cart.item_count }}</span>
