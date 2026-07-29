@@ -28,33 +28,235 @@
     "sm1c_trust_marquee": {
       "type": "marquee",
       "blocks": {
-        "icon_1": { "type": "icon", "settings": { "icon": "truck", "width": 20, "icon_color": "#f0e6df" } },
-        "text_1": { "type": "text", "settings": { "text": "<p>Free Shipping &amp; 2-Day Delivery</p>", "type_preset": "custom", "font": "var(--font-body--family)", "font_size": "0.875rem", "line_height": "tight", "letter_spacing": "loose", "case": "uppercase", "wrap": "nowrap", "width": "fit-content", "text_color": "#f0e6df" } },
-        "icon_2": { "type": "icon", "settings": { "icon": "lock", "width": 20, "icon_color": "#f0e6df" } },
-        "text_2": { "type": "text", "settings": { "text": "<p>100% Secure Checkout</p>", "type_preset": "custom", "font": "var(--font-body--family)", "font_size": "0.875rem", "line_height": "tight", "letter_spacing": "loose", "case": "uppercase", "wrap": "nowrap", "width": "fit-content", "text_color": "#f0e6df" } },
-        "icon_3": { "type": "icon", "settings": { "icon": "return", "width": 20, "icon_color": "#f0e6df" } },
-        "text_3": { "type": "text", "settings": { "text": "<p>30-Day Easy Returns</p>", "type_preset": "custom", "font": "var(--font-body--family)", "font_size": "0.875rem", "line_height": "tight", "letter_spacing": "loose", "case": "uppercase", "wrap": "nowrap", "width": "fit-content", "text_color": "#f0e6df" } },
-        "icon_4": { "type": "icon", "settings": { "icon": "star", "width": 20, "icon_color": "#f0e6df" } },
-        "text_4": { "type": "text", "settings": { "text": "<p>Loved by 50,000+ Customers</p>", "type_preset": "custom", "font": "var(--font-body--family)", "font_size": "0.875rem", "line_height": "tight", "letter_spacing": "loose", "case": "uppercase", "wrap": "nowrap", "width": "fit-content", "text_color": "#f0e6df" } }
+        "icon_1": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free Shipping &amp; 2-Day Delivery</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_2": {
+          "type": "icon",
+          "settings": {
+            "icon": "lock",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>100% Secure Checkout</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_3": {
+          "type": "icon",
+          "settings": {
+            "icon": "return",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>30-Day Easy Returns</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_4": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Loved by 50,000+ Customers</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
       },
-      "block_order": ["icon_1", "text_1", "icon_2", "text_2", "icon_3", "text_3", "icon_4", "text_4"],
+      "block_order": [
+        "icon_1",
+        "text_1",
+        "icon_2",
+        "text_2",
+        "icon_3",
+        "text_3",
+        "icon_4",
+        "text_4"
+      ],
       "settings": {
+        "movement_direction": "normal",
         "background_color": "#2e1810",
-        "gap_between_elements": 28,
         "padding-block-start": 16,
-        "padding-block-end": 16
+        "padding-block-end": 16,
+        "gap_between_elements": 28
       }
     },
     "sm1c_bestsellers_row": {
       "type": "sm1c-bestsellers-row",
       "blocks": {
-        "row_1": { "type": "item", "settings": { "badge_text": "BEST SELLER", "title": "Peel-off Lip Stain", "price": "$29.00", "compare_at_price": "", "link": "" } },
-        "row_2": { "type": "item", "settings": { "badge_text": "-33%", "title": "Color Changing Foundation", "price": "$39.00", "compare_at_price": "$58.00", "link": "" } },
-        "row_3": { "type": "item", "settings": { "badge_text": "1+1 FREE", "title": "Extreme Lip Plumper", "price": "$39.00", "compare_at_price": "$48.00", "link": "" } },
-        "row_4": { "type": "item", "settings": { "badge_text": "SALE", "title": "Eyebrow Growth Serum", "price": "$39.00", "compare_at_price": "$58.00", "link": "" } },
-        "row_5": { "type": "item", "settings": { "badge_text": "NEW", "title": "Silk Blush Stick", "price": "$24.00", "compare_at_price": "", "link": "" } }
+        "row_1": {
+          "type": "item",
+          "settings": {
+            "product": "retinol-collagen-moisturizer-face-cream-hydrating-moisturizing-cream-anti-aging-cream-lifting-recovery-face-cream-reduce-fine-lines-lifting-firming-cream-1-7-fl-oz",
+            "badge_text": "BEST SELLER",
+            "title": "Peel-off Lip Stain",
+            "price": "$29.00",
+            "compare_at_price": "",
+            "link": ""
+          }
+        },
+        "row_2": {
+          "type": "item",
+          "settings": {
+            "product": "granulated-natural-vitamin-c-lemon-scrub-for-face-and-body-antioxidant-and-anti-aging-skin-peeling-exfoliating-with-jojoba-oil-and-vitamin-e",
+            "badge_text": "-33%",
+            "title": "Color Changing Foundation",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": ""
+          }
+        },
+        "row_3": {
+          "type": "item",
+          "settings": {
+            "product": "fut-thong-shapewear-for-women-high-waist-body-shaper-tummy-control-underwear-under-dress-shaping-panties-girdle",
+            "badge_text": "1+1 FREE",
+            "title": "Extreme Lip Plumper",
+            "price": "$39.00",
+            "compare_at_price": "$48.00",
+            "link": ""
+          }
+        },
+        "row_4": {
+          "type": "item",
+          "settings": {
+            "product": "azelaic-acid-cream-azelaic-acid-12-facial-serumskin-hyaluronic-acid-and-niacinamide-redness-relief",
+            "badge_text": "SALE",
+            "title": "Eyebrow Growth Serum",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": ""
+          }
+        },
+        "row_5": {
+          "type": "item",
+          "settings": {
+            "product": "womens-long-sleeve-zip-sports-jacket-for-yoga-running",
+            "badge_text": "NEW",
+            "title": "Silk Blush Stick",
+            "price": "$24.00",
+            "compare_at_price": "",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5"],
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5"
+      ],
       "settings": {
         "heading": "Top 5 Best-Sellers This Week",
         "subheading": "Updated every Monday",
@@ -65,12 +267,65 @@
     "sm1c_home_bestsellers": {
       "type": "sm1c-home-bestsellers-grid",
       "blocks": {
-        "card_1": { "type": "item", "settings": { "badge_text": "VIRAL", "title": "Peel-off Lip Stain", "rating_text": "★★★★★ 1,204", "price": "$29.00", "compare_at_price": "", "link": "", "show_wishlist": true } },
-        "card_2": { "type": "item", "settings": { "badge_text": "BESTSELLER", "title": "Color Changing Foundation", "rating_text": "★★★★★ 834", "price": "$39.00", "compare_at_price": "$58.00", "link": "", "show_wishlist": true } },
-        "card_3": { "type": "item", "settings": { "badge_text": "1+1 FREE", "title": "Extreme Lip Plumper", "rating_text": "★★★★★ 2,910", "price": "$39.00", "compare_at_price": "$48.00", "link": "", "show_wishlist": true } },
-        "card_4": { "type": "item", "settings": { "badge_text": "SALE", "title": "Eyebrow Growth Serum", "rating_text": "★★★★★ 561", "price": "$39.00", "compare_at_price": "$58.00", "link": "", "show_wishlist": true } }
+        "card_1": {
+          "type": "item",
+          "settings": {
+            "product": "",
+            "badge_text": "VIRAL",
+            "title": "Peel-off Lip Stain",
+            "rating_text": "★★★★★ 1,204",
+            "price": "$29.00",
+            "compare_at_price": "",
+            "link": "",
+            "show_wishlist": true
+          }
+        },
+        "card_2": {
+          "type": "item",
+          "settings": {
+            "product": "",
+            "badge_text": "BESTSELLER",
+            "title": "Color Changing Foundation",
+            "rating_text": "★★★★★ 834",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": "",
+            "show_wishlist": true
+          }
+        },
+        "card_3": {
+          "type": "item",
+          "settings": {
+            "product": "",
+            "badge_text": "1+1 FREE",
+            "title": "Extreme Lip Plumper",
+            "rating_text": "★★★★★ 2,910",
+            "price": "$39.00",
+            "compare_at_price": "$48.00",
+            "link": "",
+            "show_wishlist": true
+          }
+        },
+        "card_4": {
+          "type": "item",
+          "settings": {
+            "product": "",
+            "badge_text": "SALE",
+            "title": "Eyebrow Growth Serum",
+            "rating_text": "★★★★★ 561",
+            "price": "$39.00",
+            "compare_at_price": "$58.00",
+            "link": "",
+            "show_wishlist": true
+          }
+        }
       },
-      "block_order": ["card_1", "card_2", "card_3", "card_4"],
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
       "settings": {
         "heading": "Bestsellers",
         "view_all_link": "",
@@ -82,11 +337,33 @@
     "sm1c_categories": {
       "type": "sm1c-categories",
       "blocks": {
-        "tile_1": { "type": "tile", "settings": { "label": "Face", "link": "" } },
-        "tile_2": { "type": "tile", "settings": { "label": "Lips & Cheeks", "link": "" } },
-        "tile_3": { "type": "tile", "settings": { "label": "Eyes", "link": "" } }
+        "tile_1": {
+          "type": "tile",
+          "settings": {
+            "label": "Face",
+            "link": ""
+          }
+        },
+        "tile_2": {
+          "type": "tile",
+          "settings": {
+            "label": "Lips & Cheeks",
+            "link": ""
+          }
+        },
+        "tile_3": {
+          "type": "tile",
+          "settings": {
+            "label": "Eyes",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["tile_1", "tile_2", "tile_3"],
+      "block_order": [
+        "tile_1",
+        "tile_2",
+        "tile_3"
+      ],
       "settings": {
         "heading": "Shop by Category",
         "bg_color": "#f6e6dd",
@@ -97,16 +374,75 @@
     "sm1c_testimonials": {
       "type": "sm1c-testimonials",
       "blocks": {
-        "t_1": { "type": "review", "settings": { "author": "Lauren", "rating_text": "★★★★★ Verified", "quote": "One conversation away from counseling. Now we're laughing again." } },
-        "t_2": { "type": "review", "settings": { "author": "Tracey", "rating_text": "★★★★★ Verified", "quote": "So glad I tried these — helped through a dry spell." } },
-        "t_3": { "type": "media", "settings": { "alt": "customer video" } },
-        "t_4": { "type": "review", "settings": { "author": "Lana", "rating_text": "★★★★★ Verified", "quote": "47 and perimenopausal — noticed a difference in three weeks." } },
-        "t_5": { "type": "media", "settings": { "alt": "customer photo" } },
-        "t_6": { "type": "review", "settings": { "author": "Sienna", "rating_text": "★★★★★ Verified", "quote": "Noticed a difference within days — more energy and focus all day." } },
-        "t_7": { "type": "media", "settings": { "alt": "customer photo" } },
-        "t_8": { "type": "review", "settings": { "author": "Janelle", "rating_text": "★★★★★ Verified", "quote": "Two kids, no time — three weeks in and it's already part of my routine." } }
+        "t_1": {
+          "type": "review",
+          "settings": {
+            "author": "Lauren",
+            "rating_text": "★★★★★ Verified",
+            "quote": "One conversation away from counseling. Now we're laughing again."
+          }
+        },
+        "t_2": {
+          "type": "review",
+          "settings": {
+            "author": "Tracey",
+            "rating_text": "★★★★★ Verified",
+            "quote": "So glad I tried these — helped through a dry spell."
+          }
+        },
+        "t_3": {
+          "type": "media",
+          "settings": {
+            "alt": "customer video"
+          }
+        },
+        "t_4": {
+          "type": "review",
+          "settings": {
+            "author": "Lana",
+            "rating_text": "★★★★★ Verified",
+            "quote": "47 and perimenopausal — noticed a difference in three weeks."
+          }
+        },
+        "t_5": {
+          "type": "media",
+          "settings": {
+            "alt": "customer photo"
+          }
+        },
+        "t_6": {
+          "type": "review",
+          "settings": {
+            "author": "Sienna",
+            "rating_text": "★★★★★ Verified",
+            "quote": "Noticed a difference within days — more energy and focus all day."
+          }
+        },
+        "t_7": {
+          "type": "media",
+          "settings": {
+            "alt": "customer photo"
+          }
+        },
+        "t_8": {
+          "type": "review",
+          "settings": {
+            "author": "Janelle",
+            "rating_text": "★★★★★ Verified",
+            "quote": "Two kids, no time — three weeks in and it's already part of my routine."
+          }
+        }
       },
-      "block_order": ["t_1", "t_2", "t_3", "t_4", "t_5", "t_6", "t_7", "t_8"],
+      "block_order": [
+        "t_1",
+        "t_2",
+        "t_3",
+        "t_4",
+        "t_5",
+        "t_6",
+        "t_7",
+        "t_8"
+      ],
       "settings": {
         "eyebrow": "REAL RESULTS",
         "heading": "There's a reason women are raving about us.",
@@ -118,12 +454,57 @@
     "sm1c_bundles": {
       "type": "sm1c-bundles",
       "blocks": {
-        "b_1": { "type": "bundle", "settings": { "badge_text": "SAVE 58%", "title": "Triple Lip Plumper Bundle", "price": "$48.00", "compare_at_price": "$115.00", "link": "" } },
-        "b_2": { "type": "bundle", "settings": { "badge_text": "SALE", "title": "Lash & Brow Growth Kit", "price": "$48.00", "compare_at_price": "$77.00", "link": "" } },
-        "b_3": { "type": "bundle", "settings": { "badge_text": "SAVE 65%", "title": "Bestseller Duo Kit", "price": "$58.00", "compare_at_price": "$168.00", "link": "" } },
-        "b_4": { "type": "bundle", "settings": { "badge_text": "SAVE 54%", "title": "Bestseller Mega Lip Bundle", "price": "$68.00", "compare_at_price": "$150.00", "link": "" } }
+        "b_1": {
+          "type": "bundle",
+          "settings": {
+            "product": "",
+            "badge_text": "SAVE 58%",
+            "title": "Triple Lip Plumper Bundle",
+            "price": "$48.00",
+            "compare_at_price": "$115.00",
+            "link": ""
+          }
+        },
+        "b_2": {
+          "type": "bundle",
+          "settings": {
+            "product": "",
+            "badge_text": "SALE",
+            "title": "Lash & Brow Growth Kit",
+            "price": "$48.00",
+            "compare_at_price": "$77.00",
+            "link": ""
+          }
+        },
+        "b_3": {
+          "type": "bundle",
+          "settings": {
+            "product": "",
+            "badge_text": "SAVE 65%",
+            "title": "Bestseller Duo Kit",
+            "price": "$58.00",
+            "compare_at_price": "$168.00",
+            "link": ""
+          }
+        },
+        "b_4": {
+          "type": "bundle",
+          "settings": {
+            "product": "",
+            "badge_text": "SAVE 54%",
+            "title": "Bestseller Mega Lip Bundle",
+            "price": "$68.00",
+            "compare_at_price": "$150.00",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["b_1", "b_2", "b_3", "b_4"],
+      "block_order": [
+        "b_1",
+        "b_2",
+        "b_3",
+        "b_4"
+      ],
       "settings": {
         "heading": "Bundle & Save",
         "view_all_link": "",
