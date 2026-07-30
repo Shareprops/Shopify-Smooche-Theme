@@ -868,7 +868,22 @@
         {%- endif -%}
 
         {%- for option in product.options_with_values -%}
-          {%- unless color_option and option.position == color_option.position -%}
+          {%- assign is_placeholder_option = false -%}
+          {%- if option.values.size == 1 -%}
+            {%- assign single_value_downcase = option.values.first | strip | downcase -%}
+            {%- if single_value_downcase == blank
+              or single_value_downcase == 'n/a'
+              or single_value_downcase == 'default title'
+              or single_value_downcase == 'default'
+            -%}
+              {%- assign is_placeholder_option = true -%}
+            {%- endif -%}
+          {%- endif -%}
+          {%- assign skip_option = is_placeholder_option -%}
+          {%- if color_option and option.position == color_option.position -%}
+            {%- assign skip_option = true -%}
+          {%- endif -%}
+          {%- unless skip_option -%}
             <div class="sm1c-pdp-option-group">
               <label class="sm1c-pdp-option-label">
                 {{ option.name }}: <span data-sm1c-option-name>{{ option.selected_value }}</span>
