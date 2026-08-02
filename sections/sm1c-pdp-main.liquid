@@ -1138,18 +1138,28 @@
         </div>
       {%- endif -%}
 
+      {%- assign feedback_bars_mf = product.metafields.custom.feedback_bars.value -%}
       {%- assign feedback_blocks = section.blocks | where: 'type', 'feedback_bar' -%}
-      {%- if feedback_blocks.size > 0 -%}
+      {%- if feedback_bars_mf.size > 0 or feedback_blocks.size > 0 -%}
         <div class="sm1c-pdp-feedback">
           {%- if section.settings.feedback_title != blank -%}
             <div class="sm1c-pdp-feedback-title">{{ section.settings.feedback_title }}</div>
           {%- endif -%}
-          {%- for block in feedback_blocks -%}
-            <div {{ block.shopify_attributes }}>
-              <div class="sm1c-pdp-fb-label">{{ block.settings.label }}</div>
-              <div class="sm1c-pdp-fb-track"><div class="sm1c-pdp-fb-fill" style="width:{{ block.settings.percent }}%"></div></div>
-            </div>
-          {%- endfor -%}
+          {%- if feedback_bars_mf.size > 0 -%}
+            {%- for bar in feedback_bars_mf -%}
+              <div>
+                <div class="sm1c-pdp-fb-label">{{ bar.label.value }}</div>
+                <div class="sm1c-pdp-fb-track"><div class="sm1c-pdp-fb-fill" style="width:{{ bar.percent.value }}%"></div></div>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for block in feedback_blocks -%}
+              <div {{ block.shopify_attributes }}>
+                <div class="sm1c-pdp-fb-label">{{ block.settings.label }}</div>
+                <div class="sm1c-pdp-fb-track"><div class="sm1c-pdp-fb-fill" style="width:{{ block.settings.percent }}%"></div></div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
         </div>
       {%- endif -%}
     </div>

@@ -317,10 +317,13 @@ html {
   gap: 12px;
 }
 #shopify-section-{{ section.id }} .sm1c-mega-menu-nav-list a {
-  font-size: 12px;
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13.5px;
   font-weight: 500;
+  line-height: 1.4;
   color: inherit;
-  opacity: .72;
+  opacity: .85;
   text-decoration: none;
   transition: opacity .15s ease, color .15s ease;
 }
@@ -456,8 +459,8 @@ html {
             <div class="sm1c-mega-menu-nav-block">
               <a href="{{ sm1c_mega_collection.url }}" class="sm1c-mega-menu-nav-heading">{{ sm1c_mega_collection.title | upcase }}</a>
               <ul class="sm1c-mega-menu-nav-list">
-                {%- for product in sm1c_mega_collection.products limit: 4 -%}
-                  <li><a href="{{ product.url }}">{{ product.title | upcase }}</a></li>
+                {%- for product in sm1c_mega_collection.products limit: 3 -%}
+                  <li><a href="{{ product.url }}">{{ product.title }}</a></li>
                 {%- endfor -%}
               </ul>
             </div>
