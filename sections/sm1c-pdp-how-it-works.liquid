@@ -73,17 +73,27 @@
   <div class="sm1c-hiw-sub">{{ section.settings.subheading }}</div>
   <div class="sm1c-hiw-grid">
     <div class="sm1c-hiw-img">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: '' }}
+      {%- assign hiw_image = product.metafields.custom.how_it_works_image.value | default: section.settings.image -%}
+      {%- if hiw_image != blank -%}
+        {{ hiw_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: '' }}
       {%- endif -%}
     </div>
     <div class="sm1c-hiw-steps">
-      {%- for block in section.blocks -%}
-        <div {{ block.shopify_attributes }}>
-          <div class="sm1c-hiw-step-title">{{ forloop.index }}. {{ block.settings.title }}</div>
-          <div class="sm1c-hiw-step-body">{{ block.settings.body }}</div>
-        </div>
-      {%- endfor -%}
+      {%- if product.metafields.custom.how_it_works_steps.value.size > 0 -%}
+        {%- for step in product.metafields.custom.how_it_works_steps.value -%}
+          <div>
+            <div class="sm1c-hiw-step-title">{{ forloop.index }}. {{ step.title.value }}</div>
+            <div class="sm1c-hiw-step-body">{{ step.body.value }}</div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div {{ block.shopify_attributes }}>
+            <div class="sm1c-hiw-step-title">{{ forloop.index }}. {{ block.settings.title }}</div>
+            <div class="sm1c-hiw-step-body">{{ block.settings.body }}</div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </div>

@@ -102,20 +102,34 @@
   <div class="sm1c-stat-sub">{{ section.settings.subheading }}</div>
   <div class="sm1c-stat-grid">
     <div class="sm1c-stat-list">
-      {%- for block in section.blocks -%}
-        <div {{ block.shopify_attributes }}>
-          <div class="sm1c-stat-row">
-            <div class="sm1c-stat-pct">{{ block.settings.percent }}%</div>
-            <div class="sm1c-stat-headline">{{ block.settings.headline }}</div>
+      {%- if product.metafields.custom.survey_stats.value.size > 0 -%}
+        {%- for stat in product.metafields.custom.survey_stats.value -%}
+          <div>
+            <div class="sm1c-stat-row">
+              <div class="sm1c-stat-pct">{{ stat.percent.value }}%</div>
+              <div class="sm1c-stat-headline">{{ stat.headline.value }}</div>
+            </div>
+            <div class="sm1c-stat-body">{{ stat.body.value }}</div>
+            <div class="sm1c-stat-track"><div class="sm1c-stat-fill" style="width:{{ stat.percent.value }}%;background:{{ stat.bar_color.value }}"></div></div>
           </div>
-          <div class="sm1c-stat-body">{{ block.settings.body }}</div>
-          <div class="sm1c-stat-track"><div class="sm1c-stat-fill" style="width:{{ block.settings.percent }}%;background:{{ block.settings.bar_color }}"></div></div>
-        </div>
-      {%- endfor -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div {{ block.shopify_attributes }}>
+            <div class="sm1c-stat-row">
+              <div class="sm1c-stat-pct">{{ block.settings.percent }}%</div>
+              <div class="sm1c-stat-headline">{{ block.settings.headline }}</div>
+            </div>
+            <div class="sm1c-stat-body">{{ block.settings.body }}</div>
+            <div class="sm1c-stat-track"><div class="sm1c-stat-fill" style="width:{{ block.settings.percent }}%;background:{{ block.settings.bar_color }}"></div></div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
     <div class="sm1c-stat-img">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: '' }}
+      {%- assign stat_image = product.metafields.custom.survey_stats_image.value | default: section.settings.image -%}
+      {%- if stat_image != blank -%}
+        {{ stat_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: '' }}
       {%- endif -%}
     </div>
   </div>

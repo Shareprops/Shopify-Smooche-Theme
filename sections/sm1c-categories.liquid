@@ -13,7 +13,7 @@
 }
 #shopify-section-{{ section.id }} .sm1c-cat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 #shopify-section-{{ section.id }} .sm1c-cat-tile {
@@ -37,17 +37,30 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.55), transparent 55%);
+  background: linear-gradient(to top, rgba(0, 0, 0, .82) 0%, rgba(0, 0, 0, .5) 32%, transparent 62%);
 }
-#shopify-section-{{ section.id }} .sm1c-cat-label {
+#shopify-section-{{ section.id }} .sm1c-cat-text {
   position: absolute;
   bottom: 22px;
   left: 22px;
+  right: 22px;
   color: #fff;
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-cat-label {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 800;
   font-size: 20px;
-  z-index: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .5);
+}
+#shopify-section-{{ section.id }} .sm1c-cat-subtitle {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  opacity: .92;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
 }
 #shopify-section-{{ section.id }} .sm1c-cat-cta {
   text-align: center;
@@ -62,6 +75,11 @@
   font-weight: 700;
   text-decoration: none;
   display: inline-block;
+}
+@media (max-width: 900px) {
+  #shopify-section-{{ section.id }} .sm1c-cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 749px) {
   #shopify-section-{{ section.id }} .sm1c-cat-grid {
@@ -82,11 +100,22 @@
   <div class="sm1c-cat-title">{{ section.settings.heading }}</div>
   <div class="sm1c-cat-grid">
     {%- for block in section.blocks -%}
-      <a href="{{ block.settings.link | default: '#' }}" class="sm1c-cat-tile" {{ block.shopify_attributes }}>
-        {%- if block.settings.image != blank -%}
-          {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: block.settings.label }}
+      {%- liquid
+        assign tile_collection = block.settings.collection
+        assign tile_image = block.settings.image | default: tile_collection.image
+        assign tile_label = block.settings.label | default: tile_collection.title
+        assign tile_link = block.settings.link | default: tile_collection.url
+      -%}
+      <a href="{{ tile_link | default: '#' }}" class="sm1c-cat-tile" {{ block.shopify_attributes }}>
+        {%- if tile_image != blank -%}
+          {{ tile_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: tile_label }}
         {%- endif -%}
-        <div class="sm1c-cat-label">{{ block.settings.label }}</div>
+        <div class="sm1c-cat-text">
+          <div class="sm1c-cat-label">{{ tile_label }}</div>
+          {%- if block.settings.subtitle != blank -%}
+            <div class="sm1c-cat-subtitle">{{ block.settings.subtitle }}</div>
+          {%- endif -%}
+        </div>
       </a>
     {%- endfor -%}
   </div>
@@ -131,20 +160,30 @@
       "name": "Category tile",
       "settings": [
         {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection",
+          "info": "Auto-fills the image, label, and link below unless you override them."
+        },
+        {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Image override"
         },
         {
           "type": "text",
           "id": "label",
-          "label": "Label",
-          "default": "Face"
+          "label": "Label override"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle (optional)"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Link"
+          "label": "Link override"
         }
       ]
     }

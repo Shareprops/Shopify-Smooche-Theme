@@ -1,6 +1,3 @@
-{%- liquid
-  assign current_variant = product.selected_or_first_available_variant
--%}
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-cmp-wrap {
   padding: 60px 44px;
@@ -45,6 +42,12 @@
   font-size: 20px;
   font-weight: 800;
   color: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-brand-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .85);
+  margin-top: 6px;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-head-col {
   text-align: center;
@@ -109,104 +112,97 @@
   color: #fff;
   font-size: 12px;
 }
-#shopify-section-{{ section.id }} .sm1c-cmp-cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 26px;
-  padding-top: 20px;
-  border-top: 1px solid oklch(90% 0.01 30);
-}
-#shopify-section-{{ section.id }} .sm1c-cmp-cta-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-#shopify-section-{{ section.id }} .sm1c-cmp-cta-img {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #eee;
-}
-#shopify-section-{{ section.id }} .sm1c-cmp-cta-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-#shopify-section-{{ section.id }} .sm1c-cmp-cta-name {
-  font-size: 14px;
-  font-weight: 700;
-}
-#shopify-section-{{ section.id }} .sm1c-cmp-cta-btn {
-  background: oklch(60% 0.16 25);
-  color: #fff;
-  padding: 14px 30px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
 @media (max-width: 700px) {
+  #shopify-section-{{ section.id }} .sm1c-cmp-table {
+    margin-top: 8px;
+  }
   #shopify-section-{{ section.id }} .sm1c-cmp-feature {
     font-size: 12px;
     padding: 14px 10px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-cmp-head,
+  #shopify-section-{{ section.id }} .sm1c-cmp-row {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  #shopify-section-{{ section.id }} .sm1c-cmp-head > :last-child,
+  #shopify-section-{{ section.id }} .sm1c-cmp-row > :last-child {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .sm1c-cmp-head-brand {
+    padding: 26px 8px 18px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-cmp-head-col {
+    padding: 26px 8px 18px;
   }
 }
 {%- endstyle -%}
 
 <div class="sm1c-cmp-wrap">
-  <div class="sm1c-cmp-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
+  {%- liquid
+    assign cmp_heading_mf = product.metafields.custom.comparison_heading.value
+    assign cmp_c1_name = product.metafields.custom.competitor_1_name.value | default: section.settings.competitor_1_name
+    assign cmp_c1_price = product.metafields.custom.competitor_1_price.value | default: section.settings.competitor_1_price
+    assign cmp_c2_name = product.metafields.custom.competitor_2_name.value | default: section.settings.competitor_2_name
+    assign cmp_c2_price = product.metafields.custom.competitor_2_price.value | default: section.settings.competitor_2_price
+  -%}
+  {%- if cmp_heading_mf != blank -%}
+    {%- assign cmp_parts = cmp_heading_mf | split: ' vs ' -%}
+    <div class="sm1c-cmp-title">
+      {{- cmp_parts[0] -}}
+      {%- if cmp_parts.size > 1 %} <span>vs {{ cmp_parts[1] }}</span>{% endif -%}
+    </div>
+  {%- else -%}
+    <div class="sm1c-cmp-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
+  {%- endif -%}
   <div class="sm1c-cmp-sub">{{ section.settings.subheading }}</div>
   <div class="sm1c-cmp-table">
     <div class="sm1c-cmp-head">
       <div></div>
       <div class="sm1c-cmp-head-brand">
         <div class="sm1c-cmp-head-brand-name">{{ section.settings.brand_name }}</div>
+        <div class="sm1c-cmp-head-brand-price">{{ product.selected_or_first_available_variant.price | money }}</div>
       </div>
       <div class="sm1c-cmp-head-col">
-        <div class="sm1c-cmp-head-col-name">{{ section.settings.competitor_1_name }}</div>
-        <div class="sm1c-cmp-head-col-price">{{ section.settings.competitor_1_price }}</div>
+        <div class="sm1c-cmp-head-col-name">{{ cmp_c1_name }}</div>
+        <div class="sm1c-cmp-head-col-price">{{ cmp_c1_price }}</div>
       </div>
       <div class="sm1c-cmp-head-col">
-        <div class="sm1c-cmp-head-col-name">{{ section.settings.competitor_2_name }}</div>
-        <div class="sm1c-cmp-head-col-price">{{ section.settings.competitor_2_price }}</div>
+        <div class="sm1c-cmp-head-col-name">{{ cmp_c2_name }}</div>
+        <div class="sm1c-cmp-head-col-price">{{ cmp_c2_price }}</div>
       </div>
     </div>
     <div class="sm1c-cmp-rows">
-      {%- for block in section.blocks -%}
-        <div class="sm1c-cmp-row" {{ block.shopify_attributes }}>
-          <div class="sm1c-cmp-feature">{{ block.settings.feature }}</div>
-          <div class="sm1c-cmp-cell sm1c-cmp-cell-smooche">
-            <span class="sm1c-cmp-mark sm1c-cmp-mark-yes">✓</span>
+      {%- if product.metafields.custom.comparison_rows.value.size > 0 -%}
+        {%- for row in product.metafields.custom.comparison_rows.value -%}
+          <div class="sm1c-cmp-row">
+            <div class="sm1c-cmp-feature">{{ row.feature.value }}</div>
+            <div class="sm1c-cmp-cell sm1c-cmp-cell-smooche">
+              <span class="sm1c-cmp-mark {% if row.brand_has.value %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if row.brand_has.value %}✓{% else %}✕{% endif %}</span>
+            </div>
+            <div class="sm1c-cmp-cell">
+              <span class="sm1c-cmp-mark {% if row.competitor_1_has.value %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if row.competitor_1_has.value %}✓{% else %}✕{% endif %}</span>
+            </div>
+            <div class="sm1c-cmp-cell">
+              <span class="sm1c-cmp-mark {% if row.competitor_2_has.value %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if row.competitor_2_has.value %}✓{% else %}✕{% endif %}</span>
+            </div>
           </div>
-          <div class="sm1c-cmp-cell">
-            <span class="sm1c-cmp-mark {% if block.settings.competitor_1 %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if block.settings.competitor_1 %}✓{% else %}✕{% endif %}</span>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div class="sm1c-cmp-row" {{ block.shopify_attributes }}>
+            <div class="sm1c-cmp-feature">{{ block.settings.feature }}</div>
+            <div class="sm1c-cmp-cell sm1c-cmp-cell-smooche">
+              <span class="sm1c-cmp-mark sm1c-cmp-mark-yes">✓</span>
+            </div>
+            <div class="sm1c-cmp-cell">
+              <span class="sm1c-cmp-mark {% if block.settings.competitor_1 %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if block.settings.competitor_1 %}✓{% else %}✕{% endif %}</span>
+            </div>
+            <div class="sm1c-cmp-cell">
+              <span class="sm1c-cmp-mark {% if block.settings.competitor_2 %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if block.settings.competitor_2 %}✓{% else %}✕{% endif %}</span>
+            </div>
           </div>
-          <div class="sm1c-cmp-cell">
-            <span class="sm1c-cmp-mark {% if block.settings.competitor_2 %}sm1c-cmp-mark-yes{% else %}sm1c-cmp-mark-no{% endif %}">{% if block.settings.competitor_2 %}✓{% else %}✕{% endif %}</span>
-          </div>
-        </div>
-      {%- endfor -%}
-    </div>
-    <div class="sm1c-cmp-cta">
-      <div class="sm1c-cmp-cta-left">
-        <div class="sm1c-cmp-cta-img">
-          {%- if product.featured_image != blank -%}
-            {{ product.featured_image | image_url: width: 100 | image_tag: loading: 'lazy', alt: product.title }}
-          {%- endif -%}
-        </div>
-        <div class="sm1c-cmp-cta-name">{{ product.title }}</div>
-      </div>
-      {%- form 'product', product -%}
-        <input type="hidden" name="id" value="{{ current_variant.id }}">
-        <button type="submit" class="sm1c-cmp-cta-btn" {% unless current_variant.available %}disabled{% endunless %}>
-          {%- if current_variant.available -%}ADD TO CART{%- else -%}Sold out{%- endif -%}
-        </button>
-      {%- endform -%}
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </div>

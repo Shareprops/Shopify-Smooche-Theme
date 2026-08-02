@@ -37,14 +37,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 24px;
-  cursor: pointer;
   list-style: none;
 }
 #shopify-section-{{ section.id }} .sm1c-ing-summary::-webkit-details-marker {
   display: none;
 }
-#shopify-section-{{ section.id }} .sm1c-ing-summary::after {
+#shopify-section-{{ section.id }} .sm1c-ing-item.has-description .sm1c-ing-summary {
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-item.has-description .sm1c-ing-summary::after {
   content: "\02c5";
+  color: oklch(55% 0.03 30);
+  transition: transform .2s ease;
+  flex: none;
+  margin-left: 12px;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-item.has-description[open] .sm1c-ing-summary::after {
+  transform: rotate(180deg);
 }
 #shopify-section-{{ section.id }} .sm1c-ing-name {
   font-size: 14px;
@@ -70,20 +79,6 @@
   line-height: 1.6;
   color: oklch(40% 0.02 30);
 }
-#shopify-section-{{ section.id }} .sm1c-ing-cta {
-  text-align: center;
-  margin-top: 32px;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-cta a {
-  background: #111;
-  color: #fff;
-  padding: 16px 32px;
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-block;
-}
 {%- endstyle -%}
 
 <div class="sm1c-ing-wrap">
@@ -93,41 +88,54 @@
     </div>
   {%- endif -%}
   <div class="sm1c-ing-list">
-    {%- for block in section.blocks -%}
-      <details class="sm1c-ing-item" {{ block.shopify_attributes }}>
-        <summary class="sm1c-ing-summary">
-          <div>
-            <div class="sm1c-ing-name">
-              {{ block.settings.name }}
-              {%- if block.settings.tag != blank -%}
-                <span class="sm1c-ing-tag">{{ block.settings.tag }}</span>
+    {%- if product.metafields.custom.fabric_facts.value.size > 0 -%}
+      {%- for fact in product.metafields.custom.fabric_facts.value -%}
+        <details class="sm1c-ing-item">
+          <summary class="sm1c-ing-summary">
+            <div>
+              <div class="sm1c-ing-name">
+                {{ fact.name.value }}
+                {%- if fact.tag.value != blank -%}
+                  <span class="sm1c-ing-tag">{{ fact.tag.value }}</span>
+                {%- endif -%}
+              </div>
+              {%- if fact.support_text.value != blank -%}
+                <div class="sm1c-ing-support">{{ fact.support_text.value }}</div>
               {%- endif -%}
             </div>
-            {%- if block.settings.support_text != blank -%}
-              <div class="sm1c-ing-support">{{ block.settings.support_text }}</div>
-            {%- endif -%}
-          </div>
-        </summary>
-        {%- if block.settings.description != blank -%}
-          <div class="sm1c-ing-body">{{ block.settings.description }}</div>
-        {%- endif -%}
-      </details>
-    {%- endfor -%}
+          </summary>
+        </details>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        <details class="sm1c-ing-item{% if block.settings.description != blank %} has-description{% endif %}" {{ block.shopify_attributes }}>
+          <summary class="sm1c-ing-summary">
+            <div>
+              <div class="sm1c-ing-name">
+                {{ block.settings.name }}
+                {%- if block.settings.tag != blank -%}
+                  <span class="sm1c-ing-tag">{{ block.settings.tag }}</span>
+                {%- endif -%}
+              </div>
+              {%- if block.settings.support_text != blank -%}
+                <div class="sm1c-ing-support">{{ block.settings.support_text }}</div>
+              {%- endif -%}
+            </div>
+          </summary>
+          {%- if block.settings.description != blank -%}
+            <div class="sm1c-ing-body">{{ block.settings.description }}</div>
+          {%- endif -%}
+        </details>
+      {%- endfor -%}
+    {%- endif -%}
   </div>
-  {%- if section.settings.cta_label != blank -%}
-    <div class="sm1c-ing-cta">
-      <a href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
-    </div>
-  {%- endif -%}
 </div>
 
 {% schema %}
 {
   "name": "SM1C Ingredients",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Top photo" },
-    { "type": "text", "id": "cta_label", "label": "Bottom button label", "default": "SHOP THIS SALE" },
-    { "type": "url", "id": "cta_link", "label": "Bottom button link" }
+    { "type": "image_picker", "id": "image", "label": "Top photo" }
   ],
   "blocks": [
     {

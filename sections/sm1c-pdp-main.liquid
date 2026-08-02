@@ -265,6 +265,29 @@
   margin-top: 10px;
   line-height: 1.5;
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: oklch(40% 0.02 30);
+  line-height: 1.5;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-check {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 3px;
+  color: oklch(55% 0.14 150);
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-tags {
   display: flex;
   flex-wrap: wrap;
@@ -417,6 +440,7 @@
   gap: 12px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier {
+  position: relative;
   border: 1.5px solid oklch(88% 0.01 30);
   border-radius: 16px;
   padding: 16px 18px;
@@ -438,13 +462,17 @@
   font-weight: 700;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-badge {
+  position: absolute;
+  top: -10px;
+  left: 18px;
   background: oklch(60% 0.16 25);
   color: #fff;
   font-size: 10px;
-  font-weight: 700;
-  padding: 3px 8px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  padding: 4px 10px;
   border-radius: 100px;
-  margin-left: 6px;
+  margin-left: 0;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-note {
   font-size: 12px;
@@ -477,6 +505,24 @@
   border-radius: 50%;
   background: oklch(60% 0.16 25);
   flex: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  #shopify-section-{{ section.id }} .sm1c-pdp-urgency-dot {
+    animation: sm1c-pdp-pulse 1.6s ease-in-out infinite;
+  }
+}
+@keyframes sm1c-pdp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-ship-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: oklch(65% 0.16 145);
+  margin-right: 5px;
+  vertical-align: middle;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-urgency-text {
   font-size: 13px;
@@ -539,6 +585,32 @@
   margin-top: 26px;
   font-size: 13px;
   font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-reel-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-reel-row::-webkit-scrollbar {
+  display: none;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-reel {
+  flex: 0 0 auto;
+  width: 160px;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #eee;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-reel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-media-grid {
   display: grid;
@@ -668,6 +740,7 @@
   color: var(--sm1c-text);
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc-list li,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-ship-row,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-tier-note,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-accordion-body,
@@ -766,24 +839,61 @@
         </div>
       {%- endif -%}
       <div class="sm1c-pdp-badges">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'trust_badge' -%}
-            <div class="sm1c-pdp-badge" {{ block.shopify_attributes }}>
-              <div class="sm1c-pdp-badge-icon">{{ block.settings.icon }}</div>
-              <div class="sm1c-pdp-badge-label">{{ block.settings.label }}</div>
+        {%- if product.metafields.custom.trust_badges.value.size > 0 -%}
+          {%- for badge in product.metafields.custom.trust_badges.value -%}
+            <div class="sm1c-pdp-badge">
+              <div class="sm1c-pdp-badge-icon">{{ badge.icon.value }}</div>
+              <div class="sm1c-pdp-badge-label">{{ badge.label.value }}</div>
             </div>
-          {%- endif -%}
-        {%- endfor -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'trust_badge' -%}
+              <div class="sm1c-pdp-badge" {{ block.shopify_attributes }}>
+                <div class="sm1c-pdp-badge-icon">{{ block.settings.icon }}</div>
+                <div class="sm1c-pdp-badge-label">{{ block.settings.label }}</div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
       </div>
     </div>
 
     <div class="sm1c-pdp-info">
+      {%- liquid
+        assign pdp_review_count = product.metafields.custom.review_count.value | default: section.settings.rating_text
+      -%}
       <div class="sm1c-pdp-rating">
         <span class="sm1c-pdp-rating-stars">★★★★★</span>
-        <span class="sm1c-pdp-rating-text">{{ section.settings.rating_text }}</span>
+        <span class="sm1c-pdp-rating-text">{{ pdp_review_count }}</span>
       </div>
       <h1 class="sm1c-pdp-title">{{ title_rest }} <span>{{ title_last }}</span></h1>
-      <div class="sm1c-pdp-desc">{{ product.description | strip_html | truncatewords: 28 }}</div>
+      {%- liquid
+        assign desc_stripped = product.description | strip_html
+        assign desc_parts = desc_stripped | split: '✅'
+        assign desc_bullet_count = 0
+        for part in desc_parts
+          assign part_trimmed = part | strip
+          unless part_trimmed == blank
+            assign desc_bullet_count = desc_bullet_count | plus: 1
+          endunless
+        endfor
+      -%}
+      {%- if desc_bullet_count > 1 -%}
+        <ul class="sm1c-pdp-desc-list">
+          {%- for part in desc_parts limit: 4 -%}
+            {%- assign part_trimmed = part | strip -%}
+            {%- unless part_trimmed == blank -%}
+              <li>
+                <svg class="sm1c-pdp-desc-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>{{ part_trimmed | truncatewords: 24 }}</span>
+              </li>
+            {%- endunless -%}
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <div class="sm1c-pdp-desc">{{ desc_stripped | truncatewords: 28 }}</div>
+      {%- endif -%}
 
       {%- if product.tags.size > 0 -%}
         <div class="sm1c-pdp-tags">
@@ -946,8 +1056,11 @@
         </button>
       {%- endform -%}
 
+      {%- liquid
+        assign ship_note_left_clean = section.settings.ship_note_left | replace_first: '● ', '' | replace_first: '●', ''
+      -%}
       <div class="sm1c-pdp-ship-row">
-        <span>{{ section.settings.ship_note_left }}</span>
+        <span><span class="sm1c-pdp-ship-dot"></span>{{ ship_note_left_clean }}</span>
         <span>{{ section.settings.ship_note_right }}</span>
       </div>
 
@@ -955,15 +1068,60 @@
         <div class="sm1c-pdp-social">★★★★★ &nbsp;{{ section.settings.social_proof_text }}</div>
       {%- endif -%}
 
-      {%- assign media_blocks = section.blocks | where: 'type', 'media_tile' -%}
-      {%- if media_blocks.size > 0 -%}
+      {%- assign demo_videos = product.metafields.custom.product_demos.value -%}
+      {%- if demo_videos.size > 0 or section.settings.reel_video != null -%}
+        <div class="sm1c-pdp-reel-row">
+          {%- if demo_videos.size > 0 -%}
+            {%- for demo in demo_videos -%}
+              {%- if demo.media_type == 'video' -%}
+                <div class="sm1c-pdp-reel">
+                  {{-
+                    demo
+                    | video_tag:
+                      autoplay: true,
+                      loop: true,
+                      muted: true,
+                      controls: false,
+                      preload: 'metadata',
+                      image_size: '400x'
+                  -}}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            <div class="sm1c-pdp-reel">
+              {{-
+                section.settings.reel_video
+                | video_tag:
+                  autoplay: true,
+                  loop: true,
+                  muted: true,
+                  controls: false,
+                  preload: 'metadata',
+                  image_size: '400x'
+              -}}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- liquid
+        assign media_blocks = section.blocks | where: 'type', 'media_tile'
+        assign has_media_image = false
+        for block in media_blocks
+          if block.settings.image != blank
+            assign has_media_image = true
+          endif
+        endfor
+      -%}
+      {%- if has_media_image -%}
         <div class="sm1c-pdp-media-grid">
           {%- for block in media_blocks -%}
-            <div class="sm1c-pdp-media-tile" {{ block.shopify_attributes }}>
-              {%- if block.settings.image != blank -%}
+            {%- if block.settings.image != blank -%}
+              <div class="sm1c-pdp-media-tile" {{ block.shopify_attributes }}>
                 {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}
-              {%- endif -%}
-            </div>
+              </div>
+            {%- endif -%}
           {%- endfor -%}
         </div>
       {%- endif -%}
@@ -1399,6 +1557,12 @@
       "id": "social_proof_text",
       "label": "Social proof text",
       "default": "10,000+ Happy Customers"
+    },
+    {
+      "type": "video",
+      "id": "reel_video",
+      "label": "Reel video (9:16)",
+      "info": "Autoplays muted, loops, no controls."
     },
     {
       "type": "text",

@@ -195,8 +195,8 @@
     <div class="sm1c-pg-count">{{ match_count }} products</div>
   </div>
 
-    <div class="sm1c-pg-grid">
-      {%- if tag_filter != blank -%}
+    {%- if tag_filter != blank -%}
+      <div class="sm1c-pg-grid">
         {%- assign shown_count = 0 -%}
         {%- for product in collections.all.products -%}
           {%- if product.tags contains tag_filter -%}
@@ -207,21 +207,27 @@
             {%- render 'sm1c-bestsellers-card', product: product, section: section -%}
           {%- endif -%}
         {%- endfor -%}
-      {%- else -%}
-        {%- for product in collection.products limit: section.settings.products_per_page -%}
-          {%- render 'sm1c-bestsellers-card', product: product, section: section -%}
-        {%- endfor -%}
-      {%- endif -%}
-    </div>
-
-    {%- if match_count > section.settings.products_per_page -%}
-      <div class="sm1c-pg-pagination">
-        {%- if tag_filter != blank -%}
-          <div>Showing {{ section.settings.products_per_page }} of {{ match_count }} products</div>
-        {%- else -%}
-          <a href="{{ collection.url }}">View all {{ collection.products_count }} products →</a>
-        {%- endif -%}
       </div>
+
+      {%- if match_count > section.settings.products_per_page -%}
+        <div class="sm1c-pg-pagination">
+          <div>Showing {{ section.settings.products_per_page }} of {{ match_count }} products</div>
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      {%- paginate collection.products by section.settings.products_per_page -%}
+        <div class="sm1c-pg-grid">
+          {%- for product in collection.products -%}
+            {%- render 'sm1c-bestsellers-card', product: product, section: section -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <div class="sm1c-pg-pagination">
+            {%- render 'pagination', paginate: paginate, anchor: '' -%}
+          </div>
+        {%- endif -%}
+      {%- endpaginate -%}
     {%- endif -%}
 </div>
 

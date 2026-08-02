@@ -55,12 +55,21 @@
 <div class="sm1c-faq-wrap">
   <div class="sm1c-faq-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
   <div class="sm1c-faq-list">
-    {%- for block in section.blocks -%}
-      <details class="sm1c-faq-item" {{ block.shopify_attributes }}>
-        <summary class="sm1c-faq-summary">{{ block.settings.question }}</summary>
-        <div class="sm1c-faq-body">{{ block.settings.answer }}</div>
-      </details>
-    {%- endfor -%}
+    {%- if product.metafields.custom.faq_items.value.size > 0 -%}
+      {%- for faq in product.metafields.custom.faq_items.value -%}
+        <details class="sm1c-faq-item">
+          <summary class="sm1c-faq-summary">{{ faq.question.value }}</summary>
+          <div class="sm1c-faq-body">{{ faq.answer.value | newline_to_br }}</div>
+        </details>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        <details class="sm1c-faq-item" {{ block.shopify_attributes }}>
+          <summary class="sm1c-faq-summary">{{ block.settings.question }}</summary>
+          <div class="sm1c-faq-body">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    {%- endif -%}
   </div>
 </div>
 

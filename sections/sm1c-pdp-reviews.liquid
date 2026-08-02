@@ -62,6 +62,15 @@
   font-size: 11px;
   color: oklch(60% 0.16 25);
 }
+#shopify-section-{{ section.id }} .sm1c-rev-body {
+  font-size: 12px;
+  line-height: 1.5;
+  color: oklch(40% 0.02 30);
+  margin-top: 6px;
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-rev-body {
+  color: rgba(240, 237, 232, .65);
+}
 @media (max-width: 900px) {
   #shopify-section-{{ section.id }} .sm1c-rev-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -74,27 +83,44 @@
 {%- endstyle -%}
 
 <div class="sm1c-rev-wrap">
+  {%- liquid
+    assign rev_average_rating = product.metafields.custom.average_rating.value | default: section.settings.average_rating
+    assign rev_review_count = product.metafields.custom.review_count.value | default: section.settings.review_count
+  -%}
   <div class="sm1c-rev-head">
     <div>
-      <div class="sm1c-rev-score">{{ section.settings.average_rating }}</div>
-      <div class="sm1c-rev-count">★★★★★ {{ section.settings.review_count }}</div>
+      <div class="sm1c-rev-score">{{ rev_average_rating }}</div>
+      <div class="sm1c-rev-count">★★★★★ {{ rev_review_count }}</div>
     </div>
     {%- if section.settings.write_review_label != blank -%}
       <a href="{{ section.settings.write_review_link | default: '#' }}" class="sm1c-rev-write">{{ section.settings.write_review_label }}</a>
     {%- endif -%}
   </div>
   <div class="sm1c-rev-grid">
-    {%- for block in section.blocks -%}
-      <div class="sm1c-rev-card" {{ block.shopify_attributes }}>
-        <div class="sm1c-rev-photo">
-          {%- if block.settings.image != blank -%}
-            {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.name }}
-          {%- endif -%}
+    {%- if product.metafields.custom.review_items.value.size > 0 -%}
+      {%- for review in product.metafields.custom.review_items.value -%}
+        <div class="sm1c-rev-card">
+          <div class="sm1c-rev-name">{{ review.author_name.value }}</div>
+          <div class="sm1c-rev-stars">
+            {%- assign rating_val = review.rating.value -%}
+            {%- for i in (1..5) -%}{% if i <= rating_val %}★{% else %}☆{% endif %}{%- endfor -%}
+          </div>
+          <div class="sm1c-rev-body">{{ review.body.value }}</div>
         </div>
-        <div class="sm1c-rev-name">{{ block.settings.name }}</div>
-        <div class="sm1c-rev-stars">{{ block.settings.rating_text }}</div>
-      </div>
-    {%- endfor -%}
+      {%- endfor -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        <div class="sm1c-rev-card" {{ block.shopify_attributes }}>
+          <div class="sm1c-rev-photo">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.name }}
+            {%- endif -%}
+          </div>
+          <div class="sm1c-rev-name">{{ block.settings.name }}</div>
+          <div class="sm1c-rev-stars">{{ block.settings.rating_text }}</div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
   </div>
 </div>
 
