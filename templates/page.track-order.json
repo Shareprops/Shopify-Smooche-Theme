@@ -12,10 +12,7 @@
     "main": {
       "type": "main-page",
       "disabled": true,
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "settings": {}
     },
     "48a61bc7-365a-4136-bce5-4aa7f7623d0a": {
       "type": "sm1c-track-order",

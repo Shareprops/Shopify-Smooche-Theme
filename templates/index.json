@@ -12,6 +12,7 @@
     "sm1c_hero": {
       "type": "sm1c-hero",
       "settings": {
+        "image": "shopify://shop_images/49071ed145bb9ed930b4f956389a.png",
         "badge_text": "Loved by 50,000+ customers",
         "title": "Beauty inspired by you.",
         "subtext": "Skin-loving formulas designed for real routines — and the real you.",
@@ -21,8 +22,8 @@
         "button_2_link": "shopify://collections/frontpage",
         "chip_text": "Clinicians' Choice — 197 clinicians recommend Serein",
         "height": 600,
-        "gradient_from": "#F4A9B8",
-        "gradient_to": "#E8637E"
+        "gradient_from": "#f4a9b8",
+        "gradient_to": "#e8637e"
       }
     },
     "sm1c_trust_marquee": {
@@ -261,7 +262,7 @@
         "heading": "Top 5 Best-Sellers This Week",
         "subheading": "Updated every Monday",
         "bg_color": "#fdfaf6",
-        "accent_color": "#E8637E"
+        "accent_color": "#e8637e"
       }
     },
     "sm1c_home_bestsellers": {
@@ -270,7 +271,7 @@
         "card_1": {
           "type": "item",
           "settings": {
-            "product": "",
+            "product": "7-color-led-microcurrent-beauty-facial-massager",
             "badge_text": "VIRAL",
             "title": "Peel-off Lip Stain",
             "rating_text": "★★★★★ 1,204",
@@ -283,7 +284,7 @@
         "card_2": {
           "type": "item",
           "settings": {
-            "product": "",
+            "product": "adjustable-back-straightener-posture-corrector-brace",
             "badge_text": "BESTSELLER",
             "title": "Color Changing Foundation",
             "rating_text": "★★★★★ 834",
@@ -296,7 +297,7 @@
         "card_3": {
           "type": "item",
           "settings": {
-            "product": "",
+            "product": "bio-deep-collagen-hydrogel-firming-face-mask",
             "badge_text": "1+1 FREE",
             "title": "Extreme Lip Plumper",
             "rating_text": "★★★★★ 2,910",
@@ -309,7 +310,7 @@
         "card_4": {
           "type": "item",
           "settings": {
-            "product": "",
+            "product": "airbrush-matte-finish-foundation-spray",
             "badge_text": "SALE",
             "title": "Eyebrow Growth Serum",
             "rating_text": "★★★★★ 561",
@@ -331,7 +332,7 @@
         "view_all_link": "",
         "bg_color": "#ffffff",
         "pill_bg": "#f6e6dd",
-        "accent_color": "#E8637E"
+        "accent_color": "#e8637e"
       }
     },
     "sm1c_categories": {
@@ -341,28 +342,36 @@
           "type": "tile",
           "settings": {
             "collection": "anti-aging",
-            "subtitle": "Turn back the clock"
+            "label": "",
+            "subtitle": "Turn back the clock",
+            "link": ""
           }
         },
         "tile_2": {
           "type": "tile",
           "settings": {
             "collection": "daily-skincare-essentials",
-            "subtitle": "Your everyday glow"
+            "label": "",
+            "subtitle": "Your everyday glow",
+            "link": ""
           }
         },
         "tile_3": {
           "type": "tile",
           "settings": {
             "collection": "beauty-tools-devices",
-            "subtitle": "Spa results at home"
+            "label": "",
+            "subtitle": "Spa results at home",
+            "link": ""
           }
         },
         "tile_4": {
           "type": "tile",
           "settings": {
             "collection": "shapewear-body-shaping",
-            "subtitle": "Smooth. Lift. Own it."
+            "label": "",
+            "subtitle": "Smooth. Lift. Own it.",
+            "link": ""
           }
         }
       },
@@ -401,6 +410,7 @@
         "t_3": {
           "type": "media",
           "settings": {
+            "video": "shopify://files/videos/Collagen_Overnight_Wrapping_Pe.mp4",
             "alt": "customer video"
           }
         },
@@ -415,6 +425,7 @@
         "t_5": {
           "type": "media",
           "settings": {
+            "video": "shopify://files/videos/where_is_the_video_I_need_mut.mp4",
             "alt": "customer photo"
           }
         },
@@ -429,6 +440,7 @@
         "t_7": {
           "type": "media",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
             "alt": "customer photo"
           }
         },
@@ -456,7 +468,7 @@
         "heading": "There's a reason women are raving about us.",
         "bg_color": "#ffffff",
         "card_bg": "#f6e6dd",
-        "accent_color": "#E8637E"
+        "accent_color": "#e8637e"
       }
     },
     "sm1c_bundles": {
@@ -465,7 +477,7 @@
         "b_1": {
           "type": "bundle",
           "settings": {
-            "product": "",
+            "product": "fruit-roll-on-lip-oil-gloss-set",
             "badge_text": "SAVE 58%",
             "title": "Triple Lip Plumper Bundle",
             "price": "$48.00",
@@ -476,7 +488,7 @@
         "b_2": {
           "type": "bundle",
           "settings": {
-            "product": "",
+            "product": "ion-hot-air-comb-automatic-styling-dual-purpose-straightening-shaping-tool",
             "badge_text": "SALE",
             "title": "Lash & Brow Growth Kit",
             "price": "$48.00",
@@ -487,7 +499,7 @@
         "b_3": {
           "type": "bundle",
           "settings": {
-            "product": "",
+            "product": "mxczbsm-tighten-and-lift-neck-cream-neck-firming-cream-tightening-lifting-sagging-skin-anti-aging-neck-creams-for-hydrating-tightening-help-reduce-fine-lines-wrinkles",
             "badge_text": "SAVE 65%",
             "title": "Bestseller Duo Kit",
             "price": "$58.00",
@@ -498,7 +510,7 @@
         "b_4": {
           "type": "bundle",
           "settings": {
-            "product": "",
+            "product": "eigshow-angled-concealer-foundation-brush-soft-vegan",
             "badge_text": "SAVE 54%",
             "title": "Bestseller Mega Lip Bundle",
             "price": "$68.00",
@@ -523,6 +535,7 @@
     "sm1c_lifestyle": {
       "type": "sm1c-lifestyle-banner",
       "settings": {
+        "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
         "heading": "Fuller lips, naturally.",
         "body": "Crafted from natural ingredients — hydrated, nourished volume, without harsh chemicals.",
         "button_label": "Shop Now",
