@@ -1,0 +1,164 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-trk-wrap {
+  padding: 70px 44px;
+  background: {{ section.settings.bg_color }};
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
+  margin: 0 0 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(58, 46, 39, .8);
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-form {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-field {
+  margin-bottom: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1.5px solid oklch(88% 0.01 30);
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--sm1c-surface, #fff);
+  color: var(--sm1c-text, #111);
+}
+#shopify-section-{{ section.id }} .sm1c-trk-input:focus {
+  outline: none;
+  border-color: {{ section.settings.accent_color }};
+}
+#shopify-section-{{ section.id }} .sm1c-trk-btn {
+  display: block;
+  width: 100%;
+  background: {{ section.settings.accent_color }};
+  color: #fff;
+  padding: 16px;
+  border-radius: 100px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .35);
+}
+#shopify-section-{{ section.id }} .sm1c-trk-result {
+  max-width: 620px;
+  margin: 28px auto 0;
+  text-align: left;
+}
+#shopify-section-{{ section.id }} .sm1c-trk-result:not(:empty) {
+  border: 1.5px solid oklch(90% 0.01 30);
+  border-radius: 18px;
+  padding: 20px;
+}
+@media (max-width: 749px) {
+  #shopify-section-{{ section.id }} .sm1c-trk-wrap {
+    padding: 48px 20px;
+  }
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-trk-wrap {
+  background: var(--sm1c-bg);
+  color: var(--sm1c-text);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-trk-text {
+  color: rgba(240, 237, 232, .65);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-trk-input {
+  background: var(--sm1c-surface);
+  border-color: var(--sm1c-border);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-trk-result:not(:empty) {
+  border-color: var(--sm1c-border);
+}
+{%- endstyle -%}
+
+<div class="sm1c-trk-wrap">
+  {%- if section.settings.heading != blank -%}
+    <h1 class="sm1c-trk-title">{{ section.settings.heading }}</h1>
+  {%- endif -%}
+  {%- if section.settings.text != blank -%}
+    <div class="sm1c-trk-text">{{ section.settings.text }}</div>
+  {%- endif -%}
+
+  <div class="sm1c-trk-form">
+    <div class="sm1c-trk-field">
+      <label class="sm1c-trk-label" for="sm1c-track-number">Tracking number</label>
+      <input type="text" id="sm1c-track-number" class="sm1c-trk-input" maxlength="50" placeholder="e.g. 1Z999AA10123456784">
+    </div>
+    <button type="button" class="sm1c-trk-btn" data-sm1c-track-btn>{{ section.settings.button_label | default: 'Track order' }}</button>
+  </div>
+
+  <div id="sm1c-track-result" class="sm1c-trk-result"></div>
+</div>
+
+<script src="//www.17track.net/externalcall.js"></script>
+<script>
+(function () {
+  var root = document.currentScript.closest('.shopify-section');
+  if (!root) return;
+  var input = root.querySelector('#sm1c-track-number');
+  var btn = root.querySelector('[data-sm1c-track-btn]');
+  if (!input || !btn) return;
+
+  function doTrack() {
+    var num = input.value.trim();
+    if (!num) {
+      input.focus();
+      return;
+    }
+    if (window.YQV5) {
+      YQV5.trackSingle({
+        YQ_ContainerId: 'sm1c-track-result',
+        YQ_Height: 560,
+        YQ_Fc: '0',
+        YQ_Lang: 'en',
+        YQ_Num: num
+      });
+    }
+  }
+
+  btn.addEventListener('click', doTrack);
+  input.addEventListener('keydown', function (evt) {
+    if (evt.key === 'Enter') doTrack();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "SM1C Track Order",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Track your order" },
+    { "type": "richtext", "id": "text", "label": "Description", "default": "<p>Enter the tracking number from your confirmation email to see the latest status of your delivery.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Track order" },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#fdfaf6" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#E8637E" }
+  ],
+  "presets": [
+    { "name": "SM1C Track Order" }
+  ]
+}
+{% endschema %}
