@@ -83,8 +83,14 @@ html {
   letter-spacing: -.02em;
   color: var(--sm1c-text, #3A2E27);
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   transition: transform .25s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-header-logo img {
+  height: 30px;
+  width: auto;
+  display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-header-logo:hover {
   transform: scale(1.05);
@@ -237,6 +243,13 @@ html {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -.02em;
+  display: inline-flex;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .sm1c-nav-drawer-logo img {
+  height: 24px;
+  width: auto;
+  display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-nav-drawer-close {
   background: none;
@@ -517,7 +530,9 @@ html {
     <span class="sm1c-nav-indicator" data-sm1c-nav-indicator aria-hidden="true"></span>
   </ul>
 
-  <a href="{{ routes.root_url }}" class="sm1c-header-logo">{{ section.settings.logo_text }}</a>
+  <a href="{{ routes.root_url }}" class="sm1c-header-logo">
+    <img src="{{ 'serein-logo.png' | asset_url }}" alt="{{ section.settings.logo_text }}" loading="eager" width="203" height="96">
+  </a>
 
   <div class="sm1c-header-icons">
     {%- comment -%} Favorites icon and theme toggle temporarily removed for launch; dark-mode/wishlist code is kept elsewhere in the theme for future re-enable. {%- endcomment -%}
@@ -541,7 +556,9 @@ html {
   <div class="sm1c-nav-drawer-overlay" data-sm1c-nav-drawer-close></div>
   <div class="sm1c-nav-drawer-panel">
     <div class="sm1c-nav-drawer-head">
-      <span class="sm1c-nav-drawer-logo">{{ section.settings.logo_text }}</span>
+      <span class="sm1c-nav-drawer-logo">
+        <img src="{{ 'serein-logo.png' | asset_url }}" alt="{{ section.settings.logo_text }}" loading="eager" width="203" height="96">
+      </span>
       <button type="button" class="sm1c-nav-drawer-close" data-sm1c-nav-drawer-close aria-label="Close menu">✕</button>
     </div>
     <ul class="sm1c-nav-drawer-list">

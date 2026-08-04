@@ -38,14 +38,18 @@
   background: #fff;
   border-radius: 0;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 44% 56%;
   box-shadow: none;
   transform: scale(.97);
   transition: transform .3s ease;
 }
 #sm1c-scratch-{{ section.id }}.is-visible .sm1c-sp-card {
   transform: scale(1);
+}
+#sm1c-scratch-{{ section.id }} .sm1c-sp-track {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  width: 100%;
+  height: 100%;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-close {
   position: absolute;
@@ -61,6 +65,7 @@
   padding: 4px;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-left {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,10 +74,12 @@
   padding: 56px 64px;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-logo {
-  width: 160px;
-  max-height: 48px;
+  width: auto;
+  height: 40px;
+  max-width: 160px;
   object-fit: contain;
-  margin-bottom: 32px;
+  flex: none;
+  margin-bottom: 24px;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-title {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -186,75 +193,60 @@
 #sm1c-scratch-{{ section.id }} .sm1c-sp-right img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
-#sm1c-scratch-{{ section.id }} .sm1c-sp-mobile-peek {
+#sm1c-scratch-{{ section.id }} .sm1c-sp-swipe-hint {
   display: none;
 }
 @media (max-width: 1024px) {
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-card {
-    grid-template-columns: 1fr;
-    height: 100vh;
-    min-height: 100vh;
-  }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-right {
-    display: none;
-  }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-left {
-    padding: 56px 24px 104px;
-  }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-title {
-    font-size: 32px;
-  }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-mobile-peek {
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-track {
     display: flex;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 88px;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    z-index: 2;
   }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-mobile-peek::-webkit-scrollbar {
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-track::-webkit-scrollbar {
     display: none;
   }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-hint,
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-img {
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-left,
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-right {
     flex: 0 0 100%;
-    scroll-snap-align: start;
+    width: 100%;
     height: 100%;
+    scroll-snap-align: start;
   }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-hint {
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-left {
+    position: relative;
+    padding: 56px 24px 40px;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-title {
+    font-size: 32px;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-swipe-hint {
     display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: rgba(58, 46, 39, .06);
-    font-family: 'Work Sans', sans-serif;
     font-size: 12px;
     font-weight: 600;
     color: #3A2E27;
+    opacity: .7;
   }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-hint svg {
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-swipe-hint svg {
     animation: sm1c-sp-hint-nudge 1.6s ease-in-out infinite;
   }
   @keyframes sm1c-sp-hint-nudge {
     0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(-6px); }
-  }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-img {
-    background: #eee;
-  }
-  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    50% { transform: translateX(6px); }
   }
 }
 {%- endstyle -%}
@@ -262,43 +254,41 @@
 <div id="sm1c-scratch-{{ section.id }}" data-sm1c-scratch-popup hidden>
   <div class="sm1c-sp-card">
     <button type="button" class="sm1c-sp-close" data-sm1c-close aria-label="Close">✕</button>
-    <div class="sm1c-sp-left">
-      {%- if section.settings.logo != blank -%}
-        <img class="sm1c-sp-logo" src="{{ section.settings.logo | image_url: width: 260 }}" alt="">
-      {%- endif -%}
-      <div class="sm1c-sp-title">{{ section.settings.title }}</div>
-      <div class="sm1c-sp-sub">{{ section.settings.subtitle }}</div>
+    <div class="sm1c-sp-track">
+      <div class="sm1c-sp-left">
+        {%- if section.settings.logo != blank -%}
+          <img class="sm1c-sp-logo" src="{{ section.settings.logo | image_url: width: 260 }}" alt="">
+        {%- endif -%}
+        <div class="sm1c-sp-title">{{ section.settings.title }}</div>
+        <div class="sm1c-sp-sub">{{ section.settings.subtitle }}</div>
 
-      <div class="sm1c-sp-cardwrap">
-        <div class="sm1c-sp-prize">
-          <div class="sm1c-sp-prize-pct">{{ sm1c_prize_pct }}% OFF</div>
-          <div class="sm1c-sp-prize-code">{{ sm1c_prize_code }}</div>
-          <div class="sm1c-sp-prize-actions">
-            <button type="button" class="sm1c-sp-copy" data-sm1c-copy data-code="{{ sm1c_prize_code }}">Copy code</button>
-            <a class="sm1c-sp-apply" href="/discount/{{ sm1c_prize_code }}?redirect=%2Fcollections%2Fall">Apply &amp; Shop</a>
+        <div class="sm1c-sp-cardwrap">
+          <div class="sm1c-sp-prize">
+            <div class="sm1c-sp-prize-pct">{{ sm1c_prize_pct }}% OFF</div>
+            <div class="sm1c-sp-prize-code">{{ sm1c_prize_code }}</div>
+            <div class="sm1c-sp-prize-actions">
+              <button type="button" class="sm1c-sp-copy" data-sm1c-copy data-code="{{ sm1c_prize_code }}">Copy code</button>
+              <a class="sm1c-sp-apply" href="/discount/{{ sm1c_prize_code }}?redirect=%2Fcollections%2Fall">Apply &amp; Shop</a>
+            </div>
           </div>
+          <canvas class="sm1c-sp-canvas" data-sm1c-canvas></canvas>
         </div>
-        <canvas class="sm1c-sp-canvas" data-sm1c-canvas></canvas>
+
+        {%- if section.settings.photo != blank -%}
+          <div class="sm1c-sp-swipe-hint">
+            <span>Swipe to see</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="sm1c-sp-right">
+        {%- if section.settings.photo != blank -%}
+          {{ section.settings.photo | image_url: width: 900 | image_tag: loading: 'lazy', alt: '' }}
+        {%- endif -%}
       </div>
     </div>
-    <div class="sm1c-sp-right">
-      {%- if section.settings.photo != blank -%}
-        {{ section.settings.photo | image_url: width: 900 | image_tag: loading: 'lazy', alt: '' }}
-      {%- endif -%}
-    </div>
-    {%- if section.settings.photo != blank -%}
-      <div class="sm1c-sp-mobile-peek">
-        <div class="sm1c-sp-peek-hint">
-          <span>Swipe to see</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
-        </div>
-        <div class="sm1c-sp-peek-img">
-          {{ section.settings.photo | image_url: width: 700 | image_tag: loading: 'lazy', alt: '' }}
-        </div>
-      </div>
-    {%- endif -%}
   </div>
 </div>
 
@@ -503,9 +493,9 @@
     { "type": "text", "id": "code_10", "label": "Discount code — 1 item in cart", "default": "SCRATCH10" },
     { "type": "text", "id": "code_15", "label": "Discount code — 2 items in cart", "default": "SCRATCH15" },
     { "type": "text", "id": "code_20", "label": "Discount code — 3+ items in cart", "default": "SCRATCH20" },
-    { "type": "range", "id": "delay_seconds", "label": "Delay before showing (seconds)", "min": 0, "max": 10, "default": 2 },
+    { "type": "range", "id": "delay_seconds", "label": "Delay before showing (seconds)", "min": 0, "max": 10, "default": 4 },
     { "type": "range", "id": "scratch_threshold", "label": "Scratch % required to reveal", "min": 20, "max": 90, "step": 5, "default": 55 },
-    { "type": "range", "id": "repeat_minutes", "label": "Show again after (minutes)", "info": "Popup reappears on a later page view once this many minutes have passed since it was last shown.", "min": 1, "max": 60, "default": 2 }
+    { "type": "range", "id": "repeat_minutes", "label": "Show again after (minutes)", "info": "Popup reappears on a later page view once this many minutes have passed since it was last shown.", "min": 1, "max": 60, "default": 4 }
   ],
   "presets": [
     { "name": "SM1C Scratch to Win" }

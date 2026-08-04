@@ -20,6 +20,13 @@
   font-weight: 600;
   letter-spacing: -.02em;
   margin-bottom: 12px;
+  display: inline-flex;
+}
+#shopify-section-{{ section.id }} .sm1c-foot-logo img {
+  height: 26px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
 }
 #shopify-section-{{ section.id }} .sm1c-foot-blurb {
   font-size: 12px;
@@ -107,7 +114,9 @@
 <div class="sm1c-foot-wrap">
   <div class="sm1c-foot-grid">
     <div>
-      <div class="sm1c-foot-logo">{{ section.settings.logo_text }}</div>
+      <div class="sm1c-foot-logo">
+        <img src="{{ 'serein-logo.png' | asset_url }}" alt="{{ section.settings.logo_text }}" loading="lazy" width="203" height="96">
+      </div>
       <div class="sm1c-foot-blurb">{{ section.settings.blurb }}</div>
     </div>
     {%- for block in section.blocks -%}
