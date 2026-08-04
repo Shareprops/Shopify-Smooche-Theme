@@ -13,16 +13,16 @@
       "type": "sm1c-announcement",
       "settings": {
         "text": "Summer Sale — 60% Off + Free Mystery Gift",
-        "bg_color": "#c24a2e",
+        "bg_color": "#E8637E",
         "text_color": "#ffffff"
       }
     },
     "sm1c_header": {
       "type": "sm1c-header",
       "settings": {
-        "logo_text": "smooche",
+        "logo_text": "Serein",
         "menu": "main-menu",
-        "accent_color": "#c24a2e"
+        "accent_color": "#E8637E"
       }
     },
     "sm1c_bestsellers_hero": {
@@ -42,8 +42,8 @@
       "settings": {
         "products_per_page": 24,
         "bg_color": "#fdfaf6",
-        "sale_badge_color": "#c24a2e",
-        "tag_badge_color": "#111111",
+        "sale_badge_color": "#E8637E",
+        "tag_badge_color": "#F4B65C",
         "show_ratings": true,
         "default_rating_text": "★★★★★"
       }
@@ -56,14 +56,14 @@
       },
       "block_order": ["col_1", "col_2"],
       "settings": {
-        "logo_text": "smooche",
+        "logo_text": "Serein",
         "blurb": "A solutions-oriented beauty brand, creating a world where everyone feels confident.",
         "signup_title": "STAY IN TOUCH",
-        "copyright": "© 2026 Smooche",
+        "copyright": "© 2026 Serein",
         "social_text": "Instagram · TikTok · Follow on Shop",
         "bg_color": "#2e1810",
         "text_color": "#f0e6df",
-        "accent_color": "#c24a2e"
+        "accent_color": "#E8637E"
       }
     }
   },

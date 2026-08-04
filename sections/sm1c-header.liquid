@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 {%- style -%}
 html {
   scroll-padding-top: var(--sm1c-header-height, 90px);
@@ -19,7 +22,7 @@ html {
   padding: 20px 44px;
   background: var(--sm1c-bg, #fff);
   color: var(--sm1c-text, #111);
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   transition: background .2s ease, color .2s ease, box-shadow .3s ease, padding .25s ease;
   animation: sm1c-header-in .5s ease;
 }
@@ -74,11 +77,11 @@ html {
   color: {{ section.settings.accent_color }};
 }
 #shopify-section-{{ section.id }} .sm1c-header-logo {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -.01em;
-  color: var(--sm1c-text, #111);
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--sm1c-text, #3A2E27);
   text-decoration: none;
   display: inline-block;
   transition: transform .25s ease;
@@ -230,9 +233,10 @@ html {
   margin-bottom: 28px;
 }
 #shopify-section-{{ section.id }} .sm1c-nav-drawer-logo {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 600;
+  letter-spacing: -.02em;
 }
 #shopify-section-{{ section.id }} .sm1c-nav-drawer-close {
   background: none;
@@ -297,9 +301,9 @@ html {
 }
 #shopify-section-{{ section.id }} .sm1c-mega-menu-nav-heading {
   display: block;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: .02em;
   color: inherit;
   text-decoration: none;
@@ -318,7 +322,7 @@ html {
 }
 #shopify-section-{{ section.id }} .sm1c-mega-menu-nav-list a {
   display: block;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.4;
@@ -384,9 +388,9 @@ html {
   gap: 4px;
 }
 #shopify-section-{{ section.id }} .sm1c-mega-menu-card-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.2;
   text-shadow: 0 1px 4px rgba(0, 0, 0, .5);
 }
@@ -678,7 +682,7 @@ html {
       "type": "text",
       "id": "logo_text",
       "label": "Logo text",
-      "default": "smooche"
+      "default": "Serein"
     },
     {
       "type": "link_list",
@@ -690,7 +694,7 @@ html {
       "type": "color",
       "id": "accent_color",
       "label": "Accent color (sale link)",
-      "default": "#c24a2e"
+      "default": "#E8637E"
     }
   ],
   "presets": [

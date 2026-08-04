@@ -2,20 +2,20 @@
 #shopify-section-{{ section.id }} .sm1c-stat-wrap {
   padding: 70px 44px;
   text-align: center;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 #shopify-section-{{ section.id }} .sm1c-stat-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 400;
   margin-bottom: 14px;
 }
 #shopify-section-{{ section.id }} .sm1c-stat-title span {
-  color: oklch(60% 0.16 25);
+  color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-stat-sub {
   font-size: 14px;
-  color: oklch(40% 0.02 30);
+  color: rgba(58, 46, 39, .8);
   max-width: 560px;
   margin: 0 auto 48px;
   line-height: 1.6;
@@ -39,9 +39,9 @@
   gap: 18px;
 }
 #shopify-section-{{ section.id }} .sm1c-stat-pct {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 64px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
 }
 #shopify-section-{{ section.id }} .sm1c-stat-headline {
@@ -52,7 +52,7 @@
 }
 #shopify-section-{{ section.id }} .sm1c-stat-body {
   font-size: 13px;
-  color: oklch(40% 0.02 30);
+  color: rgba(58, 46, 39, .8);
   line-height: 1.6;
   margin-top: 12px;
   max-width: 460px;
@@ -152,7 +152,7 @@
         { "type": "range", "id": "percent", "label": "Percent", "min": 0, "max": 100, "default": 90 },
         { "type": "text", "id": "headline", "label": "Headline", "default": "reported they felt the difference." },
         { "type": "textarea", "id": "body", "label": "Body" },
-        { "type": "color", "id": "bar_color", "label": "Bar color", "default": "#c24a2e" }
+        { "type": "color", "id": "bar_color", "label": "Bar color", "default": "#E8637E" }
       ]
     }
   ],
@@ -161,9 +161,9 @@
     {
       "name": "SM1C Survey Stats",
       "blocks": [
-        { "type": "stat", "settings": { "percent": 92, "headline": "reported they felt the spark and emotional closeness in their relationship return.", "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.", "bar_color": "#c24a2e" } },
+        { "type": "stat", "settings": { "percent": 92, "headline": "reported they felt the spark and emotional closeness in their relationship return.", "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.", "bar_color": "#E8637E" } },
         { "type": "stat", "settings": { "percent": 87, "headline": "reported intimacy started feeling natural again, with more energy and desire to initiate.", "body": "Many said they went from \"not tonight\" to initiating again without pressure, without forcing it.", "bar_color": "#2a6f6a" } },
-        { "type": "stat", "settings": { "percent": 89, "headline": "reported steadier energy through the entire day.", "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.", "bar_color": "#c24a2e" } }
+        { "type": "stat", "settings": { "percent": 89, "headline": "reported steadier energy through the entire day.", "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.", "bar_color": "#E8637E" } }
       ]
     }
   ]

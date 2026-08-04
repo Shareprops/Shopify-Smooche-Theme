@@ -40,7 +40,7 @@
         "ship_note_left": "● Shipped today",
         "ship_note_right": "Free shipping over $50",
         "social_proof_text": "10,000+ Happy Customers",
-        "feedback_title": "Feedback from the Smooche Community"
+        "feedback_title": "Feedback from the Serein Community"
       }
     },
     "sm1c_pdp_how_it_works": {
@@ -70,8 +70,8 @@
       "settings": {
         "heading": "Lip Plumper",
         "heading_accent": "vs The Usual Options",
-        "subheading": "Most serums try to force volume. Smooche removes what blocks it — no stinging, no stimulants, just consistent results.",
-        "brand_name": "smooche",
+        "subheading": "Most serums try to force volume. Serein removes what blocks it — no stinging, no stimulants, just consistent results.",
+        "brand_name": "Serein",
         "competitor_1_name": "Other Serums",
         "competitor_1_price": "From $3.67/unit",
         "competitor_2_name": "Generic Balms",
@@ -81,9 +81,9 @@
     "sm1c_pdp_survey_stats": {
       "type": "sm1c-pdp-survey-stats",
       "blocks": {
-        "stat_1": { "type": "stat", "settings": { "percent": 92, "headline": "reported they felt the spark and emotional closeness in their relationship return.", "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.", "bar_color": "#c24a2e" } },
+        "stat_1": { "type": "stat", "settings": { "percent": 92, "headline": "reported they felt the spark and emotional closeness in their relationship return.", "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.", "bar_color": "#E8637E" } },
         "stat_2": { "type": "stat", "settings": { "percent": 87, "headline": "reported intimacy started feeling natural again, with more energy and desire to initiate.", "body": "Many said they went from \"not tonight\" to initiating again without pressure, without forcing it.", "bar_color": "#2a6f6a" } },
-        "stat_3": { "type": "stat", "settings": { "percent": 89, "headline": "reported steadier energy through the entire day.", "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.", "bar_color": "#c24a2e" } }
+        "stat_3": { "type": "stat", "settings": { "percent": 89, "headline": "reported steadier energy through the entire day.", "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.", "bar_color": "#E8637E" } }
       },
       "block_order": ["stat_1", "stat_2", "stat_3"],
       "settings": {

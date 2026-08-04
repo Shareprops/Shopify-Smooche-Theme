@@ -16,8 +16,8 @@
 
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-pdp-wrap {
-  font-family: 'Work Sans', sans-serif;
-  color: oklch(20% 0.02 20);
+  font-family: 'Inter', sans-serif;
+  color: #3A2E27;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-grid {
   display: grid;
@@ -44,7 +44,7 @@
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, .92);
-  color: oklch(20% 0.02 20);
+  color: #3A2E27;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -170,7 +170,7 @@
   display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-color-swatch.is-active {
-  border-color: oklch(60% 0.16 25);
+  border-color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-color-swatch[disabled] {
   opacity: .35;
@@ -194,9 +194,9 @@
   cursor: pointer;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-size-pill.is-active {
-  border-color: oklch(60% 0.16 25);
+  border-color: #E8637E;
   background: oklch(97% 0.02 30);
-  color: oklch(60% 0.16 25);
+  color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-size-pill[disabled] {
   opacity: .4;
@@ -204,7 +204,7 @@
   text-decoration: line-through;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-thumb.is-active {
-  border-color: oklch(60% 0.16 25);
+  border-color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-thumb img {
   width: 100%;
@@ -242,26 +242,26 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-rating-stars {
   font-size: 18px;
   letter-spacing: .02em;
-  color: oklch(60% 0.16 25);
+  color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-rating-text {
   font-size: 14px;
   font-weight: 700;
-  color: oklch(25% 0.02 20);
+  color: #3A2E27;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.15;
   margin: 0;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-title span {
-  color: oklch(60% 0.16 25);
+  color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc {
   font-size: 14px;
-  color: oklch(40% 0.02 30);
+  color: rgba(58, 46, 39, .8);
   margin-top: 10px;
   line-height: 1.5;
 }
@@ -278,7 +278,7 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 14px;
-  color: oklch(40% 0.02 30);
+  color: rgba(58, 46, 39, .8);
   line-height: 1.5;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc-check {
@@ -310,8 +310,8 @@
   gap: 6px;
   font-size: 12px;
   font-weight: 700;
-  color: oklch(45% 0.18 25);
-  background: oklch(94% 0.05 25);
+  color: #C13D5B;
+  background: #FCE8EC;
   padding: 10px 18px;
   border-radius: 100px;
 }
@@ -388,17 +388,20 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-price {
   font-size: 13px;
   font-weight: 600;
-  color: oklch(40% 0.02 30);
+  color: rgba(58, 46, 39, .8);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn {
   flex: none;
-  background: oklch(60% 0.16 25);
-  color: #fff;
+  background: #E8637E;
+  color: #FBF6EE;
   border: none;
   padding: 12px 28px;
   border-radius: 100px;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .03em;
   cursor: pointer;
   font-family: inherit;
 }
@@ -454,7 +457,7 @@
   font-family: inherit;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier.is-selected {
-  border: 2px solid oklch(60% 0.16 25);
+  border: 2px solid #E8637E;
   background: oklch(97% 0.02 30);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-label {
@@ -465,7 +468,7 @@
   position: absolute;
   top: -10px;
   left: 18px;
-  background: oklch(60% 0.16 25);
+  background: #E8637E;
   color: #fff;
   font-size: 10px;
   font-weight: 800;
@@ -476,7 +479,7 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-note {
   font-size: 12px;
-  color: oklch(45% 0.02 30);
+  color: rgba(58, 46, 39, .8);
   margin-top: 4px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-price {
@@ -503,7 +506,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: oklch(60% 0.16 25);
+  background: #E8637E;
   flex: none;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -530,7 +533,7 @@
   white-space: nowrap;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-urgency-text span {
-  color: oklch(60% 0.16 25);
+  color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-urgency-track {
   flex: 1;
@@ -543,17 +546,20 @@
   display: block;
   height: 100%;
   border-radius: 100px;
-  background: oklch(60% 0.16 25);
+  background: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc {
   display: block;
   text-align: center;
-  background: oklch(60% 0.16 25);
-  color: #fff;
+  background: #E8637E;
+  color: #FBF6EE;
   padding: 18px;
   border-radius: 16px;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .03em;
   margin-top: 16px;
   border: none;
   width: 100%;
@@ -577,7 +583,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: oklch(40% 0.02 30);
+  color: rgba(58, 46, 39, .8);
   margin-top: 14px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-social {
@@ -661,7 +667,7 @@
   padding: 0 0 16px;
   font-size: 13px;
   line-height: 1.6;
-  color: oklch(40% 0.02 30);
+  color: rgba(58, 46, 39, .8);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feedback {
   margin-top: 26px;
@@ -670,9 +676,9 @@
   padding: 22px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feedback-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 16px;
 }
@@ -695,7 +701,7 @@
   display: block;
   height: 100%;
   border-radius: 100px;
-  background: oklch(60% 0.16 25);
+  background: #E8637E;
 }
 @media (max-width: 900px) {
   #shopify-section-{{ section.id }} .sm1c-pdp-grid {
@@ -1578,7 +1584,7 @@
       "type": "text",
       "id": "feedback_title",
       "label": "Feedback widget title",
-      "default": "Feedback from the Smooche Community"
+      "default": "Feedback from the Serein Community"
     }
   ],
   "blocks": [

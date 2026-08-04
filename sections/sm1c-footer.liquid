@@ -1,9 +1,12 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-foot-wrap {
   padding: 56px 44px;
   background: {{ section.settings.bg_color }};
   color: {{ section.settings.text_color }};
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-foot-grid {
@@ -12,9 +15,10 @@
   gap: 32px;
 }
 #shopify-section-{{ section.id }} .sm1c-foot-logo {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.02em;
   margin-bottom: 12px;
 }
 #shopify-section-{{ section.id }} .sm1c-foot-blurb {
@@ -142,7 +146,7 @@
       "type": "text",
       "id": "logo_text",
       "label": "Logo text",
-      "default": "smooche"
+      "default": "Serein"
     },
     {
       "type": "textarea",
@@ -160,7 +164,7 @@
       "type": "text",
       "id": "copyright",
       "label": "Copyright text",
-      "default": "© 2026 Smooche"
+      "default": "© 2026 Serein"
     },
     {
       "type": "text",
@@ -184,7 +188,7 @@
       "type": "color",
       "id": "accent_color",
       "label": "Signup button color",
-      "default": "#c24a2e"
+      "default": "#E8637E"
     }
   ],
   "blocks": [

@@ -19,14 +19,14 @@
       },
       "block_order": ["col_1", "col_2"],
       "settings": {
-        "logo_text": "smooche",
+        "logo_text": "Serein",
         "blurb": "A solutions-oriented beauty brand, creating a world where everyone feels confident.",
         "signup_title": "STAY IN TOUCH",
-        "copyright": "© 2026 Smooche",
+        "copyright": "© 2026 Serein",
         "social_text": "Instagram · TikTok · Follow on Shop",
-        "bg_color": "#2e1810",
-        "text_color": "#f0e6df",
-        "accent_color": "#c24a2e"
+        "bg_color": "#3A2E27",
+        "text_color": "#FBF6EE",
+        "accent_color": "#E8637E"
       }
     }
   },

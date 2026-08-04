@@ -26,8 +26,8 @@
       "settings": {
         "products_per_page": 24,
         "bg_color": "#fdfaf6",
-        "sale_badge_color": "#c24a2e",
-        "tag_badge_color": "#111111",
+        "sale_badge_color": "#E8637E",
+        "tag_badge_color": "#F4B65C",
         "show_ratings": true,
         "default_rating_text": "★★★★★"
       }

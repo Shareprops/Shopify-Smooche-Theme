@@ -1,6 +1,6 @@
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-pg-wrap {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: {{ section.settings.bg_color }};
 }
 #shopify-section-{{ section.id }} .sm1c-pg-toolbar {
@@ -19,7 +19,7 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pg-count {
   font-size: 13px;
-  color: oklch(50% 0.02 30);
+  color: rgba(58, 46, 39, .75);
 }
 #shopify-section-{{ section.id }} .sm1c-pg-grid {
   padding: 24px 44px 64px;
@@ -75,9 +75,11 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  color: #fff;
-  font-size: 9px;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: .04em;
   padding: 5px 10px;
   border-radius: 100px;
 }
@@ -111,7 +113,7 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pg-rating {
   font-size: 12px;
-  color: oklch(50% 0.02 30);
+  color: rgba(58, 46, 39, .75);
   margin-top: 4px;
 }
 #shopify-section-{{ section.id }} .sm1c-pg-pagination {
@@ -123,7 +125,7 @@
   font-weight: 600;
 }
 #shopify-section-{{ section.id }} .sm1c-pg-pagination a {
-  color: oklch(60% 0.16 25);
+  color: #E8637E;
   text-decoration: none;
 }
 @media (max-width: 900px) {
@@ -265,13 +267,13 @@
       "type": "color",
       "id": "sale_badge_color",
       "label": "Sale badge color",
-      "default": "#c24a2e"
+      "default": "#E8637E"
     },
     {
       "type": "color",
       "id": "tag_badge_color",
       "label": "Tag badge color (bestseller/viral/new)",
-      "default": "#111111"
+      "default": "#F4B65C"
     },
     {
       "type": "checkbox",

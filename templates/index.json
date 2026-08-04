@@ -19,7 +19,7 @@
         "button_1_link": "shopify://collections/frontpage",
         "button_2_label": "Shop The Foundation",
         "button_2_link": "shopify://collections/frontpage",
-        "chip_text": "Clinicians' Choice — 197 clinicians recommend Smooche",
+        "chip_text": "Clinicians' Choice — 197 clinicians recommend Serein",
         "height": 600,
         "gradient_from": "#e6b98a",
         "gradient_to": "#dd8f7a"
@@ -261,7 +261,7 @@
         "heading": "Top 5 Best-Sellers This Week",
         "subheading": "Updated every Monday",
         "bg_color": "#fdfaf6",
-        "accent_color": "#c24a2e"
+        "accent_color": "#E8637E"
       }
     },
     "sm1c_home_bestsellers": {
@@ -331,7 +331,7 @@
         "view_all_link": "",
         "bg_color": "#ffffff",
         "pill_bg": "#f6e6dd",
-        "accent_color": "#c24a2e"
+        "accent_color": "#E8637E"
       }
     },
     "sm1c_categories": {
@@ -456,7 +456,7 @@
         "heading": "There's a reason women are raving about us.",
         "bg_color": "#ffffff",
         "card_bg": "#f6e6dd",
-        "accent_color": "#c24a2e"
+        "accent_color": "#E8637E"
       }
     },
     "sm1c_bundles": {

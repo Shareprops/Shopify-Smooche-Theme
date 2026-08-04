@@ -15,16 +15,16 @@
       "type": "sm1c-announcement",
       "settings": {
         "text": "Summer Sale — 60% Off + Free Mystery Gift",
-        "bg_color": "#c24a2e",
+        "bg_color": "#E8637E",
         "text_color": "#ffffff"
       }
     },
     "sm1c_header": {
       "type": "sm1c-header",
       "settings": {
-        "logo_text": "smooche",
+        "logo_text": "Serein",
         "menu": "main-menu",
-        "accent_color": "#c24a2e"
+        "accent_color": "#E8637E"
       }
     },
     "sm1c_scratch_popup": {

@@ -1,9 +1,9 @@
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-hh-wrap {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   position: relative;
   min-height: {{ section.settings.height }}px;
-  background: linear-gradient(135deg, oklch(80% 0.1 30), oklch(75% 0.13 10));
+  background: linear-gradient(135deg, oklch(80% 0.1 30), #F0899D);
   overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-hh-img {
@@ -42,10 +42,10 @@
   margin-bottom: 22px;
 }
 #shopify-section-{{ section.id }} .sm1c-hh-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 60px;
   line-height: 1.05;
-  font-weight: 800;
+  font-weight: 600;
   margin: 0;
 }
 #shopify-section-{{ section.id }} .sm1c-hh-sub {
@@ -100,7 +100,7 @@
 @media (max-width: 900px) {
   #shopify-section-{{ section.id }} .sm1c-hh-wrap {
     min-height: auto;
-    padding-bottom: 90px;
+    padding-bottom: 32px;
   }
   #shopify-section-{{ section.id }} .sm1c-hh-img {
     position: static;
@@ -117,8 +117,12 @@
     font-size: 38px;
   }
   #shopify-section-{{ section.id }} .sm1c-hh-clinician {
-    left: 24px;
-    bottom: 24px;
+    position: static;
+    display: inline-flex;
+    left: auto;
+    bottom: auto;
+    margin: 20px 24px 0;
+    width: fit-content;
   }
 }
 {%- endstyle -%}
@@ -163,7 +167,7 @@
     { "type": "url", "id": "button_1_link", "label": "Primary button link" },
     { "type": "text", "id": "button_2_label", "label": "Secondary button label", "default": "Shop The Foundation" },
     { "type": "url", "id": "button_2_link", "label": "Secondary button link" },
-    { "type": "text", "id": "clinician_text", "label": "Trust strip text", "default": "Clinicians' Choice — 197 clinicians recommend Smooche" },
+    { "type": "text", "id": "clinician_text", "label": "Trust strip text", "default": "Clinicians' Choice — 197 clinicians recommend Serein" },
     { "type": "range", "id": "height", "label": "Section height (px)", "min": 360, "max": 760, "step": 20, "default": 600 }
   ],
   "presets": [{ "name": "SM1C Home Hero" }]

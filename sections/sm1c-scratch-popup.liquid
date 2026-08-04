@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   opacity: 0;
   pointer-events: none;
   transition: opacity .25s ease;
@@ -75,15 +75,15 @@
   margin-bottom: 32px;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 56px;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.05;
   max-width: 560px;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-sub {
   font-size: 16px;
-  color: oklch(45% 0.02 30);
+  color: rgba(58, 46, 39, .8);
   margin-top: 14px;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-cardwrap {
@@ -109,17 +109,17 @@
   padding: 12px;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-prize-pct {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: 28px;
-  font-weight: 800;
-  color: oklch(60% 0.16 25);
+  font-weight: 400;
+  color: #E8637E;
 }
 #sm1c-scratch-{{ section.id }} .sm1c-sp-prize-code {
   font-family: ui-monospace, monospace;
   font-size: 15px;
   font-weight: 700;
   background: #fff;
-  border: 1.5px dashed oklch(60% 0.16 25);
+  border: 1.5px dashed #E8637E;
   padding: 6px 14px;
   border-radius: 8px;
 }
@@ -189,6 +189,9 @@
   object-fit: cover;
   display: block;
 }
+#sm1c-scratch-{{ section.id }} .sm1c-sp-mobile-peek {
+  display: none;
+}
 @media (max-width: 700px) {
   #sm1c-scratch-{{ section.id }} .sm1c-sp-card {
     grid-template-columns: 1fr;
@@ -199,10 +202,59 @@
     display: none;
   }
   #sm1c-scratch-{{ section.id }} .sm1c-sp-left {
-    padding: 56px 24px 32px;
+    padding: 56px 24px 104px;
   }
   #sm1c-scratch-{{ section.id }} .sm1c-sp-title {
     font-size: 32px;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-mobile-peek {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 88px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    z-index: 2;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-mobile-peek::-webkit-scrollbar {
+    display: none;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-hint,
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-img {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    height: 100%;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(58, 46, 39, .06);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3A2E27;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-hint svg {
+    animation: sm1c-sp-hint-nudge 1.6s ease-in-out infinite;
+  }
+  @keyframes sm1c-sp-hint-nudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-6px); }
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-img {
+    background: #eee;
+  }
+  #sm1c-scratch-{{ section.id }} .sm1c-sp-peek-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 }
 {%- endstyle -%}
@@ -234,6 +286,19 @@
         {{ section.settings.photo | image_url: width: 900 | image_tag: loading: 'lazy', alt: '' }}
       {%- endif -%}
     </div>
+    {%- if section.settings.photo != blank -%}
+      <div class="sm1c-sp-mobile-peek">
+        <div class="sm1c-sp-peek-hint">
+          <span>Swipe to see</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </div>
+        <div class="sm1c-sp-peek-img">
+          {{ section.settings.photo | image_url: width: 700 | image_tag: loading: 'lazy', alt: '' }}
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -314,7 +379,7 @@
       }
 
       ctx.fillStyle = 'rgba(255,255,255,.6)';
-      ctx.font = '700 15px "Bricolage Grotesque", sans-serif';
+      ctx.font = '700 15px "Fraunces", serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText('SCRATCH HERE', w / 2, h / 2);
