@@ -15,7 +15,7 @@
       "type": "sm1c-announcement",
       "settings": {
         "text": "Summer Sale — 60% Off + Free Mystery Gift",
-        "bg_color": "#E8637E",
+        "bg_color": "#e8637e",
         "text_color": "#ffffff"
       }
     },
@@ -24,19 +24,22 @@
       "settings": {
         "logo_text": "Serein",
         "menu": "main-menu",
-        "accent_color": "#E8637E"
+        "accent_color": "#e8637e"
       }
     },
     "sm1c_scratch_popup": {
       "type": "sm1c-scratch-popup",
       "settings": {
+        "logo": "shopify://shop_images/Serein_Logo_Concepts-selection_1.png",
         "title": "Try your luck",
         "subtitle": "Scratch below to see what you win",
+        "photo": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
         "code_10": "SCRATCH10",
         "code_15": "SCRATCH15",
         "code_20": "SCRATCH20",
         "delay_seconds": 2,
-        "scratch_threshold": 55
+        "scratch_threshold": 55,
+        "repeat_minutes": 2
       }
     }
   },
