@@ -128,18 +128,16 @@
     "sm1c_pdp_reviews": {
       "type": "sm1c-pdp-reviews",
       "blocks": {
-        "rev_1": { "type": "review", "settings": { "name": "Isabella T.", "rating_text": "★★★★★" } },
-        "rev_2": { "type": "review", "settings": { "name": "Jessica M.", "rating_text": "★★★★★" } },
-        "rev_3": { "type": "review", "settings": { "name": "Mia K.", "rating_text": "★★★★★" } },
-        "rev_4": { "type": "review", "settings": { "name": "Hannah D.", "rating_text": "★★★★★" } },
-        "rev_5": { "type": "review", "settings": { "name": "Chloe C.", "rating_text": "★★★★★" } }
+        "rev_1": { "type": "review", "settings": { "name": "Isabella T.", "age": "42", "verified": true, "rating_text": "★★★★★", "quote": "I honestly thought my routine couldn't get any better. This proved me wrong within a week." } },
+        "rev_2": { "type": "review", "settings": { "name": "Jessica M.", "age": "37", "verified": true, "rating_text": "★★★★★", "quote": "I've tried so many brands over the years. This is the first one that's actually kept its promise." } },
+        "rev_3": { "type": "review", "settings": { "name": "Mia K.", "age": "29", "verified": true, "rating_text": "★★★★★", "quote": "Gentle enough for daily use and I noticed a real difference within the first two weeks." } },
+        "rev_4": { "type": "review", "settings": { "name": "Hannah D.", "age": "51", "verified": true, "rating_text": "★★★★★", "quote": "Noticed a difference within days — more energy and confidence all day." } },
+        "rev_5": { "type": "review", "settings": { "name": "Chloe C.", "age": "34", "verified": true, "rating_text": "★★★★★", "quote": "Exactly what my skin needed. Glad I finally gave this a try." } }
       },
       "block_order": ["rev_1", "rev_2", "rev_3", "rev_4", "rev_5"],
       "settings": {
         "average_rating": "4.9",
-        "review_count": "522 reviews",
-        "write_review_label": "Write a Review",
-        "write_review_link": ""
+        "review_count": "522 reviews"
       }
     },
     "sm1c_pdp_faq": {

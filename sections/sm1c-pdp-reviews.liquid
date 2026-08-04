@@ -1,52 +1,107 @@
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-rev-wrap {
-  padding: 60px 44px;
-  font-family: 'Inter', sans-serif;
+  padding: 60px 0;
+  font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-rev-head {
+  text-align: center;
+  padding: 0 clamp(20px, 4vw, 44px);
+  margin-bottom: 36px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-loved {
+  position: relative;
+  display: inline-block;
+  padding: 2px 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-loved svg {
+  position: absolute;
+  left: -18px;
+  right: -18px;
+  top: -16px;
+  bottom: -14px;
+  width: calc(100% + 36px);
+  height: calc(100% + 30px);
+  color: {{ section.settings.accent_color }};
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-sub {
+  font-size: 13px;
+  color: rgba(58, 46, 39, .65);
+  margin-top: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-sub strong {
+  color: {{ section.settings.accent_color }};
+}
+#shopify-section-{{ section.id }} .sm1c-rev-rail {
+  position: relative;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-row {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(12px, 1.8vw, 20px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px clamp(20px, 4vw, 44px) 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-row::-webkit-scrollbar {
+  display: none;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-arrow {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sm1c-surface, #fff);
+  border: none;
+  box-shadow: 0 4px 16px rgba(17, 17, 17, .2);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 900px;
-  margin: 0 auto 28px;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--sm1c-text, #111);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
 }
-#shopify-section-{{ section.id }} .sm1c-rev-score {
-  font-family: 'Fraunces', serif;
-  font-size: 40px;
-  font-weight: 600;
+#shopify-section-{{ section.id }} .sm1c-rev-rail:hover .sm1c-rev-arrow {
+  opacity: 1;
+  pointer-events: auto;
 }
-#shopify-section-{{ section.id }} .sm1c-rev-count {
-  font-size: 13px;
-  color: #E8637E;
+#shopify-section-{{ section.id }} .sm1c-rev-arrow:hover {
+  transform: translateY(-50%) scale(1.08);
 }
-#shopify-section-{{ section.id }} .sm1c-rev-write {
-  background: #111;
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-block;
+#shopify-section-{{ section.id }} .sm1c-rev-arrow[disabled] {
+  opacity: 0 !important;
+  pointer-events: none;
 }
-#shopify-section-{{ section.id }} .sm1c-rev-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  max-width: 900px;
-  margin: 0 auto;
-}
+#shopify-section-{{ section.id }} .sm1c-rev-arrow-prev { left: 10px; }
+#shopify-section-{{ section.id }} .sm1c-rev-arrow-next { right: 10px; }
+#shopify-section-{{ section.id }} .sm1c-rev-arrow svg { width: 20px; height: 20px; }
 #shopify-section-{{ section.id }} .sm1c-rev-card {
-  background: oklch(94% 0.03 30);
-  border-radius: 16px;
-  padding: 16px;
+  flex: none;
+  scroll-snap-align: start;
+  width: clamp(240px, 26vw, 300px);
+  background: var(--sm1c-surface, oklch(96% 0.015 30));
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, .04), 0 12px 30px rgba(0, 0, 0, .08);
 }
 #shopify-section-{{ section.id }} .sm1c-rev-photo {
-  height: 80px;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 10px;
+  aspect-ratio: 1 / 1.05;
   background: #eee;
+  overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-rev-photo img {
   width: 100%;
@@ -54,31 +109,99 @@
   object-fit: cover;
   display: block;
 }
+#shopify-section-{{ section.id }} .sm1c-rev-body {
+  padding: 20px 22px 24px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
 #shopify-section-{{ section.id }} .sm1c-rev-name {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
 }
 #shopify-section-{{ section.id }} .sm1c-rev-stars {
+  display: flex;
+  gap: 2px;
+  color: {{ section.settings.accent_color }};
+  flex: none;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-stars svg {
+  width: 14px;
+  height: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-stars svg.is-empty {
+  opacity: .3;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-verified {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
   font-size: 11px;
-  color: #E8637E;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: {{ section.settings.accent_color }};
 }
-#shopify-section-{{ section.id }} .sm1c-rev-body {
+#shopify-section-{{ section.id }} .sm1c-rev-verified-icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: {{ section.settings.accent_color }};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-verified-icon svg {
+  width: 10px;
+  height: 10px;
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-quote-wrap {
+  margin-top: 14px;
+  max-height: 68px;
+  overflow: hidden;
+  transition: max-height .35s cubic-bezier(.4, 0, .2, 1);
+}
+#shopify-section-{{ section.id }} .sm1c-rev-card.is-expanded .sm1c-rev-quote-wrap {
+  max-height: 600px;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-quote {
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(58, 46, 39, .85);
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-rev-more {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  background: none;
+  border: none;
+  padding: 0;
   font-size: 12px;
-  line-height: 1.5;
-  color: rgba(58, 46, 39, .8);
-  margin-top: 6px;
+  font-weight: 700;
+  text-align: center;
+  color: {{ section.settings.accent_color }};
+  cursor: pointer;
+  font-family: inherit;
 }
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-rev-body {
-  color: rgba(240, 237, 232, .65);
+#shopify-section-{{ section.id }} .sm1c-rev-more[hidden] { display: none; }
+@media (max-width: 749px) {
+  #shopify-section-{{ section.id }} .sm1c-rev-arrow { display: none; }
 }
-@media (max-width: 900px) {
-  #shopify-section-{{ section.id }} .sm1c-rev-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-rev-sub {
+  color: rgba(240, 237, 232, .6);
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-rev-card,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-rev-photo {
   background: var(--sm1c-surface);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-rev-quote {
+  color: rgba(240, 237, 232, .75);
 }
 {%- endstyle -%}
 
@@ -88,50 +211,158 @@
     assign rev_review_count = product.metafields.custom.review_count.value | default: section.settings.review_count
   -%}
   <div class="sm1c-rev-head">
-    <div>
-      <div class="sm1c-rev-score">{{ rev_average_rating }}</div>
-      <div class="sm1c-rev-count">★★★★★ {{ rev_review_count }}</div>
-    </div>
-    {%- if section.settings.write_review_label != blank -%}
-      <a href="{{ section.settings.write_review_link | default: '#' }}" class="sm1c-rev-write">{{ section.settings.write_review_label }}</a>
+    <h2 class="sm1c-rev-title">
+      {{ section.settings.loved_by_prefix }}
+      <span class="sm1c-rev-loved">
+        {{ section.settings.loved_by_count }}
+        <svg viewBox="0 0 220 90" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M12,46 C10,20 45,8 110,7 C178,6 208,18 208,46 C208,72 172,83 110,83 C42,83 14,72 12,46 Z" fill="none" stroke="currentColor" stroke-width="3.5"/>
+        </svg>
+      </span>
+    </h2>
+    {%- if rev_average_rating != blank -%}
+      <div class="sm1c-rev-sub"><strong>★★★★★ {{ rev_average_rating }}</strong> · {{ rev_review_count }}</div>
     {%- endif -%}
   </div>
-  <div class="sm1c-rev-grid">
-    {%- if product.metafields.custom.review_items.value.size > 0 -%}
-      {%- for review in product.metafields.custom.review_items.value -%}
-        <div class="sm1c-rev-card">
-          <div class="sm1c-rev-name">{{ review.author_name.value }}</div>
-          <div class="sm1c-rev-stars">
-            {%- assign rating_val = review.rating.value -%}
-            {%- for i in (1..5) -%}{% if i <= rating_val %}★{% else %}☆{% endif %}{%- endfor -%}
-          </div>
-          <div class="sm1c-rev-body">{{ review.body.value }}</div>
-        </div>
-      {%- endfor -%}
-    {%- else -%}
-      {%- for block in section.blocks -%}
-        <div class="sm1c-rev-card" {{ block.shopify_attributes }}>
-          <div class="sm1c-rev-photo">
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.name }}
+
+  <div class="sm1c-rev-rail">
+    <button type="button" class="sm1c-rev-arrow sm1c-rev-arrow-prev" data-sm1c-rev-prev aria-label="Scroll left" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="sm1c-rev-row" data-sm1c-rev-row>
+      {%- if product.metafields.custom.review_items.value.size > 0 -%}
+        {%- for review in product.metafields.custom.review_items.value -%}
+          <div class="sm1c-rev-card" data-sm1c-rev-card>
+            {%- if review.photo.value != blank -%}
+              <div class="sm1c-rev-photo">
+                {{ review.photo.value | image_url: width: 400 | image_tag: loading: 'lazy', alt: review.author_name.value }}
+              </div>
             {%- endif -%}
+            <div class="sm1c-rev-body">
+              <div class="sm1c-rev-meta">
+                <div class="sm1c-rev-name">{{ review.author_name.value }}{% if review.age.value != blank %}, {{ review.age.value }}{% endif %}</div>
+                <div class="sm1c-rev-stars">
+                  {%- assign rating_val = review.rating.value -%}
+                  {%- for i in (1..5) -%}
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"{% if i > rating_val %} class="is-empty"{% endif %}><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                  {%- endfor -%}
+                </div>
+              </div>
+              {%- if review.verified.value -%}
+                <div class="sm1c-rev-verified">
+                  <span class="sm1c-rev-verified-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                  </span>
+                  VERIFIED PURCHASE
+                </div>
+              {%- endif -%}
+              <div class="sm1c-rev-quote-wrap" data-sm1c-rev-quote-wrap>
+                <p class="sm1c-rev-quote">&ldquo;{{ review.body.value }}&rdquo;</p>
+              </div>
+              <button type="button" class="sm1c-rev-more" data-sm1c-rev-more>Read More</button>
+            </div>
           </div>
-          <div class="sm1c-rev-name">{{ block.settings.name }}</div>
-          <div class="sm1c-rev-stars">{{ block.settings.rating_text }}</div>
-        </div>
-      {%- endfor -%}
-    {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div class="sm1c-rev-card" data-sm1c-rev-card {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <div class="sm1c-rev-photo">
+                {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.name }}
+              </div>
+            {%- endif -%}
+            <div class="sm1c-rev-body">
+              <div class="sm1c-rev-meta">
+                <div class="sm1c-rev-name">{{ block.settings.name }}{% if block.settings.age != blank %}, {{ block.settings.age }}{% endif %}</div>
+                <div class="sm1c-rev-stars">
+                  {%- assign rating_val = block.settings.rating_text | strip | size -%}
+                  {%- for i in (1..5) -%}
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"{% if i > rating_val %} class="is-empty"{% endif %}><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                  {%- endfor -%}
+                </div>
+              </div>
+              {%- if block.settings.verified -%}
+                <div class="sm1c-rev-verified">
+                  <span class="sm1c-rev-verified-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                  </span>
+                  VERIFIED PURCHASE
+                </div>
+              {%- endif -%}
+              {%- if block.settings.quote != blank -%}
+                <div class="sm1c-rev-quote-wrap" data-sm1c-rev-quote-wrap>
+                  <p class="sm1c-rev-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+                </div>
+                <button type="button" class="sm1c-rev-more" data-sm1c-rev-more>Read More</button>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <button type="button" class="sm1c-rev-arrow sm1c-rev-arrow-next" data-sm1c-rev-next aria-label="Scroll right">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
 </div>
+
+<script>
+(function () {
+  var root = document.currentScript.closest('.shopify-section');
+  if (!root) return;
+  var row = root.querySelector('[data-sm1c-rev-row]');
+  var prevBtn = root.querySelector('[data-sm1c-rev-prev]');
+  var nextBtn = root.querySelector('[data-sm1c-rev-next]');
+
+  if (row && prevBtn && nextBtn) {
+    var scrollByStep = function (direction) {
+      row.scrollBy({ left: direction * row.clientWidth * 0.8, behavior: 'smooth' });
+    };
+    prevBtn.addEventListener('click', function () { scrollByStep(-1); });
+    nextBtn.addEventListener('click', function () { scrollByStep(1); });
+
+    var updateArrows = function () {
+      var maxScroll = row.scrollWidth - row.clientWidth - 1;
+      prevBtn.disabled = row.scrollLeft <= 0;
+      nextBtn.disabled = row.scrollLeft >= maxScroll;
+    };
+    row.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+
+    row.addEventListener('wheel', function (evt) {
+      if (Math.abs(evt.deltaY) > Math.abs(evt.deltaX)) {
+        evt.preventDefault();
+        row.scrollLeft += evt.deltaY;
+      }
+    }, { passive: false });
+  }
+
+  root.querySelectorAll('[data-sm1c-rev-more]').forEach(function (btn) {
+    var card = btn.closest('[data-sm1c-rev-card]');
+    var wrap = card ? card.querySelector('[data-sm1c-rev-quote-wrap]') : null;
+    if (!wrap) return;
+    if (wrap.scrollHeight <= wrap.clientHeight + 2) {
+      btn.hidden = true;
+      return;
+    }
+    btn.addEventListener('click', function () {
+      var expanded = card.classList.toggle('is-expanded');
+      btn.textContent = expanded ? 'Read Less' : 'Read More';
+    });
+  });
+})();
+</script>
 
 {% schema %}
 {
   "name": "SM1C Reviews",
   "settings": [
+    { "type": "text", "id": "loved_by_prefix", "label": "Headline prefix", "default": "Loved by" },
+    { "type": "text", "id": "loved_by_count", "label": "Headline highlighted count", "default": "50,000+" },
     { "type": "text", "id": "average_rating", "label": "Average rating", "default": "4.9" },
     { "type": "text", "id": "review_count", "label": "Review count text", "default": "522 reviews" },
-    { "type": "text", "id": "write_review_label", "label": "Write review button label", "default": "Write a Review" },
-    { "type": "url", "id": "write_review_link", "label": "Write review link" }
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#E8637E" }
   ],
   "blocks": [
     {
@@ -140,7 +371,10 @@
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Photo" },
         { "type": "text", "id": "name", "label": "Name", "default": "Isabella T." },
-        { "type": "text", "id": "rating_text", "label": "Rating text", "default": "★★★★★" }
+        { "type": "text", "id": "age", "label": "Age" },
+        { "type": "checkbox", "id": "verified", "label": "Show verified purchase badge", "default": true },
+        { "type": "text", "id": "rating_text", "label": "Rating text", "default": "★★★★★" },
+        { "type": "textarea", "id": "quote", "label": "Quote" }
       ]
     }
   ],
@@ -149,11 +383,11 @@
     {
       "name": "SM1C Reviews",
       "blocks": [
-        { "type": "review", "settings": { "name": "Isabella T." } },
-        { "type": "review", "settings": { "name": "Jessica M." } },
-        { "type": "review", "settings": { "name": "Mia K." } },
-        { "type": "review", "settings": { "name": "Hannah D." } },
-        { "type": "review", "settings": { "name": "Chloe C." } }
+        { "type": "review", "settings": { "name": "Margaret", "age": "61", "quote": "I honestly thought my foundation days were over. At 61, everything I tried would settle into my smile lines within an hour." } },
+        { "type": "review", "settings": { "name": "Jennifer", "age": "58", "quote": "In 25 years, I've spent thousands on foundation. Nothing worked on my 54-year-old skin until now." } },
+        { "type": "review", "settings": { "name": "Mia", "age": "56", "quote": "I've spent over $300 in the past year alone returning foundations that didn't work. This one finally does." } },
+        { "type": "review", "settings": { "name": "Deborah", "age": "63", "quote": "As a makeup artist for 30+ years, I've never found one that works this well on mature skin." } },
+        { "type": "review", "settings": { "name": "Chloe", "age": "34", "quote": "Gentle enough for daily use and hasn't caused any irritation for me." } }
       ]
     }
   ]

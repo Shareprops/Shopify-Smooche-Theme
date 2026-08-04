@@ -1,13 +1,22 @@
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-bh-banner {
   position: relative;
-  height: 380px;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, {{ section.settings.gradient_from }}, {{ section.settings.gradient_to }});
+}
+#shopify-section-{{ section.id }} .sm1c-bh-images {
+  position: absolute;
+  inset: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 #shopify-section-{{ section.id }} .sm1c-bh-img {
-  height: 380px;
-  background: #eee;
+  height: 100%;
+  background: rgba(255, 255, 255, .12);
   overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-bh-img img {
@@ -16,15 +25,46 @@
   object-fit: cover;
   display: block;
 }
-#shopify-section-{{ section.id }} .sm1c-bh-title {
+#shopify-section-{{ section.id }} .sm1c-bh-scrim {
   position: absolute;
-  left: 44px;
-  bottom: 36px;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(58, 46, 39, 0) 0%, rgba(58, 46, 39, .35) 100%);
+}
+#shopify-section-{{ section.id }} .sm1c-bh-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 640px;
+  padding: 56px 24px;
   color: #fff;
-  font-family: 'Fraunces', serif;
-  font-size: 52px;
+  font-family: 'Work Sans', sans-serif;
+}
+#shopify-section-{{ section.id }} .sm1c-bh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, .25);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 12px;
   font-weight: 600;
-  text-shadow: 0 2px 12px rgba(0,0,0,.25);
+  margin-bottom: 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-bh-title {
+  color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .18);
+}
+#shopify-section-{{ section.id }} .sm1c-bh-subtext {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.55;
+  opacity: .95;
 }
 #shopify-section-{{ section.id }} .sm1c-bh-trust {
   display: flex;
@@ -32,7 +72,7 @@
   gap: 60px;
   padding: 22px 44px;
   border-bottom: 1px solid oklch(90% 0.01 40);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   flex-wrap: wrap;
 }
 #shopify-section-{{ section.id }} .sm1c-bh-trust-item {
@@ -44,16 +84,10 @@
 }
 @media (max-width: 900px) {
   #shopify-section-{{ section.id }} .sm1c-bh-banner {
-    grid-template-columns: repeat(2, 1fr);
-    height: auto;
+    min-height: 300px;
   }
-  #shopify-section-{{ section.id }} .sm1c-bh-img {
-    height: 220px;
-  }
-  #shopify-section-{{ section.id }} .sm1c-bh-title {
-    font-size: 32px;
-    left: 20px;
-    bottom: 16px;
+  #shopify-section-{{ section.id }} .sm1c-bh-content {
+    padding: 40px 20px;
   }
   #shopify-section-{{ section.id }} .sm1c-bh-trust {
     gap: 24px;
@@ -62,18 +96,71 @@
 }
 {%- endstyle -%}
 
-{%- assign sm1c_collection = section.settings.collection | default: collection -%}
+{%- liquid
+  assign sm1c_collection = section.settings.collection | default: collection
+  assign sm1c_has_images = false
+  if section.settings.banner_image_1 != blank or section.settings.banner_image_2 != blank or section.settings.banner_image_3 != blank or section.settings.banner_image_4 != blank
+    assign sm1c_has_images = true
+  endif
+
+  assign sm1c_title = section.settings.heading
+  assign sm1c_subtext = section.settings.subtext
+  assign sm1c_badge = section.settings.badge_text
+
+  if sm1c_title == blank or sm1c_subtext == blank
+    case sm1c_collection.handle
+      when 'anti-aging'
+        assign sm1c_default_title = 'Turn Back The Clock'
+        assign sm1c_default_subtext = 'Dermatologist-inspired formulas that target fine lines, firmness, and glow — because aging gracefully should not mean waiting.'
+      when 'daily-skincare-essentials'
+        assign sm1c_default_title = 'Your Everyday Glow Ritual'
+        assign sm1c_default_subtext = 'The simple, consistent routine that keeps your skin balanced, hydrated, and camera-ready — every single day.'
+      when 'beauty-tools-devices'
+        assign sm1c_default_title = 'Spa Results, At Home'
+        assign sm1c_default_subtext = 'Professional-grade tools designed to lift, tone, and treat — no appointment necessary.'
+      when 'shapewear-body-shaping'
+        assign sm1c_default_title = 'Smooth. Lift. Own It.'
+        assign sm1c_default_subtext = 'Shaping essentials built for all-day comfort and a silhouette that feels like you, just more confident.'
+      when 'bestsellers'
+        assign sm1c_default_title = 'Our Best-Loved Favorites'
+        assign sm1c_default_subtext = 'The products our customers cannot stop repurchasing — real results, real reviews, 50,000+ happy customers.'
+      else
+        assign sm1c_default_title = sm1c_collection.title
+        assign sm1c_default_subtext = 'Curated picks to fit your routine, loved by thousands of customers.'
+    endcase
+    if sm1c_title == blank
+      assign sm1c_title = sm1c_default_title
+    endif
+    if sm1c_subtext == blank
+      assign sm1c_subtext = sm1c_default_subtext
+    endif
+  endif
+-%}
+
 <div class="sm1c-bh-banner">
-  {%- for i in (1..4) -%}
-    {%- assign img_key = 'banner_image_' | append: i -%}
-    <div class="sm1c-bh-img">
-      {%- assign img = section.settings[img_key] -%}
-      {%- if img != blank -%}
-        {{ img | image_url: width: 500 | image_tag: loading: 'eager', alt: '' }}
-      {%- endif -%}
+  {%- if sm1c_has_images -%}
+    <div class="sm1c-bh-images">
+      {%- for i in (1..4) -%}
+        {%- assign img_key = 'banner_image_' | append: i -%}
+        {%- assign img = section.settings[img_key] -%}
+        <div class="sm1c-bh-img">
+          {%- if img != blank -%}
+            {{ img | image_url: width: 500 | image_tag: loading: 'eager', alt: '' }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
     </div>
-  {%- endfor -%}
-  <div class="sm1c-bh-title">{{ section.settings.heading | default: sm1c_collection.title }}</div>
+    <div class="sm1c-bh-scrim"></div>
+  {%- endif -%}
+  <div class="sm1c-bh-content">
+    {%- if sm1c_badge != blank -%}
+      <div class="sm1c-bh-badge">★★★★★ {{ sm1c_badge }}</div>
+    {%- endif -%}
+    <h1 class="sm1c-bh-title">{{ sm1c_title }}</h1>
+    {%- if sm1c_subtext != blank -%}
+      <div class="sm1c-bh-subtext">{{ sm1c_subtext }}</div>
+    {%- endif -%}
+  </div>
 </div>
 
 {%- if section.blocks.size > 0 -%}
@@ -91,17 +178,40 @@
     {
       "type": "collection",
       "id": "collection",
-      "label": "Collection (used for the heading default)"
+      "label": "Collection (used for default heading/copy)"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text (optional)",
+      "default": "Loved by 50,000+ customers"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading (defaults to collection title if blank)"
+      "label": "Heading (defaults to topic-relevant copy if blank)"
     },
-    { "type": "image_picker", "id": "banner_image_1", "label": "Banner image 1" },
-    { "type": "image_picker", "id": "banner_image_2", "label": "Banner image 2" },
-    { "type": "image_picker", "id": "banner_image_3", "label": "Banner image 3" },
-    { "type": "image_picker", "id": "banner_image_4", "label": "Banner image 4" }
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext (defaults to topic-relevant copy if blank)"
+    },
+    { "type": "image_picker", "id": "banner_image_1", "label": "Banner image 1 (optional)" },
+    { "type": "image_picker", "id": "banner_image_2", "label": "Banner image 2 (optional)" },
+    { "type": "image_picker", "id": "banner_image_3", "label": "Banner image 3 (optional)" },
+    { "type": "image_picker", "id": "banner_image_4", "label": "Banner image 4 (optional)" },
+    {
+      "type": "color",
+      "id": "gradient_from",
+      "label": "Gradient start",
+      "default": "#F4A9B8"
+    },
+    {
+      "type": "color",
+      "id": "gradient_to",
+      "label": "Gradient end",
+      "default": "#E8637E"
+    }
   ],
   "blocks": [
     {

@@ -16,7 +16,7 @@
 
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-pdp-wrap {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: #3A2E27;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-grid {
@@ -127,6 +127,9 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-mobile-gallery {
+  display: none;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-thumb {
   flex: 0 0 72px;
@@ -250,7 +253,7 @@
   color: #3A2E27;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 36px;
   font-weight: 600;
   line-height: 1.15;
@@ -397,7 +400,7 @@
   border: none;
   padding: 12px 28px;
   border-radius: 100px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -555,7 +558,7 @@
   color: #FBF6EE;
   padding: 18px;
   border-radius: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 15px;
   font-weight: 500;
   text-transform: uppercase;
@@ -641,6 +644,7 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion details {
   border-top: 1px solid oklch(90% 0.01 30);
+  overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion details:last-child {
   border-bottom: 1px solid oklch(90% 0.01 30);
@@ -659,9 +663,11 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion summary::after {
   content: "+";
+  display: inline-block;
+  transition: transform .3s ease;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion details[open] summary::after {
-  content: "\2212";
+  transform: rotate(135deg);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion-body {
   padding: 0 0 16px;
@@ -676,7 +682,7 @@
   padding: 22px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feedback-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 400;
   text-align: center;
@@ -730,6 +736,40 @@
     flex: 0 0 80px;
     height: 80px;
     scroll-snap-align: start;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-main-img {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-mobile-gallery {
+    display: block;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-mobile-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 20px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-mobile-track::-webkit-scrollbar {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-mobile-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    aspect-ratio: 1 / 1;
+    background: #eee;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-mobile-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
   }
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-wrap {
@@ -829,6 +869,29 @@
           assign thumb_images = sorted_thumb_images
         endif
       -%}
+      <div class="sm1c-pdp-mobile-gallery" data-sm1c-mobile-gallery>
+        <div class="sm1c-pdp-mobile-track" data-sm1c-mobile-track>
+          {%- for image in thumb_images -%}
+            <div
+              class="sm1c-pdp-mobile-slide"
+              data-sm1c-mobile-slide
+              data-full="{{ image | image_url: width: 1200 }}"
+            >
+              {{ image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+            </div>
+          {%- else -%}
+            <div class="sm1c-pdp-mobile-slide" data-sm1c-mobile-slide data-full="{{ main_image | image_url: width: 1200 }}">
+              {%- if main_image != blank -%}
+                {{ main_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="sm1c-pdp-viewing sm1c-pdp-viewing--on-image" data-sm1c-viewing-badge hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span data-sm1c-viewing-count>0</span> viewing now
+        </div>
+      </div>
       {%- if thumb_images.size > 1 -%}
         <div class="sm1c-pdp-thumbs">
           {%- for image in thumb_images -%}
@@ -1232,13 +1295,45 @@
     img.src = url;
   }
 
-  thumbs.forEach(function (thumb) {
+  var mobileTrack = root.querySelector('[data-sm1c-mobile-track]');
+  var mobileSlideEls = mobileTrack ? mobileTrack.querySelectorAll('[data-sm1c-mobile-slide]') : [];
+
+  function setActiveThumb(index) {
+    thumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === index); });
+  }
+
+  thumbs.forEach(function (thumb, index) {
     thumb.addEventListener('click', function () {
-      thumbs.forEach(function (t) { t.classList.remove('is-active'); });
-      thumb.classList.add('is-active');
+      setActiveThumb(index);
       setMainImage(thumb.getAttribute('data-full'));
+      var targetSlide = mobileSlideEls[index];
+      if (targetSlide && mobileTrack) {
+        mobileTrack.scrollTo({ left: targetSlide.offsetLeft, behavior: 'smooth' });
+      }
     });
   });
+
+  if (mobileTrack && mobileSlideEls.length > 1) {
+    var scrollTimer = null;
+    mobileTrack.addEventListener('scroll', function () {
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        var trackRect = mobileTrack.getBoundingClientRect();
+        var center = trackRect.left + trackRect.width / 2;
+        var closestIndex = 0;
+        var closestDist = Infinity;
+        mobileSlideEls.forEach(function (slide, index) {
+          var rect = slide.getBoundingClientRect();
+          var dist = Math.abs((rect.left + rect.width / 2) - center);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closestIndex = index;
+          }
+        });
+        setActiveThumb(closestIndex);
+      }, 80);
+    }, { passive: true });
+  }
 
   var tiers = root.querySelectorAll('[data-sm1c-tier]');
   var qtyInput = root.querySelector('[data-sm1c-quantity]');
@@ -1438,11 +1533,15 @@
       setZoomTransform();
     }
 
-    function openZoom() {
-      var mainImgEl = mainImg && mainImg.querySelector('img');
-      if (!mainImgEl || !mainImgEl.src) return;
-      zoomImage.src = mainImgEl.src;
-      zoomImage.alt = mainImgEl.alt || '';
+    function openZoom(src, alt) {
+      if (!src) {
+        var mainImgEl = mainImg && mainImg.querySelector('img');
+        if (!mainImgEl || !mainImgEl.src) return;
+        src = mainImgEl.src;
+        alt = mainImgEl.alt || '';
+      }
+      zoomImage.src = src;
+      zoomImage.alt = alt || '';
       resetZoom();
       zoomOverlay.hidden = false;
       document.body.style.overflow = 'hidden';
@@ -1454,8 +1553,16 @@
       resetZoom();
     }
 
-    zoomBtn.addEventListener('click', openZoom);
+    zoomBtn.addEventListener('click', function () { openZoom(); });
     zoomCloseBtn.addEventListener('click', closeZoom);
+
+    var mobileSlides = root.querySelectorAll('[data-sm1c-mobile-slide]');
+    mobileSlides.forEach(function (slide) {
+      slide.addEventListener('click', function () {
+        var img = slide.querySelector('img');
+        openZoom(slide.getAttribute('data-full'), img ? img.alt : '');
+      });
+    });
 
     zoomOverlay.addEventListener('click', function (event) {
       if (event.target === zoomOverlay || event.target === zoomStage) closeZoom();
@@ -1509,6 +1616,68 @@
         isPanning = false;
         zoomImage.classList.remove('is-panning');
       });
+    });
+  }
+
+  function SM1CAccordion(el) {
+    this.el = el;
+    this.summary = el.querySelector('summary');
+    this.content = el.querySelector('.sm1c-pdp-accordion-body');
+    this.animation = null;
+    this.isClosing = false;
+    this.isExpanding = false;
+    this.summary.addEventListener('click', this.onClick.bind(this));
+  }
+  SM1CAccordion.prototype.onClick = function (e) {
+    e.preventDefault();
+    this.el.style.overflow = 'hidden';
+    if (this.isClosing || !this.el.open) {
+      this.open();
+    } else if (this.isExpanding || this.el.open) {
+      this.shrink();
+    }
+  };
+  SM1CAccordion.prototype.shrink = function () {
+    this.isClosing = true;
+    var startHeight = this.el.offsetHeight + 'px';
+    var endHeight = this.summary.offsetHeight + 'px';
+    if (this.animation) this.animation.cancel();
+    this.animation = this.el.animate(
+      { height: [startHeight, endHeight] },
+      { duration: 300, easing: 'cubic-bezier(.4, 0, .2, 1)' }
+    );
+    this.animation.onfinish = this.onAnimationFinish.bind(this, false);
+    this.animation.oncancel = function () { this.isClosing = false; }.bind(this);
+  };
+  SM1CAccordion.prototype.open = function () {
+    this.el.style.height = this.el.offsetHeight + 'px';
+    this.el.open = true;
+    window.requestAnimationFrame(this.expand.bind(this));
+  };
+  SM1CAccordion.prototype.expand = function () {
+    this.isExpanding = true;
+    var startHeight = this.el.offsetHeight + 'px';
+    var endHeight = (this.summary.offsetHeight + this.content.offsetHeight) + 'px';
+    if (this.animation) this.animation.cancel();
+    this.animation = this.el.animate(
+      { height: [startHeight, endHeight] },
+      { duration: 300, easing: 'cubic-bezier(.4, 0, .2, 1)' }
+    );
+    this.animation.onfinish = this.onAnimationFinish.bind(this, true);
+    this.animation.oncancel = function () { this.isExpanding = false; }.bind(this);
+  };
+  SM1CAccordion.prototype.onAnimationFinish = function (open) {
+    this.el.open = open;
+    this.animation = null;
+    this.isClosing = false;
+    this.isExpanding = false;
+    this.el.style.height = '';
+    this.el.style.overflow = '';
+  };
+
+  if (window.Animation && Element.prototype.animate) {
+    root.querySelectorAll('.sm1c-pdp-accordion details').forEach(function (el) {
+      new SM1CAccordion(el);
     });
   }
 })();
