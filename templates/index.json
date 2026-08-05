@@ -329,7 +329,7 @@
       ],
       "settings": {
         "heading": "Bestsellers",
-        "view_all_link": "",
+        "view_all_link": "shopify://pages/best-seller",
         "bg_color": "#ffffff",
         "pill_bg": "#f6e6dd",
         "accent_color": "#e8637e"

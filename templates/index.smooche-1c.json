@@ -142,7 +142,7 @@
       "block_order": ["card_1", "card_2", "card_3", "card_4"],
       "settings": {
         "heading": "Bestsellers",
-        "view_all_link": "",
+        "view_all_link": "shopify://pages/best-seller",
         "bg_color": "#ffffff",
         "pill_bg": "#f6e6dd",
         "accent_color": "#E8637E"
