@@ -22,8 +22,8 @@
         "button_2_link": "shopify://collections/frontpage",
         "chip_text": "Clinicians' Choice — 197 clinicians recommend Serein",
         "height": 600,
-        "gradient_from": "#f4a9b8",
-        "gradient_to": "#e8637e"
+        "gradient_from": "#F7AFC7",
+        "gradient_to": "#FCE7DC"
       }
     },
     "sm1c_trust_marquee": {
