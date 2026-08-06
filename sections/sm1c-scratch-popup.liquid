@@ -351,28 +351,57 @@
 
     function drawScratchLayer() {
       var w = canvas.width, h = canvas.height;
+
       var grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, '#e9c869');
-      grad.addColorStop(0.45, '#d9a24a');
-      grad.addColorStop(1, '#e9c869');
+      grad.addColorStop(0, '#f3d688');
+      grad.addColorStop(0.5, '#d9a83f');
+      grad.addColorStop(1, '#e9c15a');
       ctx.globalCompositeOperation = 'source-over';
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
-      ctx.strokeStyle = 'rgba(255,255,255,.25)';
-      ctx.lineWidth = 2;
-      for (var i = -h; i < w; i += 10) {
-        ctx.beginPath();
-        ctx.moveTo(i, 0);
-        ctx.lineTo(i + h, h);
-        ctx.stroke();
+      var vignette = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.2, w / 2, h / 2, Math.max(w, h) * 0.75);
+      vignette.addColorStop(0, 'rgba(0,0,0,0)');
+      vignette.addColorStop(1, 'rgba(90,60,10,.35)');
+      ctx.fillStyle = vignette;
+      ctx.fillRect(0, 0, w, h);
+
+      var grainCount = Math.min((w * h) / 90, 6000);
+      for (var n = 0; n < grainCount; n++) {
+        var nx = Math.random() * w;
+        var ny = Math.random() * h;
+        ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,.12)' : 'rgba(0,0,0,.08)';
+        ctx.fillRect(nx, ny, 1, 1);
       }
 
-      ctx.fillStyle = 'rgba(255,255,255,.6)';
-      ctx.font = '700 15px "Bricolage Grotesque", sans-serif';
+      var streaks = [
+        { x: w * 0.16, y: -h * 0.1, len: h * 1.3, width: 12, rot: -0.42, a: .32 },
+        { x: w * 0.34, y: -h * 0.2, len: h * 1.4, width: 20, rot: -0.36, a: .26 },
+        { x: w * 0.55, y: -h * 0.15, len: h * 1.35, width: 9, rot: -0.46, a: .3 },
+        { x: w * 0.72, y: -h * 0.25, len: h * 1.45, width: 16, rot: -0.38, a: .28 }
+      ];
+      streaks.forEach(function (s) {
+        ctx.save();
+        ctx.translate(s.x, s.y);
+        ctx.rotate(s.rot);
+        ctx.strokeStyle = 'rgba(255,255,255,' + s.a + ')';
+        ctx.lineWidth = s.width;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, s.len);
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      ctx.fillStyle = 'rgba(255,255,255,.9)';
+      ctx.font = '800 17px "Bricolage Grotesque", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
+      ctx.shadowColor = 'rgba(90,60,10,.4)';
+      ctx.shadowBlur = 5;
       ctx.fillText('SCRATCH HERE', w / 2, h / 2);
+      ctx.shadowBlur = 0;
     }
 
     var BRUSH_RADIUS = 26;

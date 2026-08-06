@@ -395,6 +395,7 @@
           "type": "review",
           "settings": {
             "author": "Lauren",
+            "headline": "Finally laughing again",
             "rating_text": "★★★★★ Verified",
             "quote": "One conversation away from counseling. Now we're laughing again."
           }
@@ -403,6 +404,7 @@
           "type": "review",
           "settings": {
             "author": "Tracey",
+            "headline": "Helped through a dry spell",
             "rating_text": "★★★★★ Verified",
             "quote": "So glad I tried these — helped through a dry spell."
           }
@@ -418,6 +420,7 @@
           "type": "review",
           "settings": {
             "author": "Lana",
+            "headline": "Noticed real change",
             "rating_text": "★★★★★ Verified",
             "quote": "47 and perimenopausal — noticed a difference in three weeks."
           }
@@ -433,6 +436,7 @@
           "type": "review",
           "settings": {
             "author": "Sienna",
+            "headline": "More energy, more focus",
             "rating_text": "★★★★★ Verified",
             "quote": "Noticed a difference within days — more energy and focus all day."
           }
@@ -448,8 +452,43 @@
           "type": "review",
           "settings": {
             "author": "Janelle",
+            "headline": "Now part of my routine",
             "rating_text": "★★★★★ Verified",
             "quote": "Two kids, no time — three weeks in and it's already part of my routine."
+          }
+        },
+        "t_9": {
+          "type": "review",
+          "settings": {
+            "author": "Rachel",
+            "headline": "Skin texture improved",
+            "rating_text": "★★★★★ Verified",
+            "quote": "Started seeing smoother skin within two weeks — my derm noticed too."
+          }
+        },
+        "t_10": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
+            "alt": "customer photo"
+          }
+        },
+        "t_11": {
+          "type": "review",
+          "settings": {
+            "author": "Priya",
+            "headline": "Confidence is back",
+            "rating_text": "★★★★★ Verified",
+            "quote": "I stopped hiding my skin under makeup for the first time in years."
+          }
+        },
+        "t_12": {
+          "type": "review",
+          "settings": {
+            "author": "Monica",
+            "headline": "Worth every penny",
+            "rating_text": "★★★★★ Verified",
+            "quote": "Compared three other brands — this is the only one that actually worked."
           }
         }
       },
@@ -458,10 +497,14 @@
         "t_2",
         "t_3",
         "t_4",
+        "t_9",
+        "t_10",
         "t_5",
         "t_6",
         "t_7",
-        "t_8"
+        "t_8",
+        "t_11",
+        "t_12"
       ],
       "settings": {
         "eyebrow": "REAL RESULTS",

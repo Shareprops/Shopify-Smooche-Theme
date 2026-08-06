@@ -1,0 +1,37 @@
+{%- comment -%}
+  Renders one testimonial wall tile: a review quote card or a photo/video media card.
+  Accepts: block, card_bg, accent_color
+{%- endcomment -%}
+{%- if block.type == 'review' -%}
+  {%- assign initial = block.settings.author | slice: 0, 1 -%}
+  <div class="sm1c-test-card" style="background:{{ card_bg }}">
+    <div class="sm1c-test-card-head">
+      <div class="sm1c-test-avatar">
+        {%- if block.settings.avatar != blank -%}
+          {{ block.settings.avatar | image_url: width: 80 | image_tag: loading: 'lazy', alt: block.settings.author }}
+        {%- else -%}
+          <span style="color:{{ accent_color }}">{{ initial }}</span>
+        {%- endif -%}
+      </div>
+      <div class="sm1c-test-names">
+        <div class="sm1c-test-name-row">
+          <div class="sm1c-test-author">{{ block.settings.author }}</div>
+          <div class="sm1c-test-stars" style="color:{{ accent_color }}" aria-label="{{ block.settings.rating_text }}">★★★★★</div>
+        </div>
+        {%- if block.settings.headline != blank -%}
+          <div class="sm1c-test-headline" style="color:{{ accent_color }}">{{ block.settings.headline }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="sm1c-test-quote-mark">&ldquo;</div>
+    <div class="sm1c-test-quote">{{ block.settings.quote }}</div>
+  </div>
+{%- else -%}
+  <div class="sm1c-test-media">
+    {%- if block.settings.video != blank -%}
+      {{ block.settings.video | video_tag: image_size: '400x', autoplay: true, loop: true, muted: true, playsinline: true, controls: false }}
+    {%- elsif block.settings.image != blank -%}
+      {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.alt }}
+    {%- endif -%}
+  </div>
+{%- endif -%}

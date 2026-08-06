@@ -85,11 +85,33 @@
   margin-top: 12px;
   font-size: 14px;
   font-weight: 700;
+  line-height: 1.3;
+  min-height: 2.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .sm1c-bun-rating {
+  font-size: 11px;
+  color: rgba(0,0,0,.55);
+  margin-top: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-bun-swatches {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+#shopify-section-{{ section.id }} .sm1c-bun-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.15);
 }
 #shopify-section-{{ section.id }} .sm1c-bun-price {
   font-size: 15px;
   font-weight: 700;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 #shopify-section-{{ section.id }} .sm1c-bun-compare {
   text-decoration: line-through;
@@ -149,11 +171,17 @@
         assign item_price = block.settings.price
         assign item_image = block.settings.image
         assign item_url = block.settings.link
+        assign color_values = blank
         if block.settings.product != blank
           assign item_title = block.settings.product.title
           assign item_price = block.settings.product.price | money
           assign item_image = block.settings.product.featured_image
           assign item_url = block.settings.product.url
+          for option in block.settings.product.options_with_values
+            if option.name == 'Color' or option.name == 'Colour'
+              assign color_values = option.values
+            endif
+          endfor
         endif
       -%}
       <div class="sm1c-bun-card" {{ block.shopify_attributes }}>
@@ -169,12 +197,22 @@
             {%- endif -%}
           </div>
           <div class="sm1c-bun-name">{{ item_title }}</div>
+          {%- if section.settings.show_ratings -%}
+            <div class="sm1c-bun-rating">{{ section.settings.default_rating_text }}</div>
+          {%- endif -%}
           <div class="sm1c-bun-price">
             {{ item_price }}
             {%- if block.settings.compare_at_price != blank -%}
               <span class="sm1c-bun-compare">{{ block.settings.compare_at_price }}</span>
             {%- endif -%}
           </div>
+          {%- if color_values != blank -%}
+            <div class="sm1c-bun-swatches">
+              {%- for value in color_values limit: 5 -%}
+                <span class="sm1c-bun-swatch" style="background:{{ value | escape }}" title="{{ value | escape }}"></span>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
         </a>
       </div>
     {%- endfor -%}
@@ -207,6 +245,18 @@
       "id": "pill_bg",
       "label": "View-all pill background",
       "default": "#f6e6dd"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ratings",
+      "label": "Show star ratings",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "default_rating_text",
+      "label": "Rating text",
+      "default": "★★★★★ 500+ reviews"
     }
   ],
   "blocks": [

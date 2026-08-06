@@ -72,6 +72,10 @@
   color: currentColor;
   opacity: .65;
 }
+#shopify-section-{{ section.id }} .sm1c-foot-signup input:focus-visible {
+  outline: 2px solid {{ section.settings.accent_color }};
+  outline-offset: 2px;
+}
 #shopify-section-{{ section.id }} .sm1c-foot-signup button {
   background: {{ section.settings.accent_color }};
   border: none;
@@ -83,6 +87,10 @@
   font-size: 14px;
   color: #fff;
   cursor: pointer;
+}
+#shopify-section-{{ section.id }} .sm1c-foot-signup button:focus-visible {
+  outline: 2px solid {{ section.settings.text_color }};
+  outline-offset: 2px;
 }
 #shopify-section-{{ section.id }} .sm1c-foot-bottom {
   border-top: 1px solid rgba(255,255,255,.15);
