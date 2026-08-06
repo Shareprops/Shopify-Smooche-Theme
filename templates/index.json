@@ -22,8 +22,8 @@
         "button_2_link": "shopify://collections/frontpage",
         "chip_text": "Clinicians' Choice — 197 clinicians recommend Serein",
         "height": 600,
-        "gradient_from": "#FFB8A7",
-        "gradient_to": "#E85C84"
+        "gradient_from": "#ffb8a7",
+        "gradient_to": "#e85c84"
       }
     },
     "sm1c_trust_marquee": {
@@ -410,7 +410,7 @@
         "t_3": {
           "type": "media",
           "settings": {
-            "video": "shopify://files/videos/Collagen_Overnight_Wrapping_Pe.mp4",
+            "video": "shopify://files/videos/WhatsApp Video 2026-08-05 at 10.51.54 PM.mp4",
             "alt": "customer video"
           }
         },
@@ -425,7 +425,7 @@
         "t_5": {
           "type": "media",
           "settings": {
-            "video": "shopify://files/videos/where_is_the_video_I_need_mut.mp4",
+            "video": "shopify://files/videos/WhatsApp Video 2026-08-05 at 10.51.54 PM (1).mp4",
             "alt": "customer photo"
           }
         },
@@ -440,7 +440,7 @@
         "t_7": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
+            "video": "shopify://files/videos/WhatsApp Video 2026-08-05 at 10.51.55 PM.mp4",
             "alt": "customer photo"
           }
         },
