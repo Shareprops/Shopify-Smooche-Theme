@@ -12,7 +12,7 @@
     "sm1c_hero": {
       "type": "sm1c-hero",
       "settings": {
-        "image": "shopify://shop_images/49071ed145bb9ed930b4f956389a.png",
+        "image": "shopify://shop_images/ChatGPT_Image_Aug_7_2026_10_46_09_AM.png",
         "badge_text": "Loved by 50,000+ customers",
         "title": "Beauty inspired by you.",
         "subtext": "Skin-loving formulas designed for real routines — and the real you.",
@@ -425,6 +425,22 @@
             "quote": "47 and perimenopausal — noticed a difference in three weeks."
           }
         },
+        "t_9": {
+          "type": "review",
+          "settings": {
+            "author": "Rachel",
+            "headline": "Skin texture improved",
+            "rating_text": "★★★★★ Verified",
+            "quote": "Started seeing smoother skin within two weeks — my derm noticed too."
+          }
+        },
+        "t_10": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
+            "alt": "customer photo"
+          }
+        },
         "t_5": {
           "type": "media",
           "settings": {
@@ -455,22 +471,6 @@
             "headline": "Now part of my routine",
             "rating_text": "★★★★★ Verified",
             "quote": "Two kids, no time — three weeks in and it's already part of my routine."
-          }
-        },
-        "t_9": {
-          "type": "review",
-          "settings": {
-            "author": "Rachel",
-            "headline": "Skin texture improved",
-            "rating_text": "★★★★★ Verified",
-            "quote": "Started seeing smoother skin within two weeks — my derm noticed too."
-          }
-        },
-        "t_10": {
-          "type": "media",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
-            "alt": "customer photo"
           }
         },
         "t_11": {
@@ -572,7 +572,9 @@
         "heading": "Bundle & Save",
         "view_all_link": "",
         "bg_color": "#ffffff",
-        "pill_bg": "#f6e6dd"
+        "pill_bg": "#f6e6dd",
+        "show_ratings": true,
+        "default_rating_text": "★★★★★ 500+ reviews"
       }
     },
     "sm1c_lifestyle": {
