@@ -76,19 +76,22 @@
         "acc_1": {
           "type": "accordion_item",
           "settings": {
-            "title": "Product Details"
+            "title": "Product Details",
+            "body": "<p>Experience a relaxing facial massage with 7 LED light modes and microcurrent technology.<br/>Designed to support a simple, refreshing skincare routine from the comfort of home.<br/>Lightweight and easy to use, making it convenient for daily beauty and self-care routines.</p>"
           }
         },
         "acc_2": {
           "type": "accordion_item",
           "settings": {
-            "title": "Discreet Shipping"
+            "title": "Discreet Shipping",
+            "body": "<p>Your order is carefully packaged in plain, discreet packaging for added privacy.<br/>No product details or promotional branding are displayed on the outside of the package.<br/>Orders are securely prepared and shipped directly to your provided delivery address.</p>"
           }
         },
         "acc_3": {
           "type": "accordion_item",
           "settings": {
-            "title": "Return & Refund Policy"
+            "title": "Return & Refund Policy",
+            "body": "<p>If your order arrives damaged or you experience an issue, please contact us promptly.<br/>Eligible returns or refunds are handled according to our store's return policy.<br/>Please keep your order details and photos of any damaged product to help us resolve the issue quickly.</p>"
           }
         },
         "fb_1": {
@@ -101,8 +104,8 @@
         "fb_2": {
           "type": "feedback_bar",
           "settings": {
-            "label": "Taste & Feel",
-            "percent": 74
+            "label": "Does it help you every day",
+            "percent": 87
           }
         },
         "fb_3": {
@@ -152,14 +155,19 @@
           "settings": {
             "icon": "truck",
             "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
             "icon_color": "#f0e6df"
-          }
+          },
+          "blocks": {}
         },
         "text_1": {
           "type": "text",
           "settings": {
             "text": "<p>Free Shipping &amp; 2-Day Delivery</p>",
             "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "0.875rem",
@@ -167,22 +175,35 @@
             "letter_spacing": "loose",
             "case": "uppercase",
             "wrap": "nowrap",
-            "text_color": "#f0e6df"
-          }
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "icon_2": {
           "type": "icon",
           "settings": {
             "icon": "lock",
             "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
             "icon_color": "#f0e6df"
-          }
+          },
+          "blocks": {}
         },
         "text_2": {
           "type": "text",
           "settings": {
             "text": "<p>100% Secure Checkout</p>",
             "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "0.875rem",
@@ -190,22 +211,35 @@
             "letter_spacing": "loose",
             "case": "uppercase",
             "wrap": "nowrap",
-            "text_color": "#f0e6df"
-          }
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "icon_3": {
           "type": "icon",
           "settings": {
             "icon": "return",
             "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
             "icon_color": "#f0e6df"
-          }
+          },
+          "blocks": {}
         },
         "text_3": {
           "type": "text",
           "settings": {
             "text": "<p>30-Day Easy Returns</p>",
             "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "0.875rem",
@@ -213,22 +247,35 @@
             "letter_spacing": "loose",
             "case": "uppercase",
             "wrap": "nowrap",
-            "text_color": "#f0e6df"
-          }
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "icon_4": {
           "type": "icon",
           "settings": {
             "icon": "star",
             "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
             "icon_color": "#f0e6df"
-          }
+          },
+          "blocks": {}
         },
         "text_4": {
           "type": "text",
           "settings": {
             "text": "<p>Loved by 50,000+ Customers</p>",
             "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "0.875rem",
@@ -236,8 +283,16 @@
             "letter_spacing": "loose",
             "case": "uppercase",
             "wrap": "nowrap",
-            "text_color": "#f0e6df"
-          }
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -251,6 +306,7 @@
         "text_4"
       ],
       "settings": {
+        "movement_direction": "normal",
         "background_color": "#2e1810",
         "padding-block-start": 16,
         "padding-block-end": 16,
@@ -290,7 +346,8 @@
       "settings": {
         "heading": "Here's how it",
         "heading_accent": "works",
-        "subheading": "Designed to support real confidence and consistency, one simple daily ritual that fits your routine."
+        "subheading": "Designed to support real confidence and consistency, one simple daily ritual that fits your routine.",
+        "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_07_43_58_PM.png"
       }
     },
     "sm1c_pdp_comparison": {
@@ -364,7 +421,7 @@
             "percent": 92,
             "headline": "reported they felt the spark and emotional closeness in their relationship return.",
             "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.",
-            "bar_color": "#E8637E"
+            "bar_color": "#e8637e"
           }
         },
         "stat_2": {
@@ -382,7 +439,7 @@
             "percent": 89,
             "headline": "reported steadier energy through the entire day.",
             "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.",
-            "bar_color": "#E8637E"
+            "bar_color": "#e8637e"
           }
         }
       },
@@ -394,7 +451,8 @@
       "settings": {
         "heading": "What women told us in",
         "heading_accent": "our survey",
-        "subheading": "Formulated with botanical ingredients to support balance, confidence, and consistency over time."
+        "subheading": "Formulated with botanical ingredients to support balance, confidence, and consistency over time.",
+        "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_07_43_49_PM.png"
       }
     },
     "sm1c_pdp_ingredients": {
@@ -405,7 +463,8 @@
           "settings": {
             "name": "Vitamin E",
             "tag": "HYDRATION",
-            "support_text": "Used to support: nourished, softer lips"
+            "support_text": "Used to support: nourished, softer lips",
+            "description": ""
           }
         },
         "ing_2": {
@@ -413,7 +472,8 @@
           "settings": {
             "name": "Peptide Complex",
             "tag": "VOLUME",
-            "support_text": "Used to support: fullness & definition"
+            "support_text": "Used to support: fullness & definition",
+            "description": ""
           }
         },
         "ing_3": {
@@ -421,7 +481,8 @@
           "settings": {
             "name": "Shea Butter",
             "tag": "MOISTURE",
-            "support_text": "Used to support: everyday comfort"
+            "support_text": "Used to support: everyday comfort",
+            "description": ""
           }
         }
       },
@@ -494,8 +555,11 @@
         "rev_5"
       ],
       "settings": {
+        "loved_by_prefix": "Loved by",
+        "loved_by_count": "50,000+",
         "average_rating": "4.9",
-        "review_count": "522 reviews"
+        "review_count": "522 reviews",
+        "accent_color": "#e8637e"
       }
     },
     "sm1c_pdp_faq": {
