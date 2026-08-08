@@ -342,6 +342,7 @@
           "type": "tile",
           "settings": {
             "collection": "anti-aging",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_7_2026_11_15_10_PM.png",
             "label": "",
             "subtitle": "Turn back the clock",
             "link": ""
@@ -351,6 +352,7 @@
           "type": "tile",
           "settings": {
             "collection": "daily-skincare-essentials",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_01_23_16_PM.png",
             "label": "",
             "subtitle": "Your everyday glow",
             "link": ""
@@ -360,6 +362,7 @@
           "type": "tile",
           "settings": {
             "collection": "beauty-tools-devices",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_01_32_34_PM.png",
             "label": "",
             "subtitle": "Spa results at home",
             "link": ""
@@ -369,6 +372,7 @@
           "type": "tile",
           "settings": {
             "collection": "shapewear-body-shaping",
+            "image": "shopify://shop_images/146e555e-87ce-488f-b74d-08c02d5b94f5.png",
             "label": "",
             "subtitle": "Smooth. Lift. Own it.",
             "link": ""
