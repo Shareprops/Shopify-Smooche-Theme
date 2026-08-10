@@ -115,6 +115,16 @@
   font-size: 13px;
   color: rgba(58, 46, 39, .75);
 }
+.sm1c-cart-drawer-urgency {
+  text-align: center;
+  background: #FCE8EC;
+  color: #C13D5B;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin: 0 0 12px;
+}
 .sm1c-cart-drawer-footer {
   padding: 18px 22px 22px;
   border-top: 1px solid oklch(90% 0.01 30);
@@ -211,7 +221,7 @@
         <span data-sm1c-cart-drawer-subtotal>{{ cart.total_price | money }}</span>
       </div>
       <a href="{{ routes.cart_url }}" class="sm1c-cart-drawer-view-cart">View cart</a>
-      <a href="{{ routes.checkout_url }}" class="sm1c-cart-drawer-checkout">Checkout</a>
+      <a href="{{ routes.root_url }}checkout" class="sm1c-cart-drawer-checkout">Checkout</a>
     </div>
   </div>
 </div>

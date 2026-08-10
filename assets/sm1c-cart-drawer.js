@@ -36,6 +36,7 @@
     document.body.classList.remove('sm1c-cart-drawer-open');
     setTimeout(function () {
       drawer.hidden = true;
+      renderUrgencyBanner(null);
     }, 300);
   }
 
@@ -118,7 +119,21 @@
     }, 750);
   }
 
-  function addToCart(variantId, quantity, sourceImgEl, button) {
+  function renderUrgencyBanner(message) {
+    if (!drawer) return;
+    var itemsEl = drawer.querySelector('[data-sm1c-cart-drawer-items]');
+    if (!itemsEl) return;
+    var existing = drawer.querySelector('[data-sm1c-cart-drawer-urgency]');
+    if (existing) existing.remove();
+    if (!message) return;
+    var banner = document.createElement('div');
+    banner.className = 'sm1c-cart-drawer-urgency';
+    banner.setAttribute('data-sm1c-cart-drawer-urgency', '');
+    banner.textContent = message;
+    itemsEl.parentNode.insertBefore(banner, itemsEl);
+  }
+
+  function addToCart(variantId, quantity, sourceImgEl, button, urgencyMessage) {
     if (!variantId) return;
     var originalText = button ? button.textContent : null;
     if (button) {
@@ -140,6 +155,7 @@
         return refreshCart();
       })
       .then(function () {
+        renderUrgencyBanner(urgencyMessage);
         setTimeout(openDrawer, sourceImgEl ? 500 : 0);
       })
       .catch(function (err) {
@@ -169,7 +185,8 @@
       var variantId = quickAddBtn.getAttribute('data-variant-id');
       var card = quickAddBtn.closest('[data-sm1c-product-card]');
       var img = card ? card.querySelector('img') : null;
-      addToCart(variantId, 1, img, quickAddBtn);
+      var quickUrgency = quickAddBtn.getAttribute('data-sm1c-urgency-message');
+      addToCart(variantId, 1, img, quickAddBtn, quickUrgency);
     }
   });
 
@@ -184,7 +201,8 @@
     var pdpWrap = form.closest('.sm1c-pdp-wrap');
     var img = pdpWrap ? pdpWrap.querySelector('[data-sm1c-main-img] img') : null;
     var submitBtn = form.querySelector('button[type="submit"]');
-    addToCart(variantId, quantity, img, submitBtn);
+    var urgencyMessage = submitBtn ? submitBtn.getAttribute('data-sm1c-urgency-message') : null;
+    addToCart(variantId, quantity, img, submitBtn, urgencyMessage);
   });
 
   refreshCart();

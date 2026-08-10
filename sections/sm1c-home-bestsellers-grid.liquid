@@ -81,19 +81,6 @@
   padding: 6px 12px;
   border-radius: 100px;
 }
-#shopify-section-{{ section.id }} .sm1c-bg-heart {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255,255,255,.9);
-  border-radius: 100px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-}
 #shopify-section-{{ section.id }} .sm1c-bg-name {
   margin-top: 12px;
   font-size: 14px;
@@ -184,9 +171,6 @@
             </div>
             {%- if block.settings.badge_text != blank -%}
               <div class="sm1c-bg-badge">{{ block.settings.badge_text }}</div>
-            {%- endif -%}
-            {%- if block.settings.show_wishlist -%}
-              <div class="sm1c-bg-heart">♡</div>
             {%- endif -%}
           </div>
           <div class="sm1c-bg-name">{{ item_title }}</div>
@@ -287,12 +271,6 @@
           "type": "url",
           "id": "link",
           "label": "Link"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_wishlist",
-          "label": "Show wishlist icon",
-          "default": true
         }
       ]
     }

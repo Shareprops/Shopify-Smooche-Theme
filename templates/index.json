@@ -277,8 +277,8 @@
             "rating_text": "★★★★★ 1,204",
             "price": "$29.00",
             "compare_at_price": "",
-            "link": "",
-            "show_wishlist": true
+            "link": ""
+            
           }
         },
         "card_2": {
@@ -290,8 +290,8 @@
             "rating_text": "★★★★★ 834",
             "price": "$39.00",
             "compare_at_price": "$58.00",
-            "link": "",
-            "show_wishlist": true
+            "link": ""
+            
           }
         },
         "card_3": {
@@ -303,8 +303,8 @@
             "rating_text": "★★★★★ 2,910",
             "price": "$39.00",
             "compare_at_price": "$48.00",
-            "link": "",
-            "show_wishlist": true
+            "link": ""
+            
           }
         },
         "card_4": {
@@ -316,8 +316,8 @@
             "rating_text": "★★★★★ 561",
             "price": "$39.00",
             "compare_at_price": "$58.00",
-            "link": "",
-            "show_wishlist": true
+            "link": ""
+            
           }
         }
       },

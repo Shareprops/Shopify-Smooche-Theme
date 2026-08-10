@@ -12,9 +12,15 @@
       assign color_option = option
     endif
   endfor
+
+  assign urgency_percent = product.metafields.custom.urgency_percent.value | default: section.settings.urgency_percent
+  assign urgency_message = section.settings.urgency_text | append: ' ' | append: urgency_percent | append: '% left'
 -%}
 
 {%- style -%}
+#shopify-section-{{ section.id }} div:has(> .pmpr-branding-wrapper) {
+  display: none !important;
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-wrap {
   font-family: 'Work Sans', sans-serif;
   color: #3A2E27;
@@ -262,6 +268,42 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-title span {
   color: #E8637E;
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap {
+  position: relative;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-content {
+  max-height: 44px;
+  overflow: hidden;
+  transition: max-height .25s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap.is-expanded .sm1c-pdp-desc-content {
+  max-height: 1000px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap:not(.is-expanded):not(.no-clamp) .sm1c-pdp-desc-content::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  height: 22px;
+  background: linear-gradient(to bottom, transparent, #fff);
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-toggle {
+  display: block;
+  margin-top: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #E8637E;
+  cursor: pointer;
+  font-family: inherit;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-desc-toggle[hidden] {
+  display: none;
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-desc {
   font-size: 14px;
   color: rgba(58, 46, 39, .8);
@@ -393,6 +435,18 @@
   font-weight: 600;
   color: rgba(58, 46, 39, .8);
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-urgency {
+  font-size: 11px;
+  font-weight: 800;
+  color: #E8637E;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-urgency {
+    display: none;
+  }
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn {
   flex: none;
   background: #E8637E;
@@ -419,26 +473,6 @@
   #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-title {
     max-width: 120px;
   }
-}
-#shopify-section-{{ section.id }} .sm1c-pdp-label {
-  margin-top: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  color: oklch(35% 0.02 30);
-}
-#shopify-section-{{ section.id }} .sm1c-pdp-divider {
-  height: 1px;
-  background: oklch(90% 0.01 30);
-  margin: 10px 0;
-}
-#shopify-section-{{ section.id }} .sm1c-pdp-offer {
-  background: oklch(94% 0.03 30);
-  border-radius: 14px;
-  padding: 14px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  margin: 16px 0;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tiers {
   display: flex;
@@ -496,6 +530,19 @@
   color: oklch(60% 0.01 30);
   font-weight: 500;
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group {
+  display: flex;
+  flex-direction: column;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget {
+  order: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group .sm1c-pdp-urgency {
+  order: 2;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group .product-form__buttons {
+  order: 3;
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-urgency {
   background: oklch(94% 0.03 30);
   border-radius: 100px;
@@ -520,15 +567,6 @@
 @keyframes sm1c-pdp-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: .35; }
-}
-#shopify-section-{{ section.id }} .sm1c-pdp-ship-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: oklch(65% 0.16 145);
-  margin-right: 5px;
-  vertical-align: middle;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-urgency-text {
   font-size: 13px;
@@ -582,11 +620,12 @@
   margin-top: 16px;
   font-family: inherit;
 }
-#shopify-section-{{ section.id }} .sm1c-pdp-ship-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: rgba(58, 46, 39, .8);
+#shopify-section-{{ section.id }} .sm1c-pdp-free-shipping {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: #E8637E;
   margin-top: 14px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-social {
@@ -781,13 +820,14 @@
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-img {
   background: var(--sm1c-surface);
 }
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-text,
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-label {
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-text {
   color: var(--sm1c-text);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap:not(.is-expanded):not(.no-clamp) .sm1c-pdp-desc-content::after {
+  background: linear-gradient(to bottom, transparent, var(--sm1c-bg));
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc-list li,
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-ship-row,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-tier-note,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-accordion-body,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-price {
@@ -801,7 +841,6 @@
   color: var(--sm1c-text);
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-viewing,
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-offer,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-urgency,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feedback {
   background: var(--sm1c-surface);
@@ -810,7 +849,6 @@
   background: var(--sm1c-surface);
   border-top-color: var(--sm1c-border);
 }
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-divider,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-accordion details {
   border-color: var(--sm1c-border);
 }
@@ -948,21 +986,24 @@
           endunless
         endfor
       -%}
-      {%- if desc_bullet_count > 1 -%}
-        <ul class="sm1c-pdp-desc-list">
-          {%- for part in desc_parts limit: 4 -%}
-            {%- assign part_trimmed = part | strip -%}
-            {%- unless part_trimmed == blank -%}
-              <li>
-                <svg class="sm1c-pdp-desc-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>{{ part_trimmed | truncatewords: 24 }}</span>
-              </li>
-            {%- endunless -%}
-          {%- endfor -%}
-        </ul>
-      {%- else -%}
-        <div class="sm1c-pdp-desc">{{ desc_stripped | truncatewords: 28 }}</div>
-      {%- endif -%}
+      <div class="sm1c-pdp-desc-wrap" data-sm1c-desc-wrap>
+        {%- if desc_bullet_count > 1 -%}
+          <ul class="sm1c-pdp-desc-list sm1c-pdp-desc-content" data-sm1c-desc-content>
+            {%- for part in desc_parts -%}
+              {%- assign part_trimmed = part | strip -%}
+              {%- unless part_trimmed == blank -%}
+                <li>
+                  <svg class="sm1c-pdp-desc-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>{{ part_trimmed }}</span>
+                </li>
+              {%- endunless -%}
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
+          <div class="sm1c-pdp-desc sm1c-pdp-desc-content" data-sm1c-desc-content>{{ desc_stripped }}</div>
+        {%- endif -%}
+        <button type="button" class="sm1c-pdp-desc-toggle" data-sm1c-desc-toggle hidden>Read more</button>
+      </div>
 
       {%- if product.tags.size > 0 -%}
         <div class="sm1c-pdp-tags">
@@ -970,15 +1011,6 @@
             <span class="sm1c-pdp-tag-badge">{{ tag }}</span>
           {%- endfor -%}
         </div>
-      {%- endif -%}
-
-      {%- if section.settings.facts_label != blank -%}
-        <div class="sm1c-pdp-label">{{ section.settings.facts_label }}</div>
-        <div class="sm1c-pdp-divider"></div>
-      {%- endif -%}
-
-      {%- if section.settings.offer_text != blank -%}
-        <div class="sm1c-pdp-offer">{{ section.settings.offer_text }}</div>
       {%- endif -%}
 
       {%- form 'product', product, id: 'sm1c-pdp-form', class: '', data-sm1c-ajax-cart-form: '', data-currency: shop.currency -%}
@@ -1106,32 +1138,30 @@
 
         <input type="hidden" name="quantity" value="1" data-sm1c-quantity>
 
-        {%- if section.settings.urgency_text != blank -%}
-          <div class="sm1c-pdp-urgency">
-            <span class="sm1c-pdp-urgency-dot"></span>
-            <span class="sm1c-pdp-urgency-text">{{ section.settings.urgency_text }} <span>{{ section.settings.urgency_percent }}%</span></span>
-            <span class="sm1c-pdp-urgency-track"><span class="sm1c-pdp-urgency-fill" style="width:{{ section.settings.urgency_percent }}%"></span></span>
-          </div>
-        {%- endif -%}
+        <div class="sm1c-pdp-atc-group">
+          {%- if section.settings.urgency_text != blank -%}
+            <div class="sm1c-pdp-urgency">
+              <span class="sm1c-pdp-urgency-dot"></span>
+              <span class="sm1c-pdp-urgency-text">{{ section.settings.urgency_text }} <span>{{ urgency_percent }}%</span></span>
+              <span class="sm1c-pdp-urgency-track"><span class="sm1c-pdp-urgency-fill" style="width:{{ urgency_percent }}%"></span></span>
+            </div>
+          {%- endif -%}
 
-        <button type="submit" class="sm1c-pdp-atc" data-sm1c-atc-observe {% unless current_variant.available %}disabled{% endunless %}>
-          <span data-sm1c-atc-label>
-            {%- if current_variant.available -%}
-              {{ section.settings.atc_label | default: 'ADD TO CART' }}
-            {%- else -%}
-              Sold out
-            {%- endif -%}
-          </span>
-        </button>
+          <div class="product-form__buttons">
+          <button type="submit" name="add" class="sm1c-pdp-atc product-form__submit" data-sm1c-atc-observe data-sm1c-urgency-message="{{ urgency_message | escape }}" {% unless current_variant.available %}disabled{% endunless %}>
+            <span data-sm1c-atc-label>
+              {%- if current_variant.available -%}
+                {{ section.settings.atc_label | default: 'ADD TO CART' }}
+              {%- else -%}
+                Sold out
+              {%- endif -%}
+            </span>
+          </button>
+          </div>
+        </div>
       {%- endform -%}
 
-      {%- liquid
-        assign ship_note_left_clean = section.settings.ship_note_left | replace_first: '● ', '' | replace_first: '●', ''
-      -%}
-      <div class="sm1c-pdp-ship-row">
-        <span><span class="sm1c-pdp-ship-dot"></span>{{ ship_note_left_clean }}</span>
-        <span>{{ section.settings.ship_note_right }}</span>
-      </div>
+      <div class="sm1c-pdp-free-shipping">Free Shipping For All Orders</div>
 
       {%- if section.settings.social_proof_text != blank -%}
         <div class="sm1c-pdp-social">★★★★★ &nbsp;{{ section.settings.social_proof_text }}</div>
@@ -1245,6 +1275,9 @@
         <div>
           <div class="sm1c-pdp-sticky-atc-title">{{ product.title }}</div>
           <div class="sm1c-pdp-sticky-atc-price" data-sm1c-sticky-price>{{ current_variant.price | money }}</div>
+          {%- if section.settings.urgency_text != blank -%}
+            <div class="sm1c-pdp-sticky-atc-urgency">{{ section.settings.urgency_text }} {{ urgency_percent }}% left</div>
+          {%- endif -%}
         </div>
       </div>
       <button
@@ -1280,6 +1313,22 @@
 <script>
 (function () {
   var root = document.currentScript.closest('.shopify-section') || document;
+
+  var descWrap = root.querySelector('[data-sm1c-desc-wrap]');
+  var descContent = root.querySelector('[data-sm1c-desc-content]');
+  var descToggle = root.querySelector('[data-sm1c-desc-toggle]');
+  if (descWrap && descContent && descToggle) {
+    if (descContent.scrollHeight > descContent.clientHeight + 1) {
+      descToggle.hidden = false;
+    } else {
+      descWrap.classList.add('no-clamp');
+    }
+    descToggle.addEventListener('click', function () {
+      var expanded = descWrap.classList.toggle('is-expanded');
+      descToggle.textContent = expanded ? 'Read less' : 'Read more';
+    });
+  }
+
   var mainImg = root.querySelector('[data-sm1c-main-img]');
   var thumbs = root.querySelectorAll('[data-sm1c-thumb]');
 
@@ -1695,18 +1744,6 @@
     },
     {
       "type": "text",
-      "id": "facts_label",
-      "label": "Small label above offer",
-      "default": "SUPPLEMENT FACTS"
-    },
-    {
-      "type": "text",
-      "id": "offer_text",
-      "label": "Offer banner text",
-      "default": "Limited Time Offer — Buy 2 Get 1 Free"
-    },
-    {
-      "type": "text",
       "id": "urgency_text",
       "label": "Urgency banner label",
       "default": "Only a few left!"
@@ -1724,18 +1761,6 @@
       "id": "atc_label",
       "label": "Add to cart button label",
       "default": "ADD TO CART"
-    },
-    {
-      "type": "text",
-      "id": "ship_note_left",
-      "label": "Shipping note (left)",
-      "default": "● Shipped today"
-    },
-    {
-      "type": "text",
-      "id": "ship_note_right",
-      "label": "Shipping note (right)",
-      "default": "Free shipping over $50"
     },
     {
       "type": "text",
