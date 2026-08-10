@@ -104,11 +104,6 @@
     "variant_button_width": "equal-width-buttons",
     "content_for_index": [],
     "blocks": {
-      "6544682535036668446": {
-        "type": "shopify://apps/pumper-bundles/blocks/app-embed/0856870d-2aca-4b1e-a662-cf1797f61270",
-        "disabled": false,
-        "settings": {}
-      },
       "2200952712151285029": {
         "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
         "disabled": false,
@@ -116,6 +111,11 @@
       },
       "2567389343055140935": {
         "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "6544682535036668446": {
+        "type": "shopify://apps/pumper-bundles/blocks/app-embed/0856870d-2aca-4b1e-a662-cf1797f61270",
         "disabled": false,
         "settings": {}
       }
