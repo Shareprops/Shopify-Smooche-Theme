@@ -14,7 +14,6 @@
   endfor
 
   assign urgency_percent = product.metafields.custom.urgency_percent.value | default: section.settings.urgency_percent
-  assign urgency_message = section.settings.urgency_text | append: ' ' | append: urgency_percent | append: '% left'
 -%}
 
 {%- style -%}
@@ -537,11 +536,14 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget {
   order: 1;
 }
-#shopify-section-{{ section.id }} .sm1c-pdp-atc-group .sm1c-pdp-urgency {
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group .sm1c-pdp-option-group {
   order: 2;
 }
-#shopify-section-{{ section.id }} .sm1c-pdp-atc-group .product-form__buttons {
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group .sm1c-pdp-urgency {
   order: 3;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group .product-form__buttons {
+  order: 4;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-urgency {
   background: oklch(94% 0.03 30);
@@ -1046,91 +1048,6 @@
           {%- endfor -%}
         </div>
 
-        {%- if color_option -%}
-          <div class="sm1c-pdp-option-group">
-            <label class="sm1c-pdp-option-label">
-              {{ color_option.name }}: <span data-sm1c-color-name>{{ color_option.selected_value }}</span>
-            </label>
-            <div class="sm1c-pdp-color-swatches" data-sm1c-color-swatches data-option-position="{{ color_option.position }}">
-              {%- capture color_option_key -%}option{{ color_option.position }}{%- endcapture -%}
-              {%- for value in color_option.values -%}
-                {%- assign swatch_image = null -%}
-                {%- for variant in product.variants -%}
-                  {%- if variant[color_option_key] == value -%}
-                    {%- assign swatch_image = variant.featured_image | default: product.featured_image -%}
-                    {%- break -%}
-                  {%- endif -%}
-                {%- endfor -%}
-                <button
-                  type="button"
-                  class="sm1c-pdp-color-swatch{% if color_option.selected_value == value %} is-active{% endif %}"
-                  data-sm1c-color-swatch
-                  data-value="{{ value | escape }}"
-                  aria-label="{{ value | escape }}"
-                  title="{{ value | escape }}"
-                >
-                  {%- if swatch_image -%}
-                    {{ swatch_image | image_url: width: 80 | image_tag: loading: 'lazy', alt: value }}
-                  {%- endif -%}
-                </button>
-              {%- endfor -%}
-            </div>
-          </div>
-        {%- endif -%}
-
-        {%- for option in product.options_with_values -%}
-          {%- assign is_placeholder_option = false -%}
-          {%- if option.values.size == 1 -%}
-            {%- assign single_value_downcase = option.values.first | strip | downcase -%}
-            {%- if single_value_downcase == blank
-              or single_value_downcase == 'n/a'
-              or single_value_downcase == 'default title'
-              or single_value_downcase == 'default'
-            -%}
-              {%- assign is_placeholder_option = true -%}
-            {%- endif -%}
-          {%- endif -%}
-          {%- assign skip_option = is_placeholder_option -%}
-          {%- if color_option and option.position == color_option.position -%}
-            {%- assign skip_option = true -%}
-          {%- endif -%}
-          {%- unless skip_option -%}
-            <div class="sm1c-pdp-option-group">
-              <label class="sm1c-pdp-option-label">
-                {{ option.name }}: <span data-sm1c-option-name>{{ option.selected_value }}</span>
-              </label>
-              <div class="sm1c-pdp-size-pills" data-sm1c-option-pills data-option-position="{{ option.position }}">
-                {%- capture option_key -%}option{{ option.position }}{%- endcapture -%}
-                {%- for value in option.values -%}
-                  {%- assign value_available = false -%}
-                  {%- for variant in product.variants -%}
-                    {%- assign matches_color = true -%}
-                    {%- if color_option -%}
-                      {%- assign matches_color = false -%}
-                      {%- if variant[color_option_key] == color_option.selected_value -%}
-                        {%- assign matches_color = true -%}
-                      {%- endif -%}
-                    {%- endif -%}
-                    {%- if variant[option_key] == value and variant.available and matches_color -%}
-                      {%- assign value_available = true -%}
-                      {%- break -%}
-                    {%- endif -%}
-                  {%- endfor -%}
-                  <button
-                    type="button"
-                    class="sm1c-pdp-size-pill{% if option.selected_value == value %} is-active{% endif %}"
-                    data-sm1c-option-pill
-                    data-value="{{ value | escape }}"
-                    {% unless value_available %}disabled{% endunless %}
-                  >
-                    {{ value }}
-                  </button>
-                {%- endfor -%}
-              </div>
-            </div>
-          {%- endunless -%}
-        {%- endfor -%}
-
         <input type="hidden" name="id" value="{{ current_variant.id }}" data-sm1c-variant-id>
         <script type="application/json" data-sm1c-variants-json>
           {{ product.variants | json }}
@@ -1139,6 +1056,91 @@
         <input type="hidden" name="quantity" value="1" data-sm1c-quantity>
 
         <div class="sm1c-pdp-atc-group">
+          {%- if color_option -%}
+            <div class="sm1c-pdp-option-group">
+              <label class="sm1c-pdp-option-label">
+                {{ color_option.name }}: <span data-sm1c-color-name>{{ color_option.selected_value }}</span>
+              </label>
+              <div class="sm1c-pdp-color-swatches" data-sm1c-color-swatches data-option-position="{{ color_option.position }}">
+                {%- capture color_option_key -%}option{{ color_option.position }}{%- endcapture -%}
+                {%- for value in color_option.values -%}
+                  {%- assign swatch_image = null -%}
+                  {%- for variant in product.variants -%}
+                    {%- if variant[color_option_key] == value -%}
+                      {%- assign swatch_image = variant.featured_image | default: product.featured_image -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  <button
+                    type="button"
+                    class="sm1c-pdp-color-swatch{% if color_option.selected_value == value %} is-active{% endif %}"
+                    data-sm1c-color-swatch
+                    data-value="{{ value | escape }}"
+                    aria-label="{{ value | escape }}"
+                    title="{{ value | escape }}"
+                  >
+                    {%- if swatch_image -%}
+                      {{ swatch_image | image_url: width: 80 | image_tag: loading: 'lazy', alt: value }}
+                    {%- endif -%}
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- for option in product.options_with_values -%}
+            {%- assign is_placeholder_option = false -%}
+            {%- if option.values.size == 1 -%}
+              {%- assign single_value_downcase = option.values.first | strip | downcase -%}
+              {%- if single_value_downcase == blank
+                or single_value_downcase == 'n/a'
+                or single_value_downcase == 'default title'
+                or single_value_downcase == 'default'
+              -%}
+                {%- assign is_placeholder_option = true -%}
+              {%- endif -%}
+            {%- endif -%}
+            {%- assign skip_option = is_placeholder_option -%}
+            {%- if color_option and option.position == color_option.position -%}
+              {%- assign skip_option = true -%}
+            {%- endif -%}
+            {%- unless skip_option -%}
+              <div class="sm1c-pdp-option-group">
+                <label class="sm1c-pdp-option-label">
+                  {{ option.name }}: <span data-sm1c-option-name>{{ option.selected_value }}</span>
+                </label>
+                <div class="sm1c-pdp-size-pills" data-sm1c-option-pills data-option-position="{{ option.position }}">
+                  {%- capture option_key -%}option{{ option.position }}{%- endcapture -%}
+                  {%- for value in option.values -%}
+                    {%- assign value_available = false -%}
+                    {%- for variant in product.variants -%}
+                      {%- assign matches_color = true -%}
+                      {%- if color_option -%}
+                        {%- assign matches_color = false -%}
+                        {%- if variant[color_option_key] == color_option.selected_value -%}
+                          {%- assign matches_color = true -%}
+                        {%- endif -%}
+                      {%- endif -%}
+                      {%- if variant[option_key] == value and variant.available and matches_color -%}
+                        {%- assign value_available = true -%}
+                        {%- break -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    <button
+                      type="button"
+                      class="sm1c-pdp-size-pill{% if option.selected_value == value %} is-active{% endif %}"
+                      data-sm1c-option-pill
+                      data-value="{{ value | escape }}"
+                      {% unless value_available %}disabled{% endunless %}
+                    >
+                      {{ value }}
+                    </button>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endunless -%}
+          {%- endfor -%}
+
           {%- if section.settings.urgency_text != blank -%}
             <div class="sm1c-pdp-urgency">
               <span class="sm1c-pdp-urgency-dot"></span>
@@ -1148,7 +1150,7 @@
           {%- endif -%}
 
           <div class="product-form__buttons">
-          <button type="submit" name="add" class="sm1c-pdp-atc product-form__submit" data-sm1c-atc-observe data-sm1c-urgency-message="{{ urgency_message | escape }}" {% unless current_variant.available %}disabled{% endunless %}>
+          <button type="submit" name="add" class="sm1c-pdp-atc product-form__submit" data-sm1c-atc-observe {% unless current_variant.available %}disabled{% endunless %}>
             <span data-sm1c-atc-label>
               {%- if current_variant.available -%}
                 {{ section.settings.atc_label | default: 'ADD TO CART' }}
