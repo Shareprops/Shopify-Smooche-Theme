@@ -198,7 +198,7 @@
         "row_1": {
           "type": "item",
           "settings": {
-            "product": "2-pack-rechargeable-facial-eyebrow-hair-remover-set",
+            "product": "collagen-peel-off-face-mask",
             "badge_text": "BEST SELLER",
             "title": "Peel-off Lip Stain",
             "price": "$29.00",
@@ -209,7 +209,7 @@
         "row_2": {
           "type": "item",
           "settings": {
-            "product": "collagen-overnight-wrapping-peel-off-face-mask-brush-included",
+            "product": "fruit-roll-on-lip-oil-gloss-set",
             "badge_text": "-33%",
             "title": "Color Changing Foundation",
             "price": "$39.00",
@@ -220,7 +220,7 @@
         "row_3": {
           "type": "item",
           "settings": {
-            "product": "adjustable-back-straightener-posture-corrector-brace",
+            "product": "collagen-hydrating-facial-mask",
             "badge_text": "1+1 FREE",
             "title": "Extreme Lip Plumper",
             "price": "$39.00",
@@ -231,7 +231,7 @@
         "row_4": {
           "type": "item",
           "settings": {
-            "product": "valitic-vitamin-c-turmeric-brightening-clay-mask",
+            "product": "korean-collagen-moisturizing-stick",
             "badge_text": "SALE",
             "title": "Eyebrow Growth Serum",
             "price": "$39.00",
@@ -242,7 +242,7 @@
         "row_5": {
           "type": "item",
           "settings": {
-            "product": "7-color-led-microcurrent-beauty-facial-massager",
+            "product": "overnight-anti-wrinkle-face-patches-192-pcs",
             "badge_text": "NEW",
             "title": "Silk Blush Stick",
             "price": "$24.00",
@@ -278,7 +278,6 @@
             "price": "$29.00",
             "compare_at_price": "",
             "link": ""
-            
           }
         },
         "card_2": {
@@ -291,7 +290,6 @@
             "price": "$39.00",
             "compare_at_price": "$58.00",
             "link": ""
-            
           }
         },
         "card_3": {
@@ -304,7 +302,6 @@
             "price": "$39.00",
             "compare_at_price": "$48.00",
             "link": ""
-            
           }
         },
         "card_4": {
@@ -317,7 +314,6 @@
             "price": "$39.00",
             "compare_at_price": "$58.00",
             "link": ""
-            
           }
         }
       },
