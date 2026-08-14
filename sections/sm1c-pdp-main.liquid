@@ -2196,6 +2196,19 @@
   } else if (typeof mql.addListener === 'function') {
     mql.addListener(moveBundleWidgets); // Safari < 14 fallback.
   }
+
+  // The combo bundle's own "Add to cart" button is a plain <button> (so it
+  // defaults to type="submit") sitting inside our #sm1c-pdp-form. Pumper's
+  // own script already AJAX-adds the combo items and opens its slide cart on
+  // click — that part works. But nothing stops the click from ALSO
+  // submitting the surrounding form natively, which sends the browser to the
+  // cart page at the same time the slide cart opens. We only need to block
+  // that native submission; Pumper's own listener still runs normally.
+  document.addEventListener('click', function (event) {
+    var btn = event.target.closest('.pmpr_bundle__add_to_cart');
+    if (!btn || !root.contains(btn)) return;
+    event.preventDefault();
+  }, true);
 })();
 </script>
 
