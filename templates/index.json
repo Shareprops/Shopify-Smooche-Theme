@@ -313,7 +313,7 @@
         "subheading": "Top-rated essentials that transform your skincare ritual.",
         "brand_name": "serein",
         "view_all_label": "View All Products",
-        "view_all_link": "shopify://collections/frontpage",
+        "view_all_link": "shopify://collections/all",
         "bg_color": "#fdfaf6",
         "accent_color": "#e8637e"
       }
