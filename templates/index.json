@@ -11,19 +11,29 @@
   "sections": {
     "sm1c_hero": {
       "type": "sm1c-hero",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "banner_image": "hero-banner-1.png",
+            "alt_text": "Serein",
+            "link": "shopify://collections/frontpage"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "banner_image": "hero-banner-2.png",
+            "alt_text": "Serein",
+            "link": "shopify://collections/frontpage"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2"],
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_Aug_7_2026_03_21_08_PM.png",
-        "badge_text": "Loved by 50,000+ customers",
-        "title": "Beauty inspired by you.",
-        "subtext": "Skin-loving formulas designed for real routines — and the real you.",
-        "button_1_label": "Shop Bestsellers",
-        "button_1_link": "shopify://collections/frontpage",
-        "button_2_label": "Shop The Foundation",
-        "button_2_link": "shopify://collections/frontpage",
-        "chip_text": "Clinicians' Choice — 197 clinicians recommend Serein",
-        "height": 600,
-        "gradient_from": "#e85c84",
-        "gradient_to": "#f6b8cb"
+        "autorotate": true,
+        "rotate_seconds": 6,
+        "show_trust_row": false
       }
     },
     "sm1c_trust_marquee": {
@@ -186,7 +196,7 @@
       ],
       "settings": {
         "movement_direction": "normal",
-        "background_color": "#2e1810",
+        "background_color": "#c2506a",
         "padding-block-start": 16,
         "padding-block-end": 16,
         "gap_between_elements": 28
@@ -198,56 +208,89 @@
         "row_1": {
           "type": "item",
           "settings": {
-            "product": "2-pack-rechargeable-facial-eyebrow-hair-remover-set",
+            "product": "collagen-hydrating-facial-mask",
             "badge_text": "BEST SELLER",
-            "title": "Peel-off Lip Stain",
-            "price": "$29.00",
-            "compare_at_price": "",
-            "link": ""
+            "rating_text": "(4.9)"
           }
         },
         "row_2": {
           "type": "item",
           "settings": {
-            "product": "collagen-overnight-wrapping-peel-off-face-mask-brush-included",
-            "badge_text": "-33%",
-            "title": "Color Changing Foundation",
-            "price": "$39.00",
-            "compare_at_price": "$58.00",
-            "link": ""
+            "product": "turmeric-collagen-face-mask",
+            "badge_text": "",
+            "rating_text": "(4.8)"
           }
         },
         "row_3": {
           "type": "item",
           "settings": {
-            "product": "adjustable-back-straightener-posture-corrector-brace",
-            "badge_text": "1+1 FREE",
-            "title": "Extreme Lip Plumper",
-            "price": "$39.00",
-            "compare_at_price": "$48.00",
-            "link": ""
+            "product": "overnight-anti-wrinkle-face-patches-192-pcs",
+            "badge_text": "",
+            "rating_text": "(4.9)"
           }
         },
         "row_4": {
           "type": "item",
           "settings": {
-            "product": "valitic-vitamin-c-turmeric-brightening-clay-mask",
-            "badge_text": "SALE",
-            "title": "Eyebrow Growth Serum",
-            "price": "$39.00",
-            "compare_at_price": "$58.00",
-            "link": ""
+            "product": "collagen-peel-off-face-mask",
+            "badge_text": "",
+            "rating_text": "(4.8)"
           }
         },
         "row_5": {
           "type": "item",
           "settings": {
-            "product": "7-color-led-microcurrent-beauty-facial-massager",
+            "product": "collagen-eye-mask",
+            "badge_text": "",
+            "rating_text": "(4.8)"
+          }
+        },
+        "row_6": {
+          "type": "item",
+          "settings": {
+            "product": "turmeric-kojic-cloth-1",
+            "badge_text": "",
+            "rating_text": "(4.7)"
+          }
+        },
+        "row_7": {
+          "type": "item",
+          "settings": {
+            "product": "fruit-roll-on-lip-oil-gloss-set",
             "badge_text": "NEW",
-            "title": "Silk Blush Stick",
-            "price": "$24.00",
-            "compare_at_price": "",
-            "link": ""
+            "rating_text": "(4.8)"
+          }
+        },
+        "row_8": {
+          "type": "item",
+          "settings": {
+            "product": "gold-collagen-crystal-eye-masks-for-dark-circles",
+            "badge_text": "",
+            "rating_text": "(4.7)"
+          }
+        },
+        "row_9": {
+          "type": "item",
+          "settings": {
+            "product": "bio-deep-collagen-hydrogel-firming-face-mask",
+            "badge_text": "",
+            "rating_text": "(4.9)"
+          }
+        },
+        "row_10": {
+          "type": "item",
+          "settings": {
+            "product": "korean-collagen-moisturizing-stick",
+            "badge_text": "",
+            "rating_text": "(4.6)"
+          }
+        },
+        "row_11": {
+          "type": "item",
+          "settings": {
+            "product": "collagen-overnight-wrapping-peel-off-face-mask-brush-included",
+            "badge_text": "",
+            "rating_text": "(4.8)"
           }
         }
       },
@@ -256,140 +299,23 @@
         "row_2",
         "row_3",
         "row_4",
-        "row_5"
+        "row_5",
+        "row_6",
+        "row_7",
+        "row_8",
+        "row_9",
+        "row_10",
+        "row_11"
       ],
       "settings": {
-        "heading": "Top 5 Best-Sellers This Week",
-        "subheading": "Updated every Monday",
+        "eyebrow": "Our Best Sellers",
+        "heading": "Customer Favorites",
+        "subheading": "Top-rated essentials that transform your skincare ritual.",
+        "brand_name": "serein",
+        "view_all_label": "View All Products",
+        "view_all_link": "shopify://collections/frontpage",
         "bg_color": "#fdfaf6",
         "accent_color": "#e8637e"
-      }
-    },
-    "sm1c_home_bestsellers": {
-      "type": "sm1c-home-bestsellers-grid",
-      "blocks": {
-        "card_1": {
-          "type": "item",
-          "settings": {
-            "product": "7-color-led-microcurrent-beauty-facial-massager",
-            "badge_text": "VIRAL",
-            "title": "Peel-off Lip Stain",
-            "rating_text": "★★★★★ 1,204",
-            "price": "$29.00",
-            "compare_at_price": "",
-            "link": ""
-            
-          }
-        },
-        "card_2": {
-          "type": "item",
-          "settings": {
-            "product": "adjustable-back-straightener-posture-corrector-brace",
-            "badge_text": "BESTSELLER",
-            "title": "Color Changing Foundation",
-            "rating_text": "★★★★★ 834",
-            "price": "$39.00",
-            "compare_at_price": "$58.00",
-            "link": ""
-            
-          }
-        },
-        "card_3": {
-          "type": "item",
-          "settings": {
-            "product": "bio-deep-collagen-hydrogel-firming-face-mask",
-            "badge_text": "1+1 FREE",
-            "title": "Extreme Lip Plumper",
-            "rating_text": "★★★★★ 2,910",
-            "price": "$39.00",
-            "compare_at_price": "$48.00",
-            "link": ""
-            
-          }
-        },
-        "card_4": {
-          "type": "item",
-          "settings": {
-            "product": "airbrush-matte-finish-foundation-spray",
-            "badge_text": "SALE",
-            "title": "Eyebrow Growth Serum",
-            "rating_text": "★★★★★ 561",
-            "price": "$39.00",
-            "compare_at_price": "$58.00",
-            "link": ""
-            
-          }
-        }
-      },
-      "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4"
-      ],
-      "settings": {
-        "heading": "Bestsellers",
-        "view_all_link": "shopify://pages/best-seller",
-        "bg_color": "#ffffff",
-        "pill_bg": "#f6e6dd",
-        "accent_color": "#e8637e"
-      }
-    },
-    "sm1c_categories": {
-      "type": "sm1c-categories",
-      "blocks": {
-        "tile_1": {
-          "type": "tile",
-          "settings": {
-            "collection": "anti-aging",
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_7_2026_11_15_10_PM.png",
-            "label": "",
-            "subtitle": "Turn back the clock",
-            "link": ""
-          }
-        },
-        "tile_2": {
-          "type": "tile",
-          "settings": {
-            "collection": "daily-skincare-essentials",
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_01_23_16_PM.png",
-            "label": "",
-            "subtitle": "Your everyday glow",
-            "link": ""
-          }
-        },
-        "tile_3": {
-          "type": "tile",
-          "settings": {
-            "collection": "beauty-tools-devices",
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_01_32_34_PM.png",
-            "label": "",
-            "subtitle": "Spa results at home",
-            "link": ""
-          }
-        },
-        "tile_4": {
-          "type": "tile",
-          "settings": {
-            "collection": "shapewear-body-shaping",
-            "image": "shopify://shop_images/146e555e-87ce-488f-b74d-08c02d5b94f5.png",
-            "label": "",
-            "subtitle": "Smooth. Lift. Own it.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "tile_1",
-        "tile_2",
-        "tile_3",
-        "tile_4"
-      ],
-      "settings": {
-        "heading": "Shop by Category",
-        "bg_color": "#f6e6dd",
-        "cta_label": "Shop All",
-        "cta_link": "/collections/all"
       }
     },
     "sm1c_testimonials": {
@@ -518,89 +444,160 @@
         "accent_color": "#e8637e"
       }
     },
-    "sm1c_bundles": {
-      "type": "sm1c-bundles",
+    "sm1c_lifestyle": {
+      "type": "sm1c-lifestyle-banner",
       "blocks": {
-        "b_1": {
-          "type": "bundle",
+        "check_1": { "type": "checklist_item", "settings": { "label": "Hydrate & Plump" } },
+        "check_2": { "type": "checklist_item", "settings": { "label": "Firm & Lift" } },
+        "check_3": { "type": "checklist_item", "settings": { "label": "Brighten & Even" } },
+        "check_4": { "type": "checklist_item", "settings": { "label": "Nourish & Glow" } },
+        "step_1": { "type": "step", "settings": { "label": "Cleanse", "active": false } },
+        "step_2": { "type": "step", "settings": { "label": "Treat", "active": false } },
+        "step_3": { "type": "step", "settings": { "label": "Hydrate", "active": true } },
+        "step_4": { "type": "step", "settings": { "label": "Nourish", "active": false } },
+        "step_5": { "type": "step", "settings": { "label": "Glow", "active": false } }
+      },
+      "block_order": ["check_1", "check_2", "check_3", "check_4", "step_1", "step_2", "step_3", "step_4", "step_5"],
+      "settings": {
+        "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
+        "eyebrow": "Build Your Ritual",
+        "heading": "Simple Steps, Beautiful Skin",
+        "body": "Curated routines for every concern. Find what your skin truly needs.",
+        "button_label": "Build Your Ritual",
+        "button_link": "shopify://collections/frontpage",
+        "bg_color": "#faf1e9",
+        "accent_color": "#e8637e"
+      }
+    },
+    "sm1c_quote_press": {
+      "type": "sm1c-quote-press",
+      "blocks": {
+        "logo_1": { "type": "logo", "settings": { "name": "Allure" } },
+        "logo_2": { "type": "logo", "settings": { "name": "Byrdie" } },
+        "logo_3": { "type": "logo", "settings": { "name": "Vogue" } },
+        "logo_4": { "type": "logo", "settings": { "name": "Glamour" } }
+      },
+      "block_order": ["logo_1", "logo_2", "logo_3", "logo_4"],
+      "settings": {
+        "quote": "My skin has never felt this hydrated and glowing. These products are now a must in my routine!",
+        "author": "Jessica M.",
+        "author_role": "Verified Buyer",
+        "press_label": "As Seen In",
+        "bg_color": "#fbe9ec",
+        "accent_color": "#e8637e"
+      }
+    },
+    "sm1c_value_pillars": {
+      "type": "sm1c-value-pillars",
+      "blocks": {
+        "p_1": { "type": "pillar", "settings": { "icon": "sparkle", "title": "Premium Quality", "body": "Carefully selected ingredients for visible results." } },
+        "p_2": { "type": "pillar", "settings": { "icon": "shield", "title": "Safe & Effective", "body": "Formulated to be gentle on all skin types." } },
+        "p_3": { "type": "pillar", "settings": { "icon": "flower", "title": "K-Beauty Expertise", "body": "Advanced Korean skincare, backed by science." } },
+        "p_4": { "type": "pillar", "settings": { "icon": "heart", "title": "Loved by Thousands", "body": "Join our community of glowing skin lovers." } }
+      },
+      "block_order": ["p_1", "p_2", "p_3", "p_4"],
+      "settings": {
+        "overlap": false,
+        "padding_top": 56,
+        "padding_bottom": 40,
+        "page_bg": "#fbf6ee",
+        "card_bg": "#ffffff",
+        "accent_color": "#e8637e"
+      }
+    },
+    "sm1c_guarantee": {
+      "type": "sm1c-guarantee",
+      "blocks": {
+        "g_1": { "type": "item", "settings": { "icon": "refresh", "title": "30-Day Returns", "body": "Not a match? Send it back within 30 days for a full refund." } },
+        "g_2": { "type": "item", "settings": { "icon": "truck", "title": "Free U.S. Shipping", "body": "On every order over $50, shipped from within the U.S." } },
+        "g_3": { "type": "item", "settings": { "icon": "lock", "title": "Secure Checkout", "body": "Encrypted payments via Shop Pay, Apple Pay, and all major cards." } }
+      },
+      "block_order": ["g_1", "g_2", "g_3"],
+      "settings": {
+        "eyebrow": "Shop With Confidence",
+        "heading": "Love It, or Your",
+        "heading_accent": "Money Back",
+        "subtext": "Try it risk-free. If your skin doesn't love it within 30 days, we'll refund you — no questions asked.",
+        "button_label": "Shop Risk-Free",
+        "button_link": "shopify://collections/frontpage",
+        "note": "Questions? Our team replies within 24 hours.",
+        "bg_color": "#ffffff",
+        "icon_bg": "#fbe9ec",
+        "accent_color": "#e8637e"
+      }
+    },
+    "sm1c_faq": {
+      "type": "sm1c-pdp-faq",
+      "blocks": {
+        "q_1": {
+          "type": "question",
           "settings": {
-            "product": "fruit-roll-on-lip-oil-gloss-set",
-            "badge_text": "SAVE 58%",
-            "title": "Triple Lip Plumper Bundle",
-            "price": "$48.00",
-            "compare_at_price": "$115.00",
-            "link": ""
+            "question": "How soon will I see results?",
+            "answer": "<p>Most customers notice softer, more hydrated skin after the first few uses. For firmness and tone, give it a consistent 3–4 weeks — skin renews on roughly a 28-day cycle.</p>"
           }
         },
-        "b_2": {
-          "type": "bundle",
+        "q_2": {
+          "type": "question",
           "settings": {
-            "product": "ion-hot-air-comb-automatic-styling-dual-purpose-straightening-shaping-tool",
-            "badge_text": "SALE",
-            "title": "Lash & Brow Growth Kit",
-            "price": "$48.00",
-            "compare_at_price": "$77.00",
-            "link": ""
+            "question": "Is this safe for sensitive skin?",
+            "answer": "<p>Our formulas are designed to be gentle and are free from parabens and sulfates. If you have sensitive or reactive skin, we always recommend patch-testing on your inner arm for 24 hours first.</p>"
           }
         },
-        "b_3": {
-          "type": "bundle",
+        "q_3": {
+          "type": "question",
           "settings": {
-            "product": "mxczbsm-tighten-and-lift-neck-cream-neck-firming-cream-tightening-lifting-sagging-skin-anti-aging-neck-creams-for-hydrating-tightening-help-reduce-fine-lines-wrinkles",
-            "badge_text": "SAVE 65%",
-            "title": "Bestseller Duo Kit",
-            "price": "$58.00",
-            "compare_at_price": "$168.00",
-            "link": ""
+            "question": "How fast is shipping in the U.S.?",
+            "answer": "<p>Orders ship from within the United States and typically arrive in 2–5 business days. Shipping is free on orders over $50, and you'll get tracking by email as soon as it leaves our warehouse.</p>"
           }
         },
-        "b_4": {
-          "type": "bundle",
+        "q_4": {
+          "type": "question",
           "settings": {
-            "product": "eigshow-angled-concealer-foundation-brush-soft-vegan",
-            "badge_text": "SAVE 54%",
-            "title": "Bestseller Mega Lip Bundle",
-            "price": "$68.00",
-            "compare_at_price": "$150.00",
-            "link": ""
+            "question": "What is your return policy?",
+            "answer": "<p>You have 30 days from delivery to request a full refund. Reach out to our team and we'll send you a return label — no questions asked.</p>"
+          }
+        },
+        "q_5": {
+          "type": "question",
+          "settings": {
+            "question": "Where can I track my order?",
+            "answer": "<p>Every order includes an email with a tracking link. You can also check status anytime on our Track My Order page.</p>"
           }
         }
       },
-      "block_order": [
-        "b_1",
-        "b_2",
-        "b_3",
-        "b_4"
-      ],
+      "block_order": ["q_1", "q_2", "q_3", "q_4", "q_5"],
       "settings": {
-        "heading": "Bundle & Save",
-        "view_all_link": "",
-        "bg_color": "#ffffff",
-        "pill_bg": "#f6e6dd",
-        "show_ratings": true,
-        "default_rating_text": "★★★★★ 500+ reviews"
+        "heading": "Frequently Asked",
+        "heading_accent": "Questions",
+        "bg_color": "#fbf6ee"
       }
     },
-    "sm1c_lifestyle": {
-      "type": "sm1c-lifestyle-banner",
+    "sm1c_email_capture": {
+      "type": "sm1c-email-capture",
       "settings": {
-        "image": "shopify://shop_images/Gemini_Generated_Image_27nf9627nf9627nf.png",
-        "heading": "Fuller lips, naturally.",
-        "body": "Crafted from natural ingredients — hydrated, nourished volume, without harsh chemicals.",
-        "button_label": "Shop Now",
-        "button_link": "shopify://collections/frontpage",
-        "bg_color": "#f6e6dd"
+        "eyebrow": "Join The Ritual",
+        "heading": "Get 10% Off Your",
+        "heading_accent": "First Order",
+        "subtext": "Skincare tips, early access to new drops, and subscriber-only offers — straight to your inbox.",
+        "placeholder": "Enter your email",
+        "button_label": "Get My 10% Off",
+        "success_text": "You're in! Check your inbox for your discount code.",
+        "note": "No spam, ever. Unsubscribe anytime.",
+        "bg_color": "#fbe9ec",
+        "accent_color": "#e8637e"
       }
     }
   },
   "order": [
     "sm1c_hero",
+    "sm1c_value_pillars",
     "sm1c_trust_marquee",
     "sm1c_bestsellers_row",
-    "sm1c_home_bestsellers",
-    "sm1c_categories",
+    "sm1c_lifestyle",
     "sm1c_testimonials",
-    "sm1c_bundles",
-    "sm1c_lifestyle"
+    "sm1c_quote_press",
+    "sm1c_guarantee",
+    "sm1c_faq",
+    "sm1c_email_capture"
   ]
 }

@@ -11,18 +11,28 @@
   "sections": {
     "sm1c_hero": {
       "type": "sm1c-hero",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "banner_image": "hero-banner-1.png",
+            "alt_text": "Serein",
+            "link": "shopify://collections/frontpage"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "banner_image": "hero-banner-2.png",
+            "alt_text": "Serein",
+            "link": "shopify://collections/frontpage"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2"],
       "settings": {
-        "badge_text": "Loved by 50,000+ customers",
-        "title": "Beauty inspired by you.",
-        "subtext": "Skin-loving formulas designed for real routines — and the real you.",
-        "button_1_label": "Shop Bestsellers",
-        "button_1_link": "shopify://collections/frontpage",
-        "button_2_label": "Shop The Foundation",
-        "button_2_link": "shopify://collections/frontpage",
-        "chip_text": "Clinicians' Choice — 197 clinicians recommend Serein",
-        "height": 600,
-        "gradient_from": "#F4A9B8",
-        "gradient_to": "#E8637E"
+        "autorotate": true,
+        "rotate_seconds": 6
       }
     },
     "sm1c_bestsellers_row": {

@@ -19,10 +19,11 @@ html {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 20px 44px;
-  background: #fff;
-  color: var(--sm1c-text, #111);
-  font-family: 'Work Sans', sans-serif;
+  padding: 18px 44px;
+  background: var(--sm1c-surface, #fff);
+  color: var(--sm1c-ink, #2b211d);
+  font-family: var(--sm1c-sans, sans-serif);
+  border-bottom: 1px solid var(--sm1c-border, rgba(0,0,0,.06));
   transition: background .2s ease, color .2s ease, box-shadow .3s ease, padding .25s ease;
   animation: sm1c-header-in .5s ease;
 }
@@ -40,9 +41,10 @@ html {
   display: flex;
   align-items: center;
   justify-self: start;
-  gap: 28px;
-  font-size: 12px;
-  font-weight: 600;
+  gap: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .01em;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -78,23 +80,19 @@ html {
   color: {{ section.settings.accent_color }};
 }
 #shopify-section-{{ section.id }} .sm1c-header-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -.02em;
-  color: var(--sm1c-text, #3A2E27);
+  font-family: var(--sm1c-serif, serif);
+  font-style: italic;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  color: {{ section.settings.accent_color }};
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   transition: transform .25s ease;
 }
-#shopify-section-{{ section.id }} .sm1c-header-logo img {
-  height: 42px;
-  width: auto;
-  display: block;
-}
 #shopify-section-{{ section.id }} .sm1c-header-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 #shopify-section-{{ section.id }} .sm1c-header-icons {
   display: flex;
@@ -240,17 +238,14 @@ html {
   margin-bottom: 28px;
 }
 #shopify-section-{{ section.id }} .sm1c-nav-drawer-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -.02em;
+  font-family: var(--sm1c-serif, serif);
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  color: {{ section.settings.accent_color }};
   display: inline-flex;
   align-items: center;
-}
-#shopify-section-{{ section.id }} .sm1c-nav-drawer-logo img {
-  height: 24px;
-  width: auto;
-  display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-nav-drawer-close {
   background: none;
@@ -287,7 +282,7 @@ html {
   right: 0;
   max-height: 70vh;
   overflow: hidden;
-  background: linear-gradient(92deg, #F1EAE5 1.57%, #FFD9D3 50.28%, #FFEDE8 98.32%);
+  background: linear-gradient(92deg, #FCF1EE 1.57%, #FBE0E4 50.28%, #FCF1EE 98.32%);
   box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
   padding: 32px 44px;
   visibility: hidden;
@@ -315,7 +310,7 @@ html {
 }
 #shopify-section-{{ section.id }} .sm1c-mega-menu-nav-heading {
   display: block;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: var(--sm1c-sans, sans-serif);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: .02em;
@@ -336,7 +331,7 @@ html {
 }
 #shopify-section-{{ section.id }} .sm1c-mega-menu-nav-list a {
   display: block;
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--sm1c-sans, sans-serif);
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.4;
@@ -402,9 +397,9 @@ html {
   gap: 4px;
 }
 #shopify-section-{{ section.id }} .sm1c-mega-menu-card-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: var(--sm1c-serif, serif);
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
   text-shadow: 0 1px 4px rgba(0, 0, 0, .5);
 }
@@ -445,12 +440,12 @@ html {
       {%- assign sm1c_is_current = true -%}
     {%- endif -%}
     {%- assign sm1c_link_title_downcase = link.title | strip | downcase -%}
-    <li><a href="{{ link.url }}"{% if link.title contains 'Sale' or sm1c_is_current %} class="sm1c-nav-highlight"{% endif %}{% if sm1c_link_title_downcase == 'shop all' %} data-sm1c-mega-trigger="shop-all"{% endif %}>{{ link.title | upcase }}</a></li>
+    <li><a href="{{ link.url }}"{% if link.title contains 'Sale' or sm1c_is_current %} class="sm1c-nav-highlight"{% endif %}{% if sm1c_link_title_downcase == 'shop all' %} data-sm1c-mega-trigger="shop-all"{% endif %}>{{ link.title }}</a></li>
   {%- else -%}
-    <li><a href="{{ routes.root_url }}"{% if request.path == routes.root_url %} class="sm1c-nav-highlight"{% endif %} data-sm1c-mega-trigger="shop-all">SHOP ALL</a></li>
-    <li><a href="/pages/best-seller"{% if request.path == '/pages/best-seller' %} class="sm1c-nav-highlight"{% endif %}>BEST SELLERS</a></li>
-    <li><a href="/pages/hot-deals"{% if request.path == '/pages/hot-deals' %} class="sm1c-nav-highlight"{% endif %}>🔥 HOT DEALS</a></li>
-    <li><a href="/pages/track-my-order"{% if request.path == '/pages/track-my-order' %} class="sm1c-nav-highlight"{% endif %}>TRACK MY ORDER</a></li>
+    <li><a href="{{ routes.root_url }}"{% if request.path == routes.root_url %} class="sm1c-nav-highlight"{% endif %} data-sm1c-mega-trigger="shop-all">Shop All</a></li>
+    <li><a href="/pages/best-seller"{% if request.path == '/pages/best-seller' %} class="sm1c-nav-highlight"{% endif %}>Bestsellers</a></li>
+    <li><a href="/pages/hot-deals"{% if request.path == '/pages/hot-deals' %} class="sm1c-nav-highlight"{% endif %}>Hot Deals</a></li>
+    <li><a href="/pages/track-my-order"{% if request.path == '/pages/track-my-order' %} class="sm1c-nav-highlight"{% endif %}>Track My Order</a></li>
   {%- endfor -%}
 {%- endcapture -%}
 
@@ -531,12 +526,13 @@ html {
     <span class="sm1c-nav-indicator" data-sm1c-nav-indicator aria-hidden="true"></span>
   </ul>
 
-  <a href="{{ routes.root_url }}" class="sm1c-header-logo">
-    <img src="{{ 'serein-logo.png' | asset_url }}" alt="{{ section.settings.logo_text }}" loading="eager" width="203" height="96">
-  </a>
+  <a href="{{ routes.root_url }}" class="sm1c-header-logo">{{ section.settings.logo_text | downcase }}</a>
 
   <div class="sm1c-header-icons">
     {%- comment -%} Favorites icon and theme toggle temporarily removed for launch; dark-mode/wishlist code is kept elsewhere in the theme for future re-enable. {%- endcomment -%}
+    <a href="{{ routes.search_url }}" class="sm1c-icon-btn" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    </a>
     <a href="{{ routes.account_url }}" class="sm1c-icon-btn sm1c-icon-btn-account" aria-label="{% if customer %}Account{% else %}Log in or sign up{% endif %}">
       <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" viewBox="0 0 192 192" fill="none" stroke-width="8">
         <path d="M96 168c39.765 0 72-32.235 72-72 0-39.764-32.235-72-72-72-39.764 0-72 32.236-72 72 0 39.765 32.236 72 72 72Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -557,9 +553,7 @@ html {
   <div class="sm1c-nav-drawer-overlay" data-sm1c-nav-drawer-close></div>
   <div class="sm1c-nav-drawer-panel">
     <div class="sm1c-nav-drawer-head">
-      <span class="sm1c-nav-drawer-logo">
-        <img src="{{ 'serein-logo.png' | asset_url }}" alt="{{ section.settings.logo_text }}" loading="eager" width="203" height="96">
-      </span>
+      <span class="sm1c-nav-drawer-logo">{{ section.settings.logo_text | downcase }}</span>
       <button type="button" class="sm1c-nav-drawer-close" data-sm1c-nav-drawer-close aria-label="Close menu">✕</button>
     </div>
     <ul class="sm1c-nav-drawer-list">

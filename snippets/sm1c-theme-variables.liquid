@@ -4,12 +4,23 @@
   toggle button in sections/sm1c-header.liquid.
   {{ 'sm1c-theme-init.js' | asset_url | script_tag }}
 {%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
 <style>
   :root {
     --sm1c-bg: #FBF6EE;
     --sm1c-text: #3A2E27;
     --sm1c-surface: #ffffff;
     --sm1c-border: rgba(58, 46, 39, .1);
+    --sm1c-serif: 'Fraunces', serif;
+    --sm1c-sans: var(--font-body--family, 'Inter', sans-serif);
+    --sm1c-rose: #E8637E;
+    --sm1c-rose-deep: #C2506A;
+    --sm1c-rose-soft: #FBE9EC;
+    --sm1c-rose-tint: #FCF1EE;
+    --sm1c-cream: #FBF6EE;
+    --sm1c-ink: #2B211D;
   }
   :root[data-sm1c-theme='dark'] {
     --sm1c-bg: #121212;

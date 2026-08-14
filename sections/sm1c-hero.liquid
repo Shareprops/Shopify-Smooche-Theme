@@ -1,208 +1,427 @@
+{%- liquid
+  assign slide_blocks = section.blocks | where: 'type', 'slide'
+-%}
+
 {%- style -%}
-#shopify-section-{{ section.id }} .sm1c-hero {
+#shopify-section-{{ section.id }} .sm1c-hero-wrap {
   position: relative;
-  height: {{ section.settings.height }}px;
-  background: linear-gradient(135deg, {{ section.settings.gradient_from }}, {{ section.settings.gradient_to }});
+  background: linear-gradient(180deg, #FCEEEA 0%, #FDF7F2 60%, var(--sm1c-cream, #FBF6EE) 100%);
+}
+#shopify-section-{{ section.id }} .sm1c-hero-carousel {
+  position: relative;
   overflow: hidden;
-}
-#shopify-section-{{ section.id }} .sm1c-hero-media {
-  position: absolute;
-  right: 6%;
-  top: 8%;
-  width: 44%;
-  height: 84%;
-  border-radius: 28px;
-  overflow: hidden;
-  background: rgba(255,255,255,.2);
-}
-#shopify-section-{{ section.id }} .sm1c-hero.sm1c-hero-no-media .sm1c-hero-content {
-  max-width: 620px;
-}
-#shopify-section-{{ section.id }} .sm1c-hero-media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
-#shopify-section-{{ section.id }} .sm1c-hero-content {
+#shopify-section-{{ section.id }} .sm1c-hero-overlay {
   position: absolute;
-  left: 60px;
-  top: 90px;
+  left: clamp(24px, 6vw, 76px);
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 460px;
-  color: #fff;
-  font-family: 'Work Sans', sans-serif;
+  z-index: 3;
 }
-#shopify-section-{{ section.id }} .sm1c-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,.25);
-  backdrop-filter: blur(8px);
-  padding: 8px 16px;
-  border-radius: 100px;
+#shopify-section-{{ section.id }} .sm1c-hero-eyebrow {
+  font-family: var(--sm1c-sans, sans-serif);
   font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 22px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sm1c-rose-deep, #C2506A);
+  margin-bottom: 14px;
 }
-#shopify-section-{{ section.id }} .sm1c-hero-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 68px;
-  line-height: 1;
-  font-weight: 600;
-  margin: 0;
+#shopify-section-{{ section.id }} .sm1c-hero-heading {
+  font-family: var(--sm1c-serif, serif);
+  font-weight: 500;
+  font-size: clamp(38px, 5.4vw, 66px);
+  line-height: 1.04;
+  color: var(--sm1c-ink, #2b211d);
+  margin: 0 0 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-heading em {
+  font-style: italic;
+  color: var(--sm1c-rose, #E8637E);
 }
 #shopify-section-{{ section.id }} .sm1c-hero-subtext {
-  margin-top: 20px;
+  font-family: var(--sm1c-sans, sans-serif);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: rgba(43, 33, 29, .72);
   max-width: 380px;
-  opacity: .95;
+  margin-bottom: 30px;
 }
 #shopify-section-{{ section.id }} .sm1c-hero-ctas {
   display: flex;
-  gap: 14px;
-  margin-top: 30px;
   flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 34px;
 }
-#shopify-section-{{ section.id }} .sm1c-btn-primary {
-  background: #3A2E27;
-  color: #fff;
-  padding: 16px 30px;
-  border-radius: 14px;
-  font-size: 13px;
+#shopify-section-{{ section.id }} .sm1c-hero-btn {
+  font-family: var(--sm1c-sans, sans-serif);
+  font-size: 12.5px;
   font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
   text-decoration: none;
-  display: inline-block;
-  transition: background .2s ease;
-}
-#shopify-section-{{ section.id }} .sm1c-btn-primary:hover {
-  background: {{ section.settings.gradient_to }};
-}
-#shopify-section-{{ section.id }} .sm1c-btn-secondary {
-  background: rgba(255,255,255,.2);
-  border: 1.5px solid rgba(255,255,255,.7);
-  color: #fff;
   padding: 16px 30px;
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
+  border-radius: 4px;
   display: inline-block;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
-#shopify-section-{{ section.id }} .sm1c-hero-chip {
-  position: absolute;
-  left: 60px;
-  bottom: 40px;
+#shopify-section-{{ section.id }} .sm1c-hero-btn--primary {
+  background: var(--sm1c-rose-deep, #C2506A);
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-btn--primary:hover {
+  background: var(--sm1c-rose, #E8637E);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -8px rgba(194, 80, 106, .55);
+}
+#shopify-section-{{ section.id }} .sm1c-hero-btn--secondary {
+  background: transparent;
+  color: var(--sm1c-ink, #2b211d);
+  border: 1.5px solid var(--sm1c-ink, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-hero-btn--secondary:hover {
+  background: var(--sm1c-ink, #2b211d);
+  color: #fff;
+  transform: translateY(-2px);
+}
+#shopify-section-{{ section.id }} .sm1c-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px 30px;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-trust-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #fff;
-  padding: 12px 18px;
-  border-radius: 14px;
-  font-size: 12px;
+  font-family: var(--sm1c-sans, sans-serif);
+  font-size: 12.5px;
   font-weight: 600;
-  color: #111;
-  max-width: 400px;
+  color: var(--sm1c-ink, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-hero-trust-item svg {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  color: var(--sm1c-rose-deep, #C2506A);
+}
+@media (max-width: 989px) {
+  #shopify-section-{{ section.id }} .sm1c-hero-overlay {
+    max-width: 60%;
+  }
+  #shopify-section-{{ section.id }} .sm1c-hero-trust {
+    display: none;
+  }
 }
 @media (max-width: 749px) {
-  #shopify-section-{{ section.id }} .sm1c-hero {
-    height: auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  #shopify-section-{{ section.id }} .sm1c-hero-media {
+  #shopify-section-{{ section.id }} .sm1c-hero-overlay {
     position: static;
-    right: auto;
-    left: auto;
-    top: auto;
-    width: 100%;
-    height: 300px;
-    border-radius: 0;
-  }
-  #shopify-section-{{ section.id }} .sm1c-hero-content {
-    position: static;
-    left: auto;
-    right: auto;
-    top: auto;
+    transform: none;
     max-width: none;
-    padding: 28px 24px 0;
+    padding: 34px 22px 26px;
+    text-align: center;
   }
-  #shopify-section-{{ section.id }} .sm1c-hero-title {
-    font-size: 40px;
+  #shopify-section-{{ section.id }} .sm1c-hero-subtext {
+    margin-left: auto;
+    margin-right: auto;
   }
-  #shopify-section-{{ section.id }} .sm1c-hero-chip {
-    position: static;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    max-width: none;
-    width: fit-content;
-    margin: 20px 24px 28px;
+  #shopify-section-{{ section.id }} .sm1c-hero-ctas {
+    justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .sm1c-hero-trust {
+    justify-content: center;
+    padding: 0 22px 26px;
+    gap: 18px 22px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-hero-trust-item {
+    font-size: 11px;
   }
 }
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hero-chip {
-  background: var(--sm1c-surface);
-  color: var(--sm1c-text);
+#shopify-section-{{ section.id }} .sm1c-hero-track {
+  display: flex;
+  width: 100%;
+  transition: transform .55s cubic-bezier(.65,0,.35,1);
+}
+#shopify-section-{{ section.id }} .sm1c-hero-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,.85);
+  color: #16150F;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-arrow:hover {
+  background: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-arrow--prev {
+  left: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-arrow--next {
+  right: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-nav {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-nav-bar {
+  position: relative;
+  width: 56px;
+  height: 3px;
+  border: none;
+  padding: 0;
+  border-radius: 2px;
+  background: rgba(255,255,255,.45);
+  cursor: pointer;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-nav-bar-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: #fff;
+  border-radius: 2px;
+  transition: width .2s linear;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-nav-bar.is-active .sm1c-hero-nav-bar-fill {
+  width: 100%;
+}
+#shopify-section-{{ section.id }} .sm1c-hero-nav-bar.is-active[data-no-transition] .sm1c-hero-nav-bar-fill {
+  transition: none;
+}
+@media (max-width: 749px) {
+  #shopify-section-{{ section.id }} .sm1c-hero-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-hero-arrow--prev {
+    left: 12px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-hero-arrow--next {
+    right: 12px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-hero-nav-bar {
+    width: 34px;
+  }
 }
 {%- endstyle -%}
 
-<div class="sm1c-hero{% if section.settings.image == blank %} sm1c-hero-no-media{% endif %}">
-  {%- if section.settings.image != blank -%}
-    <div class="sm1c-hero-media">
-      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', alt: section.settings.image.alt }}
+<div class="sm1c-hero-wrap">
+<div
+  class="sm1c-hero-carousel"
+  data-sm1c-hero-carousel
+  data-autorotate="{{ section.settings.autorotate }}"
+  data-rotate-ms="{{ section.settings.rotate_seconds | default: 6 | times: 1000 }}"
+>
+  <div class="sm1c-hero-track" data-sm1c-hero-track>
+    {%- for block in slide_blocks -%}
+      {%- assign image_loading = 'lazy' -%}
+      {%- assign fetch_priority = 'auto' -%}
+      {%- if forloop.first -%}
+        {%- assign image_loading = 'eager' -%}
+        {%- assign fetch_priority = 'high' -%}
+      {%- endif -%}
+      <div class="sm1c-hero-slide" {{ block.shopify_attributes }}>
+        {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{%- endif -%}
+          <img
+            src="{{ block.settings.banner_image | asset_url }}"
+            alt="{{ block.settings.alt_text | default: 'Serein' | escape }}"
+            loading="{{ image_loading }}"
+            fetchpriority="{{ fetch_priority }}"
+          >
+        {%- if block.settings.link != blank -%}</a>{%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if slide_blocks.size > 1 -%}
+    <button type="button" class="sm1c-hero-arrow sm1c-hero-arrow--prev" data-sm1c-hero-prev aria-label="Previous slide">←</button>
+    <button type="button" class="sm1c-hero-arrow sm1c-hero-arrow--next" data-sm1c-hero-next aria-label="Next slide">→</button>
+
+    <div class="sm1c-hero-nav" data-sm1c-hero-nav>
+      {%- for block in slide_blocks -%}
+        <button type="button" class="sm1c-hero-nav-bar{% if forloop.first %} is-active{% endif %}" data-sm1c-hero-nav-bar data-index="{{ forloop.index0 }}" aria-label="Go to slide {{ forloop.index }}">
+          <span class="sm1c-hero-nav-bar-fill"></span>
+        </button>
+      {%- endfor -%}
     </div>
   {%- endif -%}
-  <div class="sm1c-hero-content">
-    <div class="sm1c-hero-badge">★★★★★ {{ section.settings.badge_text }}</div>
-    <h1 class="sm1c-hero-title">{{ section.settings.title }}</h1>
-    <div class="sm1c-hero-subtext">{{ section.settings.subtext }}</div>
-    <div class="sm1c-hero-ctas">
-      {%- if section.settings.button_1_label != blank -%}
-        <a href="{{ section.settings.button_1_link | default: '#' }}" class="sm1c-btn-primary">{{ section.settings.button_1_label }}</a>
+
+  {%- if section.settings.heading != blank -%}
+    <div class="sm1c-hero-overlay">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="sm1c-hero-eyebrow">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
-      {%- if section.settings.button_2_label != blank -%}
-        <a href="{{ section.settings.button_2_link | default: '#' }}" class="sm1c-btn-secondary">{{ section.settings.button_2_label }}</a>
+      <h1 class="sm1c-hero-heading">{{ section.settings.heading }}{%- if section.settings.heading_accent != blank -%} <em>{{ section.settings.heading_accent }}</em>{%- endif -%}</h1>
+      {%- if section.settings.subtext != blank -%}
+        <div class="sm1c-hero-subtext">{{ section.settings.subtext }}</div>
       {%- endif -%}
+      <div class="sm1c-hero-ctas">
+        {%- if section.settings.button_1_label != blank -%}
+          <a href="{{ section.settings.button_1_link | default: '#' }}" class="sm1c-hero-btn sm1c-hero-btn--primary">{{ section.settings.button_1_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_2_label != blank -%}
+          <a href="{{ section.settings.button_2_link | default: '#' }}" class="sm1c-hero-btn sm1c-hero-btn--secondary">{{ section.settings.button_2_label }}</a>
+        {%- endif -%}
+      </div>
     </div>
-  </div>
-  {%- if section.settings.chip_text != blank -%}
-    <div class="sm1c-hero-chip">{{ section.settings.chip_text }}</div>
   {%- endif -%}
 </div>
 
+{%- if section.settings.show_trust_row -%}
+  <div class="sm1c-hero-trust" style="padding: 0 clamp(24px, 6vw, 76px) 34px;">
+    <div class="sm1c-hero-trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 4 13c0-4 2-7 8-11 6 4 8 7 8 11a7 7 0 0 1-7 7 6 6 0 0 1-2-11"/></svg>
+      <span>{{ section.settings.trust_1 }}</span>
+    </div>
+    <div class="sm1c-hero-trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3c-2 3-2 6 0 9m6-9c2 3 2 6 0 9M8 12c0 4 1.5 7 4 9 2.5-2 4-5 4-9a4 4 0 0 0-8 0Z"/></svg>
+      <span>{{ section.settings.trust_2 }}</span>
+    </div>
+    <div class="sm1c-hero-trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c4 1 7 1 7 1v7c0 5-3 8-7 10-4-2-7-5-7-10V4s3 0 7-1Z"/><path d="m9.5 12 1.8 1.8L14.5 10"/></svg>
+      <span>{{ section.settings.trust_3 }}</span>
+    </div>
+    <div class="sm1c-hero-trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20.5s-7-4.35-9.3-8.7C1.2 8.6 3 5.5 6.2 5.2c1.8-.2 3.3.7 4.3 2.1C11.5 5.9 13 5 14.8 5.2c3.2.3 5 3.4 3.5 6.6C15.9 16.15 12 20.5 12 20.5Z"/></svg>
+      <span>{{ section.settings.trust_4 }}</span>
+    </div>
+  </div>
+{%- endif -%}
+</div>
+
+<script>
+(function () {
+  var root = document.currentScript ? document.currentScript.closest('.shopify-section') : null;
+  if (!root) return;
+  var carousel = root.querySelector('[data-sm1c-hero-carousel]');
+  if (!carousel) return;
+
+  var track = carousel.querySelector('[data-sm1c-hero-track]');
+  var slides = carousel.querySelectorAll('.sm1c-hero-slide');
+  var prevBtn = carousel.querySelector('[data-sm1c-hero-prev]');
+  var nextBtn = carousel.querySelector('[data-sm1c-hero-next]');
+  var navBars = carousel.querySelectorAll('[data-sm1c-hero-nav-bar]');
+  var count = slides.length;
+  if (count < 2) return;
+
+  var index = 0;
+  var timer = null;
+
+  function update() {
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    navBars.forEach(function (bar, i) {
+      bar.classList.toggle('is-active', i === index);
+      bar.setAttribute('data-no-transition', '');
+      requestAnimationFrame(function () { bar.removeAttribute('data-no-transition'); });
+    });
+  }
+
+  function goTo(i) {
+    index = (i + count) % count;
+    update();
+  }
+
+  function next() { goTo(index + 1); resetTimer(); }
+  function prev() { goTo(index - 1); resetTimer(); }
+
+  function resetTimer() {
+    if (timer) clearInterval(timer);
+    if (carousel.getAttribute('data-autorotate') === 'false') return;
+    var ms = parseInt(carousel.getAttribute('data-rotate-ms'), 10) || 6000;
+    timer = setInterval(function () { goTo(index + 1); }, ms);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+  if (nextBtn) nextBtn.addEventListener('click', next);
+  navBars.forEach(function (bar) {
+    bar.addEventListener('click', function () {
+      goTo(parseInt(bar.getAttribute('data-index'), 10) || 0);
+      resetTimer();
+    });
+  });
+
+  update();
+  resetTimer();
+})();
+</script>
+
 {% schema %}
 {
-  "name": "SM1C Hero",
+  "name": "SM1C Hero (Carousel)",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Model portrait image"
+      "type": "checkbox",
+      "id": "autorotate",
+      "label": "Auto-rotate slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "rotate_seconds",
+      "label": "Rotate every (seconds)",
+      "min": 2,
+      "max": 12,
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Overlay content"
     },
     {
       "type": "text",
-      "id": "badge_text",
-      "label": "Rating badge text",
-      "default": "Loved by 50,000+ customers"
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Korean-Inspired Skincare"
     },
     {
       "type": "text",
-      "id": "title",
+      "id": "heading",
       "label": "Headline",
-      "default": "Beauty inspired by you."
+      "default": "Reveal Your Natural"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Headline accent word (shown in italic rose)",
+      "default": "Glow"
     },
     {
       "type": "textarea",
       "id": "subtext",
       "label": "Subtext",
-      "default": "Skin-loving formulas designed for real routines — and the real you."
+      "default": "Thoughtfully crafted skincare rituals for radiant, healthy, and confident skin."
     },
     {
       "type": "text",
       "id": "button_1_label",
       "label": "Primary button label",
-      "default": "Shop Bestsellers"
+      "default": "Shop Best Sellers"
     },
     {
       "type": "url",
@@ -213,7 +432,7 @@
       "type": "text",
       "id": "button_2_label",
       "label": "Secondary button label",
-      "default": "Shop The Foundation"
+      "default": "Explore Collection"
     },
     {
       "type": "url",
@@ -221,36 +440,91 @@
       "label": "Secondary button link"
     },
     {
+      "type": "header",
+      "content": "Trust row"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_row",
+      "label": "Show trust badges row",
+      "default": true
+    },
+    {
       "type": "text",
-      "id": "chip_text",
-      "label": "Trust chip text",
-      "default": "Clinicians' Choice — 197 clinicians recommend Serein"
+      "id": "trust_1",
+      "label": "Trust badge 1",
+      "default": "Clean Ingredients"
     },
     {
-      "type": "range",
-      "id": "height",
-      "label": "Hero height (px)",
-      "min": 400,
-      "max": 800,
-      "step": 20,
-      "default": 600
+      "type": "text",
+      "id": "trust_2",
+      "label": "Trust badge 2",
+      "default": "Cruelty Free"
     },
     {
-      "type": "color",
-      "id": "gradient_from",
-      "label": "Gradient start",
-      "default": "#F4A9B8"
+      "type": "text",
+      "id": "trust_3",
+      "label": "Trust badge 3",
+      "default": "Dermatologist Tested"
     },
     {
-      "type": "color",
-      "id": "gradient_to",
-      "label": "Gradient end",
-      "default": "#E8637E"
+      "type": "text",
+      "id": "trust_4",
+      "label": "Trust badge 4",
+      "default": "Made for All Skin Types"
     }
   ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Banner slide",
+      "settings": [
+        {
+          "type": "select",
+          "id": "banner_image",
+          "label": "Banner image",
+          "options": [
+            { "value": "hero-banner-1.png", "label": "Hero banner 1" },
+            { "value": "hero-banner-2.png", "label": "Hero banner 2" },
+            { "value": "ex-hero-banner.png", "label": "Ex hero banner" },
+            { "value": "old-hero-banner-1.png", "label": "Old hero banner 1" }
+          ],
+          "default": "hero-banner-1.png"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Image alt text",
+          "default": "Serein"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
   "presets": [
     {
-      "name": "SM1C Hero"
+      "name": "SM1C Hero (Carousel)",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "banner_image": "hero-banner-1.png",
+            "alt_text": "Serein"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "banner_image": "hero-banner-2.png",
+            "alt_text": "Serein"
+          }
+        }
+      ]
     }
   ]
 }
