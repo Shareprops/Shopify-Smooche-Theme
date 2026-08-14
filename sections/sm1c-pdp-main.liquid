@@ -2067,6 +2067,126 @@
 })();
 </script>
 
+<script>
+/*
+  Pumper Quantity Breaks bridge.
+
+  The Pumper bundle widget keeps the correct add-to-cart payload (selected tier
+  quantity + the __pumper_bundles offer property that its Shopify Function needs
+  to apply the discount) in `window.pmpr_cart_item`. It does NOT write that
+  payload back into this section's product form, and another script on the page
+  intercepts the button click before Pumper can act — so a plain click would add
+  1 unit at the tier-0 property and silently lose the discount.
+
+  This handler runs in the capture phase (before those other listeners) and, when
+  a Pumper payload is present, performs the add itself from that payload, then
+  opens Pumper's slide cart. Without Pumper on the page it does nothing and the
+  normal form submit is left untouched.
+*/
+(function () {
+  var ATC_SELECTOR = '.sm1c-pdp-atc, [data-sm1c-sticky-atc-btn]';
+
+  function pumperPayload() {
+    var items = window.pmpr_cart_item;
+    if (!Array.isArray(items) || !items.length) return null;
+    var clean = items
+      .filter(function (i) { return i && i.id; })
+      .map(function (i) {
+        var item = { id: String(i.id), quantity: parseInt(i.quantity, 10) || 1 };
+        if (i.properties && Object.keys(i.properties).length) item.properties = i.properties;
+        if (i.selling_plan) item.selling_plan = i.selling_plan;
+        return item;
+      });
+    return clean.length ? clean : null;
+  }
+
+  function setBusy(button, busy, originalHtml) {
+    if (!button) return;
+    button.disabled = busy;
+    if (busy) {
+      button.setAttribute('aria-busy', 'true');
+    } else {
+      button.removeAttribute('aria-busy');
+      if (originalHtml != null) button.innerHTML = originalHtml;
+    }
+  }
+
+  // The header cart badge is only set once, from the server-rendered page load.
+  // Nothing else on the page keeps it in sync after an AJAX cart change, so we
+  // do it ourselves: after our own add, and by piggybacking on Pumper's own
+  // refresh hook so edits made inside Pumper's slide cart (quantity +/-, remove)
+  // update the header badge too, not just our own add-to-cart flow.
+  function syncHeaderCartCount() {
+    fetch('/cart.js')
+      .then(function (res) { return res.json(); })
+      .then(function (cart) {
+        var badge = document.querySelector('[data-sm1c-cart-count]');
+        if (badge) badge.textContent = cart.item_count;
+      })
+      .catch(function () {});
+  }
+
+  (function hookPumperRefresh(retriesLeft) {
+    if (typeof window.pmprscRefreshCart === 'function' && !window.pmprscRefreshCart.__sm1cWrapped) {
+      var original = window.pmprscRefreshCart;
+      window.pmprscRefreshCart = function () {
+        var result = original.apply(this, arguments);
+        syncHeaderCartCount();
+        return result;
+      };
+      window.pmprscRefreshCart.__sm1cWrapped = true;
+      return;
+    }
+    if (retriesLeft > 0) setTimeout(function () { hookPumperRefresh(retriesLeft - 1); }, 400);
+  })(15); // Pumper's script loads async — retry for a few seconds if it isn't ready yet.
+
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest(ATC_SELECTOR);
+    if (!button || button.disabled) return;
+
+    var items = pumperPayload();
+    if (!items) return; // no Pumper offer on this product — leave default behaviour alone
+
+    // Beat the other click interceptors on the page.
+    event.preventDefault();
+    event.stopPropagation();
+    if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+    var originalHtml = button.innerHTML;
+    setBusy(button, true);
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ items: items })
+    })
+      .then(function (res) {
+        return res.json().then(function (body) {
+          if (!res.ok) throw body;
+          return body;
+        });
+      })
+      .then(function () {
+        syncHeaderCartCount();
+        if (typeof window.pmprscRefreshCart === 'function') {
+          try { window.pmprscRefreshCart(); } catch (e) {}
+        }
+        if (typeof window.pmprscOpen === 'function') {
+          try { window.pmprscOpen(); return; } catch (e) {}
+        }
+        // Pumper's slide cart unavailable — fall back to the cart page.
+        window.location.href = '{{ routes.cart_url }}';
+      })
+      .catch(function (err) {
+        window.alert((err && (err.description || err.message)) || 'Could not add this bundle to your cart.');
+      })
+      .finally(function () {
+        setBusy(button, false, originalHtml);
+      });
+  }, true); // capture phase
+})();
+</script>
+
 {% schema %}
 {
   "name": "SM1C Product Main",
