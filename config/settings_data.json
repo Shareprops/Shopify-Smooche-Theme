@@ -118,6 +118,11 @@
         "type": "shopify://apps/pumper-bundles/blocks/app-embed/0856870d-2aca-4b1e-a662-cf1797f61270",
         "disabled": false,
         "settings": {}
+      },
+      "6478300178052298058": {
+        "type": "shopify://apps/pumper-ai-slide-cart-drawer/blocks/cart_drawer/019b9acd-672c-79bb-b47b-0efd90c86511",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_palette": {
