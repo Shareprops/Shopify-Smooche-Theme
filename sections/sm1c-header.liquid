@@ -562,7 +562,12 @@ html {
   </div>
 </div>
 
-{% render 'sm1c-cart-drawer' %}
+{% comment %}
+  sm1c-cart-drawer disabled: replaced by the Pumper AI Slide Cart Drawer app
+  (installed and published). Keeping the snippet/asset files in the repo in
+  case we ever need to revert — just re-add the render tag below to restore.
+  {% render 'sm1c-cart-drawer' %}
+{% endcomment %}
 
 <script>
 (function () {

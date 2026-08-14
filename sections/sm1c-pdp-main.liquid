@@ -242,20 +242,42 @@
   padding-left: 48px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-rating {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-rating-number {
+  font-size: 20px;
+  font-weight: 800;
+  color: #3A2E27;
+  line-height: 1;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-rating-stars {
-  font-size: 18px;
-  letter-spacing: .02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-rating-stars svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-rating-text {
   font-size: 14px;
   font-weight: 700;
   color: #3A2E27;
+  text-decoration: underline;
+  text-decoration-color: rgba(58, 46, 39, .35);
+  text-underline-offset: 2px;
+  transition: color .2s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-rating:hover .sm1c-pdp-rating-text {
+  color: #E8637E;
+  text-decoration-color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-title {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -281,18 +303,26 @@
   border-radius: 100px;
   border: 1.5px solid oklch(88% 0.03 20);
   background: oklch(97% 0.02 20);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #3A2E27;
   white-space: nowrap;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-pill-icon {
-  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  color: #E8637E;
+  font-size: 18px;
   line-height: 1;
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-pill-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-shortdesc {
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 16.5px;
+  line-height: 1.6;
   color: #3A2E27;
   margin-top: 16px;
 }
@@ -307,20 +337,25 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13.5px;
+  font-size: 14.5px;
   font-weight: 600;
   color: #3A2E27;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feature-icon {
   flex: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: oklch(94% 0.03 20);
-  font-size: 14px;
+  color: #E8637E;
+  font-size: 26px;
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-feature-icon svg {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-gift-banner {
   display: flex;
@@ -338,12 +373,18 @@
   text-align: center;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-best-results {
+  display: block;
   text-align: center;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .02em;
   color: #3A2E27;
-  margin-bottom: 12px;
+  background: oklch(98% 0.015 20);
+  border: 1.5px dashed #E8637E;
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  margin-bottom: 16px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap {
   position: relative;
@@ -382,10 +423,10 @@
   display: none;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc {
-  font-size: 14px;
+  font-size: 15.5px;
   color: rgba(58, 46, 39, .8);
   margin-top: 10px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc-list {
   list-style: none;
@@ -399,9 +440,9 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 14px;
+  font-size: 15.5px;
   color: rgba(58, 46, 39, .8);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc-check {
   width: 16px;
@@ -526,20 +567,30 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn {
   flex: none;
-  background: #E8637E;
-  color: #FBF6EE;
+  background: linear-gradient(135deg, #ED7C93 0%, #E8637E 45%, #D14C67 100%);
+  color: #fff;
   border: none;
-  padding: 12px 28px;
+  padding: 13px 30px;
   border-radius: 100px;
   font-family: 'Work Sans', sans-serif;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .03em;
   cursor: pointer;
   font-family: inherit;
+  box-shadow: 0 4px 12px -2px rgba(216, 68, 100, .5);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn:hover:not([disabled]) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -2px rgba(216, 68, 100, .6);
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn:active:not([disabled]) {
+  transform: scale(.97);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn[disabled] {
+  box-shadow: none;
   opacity: .5;
   cursor: not-allowed;
 }
@@ -575,7 +626,7 @@
   background: oklch(97% 0.02 30);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-badge {
@@ -592,7 +643,7 @@
   margin-left: 0;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-note {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(58, 46, 39, .8);
   margin-top: 4px;
 }
@@ -613,6 +664,15 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget {
   order: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget select,
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget button,
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget [class*="select"],
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget [class*="dropdown"] {
+  width: auto !important;
+  max-width: none !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc-group .sm1c-pdp-option-group {
   order: 2;
@@ -670,24 +730,56 @@
   background: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   text-align: center;
-  background: #E8637E;
-  color: #FBF6EE;
-  padding: 18px;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #ED7C93 0%, #E8637E 45%, #D14C67 100%);
+  color: #fff;
+  padding: 19px;
+  border-radius: 14px;
   font-family: 'Work Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .03em;
+  letter-spacing: .04em;
   margin-top: 16px;
   border: none;
   width: 100%;
   cursor: pointer;
   font-family: inherit;
+  box-shadow: 0 6px 16px -4px rgba(216, 68, 100, .55), 0 2px 4px rgba(216, 68, 100, .3);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc:hover:not([disabled]) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -4px rgba(216, 68, 100, .65), 0 3px 8px rgba(216, 68, 100, .4);
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc:active:not([disabled]) {
+  transform: translateY(0) scale(.98);
+  box-shadow: 0 4px 10px -2px rgba(216, 68, 100, .5);
+}
+@media (prefers-reduced-motion: no-preference) {
+  #shopify-section-{{ section.id }} .sm1c-pdp-atc:not([disabled]) {
+    animation: sm1c-atc-pulse 2.6s ease-in-out infinite;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-atc:hover:not([disabled]) {
+    animation: none;
+  }
+}
+@keyframes sm1c-atc-pulse {
+  0%, 100% { box-shadow: 0 6px 16px -4px rgba(216, 68, 100, .55), 0 2px 4px rgba(216, 68, 100, .3); }
+  50% { box-shadow: 0 6px 22px -2px rgba(216, 68, 100, .8), 0 2px 8px rgba(216, 68, 100, .45); }
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc[disabled] {
+  animation: none;
+  box-shadow: none;
   opacity: .5;
   cursor: not-allowed;
 }
@@ -711,7 +803,7 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-social {
   text-align: center;
   margin-top: 26px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-reel-row {
@@ -771,8 +863,10 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion summary {
   padding: 16px 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  gap: 12px;
+  font-size: 15.5px;
   font-weight: 600;
   cursor: pointer;
   list-style: none;
@@ -780,19 +874,79 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion summary::-webkit-details-marker {
   display: none;
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-summary-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(94% 0.03 20);
+  color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-summary-icon svg {
+  width: 16px;
+  height: 16px;
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion summary::after {
   content: "+";
+  flex: none;
   display: inline-block;
+  color: #E8637E;
+  font-size: 18px;
+  font-weight: 700;
   transition: transform .3s ease;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion details[open] summary::after {
   transform: rotate(135deg);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion-body {
-  padding: 0 0 16px;
-  font-size: 13px;
+  padding: 0 0 18px;
+  font-size: 14.5px;
   line-height: 1.6;
   color: rgba(58, 46, 39, .8);
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 42px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #3A2E27;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-point-icon {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  margin-top: -1px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(94% 0.03 20);
+  color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-point-icon svg {
+  width: 14px;
+  height: 14px;
+}
+@media (max-width: 480px) {
+  #shopify-section-{{ section.id }} .sm1c-pdp-accordion-points {
+    padding-left: 0;
+  }
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feedback {
   margin-top: 26px;
@@ -900,21 +1054,19 @@
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-img {
   background: var(--sm1c-surface);
 }
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-text {
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-text,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-number {
   color: var(--sm1c-text);
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-pill,
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-gift-banner {
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-gift-banner,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-best-results {
   background: var(--sm1c-surface);
   border-color: var(--sm1c-border);
   color: var(--sm1c-text);
 }
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feature-icon {
-  background: var(--sm1c-surface);
-}
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-shortdesc,
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feature-item,
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-best-results {
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feature-item {
   color: var(--sm1c-text);
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap:not(.is-expanded):not(.no-clamp) .sm1c-pdp-desc-content::after {
@@ -1063,11 +1215,23 @@
     <div class="sm1c-pdp-info">
       {%- liquid
         assign pdp_review_count = product.metafields.custom.review_count.value | default: section.settings.rating_text
+        assign pdp_average_rating = section.settings.average_rating
       -%}
-      <div class="sm1c-pdp-rating">
-        <span class="sm1c-pdp-rating-stars">★★★★★</span>
-        <span class="sm1c-pdp-rating-text">{{ pdp_review_count }}</span>
-      </div>
+      {%- if pdp_average_rating != blank or pdp_review_count != blank -%}
+        <a href="#sm1c-reviews" class="sm1c-pdp-rating">
+          <span class="sm1c-pdp-rating-stars" aria-hidden="true">
+            {%- for i in (1..5) -%}
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.3 6.9.7-5.1 4.7 1.5 6.8L12 17.8l-6.2 3.2 1.5-6.8-5.1-4.7 6.9-.7L12 2.5Z"/></svg>
+            {%- endfor -%}
+          </span>
+          {%- if pdp_average_rating != blank -%}
+            <span class="sm1c-pdp-rating-number">{{ pdp_average_rating }}</span>
+          {%- endif -%}
+          {%- if pdp_review_count != blank -%}
+            <span class="sm1c-pdp-rating-text">{{ pdp_review_count }}</span>
+          {%- endif -%}
+        </a>
+      {%- endif -%}
       <h1 class="sm1c-pdp-title">{{ title_rest }} <span>{{ title_last }}</span></h1>
 
       {%- assign pill_blocks = section.blocks | where: 'type', 'pill_badge' -%}
@@ -1187,6 +1351,7 @@
         <input type="hidden" name="quantity" value="1" data-sm1c-quantity>
 
         <div class="sm1c-pdp-atc-group">
+          {%- unless section.settings.hide_variant_picker -%}
           {%- if color_option -%}
             <div class="sm1c-pdp-option-group">
               <label class="sm1c-pdp-option-label">
@@ -1271,6 +1436,7 @@
               </div>
             {%- endunless -%}
           {%- endfor -%}
+          {%- endunless -%}
 
           {%- if section.settings.urgency_text != blank -%}
             <div class="sm1c-pdp-urgency">
@@ -1282,6 +1448,9 @@
 
           <div class="product-form__buttons">
           <button type="submit" name="add" class="sm1c-pdp-atc product-form__submit" data-sm1c-atc-observe {% unless current_variant.available %}disabled{% endunless %}>
+            {%- if current_variant.available -%}
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 4h2.2l2.6 12.4a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 1.94-1.53L20.5 8H5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.7" cy="20" r="1.3" fill="currentColor"/><circle cx="14.7" cy="20" r="1.3" fill="currentColor"/><circle cx="18.3" cy="6" r="5" fill="#fff"/><path d="M18.3 3.4v5.2M15.7 6h5.2" stroke="#D14C67" stroke-width="1.7" stroke-linecap="round"/></svg>
+            {%- endif -%}
             <span data-sm1c-atc-label>
               {%- if current_variant.available -%}
                 {{ section.settings.atc_label | default: 'ADD TO CART' }}
@@ -1362,9 +1531,42 @@
       {%- if accordion_blocks.size > 0 -%}
         <div class="sm1c-pdp-accordion">
           {%- for block in accordion_blocks -%}
+            {%- assign point_count = 0 -%}
+            {%- for i in (1..5) -%}
+              {%- assign point_text_key = 'point_' | append: i | append: '_text' -%}
+              {%- assign point_text_value = block.settings[point_text_key] -%}
+              {%- unless point_text_value == blank -%}
+                {%- assign point_count = point_count | plus: 1 -%}
+              {%- endunless -%}
+            {%- endfor -%}
             <details {{ block.shopify_attributes }}>
-              <summary>{{ block.settings.title }}</summary>
-              <div class="sm1c-pdp-accordion-body">{{ block.settings.body }}</div>
+              <summary>
+                <span class="sm1c-pdp-accordion-summary-left">
+                  {%- if block.settings.title_icon != blank -%}
+                    <span class="sm1c-pdp-accordion-summary-icon">{% render 'sm1c-pdp-icon', icon: block.settings.title_icon %}</span>
+                  {%- endif -%}
+                  <span>{{ block.settings.title }}</span>
+                </span>
+              </summary>
+              <div class="sm1c-pdp-accordion-body">
+                {%- if point_count > 0 -%}
+                  <div class="sm1c-pdp-accordion-points">
+                    {%- for i in (1..5) -%}
+                      {%- assign point_icon_key = 'point_' | append: i | append: '_icon' -%}
+                      {%- assign point_text_key = 'point_' | append: i | append: '_text' -%}
+                      {%- assign point_text_value = block.settings[point_text_key] -%}
+                      {%- unless point_text_value == blank -%}
+                        <div class="sm1c-pdp-accordion-point">
+                          <span class="sm1c-pdp-accordion-point-icon">{% render 'sm1c-pdp-icon', icon: block.settings[point_icon_key] %}</span>
+                          <span>{{ point_text_value }}</span>
+                        </div>
+                      {%- endunless -%}
+                    {%- endfor -%}
+                  </div>
+                {%- else -%}
+                  {{ block.settings.body }}
+                {%- endif -%}
+              </div>
             </details>
           {%- endfor -%}
         </div>
@@ -1870,6 +2072,19 @@
   "name": "SM1C Product Main",
   "settings": [
     {
+      "type": "checkbox",
+      "id": "hide_variant_picker",
+      "label": "Hide native variant/package picker",
+      "info": "Turn on only if a bundle/quantity app on this page provides its own variant selector that writes directly into the Add to Cart form.",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "average_rating",
+      "label": "Average rating (numeric, blank = hidden)",
+      "default": "4.9"
+    },
+    {
       "type": "text",
       "id": "rating_text",
       "label": "Rating text",
@@ -1990,7 +2205,134 @@
       "name": "Accordion item",
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Product Details" },
-        { "type": "richtext", "id": "body", "label": "Body" }
+        {
+          "type": "select",
+          "id": "title_icon",
+          "label": "Title icon (blank = none)",
+          "options": [
+            { "value": "", "label": "None" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": ""
+        },
+        { "type": "richtext", "id": "body", "label": "Body (used only if no points below are set)" },
+        { "type": "header", "content": "Icon points (overrides body when set)" },
+        {
+          "type": "select",
+          "id": "point_1_icon",
+          "label": "Point 1 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_1_text", "label": "Point 1 text" },
+        {
+          "type": "select",
+          "id": "point_2_icon",
+          "label": "Point 2 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_2_text", "label": "Point 2 text" },
+        {
+          "type": "select",
+          "id": "point_3_icon",
+          "label": "Point 3 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_3_text", "label": "Point 3 text" },
+        {
+          "type": "select",
+          "id": "point_4_icon",
+          "label": "Point 4 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_4_text", "label": "Point 4 text" },
+        {
+          "type": "select",
+          "id": "point_5_icon",
+          "label": "Point 5 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_5_text", "label": "Point 5 text" }
       ]
     },
     {

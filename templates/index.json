@@ -508,17 +508,17 @@
     "sm1c_guarantee": {
       "type": "sm1c-guarantee",
       "blocks": {
-        "g_1": { "type": "item", "settings": { "icon": "refresh", "title": "30-Day Returns", "body": "Not a match? Send it back within 30 days for a full refund." } },
-        "g_2": { "type": "item", "settings": { "icon": "truck", "title": "Free U.S. Shipping", "body": "On every order over $50, shipped from within the U.S." } },
+        "g_1": { "type": "item", "settings": { "icon": "refresh", "title": "30-Day Guarantee", "body": "Damaged or expired item? Send proof within 30 days and we'll refund you — no need to ship it back." } },
+        "g_2": { "type": "item", "settings": { "icon": "truck", "title": "Free U.S. Shipping", "body": "Free on every order, shipped from within the U.S." } },
         "g_3": { "type": "item", "settings": { "icon": "lock", "title": "Secure Checkout", "body": "Encrypted payments via Shop Pay, Apple Pay, and all major cards." } }
       },
       "block_order": ["g_1", "g_2", "g_3"],
       "settings": {
         "eyebrow": "Shop With Confidence",
-        "heading": "Love It, or Your",
-        "heading_accent": "Money Back",
-        "subtext": "Try it risk-free. If your skin doesn't love it within 30 days, we'll refund you — no questions asked.",
-        "button_label": "Shop Risk-Free",
+        "heading": "Backed by Our",
+        "heading_accent": "Money-Back Guarantee",
+        "subtext": "If your order arrives damaged or expired, just send us photos within 30 days of delivery — we'll process your refund, no return shipping needed.",
+        "button_label": "Shop Now",
         "button_link": "shopify://collections/frontpage",
         "note": "Questions? Our team replies within 24 hours.",
         "bg_color": "#ffffff",
@@ -547,14 +547,14 @@
           "type": "question",
           "settings": {
             "question": "How fast is shipping in the U.S.?",
-            "answer": "<p>Orders ship from within the United States and typically arrive in 2–5 business days. Shipping is free on orders over $50, and you'll get tracking by email as soon as it leaves our warehouse.</p>"
+            "answer": "<p>Orders ship from within the United States, and most arrive within 2 business days — up to 5 during holidays or unexpected delays. Shipping is free on every order, and you'll get tracking by email as soon as it leaves our warehouse.</p>"
           }
         },
         "q_4": {
           "type": "question",
           "settings": {
             "question": "What is your return policy?",
-            "answer": "<p>You have 30 days from delivery to request a full refund. Reach out to our team and we'll send you a return label — no questions asked.</p>"
+            "answer": "<p>If your order arrives damaged or expired, send our team photos as proof within 30 days of delivery and we'll process your refund — no need to ship anything back.</p>"
           }
         },
         "q_5": {

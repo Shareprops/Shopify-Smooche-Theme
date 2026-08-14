@@ -15,21 +15,21 @@
         "pill_1": {
           "type": "pill_badge",
           "settings": {
-            "icon": "🌿",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"6.5\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"17\" cy=\"10\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"15\" cy=\"16\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"9\" cy=\"16\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"7\" cy=\"10\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"11.5\" r=\"2\" fill=\"#fff\"/></svg>",
             "label": "Korean-Inspired Formula"
           }
         },
         "pill_2": {
           "type": "pill_badge",
           "settings": {
-            "icon": "🐰",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\"><ellipse cx=\"12\" cy=\"16\" rx=\"5\" ry=\"4.2\" fill=\"currentColor\"/><circle cx=\"6\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"/><circle cx=\"10.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"15.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"18\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"/></svg>",
             "label": "Vegan & Cruelty-Free"
           }
         },
         "feat_1": {
           "type": "feature_item",
           "settings": {
-            "icon": "✨",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M10.5766 8.70419C11.2099 7.56806 11.5266 7 12 7C12.4734 7 12.7901 7.56806 13.4234 8.70419L13.5873 8.99812C13.7672 9.32097 13.8572 9.48239 13.9975 9.5889C14.1378 9.69541 14.3126 9.73495 14.6621 9.81402L14.9802 9.88601C16.2101 10.1643 16.825 10.3034 16.9713 10.7739C17.1176 11.2443 16.6984 11.7345 15.86 12.715L15.643 12.9686C15.4048 13.2472 15.2857 13.3865 15.2321 13.5589C15.1785 13.7312 15.1965 13.9171 15.2325 14.2888L15.2653 14.6272C15.3921 15.9353 15.4554 16.5894 15.0724 16.8801C14.6894 17.1709 14.1137 16.9058 12.9622 16.3756L12.6643 16.2384C12.337 16.0878 12.1734 16.0124 12 16.0124C11.8266 16.0124 11.663 16.0878 11.3357 16.2384L11.0378 16.3756C9.88634 16.9058 9.31059 17.1709 8.92757 16.8801C8.54456 16.5894 8.60794 15.9353 8.7347 14.6272L8.76749 14.2888C8.80351 13.9171 8.82152 13.7312 8.76793 13.5589C8.71434 13.3865 8.59521 13.2472 8.35696 12.9686L8.14005 12.715C7.30162 11.7345 6.88241 11.2443 7.02871 10.7739C7.17501 10.3034 7.78993 10.1643 9.01977 9.88601L9.33794 9.81402C9.68743 9.73495 9.86217 9.69541 10.0025 9.5889C10.1428 9.48239 10.2328 9.32097 10.4127 8.99812L10.5766 8.70419Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM18.5304 5.46955C18.8233 5.76245 18.8233 6.23732 18.5304 6.53021L18.1872 6.87348C17.8943 7.16637 17.4194 7.16637 17.1265 6.87348C16.8336 6.58058 16.8336 6.10571 17.1265 5.81282L17.4698 5.46955C17.7627 5.17666 18.2376 5.17666 18.5304 5.46955ZM5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L6.87359 5.81293C7.16648 6.10582 7.16648 6.5807 6.87359 6.87359C6.5807 7.16648 6.10582 7.16648 5.81293 6.87359L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM6.87348 17.1265C7.16637 17.4194 7.16637 17.8943 6.87348 18.1872L6.53043 18.5302C6.23754 18.8231 5.76266 18.8231 5.46977 18.5302C5.17688 18.2373 5.17688 17.7625 5.46977 17.4696L5.81282 17.1265C6.10571 16.8336 6.58058 16.8336 6.87348 17.1265ZM17.1265 17.1267C17.4194 16.8339 17.8943 16.8339 18.1872 17.1267L18.5302 17.4698C18.8231 17.7627 18.8231 18.2376 18.5302 18.5305C18.2373 18.8233 17.7624 18.8233 17.4695 18.5305L17.1265 18.1874C16.8336 17.8945 16.8336 17.4196 17.1265 17.1267ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z\" fill=\"currentColor\"/></svg>",
             "label": "Instant Visible Tightening"
           }
         },
@@ -72,7 +72,7 @@
           "type": "trust_badge",
           "settings": {
             "icon": "♡",
-            "label": "Customer favorite"
+            "label": "No rinsing required"
           }
         },
         "badge_2": {
@@ -91,64 +91,65 @@
         },
         "media_1": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/46a08718426eafa0dce8013b11b8.png" }
         },
         "media_2": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/f622388d4587999292024a36af32.png" }
         },
         "media_3": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/3eb4253f40b5bc8dadc5197baa95.png" }
         },
         "media_4": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/237cbfb648848dc81bc77d33ae17.png" }
         },
         "media_5": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/c7ba7ef148d986c9d69b93445ac5.png" }
         },
         "acc_1": {
           "type": "accordion_item",
           "settings": {
             "title": "Product Details & How To Use",
-            "body": "<p>Apply an even layer to clean, dry skin — avoiding the eye area, eyebrows, hairline, and lips. Leave on until the layer looks matte, not tacky (roughly 15–20 minutes), then peel from the edges in one motion.<br/>Use 1–2 times per week as part of your evening routine.<br/>Follow with your usual moisturizer to lock in hydration.</p>"
+            "title_icon": "droplet",
+            "point_1_icon": "droplet",
+            "point_1_text": "Apply an even layer to clean, dry skin — avoiding the eye area, eyebrows, hairline, and lips.",
+            "point_2_icon": "clock",
+            "point_2_text": "Leave on for 15–20 minutes, until the layer looks matte, not tacky.",
+            "point_3_icon": "check",
+            "point_3_text": "Peel from the edges in one motion.",
+            "point_4_icon": "calendar",
+            "point_4_text": "Use 1–2 times per week as part of your evening routine.",
+            "point_5_icon": "heart",
+            "point_5_text": "Follow with your usual moisturizer to lock in hydration."
           }
         },
         "acc_2": {
           "type": "accordion_item",
           "settings": {
             "title": "Shipping",
-            "body": "<p>Orders ship from within the United States and typically arrive in 2–5 business days.<br/>Free shipping on orders over $50.<br/>You'll receive tracking by email as soon as your order leaves our warehouse.</p>"
+            "title_icon": "truck",
+            "point_1_icon": "truck",
+            "point_1_text": "Ships from within the United States — most orders arrive within 2 business days, up to 5 during holidays or unexpected delays.",
+            "point_2_icon": "gift",
+            "point_2_text": "Free shipping on every order.",
+            "point_3_icon": "mail",
+            "point_3_text": "You'll receive tracking by email as soon as your order leaves our warehouse."
           }
         },
         "acc_3": {
           "type": "accordion_item",
           "settings": {
             "title": "Return & Refund Policy",
-            "body": "<p>You have 30 days from delivery to request a full refund — no questions asked.<br/>If your order arrives damaged, contact us with photos and we'll make it right.<br/>Reach out to our team and we'll send you a return label.</p>"
-          }
-        },
-        "fb_1": {
-          "type": "feedback_bar",
-          "settings": {
-            "label": "Visible Tightening After First Use",
-            "percent": 84
-          }
-        },
-        "fb_2": {
-          "type": "feedback_bar",
-          "settings": {
-            "label": "Would Repurchase",
-            "percent": 91
-          }
-        },
-        "fb_3": {
-          "type": "feedback_bar",
-          "settings": {
-            "label": "Easy To Apply & Peel Off",
-            "percent": 88
+            "title_icon": "refresh",
+            "point_1_icon": "calendar",
+            "point_1_text": "Refunds are available within 30 days of delivery for products that arrive damaged or expired.",
+            "point_2_icon": "camera",
+            "point_2_text": "Send us photos as proof of the issue — no need to ship anything back.",
+            "point_3_icon": "check",
+            "point_3_text": "Once verified, we'll process your refund."
           }
         }
       },
@@ -171,18 +172,17 @@
         "media_5",
         "acc_1",
         "acc_2",
-        "acc_3",
-        "fb_1",
-        "fb_2",
-        "fb_3"
+        "acc_3"
       ],
       "settings": {
-        "rating_text": "5,000+ reviews",
-        "short_description": "Not just a peel-off mask — a one-step treatment that lifts away dirt and dullness while marine collagen and peptides visibly tighten and smooth, leaving skin firmer with zero sticky residue.",
+        "hide_variant_picker": true,
+        "average_rating": "",
+        "rating_text": "",
+        "short_description": "The viral one-piece peel for instant glass skin. Marine collagen and peptides lift away dirt and dullness while visibly tightening and smoothing — no rinsing, no sticky residue, just firmer, dewy skin in one satisfying peel.",
         "gift_banner_icon": "🎁",
         "gift_banner_text": "",
         "best_results_text": "Best Results With Consistent Use, 1–2 Times Per Week",
-        "urgency_text": "Only a few left!",
+        "urgency_text": "",
         "urgency_percent": 8,
         "atc_label": "ADD TO CART",
         "social_proof_text": "",
@@ -361,22 +361,22 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "title": "We start with your foundation",
-            "body": "Botanical actives support balance, confidence, and overall wellbeing."
+            "title": "Cleanse & prep",
+            "body": "Start on clean, dry skin so the collagen gel makes full contact and the peel bonds evenly."
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "title": "Then we address what's missing",
-            "body": "Fast-acting support activity while the long-term formula builds over time."
+            "title": "Peel away dullness",
+            "body": "In one satisfying motion, the mask lifts dirt, oil, and dead skin — no rinsing, no residue."
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "title": "Results become consistent",
-            "body": "Instead of relying on stimulants, consistent use builds lasting results."
+            "title": "Reveal glass skin",
+            "body": "Skin looks instantly smoother and firmer, with a dewy, glass-skin finish that builds with every use."
           }
         }
       },
@@ -386,9 +386,9 @@
         "step_3"
       ],
       "settings": {
-        "heading": "Here's how it",
-        "heading_accent": "works",
-        "subheading": "Designed to support real confidence and consistency, one simple daily ritual that fits your routine.",
+        "heading": "Here's how you get",
+        "heading_accent": "glass skin",
+        "subheading": "One 15-minute ritual, twice a week — no rinsing, no mess, just visibly smoother skin every time you peel.",
         "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_07_43_58_PM.png"
       }
     },
@@ -398,7 +398,7 @@
         "row_1": {
           "type": "row",
           "settings": {
-            "feature": "Long-lasting volume",
+            "feature": "No rinsing required",
             "competitor_1": false,
             "competitor_2": false
           }
@@ -406,7 +406,7 @@
         "row_2": {
           "type": "row",
           "settings": {
-            "feature": "No harsh chemicals",
+            "feature": "Zero sticky residue",
             "competitor_1": false,
             "competitor_2": false
           }
@@ -414,7 +414,7 @@
         "row_3": {
           "type": "row",
           "settings": {
-            "feature": "Hydrates while plumping",
+            "feature": "Visible tightening in one use",
             "competitor_1": false,
             "competitor_2": false
           }
@@ -422,7 +422,7 @@
         "row_4": {
           "type": "row",
           "settings": {
-            "feature": "Dermatologist-tested",
+            "feature": "Gentle on sensitive skin",
             "competitor_1": false,
             "competitor_2": false
           }
@@ -430,7 +430,7 @@
         "row_5": {
           "type": "row",
           "settings": {
-            "feature": "Works without stimulants",
+            "feature": "One-piece full peel",
             "competitor_1": false,
             "competitor_2": false
           }
@@ -444,14 +444,14 @@
         "row_5"
       ],
       "settings": {
-        "heading": "Lip Plumper",
+        "heading": "Peel-Off Masks",
         "heading_accent": "vs The Usual Options",
-        "subheading": "Most serums try to force volume. Serein removes what blocks it — no stinging, no stimulants, just consistent results.",
+        "subheading": "Most masks either rinse off or leave residue behind. Serein's one-piece peel lifts away dullness and tightens skin — without either downside.",
         "brand_name": "Serein",
-        "competitor_1_name": "Other Serums",
-        "competitor_1_price": "From $3.67/unit",
-        "competitor_2_name": "Generic Balms",
-        "competitor_2_price": "From $2.84/unit"
+        "competitor_1_name": "Rinse-Off Masks",
+        "competitor_1_price": "From $1.20/use",
+        "competitor_2_name": "Sticky Peel Masks",
+        "competitor_2_price": "From $0.95/use"
       }
     },
     "sm1c_pdp_survey_stats": {
@@ -460,27 +460,27 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "percent": 92,
-            "headline": "reported they felt the spark and emotional closeness in their relationship return.",
-            "body": "In a post-purchase survey, customers shared they felt more present, more balanced, and more consistent day-to-day with daily use.",
+            "percent": 91,
+            "headline": "reported visibly tighter, smoother skin right after their first peel.",
+            "body": "In a post-purchase survey, customers said their skin looked firmer and more refreshed immediately after removing the mask.",
             "bar_color": "#e8637e"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "percent": 87,
-            "headline": "reported intimacy started feeling natural again, with more energy and desire to initiate.",
-            "body": "Many said they went from \"not tonight\" to initiating again without pressure, without forcing it.",
+            "percent": 88,
+            "headline": "said the peel came away clean, with zero sticky residue.",
+            "body": "Unlike rinse-off masks, the one-piece peel lifts free in one motion — no residue, no extra rinsing step.",
             "bar_color": "#2a6f6a"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
-            "percent": 89,
-            "headline": "reported steadier energy through the entire day.",
-            "body": "Customers said the daily routine helped them feel less \"wiped\" later in the day and more consistent at night.",
+            "percent": 85,
+            "headline": "noticed a brighter, more even-looking complexion within 2 weeks.",
+            "body": "With consistent 1–2x weekly use, customers reported a noticeably smoother, glass-skin glow.",
             "bar_color": "#e8637e"
           }
         }
