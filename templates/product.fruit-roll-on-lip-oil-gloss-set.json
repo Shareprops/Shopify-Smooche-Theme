@@ -188,6 +188,7 @@
       ],
       "settings": {
         "hide_variant_picker": true,
+        "hide_pumper_bundle_widget": true,
         "average_rating": "4.8",
         "rating_text": "340 reviews",
         "short_description": "A colorless, no-stain roll-on oil that glides on in seconds for glassy, non-sticky shine — infused with real fruit extracts to nourish and soften lips with every swipe.",

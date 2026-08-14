@@ -188,6 +188,7 @@
       ],
       "settings": {
         "hide_variant_picker": true,
+        "hide_pumper_bundle_widget": true,
         "average_rating": "4.7",
         "rating_text": "289 reviews",
         "short_description": "A soft cotton cleansing cloth infused with turmeric and kojic acid — gently exfoliating away dirt, oil, and dead skin while helping to brighten tone and fade the look of dark spots. Reusable, eco-friendly, and gentle enough for face or body.",

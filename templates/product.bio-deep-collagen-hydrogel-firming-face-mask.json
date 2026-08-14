@@ -173,6 +173,7 @@
       ],
       "settings": {
         "hide_variant_picker": true,
+        "hide_pumper_bundle_widget": true,
         "average_rating": "4.8",
         "rating_text": "275 reviews",
         "short_description": "A deep-penetrating hydrogel mask packed with ultra-low molecular collagen and apple stem cells — worn overnight to lift, firm, and deeply hydrate, turning translucent as it delivers active ingredients into the skin.",

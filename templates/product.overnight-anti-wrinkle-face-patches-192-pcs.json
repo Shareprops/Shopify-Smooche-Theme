@@ -188,6 +188,7 @@
       ],
       "settings": {
         "hide_variant_picker": true,
+        "hide_pumper_bundle_widget": true,
         "average_rating": "4.7",
         "rating_text": "298 reviews",
         "short_description": "Smooth, targeted patches that hold skin taut while you sleep — reducing the look of forehead lines and creases overnight, with zero creams and zero mess. One 192-patch pack covers months of nightly use.",
