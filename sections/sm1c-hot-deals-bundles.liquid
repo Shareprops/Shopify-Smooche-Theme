@@ -198,14 +198,24 @@
           {%- endif -%}
           {%- if block.settings.item_1 != blank or block.settings.item_2 != blank or block.settings.item_3 != blank -%}
             <ul class="sm1c-hdb-includes">
-              {%- for item in block.settings.item_1, block.settings.item_2, block.settings.item_3 -%}
-                {%- if item != blank -%}
-                  <li>
-                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
-                    {{ item }}
-                  </li>
-                {%- endif -%}
-              {%- endfor -%}
+              {%- if block.settings.item_1 != blank -%}
+                <li>
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+                  {{ block.settings.item_1 }}
+                </li>
+              {%- endif -%}
+              {%- if block.settings.item_2 != blank -%}
+                <li>
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+                  {{ block.settings.item_2 }}
+                </li>
+              {%- endif -%}
+              {%- if block.settings.item_3 != blank -%}
+                <li>
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+                  {{ block.settings.item_3 }}
+                </li>
+              {%- endif -%}
             </ul>
           {%- endif -%}
           {%- if block.settings.value_note != blank -%}
