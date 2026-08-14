@@ -1062,7 +1062,7 @@
           {%- if section.settings.show_free_shipping_row -%}
             <div class="sm1c-cart-row">
               <span class="sm1c-cart-row-label">Shipping</span>
-              <span class="sm1c-cart-row-free">{{ section.settings.shipping_value_label }}</span>
+              <span class="{% if section.settings.shipping_value_highlight %}sm1c-cart-row-free{% else %}sm1c-cart-row-value{% endif %}">{{ section.settings.shipping_value_label }}</span>
             </div>
           {%- endif -%}
 
@@ -1349,6 +1349,7 @@
     { "type": "header", "content": "Shipping row" },
     { "type": "checkbox", "id": "show_free_shipping_row", "label": "Show shipping row in summary", "default": true },
     { "type": "text", "id": "shipping_value_label", "label": "Shipping value", "default": "FREE" },
+    { "type": "checkbox", "id": "shipping_value_highlight", "label": "Highlight shipping value in green", "info": "Turn on only when shipping is genuinely free — a green FREE that checkout contradicts costs conversions.", "default": true },
 
     { "type": "header", "content": "Delivery estimate" },
     { "type": "checkbox", "id": "show_eta", "label": "Show estimated delivery window", "default": true },
