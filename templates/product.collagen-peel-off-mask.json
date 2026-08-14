@@ -1,0 +1,122 @@
+{
+  "sections": {
+    "collagen_peel_mask_product": {
+      "type": "collagen-peel-mask-product",
+      "blocks": {
+        "chip_1": { "type": "feature_chip", "settings": { "text": "Instant visible tightening" } },
+        "chip_2": { "type": "feature_chip", "settings": { "text": "One-piece full peel" } },
+        "chip_3": { "type": "feature_chip", "settings": { "text": "Deep pore detox" } },
+        "chip_4": { "type": "feature_chip", "settings": { "text": "Zero sticky residue" } },
+        "chip_5": { "type": "feature_chip", "settings": { "text": "15-minute ritual" } },
+        "chip_6": { "type": "feature_chip", "settings": { "text": "Sensitive-skin safe" } },
+        "ingredient_1": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Firming",
+            "name": "Hydrolyzed Marine Collagen",
+            "description": "Small-molecule collagen peptides that sit on the skin's surface to visibly plump and smooth fine dehydration lines."
+          }
+        },
+        "ingredient_2": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Elasticity",
+            "name": "Tri-Peptide Complex",
+            "description": "A blend of signal peptides that supports the skin's own collagen production for a firmer look over time."
+          }
+        },
+        "ingredient_3": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Brightening",
+            "name": "Niacinamide",
+            "description": "Refines the look of pores and evens tone, leaving skin brighter and less congested after every peel."
+          }
+        },
+        "ingredient_4": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Calming",
+            "name": "Centella Asiatica",
+            "description": "A soothing botanical extract that keeps the peel gentle on sensitive, reactive, and post-breakout skin."
+          }
+        },
+        "ingredient_5": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Antioxidant",
+            "name": "Vitamin E",
+            "description": "Protects freshly-detoxed skin from environmental stress while locking in moisture after the peel comes off."
+          }
+        },
+        "ingredient_6": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Hydration",
+            "name": "Rose Flower Extract",
+            "description": "Delivers a light floral hydration boost and a spa-grade scent without a trace of alcohol or synthetic fragrance."
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Will this feel like it's ripping my skin?",
+            "answer": "<p>No — the film releases from the outer layer of dead skin and residue, not your live skin. Most users describe a light, satisfying tug rather than any pain.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "How often should I use it?",
+            "answer": "<p>1–2 times per week is ideal. Daily use isn't necessary since the formula works cumulatively and skin needs time to renew between peels.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it safe for sensitive or acne-prone skin?",
+            "answer": "<p>Yes — it's formulated without alcohol or synthetic fragrance and includes Centella Asiatica to keep the peel calming. We still recommend a patch test first.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use it around my eyes or on my lips?",
+            "answer": "<p>Avoid the eye area, eyebrows, hairline, and lips — apply only to the cheeks, forehead, nose, and chin for best results.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "What if it doesn't peel off in one piece?",
+            "answer": "<p>Make sure the layer is applied evenly and fully dried (it should look matte, not tacky) before peeling from the edges — a too-thin layer is the most common cause of tearing.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does one jar last?",
+            "answer": "<p>With 1–2 uses per week, a single jar typically lasts 6–8 weeks depending on how much product you apply per session.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "chip_1", "chip_2", "chip_3", "chip_4", "chip_5", "chip_6",
+        "ingredient_1", "ingredient_2", "ingredient_3", "ingredient_4", "ingredient_5", "ingredient_6",
+        "faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"
+      ],
+      "settings": {
+        "show_announcement": true,
+        "announcement_text": "✨ Free Shipping on Duo Sets & Up  ✦  30-Day Money-Back Guarantee  ✦  Dermatologist Tested",
+        "review_count": "2,380+",
+        "value_prop": "<p>One smooth peel lifts away dirt, oil, and dullness while a marine collagen + peptide gel visibly tightens and plumps — no rinsing, no residue.</p>",
+        "atc_label": "Add to Cart",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "collagen_peel_mask_product"
+  ]
+}

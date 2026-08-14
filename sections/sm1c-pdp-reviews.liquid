@@ -205,7 +205,7 @@
 }
 {%- endstyle -%}
 
-<div class="sm1c-rev-wrap">
+<div class="sm1c-rev-wrap" id="sm1c-reviews" style="scroll-margin-top: var(--sm1c-header-height, 90px);">
   {%- liquid
     assign rev_average_rating = product.metafields.custom.average_rating.value | default: section.settings.average_rating
     assign rev_review_count = product.metafields.custom.review_count.value | default: section.settings.review_count

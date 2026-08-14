@@ -55,14 +55,14 @@
           "type": "faq",
           "settings": {
             "question": "Does it come with a warranty?",
-            "answer": "<p>Yes — every mask comes with our industry-leading 1-Year Hardware Warranty covering manufacturing defects, plus our exclusive 90-Day Risk-Free Glow Guarantee. If you don't see results within 90 days, we'll refund your purchase in full, no questions asked.</p>"
+            "answer": "<p>Yes — every mask comes with a 1-Year Hardware Warranty covering manufacturing defects. If your mask arrives damaged or defective, send us photos within 30 days of delivery and we'll process your refund — no need to ship it back.</p>"
           }
         },
         "faq_5": {
           "type": "faq",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": "<p>We offer free express shipping worldwide. Orders placed before 2PM EST ship the same business day. Domestic US orders arrive in 2–4 business days; international orders typically arrive in 5–10 business days. You'll receive full tracking information via email.</p>"
+            "answer": "<p>Orders ship from within the United States, and most arrive within 2 business days — up to 5 during holidays or unexpected delays. You'll receive full tracking information by email.</p>"
           }
         }
       },
@@ -78,7 +78,7 @@
       ],
       "settings": {
         "show_announcement": true,
-        "announcement_text": "🚀 Free Express Shipping Worldwide  ✦  90-Day Money-Back Guarantee  ✦  FDA-Cleared Technology",
+        "announcement_text": "🚀 Free U.S. Shipping  ✦  30-Day Money-Back Guarantee  ✦  FDA-Cleared Technology",
         "review_count": "1,420+",
         "atc_label": "ACTIVATE YOUR GLOW — ADD TO CART",
         "padding_top": 0,

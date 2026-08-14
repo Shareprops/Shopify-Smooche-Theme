@@ -1,15 +1,88 @@
+{%- liquid
+  assign checklist_blocks = section.blocks | where: 'type', 'checklist_item'
+  assign step_blocks = section.blocks | where: 'type', 'step'
+-%}
+
 {%- style -%}
 #shopify-section-{{ section.id }} .sm1c-life-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0 44px 60px;
+  grid-template-columns: minmax(220px, 0.85fr) 1.3fr minmax(140px, 0.7fr);
+  align-items: center;
+  gap: 0;
+  margin: 0 clamp(20px, 4vw, 44px) 0;
   border-radius: 28px;
   overflow: hidden;
   background: {{ section.settings.bg_color }};
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--sm1c-sans, sans-serif);
+}
+#shopify-section-{{ section.id }} .sm1c-life-content {
+  padding: 48px clamp(28px, 3.4vw, 52px);
+}
+#shopify-section-{{ section.id }} .sm1c-life-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: {{ section.settings.accent_color }};
+  margin-bottom: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-life-heading {
+  font-family: var(--sm1c-serif, serif);
+  font-size: clamp(28px, 2.6vw, 36px);
+  font-weight: 500;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  color: var(--sm1c-ink, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-life-body {
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 340px;
+  margin-bottom: 24px;
+  color: rgba(43,33,29,.65);
+}
+#shopify-section-{{ section.id }} .sm1c-life-checklist {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-life-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sm1c-ink, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-life-checklist svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: {{ section.settings.accent_color }};
+}
+#shopify-section-{{ section.id }} .sm1c-life-btn {
+  background: var(--sm1c-rose-deep, #C2506A);
+  color: #fff;
+  padding: 15px 28px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background .2s ease, transform .2s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-life-btn:hover {
+  background: {{ section.settings.accent_color }};
+  transform: translateY(-2px);
 }
 #shopify-section-{{ section.id }} .sm1c-life-img {
-  height: 400px;
+  height: 460px;
+  align-self: stretch;
   background: #ddd;
 }
 #shopify-section-{{ section.id }} .sm1c-life-img img {
@@ -18,42 +91,70 @@
   object-fit: cover;
   display: block;
 }
-#shopify-section-{{ section.id }} .sm1c-life-content {
-  padding: 60px;
+#shopify-section-{{ section.id }} .sm1c-life-steps {
+  list-style: none;
+  margin: 0;
+  padding: 40px clamp(20px, 2.6vw, 36px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 22px;
 }
-#shopify-section-{{ section.id }} .sm1c-life-heading {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 32px;
-  font-weight: 600;
-  margin: 0 0 16px;
+#shopify-section-{{ section.id }} .sm1c-life-step {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-#shopify-section-{{ section.id }} .sm1c-life-body {
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 340px;
-  margin-bottom: 22px;
-  color: rgba(0,0,0,.65);
+#shopify-section-{{ section.id }} .sm1c-life-step-num {
+  font-family: var(--sm1c-serif, serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(43,33,29,.4);
 }
-#shopify-section-{{ section.id }} .sm1c-life-btn {
-  background: #111;
-  color: #fff;
-  padding: 15px 28px;
-  border-radius: 14px;
-  font-size: 13px;
+#shopify-section-{{ section.id }} .sm1c-life-step-label {
+  font-size: 11.5px;
   font-weight: 700;
-  text-decoration: none;
-  display: inline-block;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(43,33,29,.55);
+}
+#shopify-section-{{ section.id }} .sm1c-life-step.is-active .sm1c-life-step-num,
+#shopify-section-{{ section.id }} .sm1c-life-step.is-active .sm1c-life-step-label {
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .sm1c-life-step.is-active {
+  background: {{ section.settings.accent_color }};
+  border-radius: 999px;
+  padding: 8px 18px;
+  margin: -8px -18px;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  width: fit-content;
+}
+@media (max-width: 989px) {
+  #shopify-section-{{ section.id }} .sm1c-life-wrap {
+    grid-template-columns: 1fr;
+  }
+  #shopify-section-{{ section.id }} .sm1c-life-img {
+    height: 320px;
+    order: -1;
+  }
+  #shopify-section-{{ section.id }} .sm1c-life-steps {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 28px clamp(20px, 4vw, 44px) 36px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-life-content {
+    padding: 40px clamp(20px, 4vw, 44px) 8px;
+  }
 }
 @media (max-width: 749px) {
   #shopify-section-{{ section.id }} .sm1c-life-wrap {
-    grid-template-columns: 1fr;
-    margin: 0 20px 40px;
+    margin: 0 20px;
+    border-radius: 20px;
   }
-  #shopify-section-{{ section.id }} .sm1c-life-content {
-    padding: 32px;
+  #shopify-section-{{ section.id }} .sm1c-life-checklist {
+    grid-template-columns: 1fr;
   }
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-life-wrap {
@@ -65,23 +166,48 @@
 {%- endstyle -%}
 
 <div class="sm1c-life-wrap">
+  <div class="sm1c-life-content">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="sm1c-life-eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    <div class="sm1c-life-heading">{{ section.settings.heading }}</div>
+    <div class="sm1c-life-body">{{ section.settings.body }}</div>
+    {%- if checklist_blocks.size > 0 -%}
+      <ul class="sm1c-life-checklist">
+        {%- for block in checklist_blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+            {{ block.settings.label }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="sm1c-life-btn">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+
   <div class="sm1c-life-img">
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.heading }}
     {%- endif -%}
   </div>
-  <div class="sm1c-life-content">
-    <div class="sm1c-life-heading">{{ section.settings.heading }}</div>
-    <div class="sm1c-life-body">{{ section.settings.body }}</div>
-    {%- if section.settings.button_label != blank -%}
-      <a href="{{ section.settings.button_link | default: '#' }}" class="sm1c-life-btn">{{ section.settings.button_label }}</a>
-    {%- endif -%}
-  </div>
+
+  {%- if step_blocks.size > 0 -%}
+    <ol class="sm1c-life-steps">
+      {%- for block in step_blocks -%}
+        <li class="sm1c-life-step{% if block.settings.active %} is-active{% endif %}" {{ block.shopify_attributes }}>
+          <span class="sm1c-life-step-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <span class="sm1c-life-step-label">{{ block.settings.label }}</span>
+        </li>
+      {%- endfor -%}
+    </ol>
+  {%- endif -%}
 </div>
 
 {% schema %}
 {
-  "name": "SM1C Lifestyle Banner",
+  "name": "SM1C Routine Banner",
   "settings": [
     {
       "type": "image_picker",
@@ -90,21 +216,27 @@
     },
     {
       "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Build Your Ritual"
+    },
+    {
+      "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Fuller lips, naturally."
+      "default": "Simple Steps, Beautiful Skin"
     },
     {
       "type": "textarea",
       "id": "body",
       "label": "Body text",
-      "default": "Crafted from natural ingredients — hydrated, nourished volume, without harsh chemicals."
+      "default": "Curated routines for every concern. Find what your skin truly needs."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Shop Now"
+      "default": "Build Your Ritual"
     },
     {
       "type": "url",
@@ -115,12 +247,47 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
-      "default": "#f6e6dd"
+      "default": "#faf1e9"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#E8637E"
     }
   ],
+  "blocks": [
+    {
+      "type": "checklist_item",
+      "name": "Checklist item",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Hydrate & Plump" }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Routine step",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Cleanse" },
+        { "type": "checkbox", "id": "active", "label": "Highlight this step", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 12,
   "presets": [
     {
-      "name": "SM1C Lifestyle Banner"
+      "name": "SM1C Routine Banner",
+      "blocks": [
+        { "type": "checklist_item", "settings": { "label": "Hydrate & Plump" } },
+        { "type": "checklist_item", "settings": { "label": "Firm & Lift" } },
+        { "type": "checklist_item", "settings": { "label": "Brighten & Even" } },
+        { "type": "checklist_item", "settings": { "label": "Nourish & Glow" } },
+        { "type": "step", "settings": { "label": "Cleanse" } },
+        { "type": "step", "settings": { "label": "Treat" } },
+        { "type": "step", "settings": { "label": "Hydrate", "active": true } },
+        { "type": "step", "settings": { "label": "Nourish" } },
+        { "type": "step", "settings": { "label": "Glow" } }
+      ]
     }
   ]
 }

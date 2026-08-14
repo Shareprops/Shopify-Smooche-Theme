@@ -242,20 +242,42 @@
   padding-left: 48px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-rating {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-rating-number {
+  font-size: 20px;
+  font-weight: 800;
+  color: #3A2E27;
+  line-height: 1;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-rating-stars {
-  font-size: 18px;
-  letter-spacing: .02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-rating-stars svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-rating-text {
   font-size: 14px;
   font-weight: 700;
   color: #3A2E27;
+  text-decoration: underline;
+  text-decoration-color: rgba(58, 46, 39, .35);
+  text-underline-offset: 2px;
+  transition: color .2s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-rating:hover .sm1c-pdp-rating-text {
+  color: #E8637E;
+  text-decoration-color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-title {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -266,6 +288,103 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-title span {
   color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 100px;
+  border: 1.5px solid oklch(88% 0.03 20);
+  background: oklch(97% 0.02 20);
+  font-size: 14px;
+  font-weight: 600;
+  color: #3A2E27;
+  white-space: nowrap;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-pill-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #E8637E;
+  font-size: 18px;
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-pill-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-shortdesc {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #3A2E27;
+  margin-top: 16px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 12px;
+  margin-top: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #3A2E27;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-feature-icon {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E8637E;
+  font-size: 26px;
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-feature-icon svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-gift-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 13px 16px;
+  border: 1.5px dashed #E8637E;
+  border-radius: 12px;
+  background: oklch(98% 0.015 20);
+  font-size: 13px;
+  font-weight: 700;
+  color: #3A2E27;
+  text-align: center;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-best-results {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #3A2E27;
+  background: oklch(98% 0.015 20);
+  border: 1.5px dashed #E8637E;
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  margin-bottom: 16px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap {
   position: relative;
@@ -304,10 +423,10 @@
   display: none;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc {
-  font-size: 14px;
+  font-size: 15.5px;
   color: rgba(58, 46, 39, .8);
   margin-top: 10px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc-list {
   list-style: none;
@@ -321,9 +440,9 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 14px;
+  font-size: 15.5px;
   color: rgba(58, 46, 39, .8);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-desc-check {
   width: 16px;
@@ -448,20 +567,30 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn {
   flex: none;
-  background: #E8637E;
-  color: #FBF6EE;
+  background: linear-gradient(135deg, #ED7C93 0%, #E8637E 45%, #D14C67 100%);
+  color: #fff;
   border: none;
-  padding: 12px 28px;
+  padding: 13px 30px;
   border-radius: 100px;
   font-family: 'Work Sans', sans-serif;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .03em;
   cursor: pointer;
   font-family: inherit;
+  box-shadow: 0 4px 12px -2px rgba(216, 68, 100, .5);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn:hover:not([disabled]) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -2px rgba(216, 68, 100, .6);
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn:active:not([disabled]) {
+  transform: scale(.97);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-btn[disabled] {
+  box-shadow: none;
   opacity: .5;
   cursor: not-allowed;
 }
@@ -497,7 +626,7 @@
   background: oklch(97% 0.02 30);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-badge {
@@ -514,7 +643,7 @@
   margin-left: 0;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-tier-note {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(58, 46, 39, .8);
   margin-top: 4px;
 }
@@ -535,6 +664,15 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget {
   order: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget select,
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget button,
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget [class*="select"],
+#shopify-section-{{ section.id }} .sm1c-pdp-atc-group #svelte-bundle-widget [class*="dropdown"] {
+  width: auto !important;
+  max-width: none !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc-group .sm1c-pdp-option-group {
   order: 2;
@@ -592,24 +730,56 @@
   background: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   text-align: center;
-  background: #E8637E;
-  color: #FBF6EE;
-  padding: 18px;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #ED7C93 0%, #E8637E 45%, #D14C67 100%);
+  color: #fff;
+  padding: 19px;
+  border-radius: 14px;
   font-family: 'Work Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .03em;
+  letter-spacing: .04em;
   margin-top: 16px;
   border: none;
   width: 100%;
   cursor: pointer;
   font-family: inherit;
+  box-shadow: 0 6px 16px -4px rgba(216, 68, 100, .55), 0 2px 4px rgba(216, 68, 100, .3);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc:hover:not([disabled]) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -4px rgba(216, 68, 100, .65), 0 3px 8px rgba(216, 68, 100, .4);
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-atc:active:not([disabled]) {
+  transform: translateY(0) scale(.98);
+  box-shadow: 0 4px 10px -2px rgba(216, 68, 100, .5);
+}
+@media (prefers-reduced-motion: no-preference) {
+  #shopify-section-{{ section.id }} .sm1c-pdp-atc:not([disabled]) {
+    animation: sm1c-atc-pulse 2.6s ease-in-out infinite;
+  }
+  #shopify-section-{{ section.id }} .sm1c-pdp-atc:hover:not([disabled]) {
+    animation: none;
+  }
+}
+@keyframes sm1c-atc-pulse {
+  0%, 100% { box-shadow: 0 6px 16px -4px rgba(216, 68, 100, .55), 0 2px 4px rgba(216, 68, 100, .3); }
+  50% { box-shadow: 0 6px 22px -2px rgba(216, 68, 100, .8), 0 2px 8px rgba(216, 68, 100, .45); }
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-atc[disabled] {
+  animation: none;
+  box-shadow: none;
   opacity: .5;
   cursor: not-allowed;
 }
@@ -633,7 +803,7 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-social {
   text-align: center;
   margin-top: 26px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-reel-row {
@@ -693,8 +863,10 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion summary {
   padding: 16px 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  gap: 12px;
+  font-size: 15.5px;
   font-weight: 600;
   cursor: pointer;
   list-style: none;
@@ -702,19 +874,79 @@
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion summary::-webkit-details-marker {
   display: none;
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-summary-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(94% 0.03 20);
+  color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-summary-icon svg {
+  width: 16px;
+  height: 16px;
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion summary::after {
   content: "+";
+  flex: none;
   display: inline-block;
+  color: #E8637E;
+  font-size: 18px;
+  font-weight: 700;
   transition: transform .3s ease;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion details[open] summary::after {
   transform: rotate(135deg);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion-body {
-  padding: 0 0 16px;
-  font-size: 13px;
+  padding: 0 0 18px;
+  font-size: 14.5px;
   line-height: 1.6;
   color: rgba(58, 46, 39, .8);
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 42px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #3A2E27;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-point-icon {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  margin-top: -1px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(94% 0.03 20);
+  color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-accordion-point-icon svg {
+  width: 14px;
+  height: 14px;
+}
+@media (max-width: 480px) {
+  #shopify-section-{{ section.id }} .sm1c-pdp-accordion-points {
+    padding-left: 0;
+  }
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feedback {
   margin-top: 26px;
@@ -822,7 +1054,19 @@
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc-img {
   background: var(--sm1c-surface);
 }
-:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-text {
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-text,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-rating-number {
+  color: var(--sm1c-text);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-pill,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-gift-banner,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-best-results {
+  background: var(--sm1c-surface);
+  border-color: var(--sm1c-border);
+  color: var(--sm1c-text);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-shortdesc,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feature-item {
   color: var(--sm1c-text);
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-desc-wrap:not(.is-expanded):not(.no-clamp) .sm1c-pdp-desc-content::after {
@@ -971,41 +1215,89 @@
     <div class="sm1c-pdp-info">
       {%- liquid
         assign pdp_review_count = product.metafields.custom.review_count.value | default: section.settings.rating_text
+        assign pdp_average_rating = section.settings.average_rating
       -%}
-      <div class="sm1c-pdp-rating">
-        <span class="sm1c-pdp-rating-stars">★★★★★</span>
-        <span class="sm1c-pdp-rating-text">{{ pdp_review_count }}</span>
-      </div>
-      <h1 class="sm1c-pdp-title">{{ title_rest }} <span>{{ title_last }}</span></h1>
-      {%- liquid
-        assign desc_stripped = product.description | strip_html
-        assign desc_parts = desc_stripped | split: '✅'
-        assign desc_bullet_count = 0
-        for part in desc_parts
-          assign part_trimmed = part | strip
-          unless part_trimmed == blank
-            assign desc_bullet_count = desc_bullet_count | plus: 1
-          endunless
-        endfor
-      -%}
-      <div class="sm1c-pdp-desc-wrap" data-sm1c-desc-wrap>
-        {%- if desc_bullet_count > 1 -%}
-          <ul class="sm1c-pdp-desc-list sm1c-pdp-desc-content" data-sm1c-desc-content>
-            {%- for part in desc_parts -%}
-              {%- assign part_trimmed = part | strip -%}
-              {%- unless part_trimmed == blank -%}
-                <li>
-                  <svg class="sm1c-pdp-desc-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>{{ part_trimmed }}</span>
-                </li>
-              {%- endunless -%}
+      {%- if pdp_average_rating != blank or pdp_review_count != blank -%}
+        <a href="#sm1c-reviews" class="sm1c-pdp-rating">
+          <span class="sm1c-pdp-rating-stars" aria-hidden="true">
+            {%- for i in (1..5) -%}
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.3 6.9.7-5.1 4.7 1.5 6.8L12 17.8l-6.2 3.2 1.5-6.8-5.1-4.7 6.9-.7L12 2.5Z"/></svg>
             {%- endfor -%}
-          </ul>
-        {%- else -%}
-          <div class="sm1c-pdp-desc sm1c-pdp-desc-content" data-sm1c-desc-content>{{ desc_stripped }}</div>
-        {%- endif -%}
-        <button type="button" class="sm1c-pdp-desc-toggle" data-sm1c-desc-toggle hidden>Read more</button>
-      </div>
+          </span>
+          {%- if pdp_average_rating != blank -%}
+            <span class="sm1c-pdp-rating-number">{{ pdp_average_rating }}</span>
+          {%- endif -%}
+          {%- if pdp_review_count != blank -%}
+            <span class="sm1c-pdp-rating-text">{{ pdp_review_count }}</span>
+          {%- endif -%}
+        </a>
+      {%- endif -%}
+      <h1 class="sm1c-pdp-title">{{ title_rest }} <span>{{ title_last }}</span></h1>
+
+      {%- assign pill_blocks = section.blocks | where: 'type', 'pill_badge' -%}
+      {%- if pill_blocks.size > 0 -%}
+        <div class="sm1c-pdp-pills">
+          {%- for block in pill_blocks -%}
+            <span class="sm1c-pdp-pill" {{ block.shopify_attributes }}>
+              <span class="sm1c-pdp-pill-icon">{{ block.settings.icon }}</span>
+              {{ block.settings.label }}
+            </span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.short_description != blank -%}
+        <div class="sm1c-pdp-shortdesc">{{ section.settings.short_description }}</div>
+      {%- else -%}
+        {%- liquid
+          assign desc_stripped = product.description | strip_html
+          assign desc_parts = desc_stripped | split: '✅'
+          assign desc_bullet_count = 0
+          for part in desc_parts
+            assign part_trimmed = part | strip
+            unless part_trimmed == blank
+              assign desc_bullet_count = desc_bullet_count | plus: 1
+            endunless
+          endfor
+        -%}
+        <div class="sm1c-pdp-desc-wrap" data-sm1c-desc-wrap>
+          {%- if desc_bullet_count > 1 -%}
+            <ul class="sm1c-pdp-desc-list sm1c-pdp-desc-content" data-sm1c-desc-content>
+              {%- for part in desc_parts -%}
+                {%- assign part_trimmed = part | strip -%}
+                {%- unless part_trimmed == blank -%}
+                  <li>
+                    <svg class="sm1c-pdp-desc-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>{{ part_trimmed }}</span>
+                  </li>
+                {%- endunless -%}
+              {%- endfor -%}
+            </ul>
+          {%- else -%}
+            <div class="sm1c-pdp-desc sm1c-pdp-desc-content" data-sm1c-desc-content>{{ desc_stripped }}</div>
+          {%- endif -%}
+          <button type="button" class="sm1c-pdp-desc-toggle" data-sm1c-desc-toggle hidden>Read more</button>
+        </div>
+      {%- endif -%}
+
+      {%- assign feature_blocks = section.blocks | where: 'type', 'feature_item' -%}
+      {%- if feature_blocks.size > 0 -%}
+        <div class="sm1c-pdp-feature-grid">
+          {%- for block in feature_blocks -%}
+            <div class="sm1c-pdp-feature-item" {{ block.shopify_attributes }}>
+              <span class="sm1c-pdp-feature-icon">{{ block.settings.icon }}</span>
+              <span>{{ block.settings.label }}</span>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.gift_banner_text != blank -%}
+        <div class="sm1c-pdp-gift-banner">
+          <span>{{ section.settings.gift_banner_icon | default: '🎁' }}</span>
+          <span>{{ section.settings.gift_banner_text }}</span>
+        </div>
+      {%- endif -%}
 
       {%- if product.tags.size > 0 -%}
         <div class="sm1c-pdp-tags">
@@ -1016,6 +1308,9 @@
       {%- endif -%}
 
       {%- form 'product', product, id: 'sm1c-pdp-form', class: '', data-sm1c-ajax-cart-form: '', data-currency: shop.currency -%}
+        {%- if section.settings.best_results_text != blank -%}
+          <div class="sm1c-pdp-best-results">{{ section.settings.best_results_text }}</div>
+        {%- endif -%}
         <div class="sm1c-pdp-tiers">
           {%- assign tier_index = 0 -%}
           {%- for block in section.blocks -%}
@@ -1056,6 +1351,7 @@
         <input type="hidden" name="quantity" value="1" data-sm1c-quantity>
 
         <div class="sm1c-pdp-atc-group">
+          {%- unless section.settings.hide_variant_picker -%}
           {%- if color_option -%}
             <div class="sm1c-pdp-option-group">
               <label class="sm1c-pdp-option-label">
@@ -1140,6 +1436,7 @@
               </div>
             {%- endunless -%}
           {%- endfor -%}
+          {%- endunless -%}
 
           {%- if section.settings.urgency_text != blank -%}
             <div class="sm1c-pdp-urgency">
@@ -1151,6 +1448,9 @@
 
           <div class="product-form__buttons">
           <button type="submit" name="add" class="sm1c-pdp-atc product-form__submit" data-sm1c-atc-observe {% unless current_variant.available %}disabled{% endunless %}>
+            {%- if current_variant.available -%}
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 4h2.2l2.6 12.4a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 1.94-1.53L20.5 8H5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.7" cy="20" r="1.3" fill="currentColor"/><circle cx="14.7" cy="20" r="1.3" fill="currentColor"/><circle cx="18.3" cy="6" r="5" fill="#fff"/><path d="M18.3 3.4v5.2M15.7 6h5.2" stroke="#D14C67" stroke-width="1.7" stroke-linecap="round"/></svg>
+            {%- endif -%}
             <span data-sm1c-atc-label>
               {%- if current_variant.available -%}
                 {{ section.settings.atc_label | default: 'ADD TO CART' }}
@@ -1231,9 +1531,42 @@
       {%- if accordion_blocks.size > 0 -%}
         <div class="sm1c-pdp-accordion">
           {%- for block in accordion_blocks -%}
+            {%- assign point_count = 0 -%}
+            {%- for i in (1..5) -%}
+              {%- assign point_text_key = 'point_' | append: i | append: '_text' -%}
+              {%- assign point_text_value = block.settings[point_text_key] -%}
+              {%- unless point_text_value == blank -%}
+                {%- assign point_count = point_count | plus: 1 -%}
+              {%- endunless -%}
+            {%- endfor -%}
             <details {{ block.shopify_attributes }}>
-              <summary>{{ block.settings.title }}</summary>
-              <div class="sm1c-pdp-accordion-body">{{ block.settings.body }}</div>
+              <summary>
+                <span class="sm1c-pdp-accordion-summary-left">
+                  {%- if block.settings.title_icon != blank -%}
+                    <span class="sm1c-pdp-accordion-summary-icon">{% render 'sm1c-pdp-icon', icon: block.settings.title_icon %}</span>
+                  {%- endif -%}
+                  <span>{{ block.settings.title }}</span>
+                </span>
+              </summary>
+              <div class="sm1c-pdp-accordion-body">
+                {%- if point_count > 0 -%}
+                  <div class="sm1c-pdp-accordion-points">
+                    {%- for i in (1..5) -%}
+                      {%- assign point_icon_key = 'point_' | append: i | append: '_icon' -%}
+                      {%- assign point_text_key = 'point_' | append: i | append: '_text' -%}
+                      {%- assign point_text_value = block.settings[point_text_key] -%}
+                      {%- unless point_text_value == blank -%}
+                        <div class="sm1c-pdp-accordion-point">
+                          <span class="sm1c-pdp-accordion-point-icon">{% render 'sm1c-pdp-icon', icon: block.settings[point_icon_key] %}</span>
+                          <span>{{ point_text_value }}</span>
+                        </div>
+                      {%- endunless -%}
+                    {%- endfor -%}
+                  </div>
+                {%- else -%}
+                  {{ block.settings.body }}
+                {%- endif -%}
+              </div>
             </details>
           {%- endfor -%}
         </div>
@@ -1734,10 +2067,143 @@
 })();
 </script>
 
+<script>
+/*
+  Pumper Quantity Breaks bridge.
+
+  The Pumper bundle widget keeps the correct add-to-cart payload (selected tier
+  quantity + the __pumper_bundles offer property that its Shopify Function needs
+  to apply the discount) in `window.pmpr_cart_item`. It does NOT write that
+  payload back into this section's product form, and another script on the page
+  intercepts the button click before Pumper can act — so a plain click would add
+  1 unit at the tier-0 property and silently lose the discount.
+
+  This handler runs in the capture phase (before those other listeners) and, when
+  a Pumper payload is present, performs the add itself from that payload, then
+  opens Pumper's slide cart. Without Pumper on the page it does nothing and the
+  normal form submit is left untouched.
+*/
+(function () {
+  var ATC_SELECTOR = '.sm1c-pdp-atc, [data-sm1c-sticky-atc-btn]';
+
+  function pumperPayload() {
+    var items = window.pmpr_cart_item;
+    if (!Array.isArray(items) || !items.length) return null;
+    var clean = items
+      .filter(function (i) { return i && i.id; })
+      .map(function (i) {
+        var item = { id: String(i.id), quantity: parseInt(i.quantity, 10) || 1 };
+        if (i.properties && Object.keys(i.properties).length) item.properties = i.properties;
+        if (i.selling_plan) item.selling_plan = i.selling_plan;
+        return item;
+      });
+    return clean.length ? clean : null;
+  }
+
+  function setBusy(button, busy, originalHtml) {
+    if (!button) return;
+    button.disabled = busy;
+    if (busy) {
+      button.setAttribute('aria-busy', 'true');
+    } else {
+      button.removeAttribute('aria-busy');
+      if (originalHtml != null) button.innerHTML = originalHtml;
+    }
+  }
+
+  // The header cart badge is only set once, from the server-rendered page load.
+  // Nothing else on the page keeps it in sync after an AJAX cart change, so we
+  // do it ourselves: after our own add, and by piggybacking on Pumper's own
+  // refresh hook so edits made inside Pumper's slide cart (quantity +/-, remove)
+  // update the header badge too, not just our own add-to-cart flow.
+  function syncHeaderCartCount() {
+    fetch('/cart.js')
+      .then(function (res) { return res.json(); })
+      .then(function (cart) {
+        var badge = document.querySelector('[data-sm1c-cart-count]');
+        if (badge) badge.textContent = cart.item_count;
+      })
+      .catch(function () {});
+  }
+
+  (function hookPumperRefresh(retriesLeft) {
+    if (typeof window.pmprscRefreshCart === 'function' && !window.pmprscRefreshCart.__sm1cWrapped) {
+      var original = window.pmprscRefreshCart;
+      window.pmprscRefreshCart = function () {
+        var result = original.apply(this, arguments);
+        syncHeaderCartCount();
+        return result;
+      };
+      window.pmprscRefreshCart.__sm1cWrapped = true;
+      return;
+    }
+    if (retriesLeft > 0) setTimeout(function () { hookPumperRefresh(retriesLeft - 1); }, 400);
+  })(15); // Pumper's script loads async — retry for a few seconds if it isn't ready yet.
+
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest(ATC_SELECTOR);
+    if (!button || button.disabled) return;
+
+    var items = pumperPayload();
+    if (!items) return; // no Pumper offer on this product — leave default behaviour alone
+
+    // Beat the other click interceptors on the page.
+    event.preventDefault();
+    event.stopPropagation();
+    if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+    var originalHtml = button.innerHTML;
+    setBusy(button, true);
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ items: items })
+    })
+      .then(function (res) {
+        return res.json().then(function (body) {
+          if (!res.ok) throw body;
+          return body;
+        });
+      })
+      .then(function () {
+        syncHeaderCartCount();
+        if (typeof window.pmprscRefreshCart === 'function') {
+          try { window.pmprscRefreshCart(); } catch (e) {}
+        }
+        if (typeof window.pmprscOpen === 'function') {
+          try { window.pmprscOpen(); return; } catch (e) {}
+        }
+        // Pumper's slide cart unavailable — fall back to the cart page.
+        window.location.href = '{{ routes.cart_url }}';
+      })
+      .catch(function (err) {
+        window.alert((err && (err.description || err.message)) || 'Could not add this bundle to your cart.');
+      })
+      .finally(function () {
+        setBusy(button, false, originalHtml);
+      });
+  }, true); // capture phase
+})();
+</script>
+
 {% schema %}
 {
   "name": "SM1C Product Main",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "hide_variant_picker",
+      "label": "Hide native variant/package picker",
+      "info": "Turn on only if a bundle/quantity app on this page provides its own variant selector that writes directly into the Add to Cart form.",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "average_rating",
+      "label": "Average rating (numeric, blank = hidden)",
+      "default": "4.9"
+    },
     {
       "type": "text",
       "id": "rating_text",
@@ -1781,9 +2247,53 @@
       "id": "feedback_title",
       "label": "Feedback widget title",
       "default": "Feedback from the Serein Community"
+    },
+    {
+      "type": "header",
+      "content": "Top info area"
+    },
+    {
+      "type": "textarea",
+      "id": "short_description",
+      "label": "Short description (overrides product description when set)",
+      "info": "Set this directly instead of relying on the product description or metafields."
+    },
+    {
+      "type": "text",
+      "id": "gift_banner_icon",
+      "label": "Gift banner icon",
+      "default": "🎁"
+    },
+    {
+      "type": "text",
+      "id": "gift_banner_text",
+      "label": "Gift banner text (blank = hidden)",
+      "info": "e.g. \"Order By August 14 For Guaranteed FREE Gifts\""
+    },
+    {
+      "type": "text",
+      "id": "best_results_text",
+      "label": "Best results caption above tiers (blank = hidden)",
+      "info": "e.g. \"Best Results After 6 Packs\""
     }
   ],
   "blocks": [
+    {
+      "type": "pill_badge",
+      "name": "Pill badge",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon / emoji", "default": "🇰🇷" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Formulated In Korea" }
+      ]
+    },
+    {
+      "type": "feature_item",
+      "name": "Feature grid item",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon / emoji", "default": "✨" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Glass Skin By Morning" }
+      ]
+    },
     {
       "type": "trust_badge",
       "name": "Trust badge",
@@ -1815,7 +2325,134 @@
       "name": "Accordion item",
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Product Details" },
-        { "type": "richtext", "id": "body", "label": "Body" }
+        {
+          "type": "select",
+          "id": "title_icon",
+          "label": "Title icon (blank = none)",
+          "options": [
+            { "value": "", "label": "None" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": ""
+        },
+        { "type": "richtext", "id": "body", "label": "Body (used only if no points below are set)" },
+        { "type": "header", "content": "Icon points (overrides body when set)" },
+        {
+          "type": "select",
+          "id": "point_1_icon",
+          "label": "Point 1 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_1_text", "label": "Point 1 text" },
+        {
+          "type": "select",
+          "id": "point_2_icon",
+          "label": "Point 2 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_2_text", "label": "Point 2 text" },
+        {
+          "type": "select",
+          "id": "point_3_icon",
+          "label": "Point 3 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_3_text", "label": "Point 3 text" },
+        {
+          "type": "select",
+          "id": "point_4_icon",
+          "label": "Point 4 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_4_text", "label": "Point 4 text" },
+        {
+          "type": "select",
+          "id": "point_5_icon",
+          "label": "Point 5 icon",
+          "options": [
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "check"
+        },
+        { "type": "text", "id": "point_5_text", "label": "Point 5 text" }
       ]
     },
     {
@@ -1827,7 +2464,7 @@
       ]
     }
   ],
-  "max_blocks": 20,
+  "max_blocks": 30,
   "presets": [
     {
       "name": "SM1C Product Main",

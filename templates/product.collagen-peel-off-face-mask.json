@@ -1,0 +1,669 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_pdp_main": {
+      "type": "sm1c-pdp-main",
+      "blocks": {
+        "pill_1": {
+          "type": "pill_badge",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"6.5\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"17\" cy=\"10\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"15\" cy=\"16\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"9\" cy=\"16\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"7\" cy=\"10\" r=\"3.3\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"11.5\" r=\"2\" fill=\"#fff\"/></svg>",
+            "label": "Korean-Inspired Formula"
+          }
+        },
+        "pill_2": {
+          "type": "pill_badge",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\"><ellipse cx=\"12\" cy=\"16\" rx=\"5\" ry=\"4.2\" fill=\"currentColor\"/><circle cx=\"6\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"/><circle cx=\"10.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"15.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"18\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"/></svg>",
+            "label": "Vegan & Cruelty-Free"
+          }
+        },
+        "feat_1": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M10.5766 8.70419C11.2099 7.56806 11.5266 7 12 7C12.4734 7 12.7901 7.56806 13.4234 8.70419L13.5873 8.99812C13.7672 9.32097 13.8572 9.48239 13.9975 9.5889C14.1378 9.69541 14.3126 9.73495 14.6621 9.81402L14.9802 9.88601C16.2101 10.1643 16.825 10.3034 16.9713 10.7739C17.1176 11.2443 16.6984 11.7345 15.86 12.715L15.643 12.9686C15.4048 13.2472 15.2857 13.3865 15.2321 13.5589C15.1785 13.7312 15.1965 13.9171 15.2325 14.2888L15.2653 14.6272C15.3921 15.9353 15.4554 16.5894 15.0724 16.8801C14.6894 17.1709 14.1137 16.9058 12.9622 16.3756L12.6643 16.2384C12.337 16.0878 12.1734 16.0124 12 16.0124C11.8266 16.0124 11.663 16.0878 11.3357 16.2384L11.0378 16.3756C9.88634 16.9058 9.31059 17.1709 8.92757 16.8801C8.54456 16.5894 8.60794 15.9353 8.7347 14.6272L8.76749 14.2888C8.80351 13.9171 8.82152 13.7312 8.76793 13.5589C8.71434 13.3865 8.59521 13.2472 8.35696 12.9686L8.14005 12.715C7.30162 11.7345 6.88241 11.2443 7.02871 10.7739C7.17501 10.3034 7.78993 10.1643 9.01977 9.88601L9.33794 9.81402C9.68743 9.73495 9.86217 9.69541 10.0025 9.5889C10.1428 9.48239 10.2328 9.32097 10.4127 8.99812L10.5766 8.70419Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM18.5304 5.46955C18.8233 5.76245 18.8233 6.23732 18.5304 6.53021L18.1872 6.87348C17.8943 7.16637 17.4194 7.16637 17.1265 6.87348C16.8336 6.58058 16.8336 6.10571 17.1265 5.81282L17.4698 5.46955C17.7627 5.17666 18.2376 5.17666 18.5304 5.46955ZM5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L6.87359 5.81293C7.16648 6.10582 7.16648 6.5807 6.87359 6.87359C6.5807 7.16648 6.10582 7.16648 5.81293 6.87359L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM6.87348 17.1265C7.16637 17.4194 7.16637 17.8943 6.87348 18.1872L6.53043 18.5302C6.23754 18.8231 5.76266 18.8231 5.46977 18.5302C5.17688 18.2373 5.17688 17.7625 5.46977 17.4696L5.81282 17.1265C6.10571 16.8336 6.58058 16.8336 6.87348 17.1265ZM17.1265 17.1267C17.4194 16.8339 17.8943 16.8339 18.1872 17.1267L18.5302 17.4698C18.8231 17.7627 18.8231 18.2376 18.5302 18.5305C18.2373 18.8233 17.7624 18.8233 17.4695 18.5305L17.1265 18.1874C16.8336 17.8945 16.8336 17.4196 17.1265 17.1267ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z\" fill=\"currentColor\"/></svg>",
+            "label": "Instant Visible Tightening"
+          }
+        },
+        "feat_2": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🌀",
+            "label": "One-Piece Full Peel"
+          }
+        },
+        "feat_3": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🫧",
+            "label": "Deep Pore Detox"
+          }
+        },
+        "feat_4": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🧴",
+            "label": "Zero Sticky Residue"
+          }
+        },
+        "feat_5": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "⏱️",
+            "label": "15-Minute Ritual"
+          }
+        },
+        "feat_6": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🌸",
+            "label": "Sensitive-Skin Safe"
+          }
+        },
+        "badge_1": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "♡",
+            "label": "No rinsing required"
+          }
+        },
+        "badge_2": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌿",
+            "label": "Clean ingredients"
+          }
+        },
+        "badge_3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "✦",
+            "label": "Visibly firmer skin"
+          }
+        },
+        "media_1": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/46a08718426eafa0dce8013b11b8.png" }
+        },
+        "media_2": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/f622388d4587999292024a36af32.png" }
+        },
+        "media_3": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/3eb4253f40b5bc8dadc5197baa95.png" }
+        },
+        "media_4": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/237cbfb648848dc81bc77d33ae17.png" }
+        },
+        "media_5": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/c7ba7ef148d986c9d69b93445ac5.png" }
+        },
+        "acc_1": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Product Details & How To Use",
+            "title_icon": "droplet",
+            "point_1_icon": "droplet",
+            "point_1_text": "Apply an even layer to clean, dry skin — avoiding the eye area, eyebrows, hairline, and lips.",
+            "point_2_icon": "clock",
+            "point_2_text": "Leave on for 15–20 minutes, until the layer looks matte, not tacky.",
+            "point_3_icon": "check",
+            "point_3_text": "Peel from the edges in one motion.",
+            "point_4_icon": "calendar",
+            "point_4_text": "Use 1–2 times per week as part of your evening routine.",
+            "point_5_icon": "heart",
+            "point_5_text": "Follow with your usual moisturizer to lock in hydration."
+          }
+        },
+        "acc_2": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Shipping",
+            "title_icon": "truck",
+            "point_1_icon": "truck",
+            "point_1_text": "Ships from within the United States — most orders arrive within 2 business days, up to 5 during holidays or unexpected delays.",
+            "point_2_icon": "gift",
+            "point_2_text": "Free shipping on every order.",
+            "point_3_icon": "mail",
+            "point_3_text": "You'll receive tracking by email as soon as your order leaves our warehouse."
+          }
+        },
+        "acc_3": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Return & Refund Policy",
+            "title_icon": "refresh",
+            "point_1_icon": "calendar",
+            "point_1_text": "Refunds are available within 30 days of delivery for products that arrive damaged or expired.",
+            "point_2_icon": "camera",
+            "point_2_text": "Send us photos as proof of the issue — no need to ship anything back.",
+            "point_3_icon": "check",
+            "point_3_text": "Once verified, we'll process your refund."
+          }
+        }
+      },
+      "block_order": [
+        "pill_1",
+        "pill_2",
+        "feat_1",
+        "feat_2",
+        "feat_3",
+        "feat_4",
+        "feat_5",
+        "feat_6",
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "media_1",
+        "media_2",
+        "media_3",
+        "media_4",
+        "media_5",
+        "acc_1",
+        "acc_2",
+        "acc_3"
+      ],
+      "settings": {
+        "hide_variant_picker": true,
+        "average_rating": "",
+        "rating_text": "",
+        "short_description": "The viral one-piece peel for instant glass skin. Marine collagen and peptides lift away dirt and dullness while visibly tightening and smoothing — no rinsing, no sticky residue, just firmer, dewy skin in one satisfying peel.",
+        "gift_banner_icon": "🎁",
+        "gift_banner_text": "",
+        "best_results_text": "Best Results With Consistent Use, 1–2 Times Per Week",
+        "urgency_text": "",
+        "urgency_percent": 8,
+        "atc_label": "ADD TO CART",
+        "social_proof_text": "",
+        "feedback_title": "Feedback from the Serein Community"
+      }
+    },
+    "sm1c_trust_marquee": {
+      "type": "marquee",
+      "blocks": {
+        "icon_1": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free Shipping &amp; 2-Day Delivery</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_2": {
+          "type": "icon",
+          "settings": {
+            "icon": "lock",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>100% Secure Checkout</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_3": {
+          "type": "icon",
+          "settings": {
+            "icon": "return",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>30-Day Easy Returns</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_4": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Loved by 50,000+ Customers</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "icon_1",
+        "text_1",
+        "icon_2",
+        "text_2",
+        "icon_3",
+        "text_3",
+        "icon_4",
+        "text_4"
+      ],
+      "settings": {
+        "movement_direction": "normal",
+        "background_color": "#2e1810",
+        "padding-block-start": 16,
+        "padding-block-end": 16,
+        "gap_between_elements": 28
+      }
+    },
+    "sm1c_pdp_how_it_works": {
+      "type": "sm1c-pdp-how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Cleanse & prep",
+            "body": "Start on clean, dry skin so the collagen gel makes full contact and the peel bonds evenly."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Peel away dullness",
+            "body": "In one satisfying motion, the mask lifts dirt, oil, and dead skin — no rinsing, no residue."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Reveal glass skin",
+            "body": "Skin looks instantly smoother and firmer, with a dewy, glass-skin finish that builds with every use."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "Here's how you get",
+        "heading_accent": "glass skin",
+        "subheading": "One 15-minute ritual, twice a week — no rinsing, no mess, just visibly smoother skin every time you peel.",
+        "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_07_43_58_PM.png"
+      }
+    },
+    "sm1c_pdp_comparison": {
+      "type": "sm1c-pdp-comparison",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "feature": "No rinsing required",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "feature": "Zero sticky residue",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "feature": "Visible tightening in one use",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "feature": "Gentle on sensitive skin",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "feature": "One-piece full peel",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5"
+      ],
+      "settings": {
+        "heading": "Peel-Off Masks",
+        "heading_accent": "vs The Usual Options",
+        "subheading": "Most masks either rinse off or leave residue behind. Serein's one-piece peel lifts away dullness and tightens skin — without either downside.",
+        "brand_name": "Serein",
+        "competitor_1_name": "Rinse-Off Masks",
+        "competitor_1_price": "From $1.20/use",
+        "competitor_2_name": "Sticky Peel Masks",
+        "competitor_2_price": "From $0.95/use"
+      }
+    },
+    "sm1c_pdp_survey_stats": {
+      "type": "sm1c-pdp-survey-stats",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "percent": 91,
+            "headline": "reported visibly tighter, smoother skin right after their first peel.",
+            "body": "In a post-purchase survey, customers said their skin looked firmer and more refreshed immediately after removing the mask.",
+            "bar_color": "#e8637e"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "percent": 88,
+            "headline": "said the peel came away clean, with zero sticky residue.",
+            "body": "Unlike rinse-off masks, the one-piece peel lifts free in one motion — no residue, no extra rinsing step.",
+            "bar_color": "#2a6f6a"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "percent": 85,
+            "headline": "noticed a brighter, more even-looking complexion within 2 weeks.",
+            "body": "With consistent 1–2x weekly use, customers reported a noticeably smoother, glass-skin glow.",
+            "bar_color": "#e8637e"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
+      "settings": {
+        "heading": "What women told us in",
+        "heading_accent": "our survey",
+        "subheading": "Formulated with botanical ingredients to support balance, confidence, and consistency over time.",
+        "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_07_43_49_PM.png"
+      }
+    },
+    "sm1c_pdp_ingredients": {
+      "type": "sm1c-pdp-ingredients",
+      "blocks": {
+        "ing_1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "tag": "HYDRATION",
+            "support_text": "Used to support: nourished, softer lips",
+            "description": ""
+          }
+        },
+        "ing_2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Peptide Complex",
+            "tag": "VOLUME",
+            "support_text": "Used to support: fullness & definition",
+            "description": ""
+          }
+        },
+        "ing_3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Shea Butter",
+            "tag": "MOISTURE",
+            "support_text": "Used to support: everyday comfort",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "ing_1",
+        "ing_2",
+        "ing_3"
+      ],
+      "settings": {}
+    },
+    "sm1c_pdp_reviews": {
+      "type": "sm1c-pdp-reviews",
+      "blocks": {
+        "rev_1": {
+          "type": "review",
+          "settings": {
+            "name": "Isabella T.",
+            "age": "42",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "I honestly thought my routine couldn't get any better. This proved me wrong within a week."
+          }
+        },
+        "rev_2": {
+          "type": "review",
+          "settings": {
+            "name": "Jessica M.",
+            "age": "37",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "I've tried so many brands over the years. This is the first one that's actually kept its promise."
+          }
+        },
+        "rev_3": {
+          "type": "review",
+          "settings": {
+            "name": "Mia K.",
+            "age": "29",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "Gentle enough for daily use and I noticed a real difference within the first two weeks."
+          }
+        },
+        "rev_4": {
+          "type": "review",
+          "settings": {
+            "name": "Hannah D.",
+            "age": "51",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "Noticed a difference within days — more energy and confidence all day."
+          }
+        },
+        "rev_5": {
+          "type": "review",
+          "settings": {
+            "name": "Chloe C.",
+            "age": "34",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "Exactly what my skin needed. Glad I finally gave this a try."
+          }
+        }
+      },
+      "block_order": [
+        "rev_1",
+        "rev_2",
+        "rev_3",
+        "rev_4",
+        "rev_5"
+      ],
+      "settings": {
+        "loved_by_prefix": "Loved by",
+        "loved_by_count": "50,000+",
+        "average_rating": "4.9",
+        "review_count": "522 reviews",
+        "accent_color": "#e8637e"
+      }
+    },
+    "sm1c_pdp_faq": {
+      "type": "sm1c-pdp-faq",
+      "blocks": {
+        "q_1": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use the Lip Plumper?",
+            "answer": ""
+          }
+        },
+        "q_2": {
+          "type": "question",
+          "settings": {
+            "question": "How soon will I see results?",
+            "answer": ""
+          }
+        },
+        "q_3": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe for sensitive skin?",
+            "answer": ""
+          }
+        },
+        "q_4": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer a money-back guarantee?",
+            "answer": ""
+          }
+        },
+        "q_5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I subscribe and save?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "q_1",
+        "q_2",
+        "q_3",
+        "q_4",
+        "q_5"
+      ],
+      "settings": {
+        "heading": "Frequently Asked",
+        "heading_accent": "Questions"
+      }
+    }
+  },
+  "order": [
+    "sm1c_pdp_main",
+    "sm1c_trust_marquee",
+    "sm1c_pdp_how_it_works",
+    "sm1c_pdp_comparison",
+    "sm1c_pdp_survey_stats",
+    "sm1c_pdp_ingredients",
+    "sm1c_pdp_reviews",
+    "sm1c_pdp_faq"
+  ]
+}
