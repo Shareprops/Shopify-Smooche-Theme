@@ -1,0 +1,731 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_pdp_main": {
+      "type": "sm1c-pdp-main",
+      "blocks": {
+        "pill_1": {
+          "type": "pill_badge",
+          "settings": {
+            "icon": "🟡",
+            "label": "Turmeric & Kojic Acid Infused"
+          }
+        },
+        "pill_2": {
+          "type": "pill_badge",
+          "settings": {
+            "icon": "♻️",
+            "label": "Reusable & Eco-Friendly"
+          }
+        },
+        "feat_1": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "✨",
+            "label": "Brightens & Evens Skin Tone"
+          }
+        },
+        "feat_2": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🧽",
+            "label": "Gentle Daily Exfoliation"
+          }
+        },
+        "feat_3": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🌿",
+            "label": "Soft, Skin-Loving Cotton"
+          }
+        },
+        "feat_4": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🎯",
+            "label": "Fades Dark Spots"
+          }
+        },
+        "feat_5": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🧴",
+            "label": "Calms Irritation"
+          }
+        },
+        "feat_6": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "👤",
+            "label": "Safe For Face & Body"
+          }
+        },
+        "badge_1": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "♡",
+            "label": "Safe for all skin types"
+          }
+        },
+        "badge_2": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌿",
+            "label": "Turmeric & kojic acid"
+          }
+        },
+        "badge_3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "✦",
+            "label": "Visibly brighter, clearer skin"
+          }
+        },
+        "media_1": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/71e21801461a8005f5910f7d6ad5_3e0ed051-76ef-41df-8126-c97d0cd96a65.png" }
+        },
+        "media_2": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/8f7e180b4f28a2cdd508e9135f31_6a284c44-8489-4c75-a1c1-7c0ea7df7c41.png" }
+        },
+        "media_3": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/755f0171487ca3f059b5cdee890d_f32a1a99-8634-4eb7-8c66-5b6b90610245.png" }
+        },
+        "acc_1": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Product Details & How To Use",
+            "title_icon": "droplet",
+            "point_1_icon": "droplet",
+            "point_1_text": "Wet the cloth with warm water and add your favorite cleanser, if desired.",
+            "point_2_icon": "check",
+            "point_2_text": "Gently massage over your face or body in circular motions to cleanse and exfoliate.",
+            "point_3_icon": "droplet",
+            "point_3_text": "Rinse the cloth thoroughly after each use and hang to air dry.",
+            "point_4_icon": "calendar",
+            "point_4_text": "Use daily, or as often as fits your routine, for gentle ongoing exfoliation."
+          }
+        },
+        "acc_2": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Shipping",
+            "title_icon": "truck",
+            "point_1_icon": "truck",
+            "point_1_text": "Ships from within the United States — most orders arrive within 2 business days, up to 5 during holidays or unexpected delays.",
+            "point_2_icon": "gift",
+            "point_2_text": "Free shipping on every order.",
+            "point_3_icon": "mail",
+            "point_3_text": "You'll receive tracking by email as soon as your order leaves our warehouse."
+          }
+        },
+        "acc_3": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Return & Refund Policy",
+            "title_icon": "refresh",
+            "point_1_icon": "calendar",
+            "point_1_text": "Refunds are available within 30 days of delivery for products that arrive damaged or defective.",
+            "point_2_icon": "camera",
+            "point_2_text": "Send us photos as proof of the issue — no need to ship anything back.",
+            "point_3_icon": "check",
+            "point_3_text": "Once verified, we'll process your refund."
+          }
+        },
+        "fb_1": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Said Skin Looked Brighter After One Week",
+            "percent": 87
+          }
+        },
+        "fb_2": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Noticed Fewer Visible Dark Spots",
+            "percent": 84
+          }
+        },
+        "fb_3": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Would Repurchase & Recommend It",
+            "percent": 89
+          }
+        }
+      },
+      "block_order": [
+        "pill_1",
+        "pill_2",
+        "feat_1",
+        "feat_2",
+        "feat_3",
+        "feat_4",
+        "feat_5",
+        "feat_6",
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "media_1",
+        "media_2",
+        "media_3",
+        "acc_1",
+        "acc_2",
+        "acc_3",
+        "fb_1",
+        "fb_2",
+        "fb_3"
+      ],
+      "settings": {
+        "hide_variant_picker": true,
+        "average_rating": "4.7",
+        "rating_text": "289 reviews",
+        "short_description": "A soft cotton cleansing cloth infused with turmeric and kojic acid — gently exfoliating away dirt, oil, and dead skin while helping to brighten tone and fade the look of dark spots. Reusable, eco-friendly, and gentle enough for face or body.",
+        "gift_banner_icon": "🎁",
+        "gift_banner_text": "",
+        "best_results_text": "Best Results With Daily Use",
+        "urgency_text": "",
+        "urgency_percent": 8,
+        "atc_label": "ADD TO CART",
+        "social_proof_text": "",
+        "feedback_title": "Feedback from the Serein Community"
+      }
+    },
+    "sm1c_trust_marquee": {
+      "type": "marquee",
+      "blocks": {
+        "icon_1": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free Shipping &amp; 2-Day Delivery</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_2": {
+          "type": "icon",
+          "settings": {
+            "icon": "lock",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>100% Secure Checkout</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_3": {
+          "type": "icon",
+          "settings": {
+            "icon": "return",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>30-Day Easy Returns</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_4": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Loved by 50,000+ Customers</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "icon_1",
+        "text_1",
+        "icon_2",
+        "text_2",
+        "icon_3",
+        "text_3",
+        "icon_4",
+        "text_4"
+      ],
+      "settings": {
+        "movement_direction": "normal",
+        "background_color": "#2e1810",
+        "padding-block-start": 16,
+        "padding-block-end": 16,
+        "gap_between_elements": 28
+      }
+    },
+    "sm1c_pdp_how_it_works": {
+      "type": "sm1c-pdp-how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Wet & lather",
+            "body": "Wet the cloth with warm water and add your favorite cleanser, if desired.",
+            "icon": "droplet"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Gently exfoliate",
+            "body": "Massage over your face or body in circular motions to lift away dirt, oil, and dead skin.",
+            "icon": "check"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Rinse & glow",
+            "body": "Rinse the cloth and reveal softer, brighter-looking skin — reuse it again tomorrow.",
+            "icon": "heart"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "Here's how you get",
+        "heading_accent": "brighter, smoother skin",
+        "subheading": "One gentle daily cleanse — turmeric and kojic acid work together to exfoliate, brighten, and even out tone with every use.",
+        "image": "shopify://shop_images/7f52077747a1bd2ac0ad20fd1eb6_da305750-7103-4276-90d0-2dd7d53d6a5d.png"
+      }
+    },
+    "sm1c_pdp_comparison": {
+      "type": "sm1c-pdp-comparison",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "feature": "Reusable & eco-friendly",
+            "competitor_1": true,
+            "competitor_2": false
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "feature": "Gentle enough for daily use",
+            "competitor_1": false,
+            "competitor_2": true
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "feature": "Brightens & fades dark spots",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "feature": "Safe for face & body",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "feature": "No harsh micro-beads or plastics",
+            "competitor_1": false,
+            "competitor_2": true
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "feature": "30-day money-back guarantee",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {
+        "heading": "Turmeric Cleansing Cloths",
+        "heading_accent": "vs The Usual Options",
+        "subheading": "Most exfoliating scrubs are harsh on skin, and disposable wipes pile up in landfills. Serein's cloth brightens gently and washes clean for reuse, again and again.",
+        "brand_name": "Serein",
+        "brand_badge": "Most Loved",
+        "competitor_1_name": "Exfoliating Scrubs",
+        "competitor_1_price": "The harsh, over-scrubbing risk",
+        "competitor_2_name": "Disposable Cleansing Wipes",
+        "competitor_2_price": "The single-use waste"
+      }
+    },
+    "sm1c_pdp_survey_stats": {
+      "type": "sm1c-pdp-survey-stats",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "percent": 87,
+            "headline": "said their skin looked brighter after one week of use.",
+            "body": "In a post-purchase survey, customers reported a noticeably more even, brighter-looking complexion within the first week.",
+            "bar_color": "#e8637e"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "percent": 84,
+            "headline": "noticed fewer visible dark spots with regular use.",
+            "body": "With daily use, customers reported a gradual fading in the look of dark spots and uneven tone.",
+            "bar_color": "#2a6f6a"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "percent": 89,
+            "headline": "said they'd repurchase and recommend it to a friend.",
+            "body": "Customers cited the soft fabric and reusable, eco-friendly design as their favorite part of the routine.",
+            "bar_color": "#e8637e"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
+      "settings": {
+        "heading": "What women told us in",
+        "heading_accent": "our survey",
+        "subheading": "We asked customers to rate their skin before and after adding this cloth to their routine — here's what they reported.",
+        "image": "shopify://shop_images/7f52077747a1bd2ac0ad20fd1eb6_da305750-7103-4276-90d0-2dd7d53d6a5d.png"
+      }
+    },
+    "sm1c_pdp_ingredients": {
+      "type": "sm1c-pdp-ingredients",
+      "blocks": {
+        "ing_1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Turmeric Extract",
+            "tag": "BRIGHTENING",
+            "support_text": "Used to support: a brighter, more even tone",
+            "description": "A natural antioxidant known for its brightening and anti-inflammatory properties, helping to fade the look of dullness and dark spots."
+          }
+        },
+        "ing_2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Kojic Acid",
+            "tag": "EVEN TONE",
+            "support_text": "Used to support: fading the look of dark spots",
+            "description": "A gentle brightening acid that helps even out skin tone and reduce the appearance of dark spots over time."
+          }
+        },
+        "ing_3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Soft Cotton Fiber",
+            "tag": "GENTLE",
+            "support_text": "Used to support: gentle daily exfoliation",
+            "description": "A soft, skin-loving weave that gently lifts away dirt, oil, and dead skin without harsh scrubbing."
+          }
+        },
+        "ing_4": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Centella Asiatica",
+            "tag": "CALMING",
+            "support_text": "Used to support: calm, comfortable skin",
+            "description": "A soothing botanical extract that helps calm irritation, keeping the cloth gentle on sensitive skin."
+          }
+        },
+        "ing_5": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "tag": "PROTECTION",
+            "support_text": "Used to support: smoother, healthier-looking skin",
+            "description": "An antioxidant that helps protect skin from environmental stress while supporting a smoother, healthier look."
+          }
+        }
+      },
+      "block_order": [
+        "ing_1",
+        "ing_2",
+        "ing_3",
+        "ing_4",
+        "ing_5"
+      ],
+      "settings": {
+        "heading": "What's Woven",
+        "heading_accent": "Into Every Cloth"
+      }
+    },
+    "sm1c_pdp_reviews": {
+      "type": "sm1c-pdp-reviews",
+      "blocks": {
+        "rev_1": {
+          "type": "review",
+          "settings": {
+            "name": "Bianca L.",
+            "age": "33",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "My skin tone looks so much more even since I started using this every morning."
+          }
+        },
+        "rev_2": {
+          "type": "review",
+          "settings": {
+            "name": "Camille D.",
+            "age": "47",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "Love that it's reusable — feels good to not add to the pile of disposable wipes."
+          }
+        },
+        "rev_3": {
+          "type": "review",
+          "settings": {
+            "name": "Harper N.",
+            "age": "26",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "Gentle enough for my sensitive skin but I can still tell it's working."
+          }
+        },
+        "rev_4": {
+          "type": "review",
+          "settings": {
+            "name": "Simone K.",
+            "age": "39",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "A few of my dark spots look noticeably lighter after a couple weeks."
+          }
+        },
+        "rev_5": {
+          "type": "review",
+          "settings": {
+            "name": "Odette F.",
+            "age": "52",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "I use it on my body too, not just my face. Great all-over exfoliation."
+          }
+        }
+      },
+      "block_order": [
+        "rev_1",
+        "rev_2",
+        "rev_3",
+        "rev_4",
+        "rev_5"
+      ],
+      "settings": {
+        "loved_by_prefix": "Loved by",
+        "loved_by_count": "50,000+",
+        "average_rating": "4.7",
+        "review_count": "289 reviews",
+        "accent_color": "#e8637e"
+      }
+    },
+    "sm1c_pdp_faq": {
+      "type": "sm1c-pdp-faq",
+      "blocks": {
+        "q_1": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use it?",
+            "answer": "<p>Wet the cloth with warm water and add your favorite cleanser if desired. Gently massage over your face or body in circular motions, then rinse the cloth thoroughly and hang to air dry.</p>",
+            "icon": "droplet"
+          }
+        },
+        "q_2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use it every day?",
+            "answer": "<p>Yes — the gentle formula is designed for daily use as part of your regular cleansing routine.</p>",
+            "icon": "calendar"
+          }
+        },
+        "q_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use it on my body too?",
+            "answer": "<p>Yes — the cloth is gentle enough for both your face and body, making it a versatile addition to your routine.</p>",
+            "icon": "check"
+          }
+        },
+        "q_4": {
+          "type": "question",
+          "settings": {
+            "question": "How soon will I see results?",
+            "answer": "<p>Many people notice brighter, more even-looking skin within the first week of regular use. Dark spots continue to look more faded with continued use over several weeks.</p>",
+            "icon": "clock"
+          }
+        },
+        "q_5": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe for sensitive skin?",
+            "answer": "<p>Yes — the formula includes Centella Asiatica to help calm irritation, and the soft cotton weave is gentle enough for all skin types. We still recommend a patch test if you have known sensitivities.</p>",
+            "icon": "shield"
+          }
+        },
+        "q_6": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer a money-back guarantee?",
+            "answer": "<p>Yes — refunds are available within 30 days of delivery for products that arrive damaged or defective. Just send us photos as proof; no need to ship anything back.</p>",
+            "icon": "refresh"
+          }
+        }
+      },
+      "block_order": [
+        "q_1",
+        "q_2",
+        "q_3",
+        "q_4",
+        "q_5",
+        "q_6"
+      ],
+      "settings": {
+        "heading": "Frequently Asked",
+        "heading_accent": "Questions"
+      }
+    }
+  },
+  "order": [
+    "sm1c_pdp_main",
+    "sm1c_trust_marquee",
+    "sm1c_pdp_how_it_works",
+    "sm1c_pdp_comparison",
+    "sm1c_pdp_survey_stats",
+    "sm1c_pdp_ingredients",
+    "sm1c_pdp_reviews",
+    "sm1c_pdp_faq"
+  ]
+}
