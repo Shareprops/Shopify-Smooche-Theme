@@ -1,0 +1,261 @@
+{%- style -%}
+#shopify-section-{{ section.id }} .sm1c-hdb-wrap {
+  padding: 60px clamp(20px, 5vw, 72px) 80px;
+  background: {{ section.settings.bg_color | default: '#fdfaf6' }};
+  font-family: var(--sm1c-sans, sans-serif);
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 44px;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: {{ section.settings.accent_color | default: '#E8637E' }};
+  margin-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-title {
+  font-family: var(--sm1c-serif, serif);
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--sm1c-ink, #2b211d);
+  margin-bottom: 12px;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(43, 33, 29, .65);
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-card {
+  position: relative;
+  background: var(--sm1c-surface, #fff);
+  border: 1px solid var(--sm1c-border, rgba(0,0,0,.07));
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s cubic-bezier(.22,1,.36,1);
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 44px -22px rgba(43, 33, 29, .3);
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-img {
+  aspect-ratio: 4 / 3;
+  background: #eee;
+  overflow: hidden;
+  position: relative;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: {{ section.settings.accent_color | default: '#E8637E' }};
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-body {
+  padding: 22px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-name {
+  font-family: var(--sm1c-serif, serif);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  color: var(--sm1c-ink, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(43, 33, 29, .65);
+  margin-bottom: 16px;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--sm1c-text, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-includes svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  color: {{ section.settings.accent_color | default: '#E8637E' }};
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-value {
+  font-size: 12px;
+  color: rgba(43, 33, 29, .55);
+  margin-bottom: 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-hdb-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: {{ section.settings.accent_color | default: '#E8637E' }};
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  padding: 13px 20px;
+  border-radius: 100px;
+  text-align: center;
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hdb-wrap {
+  background: var(--sm1c-bg);
+  color: var(--sm1c-text);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hdb-card,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hdb-img {
+  background: var(--sm1c-surface);
+  border-color: var(--sm1c-border);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hdb-sub,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hdb-desc,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hdb-value {
+  color: rgba(240, 237, 232, .6);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hdb-includes li {
+  color: var(--sm1c-text);
+}
+{%- endstyle -%}
+
+<div class="sm1c-hdb-wrap">
+  {%- if section.settings.heading != blank -%}
+    <div class="sm1c-hdb-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="sm1c-hdb-eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <div class="sm1c-hdb-title">{{ section.settings.heading }}</div>
+      {%- if section.settings.subheading != blank -%}
+        <div class="sm1c-hdb-sub">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+  <div class="sm1c-hdb-grid">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign bundle_image = block.settings.image
+        assign bundle_url = '#'
+        if block.settings.anchor_product != blank
+          assign bundle_url = block.settings.anchor_product.url
+          if bundle_image == blank
+            assign bundle_image = block.settings.anchor_product.featured_image
+          endif
+        endif
+      -%}
+      <a class="sm1c-hdb-card" href="{{ bundle_url }}" {{ block.shopify_attributes }}>
+        <div class="sm1c-hdb-img">
+          {%- if bundle_image != blank -%}
+            {{ bundle_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: block.settings.name }}
+          {%- endif -%}
+          {%- if block.settings.badge_text != blank -%}
+            <div class="sm1c-hdb-badge">{{ block.settings.badge_text }}</div>
+          {%- endif -%}
+        </div>
+        <div class="sm1c-hdb-body">
+          <div class="sm1c-hdb-name">{{ block.settings.name }}</div>
+          {%- if block.settings.description != blank -%}
+            <div class="sm1c-hdb-desc">{{ block.settings.description }}</div>
+          {%- endif -%}
+          {%- if block.settings.item_1 != blank or block.settings.item_2 != blank or block.settings.item_3 != blank -%}
+            <ul class="sm1c-hdb-includes">
+              {%- for item in block.settings.item_1, block.settings.item_2, block.settings.item_3 -%}
+                {%- if item != blank -%}
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+                    {{ item }}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+          {%- if block.settings.value_note != blank -%}
+            <div class="sm1c-hdb-value">{{ block.settings.value_note }}</div>
+          {%- endif -%}
+          <span class="sm1c-hdb-cta">{{ block.settings.cta_label | default: 'Shop the Bundle' }} &rarr;</span>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SM1C Hot Deals Bundles",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "Bundle & Save" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "This Week's Hot Deals" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Curated routines at a better price than buying each piece on its own." },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#fdfaf6" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#E8637E" }
+  ],
+  "blocks": [
+    {
+      "type": "bundle",
+      "name": "Bundle",
+      "settings": [
+        { "type": "product", "id": "anchor_product", "label": "Anchor product", "info": "The product page where this bundle's Pumper offer actually appears — the card links here and falls back to this product's photo." },
+        { "type": "image_picker", "id": "image", "label": "Card image (optional)", "info": "Overrides the anchor product's photo." },
+        { "type": "text", "id": "badge_text", "label": "Badge text", "default": "BUNDLE" },
+        { "type": "text", "id": "name", "label": "Bundle name", "default": "The Complete Glow Ritual" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "text", "id": "item_1", "label": "Included item 1" },
+        { "type": "text", "id": "item_2", "label": "Included item 2" },
+        { "type": "text", "id": "item_3", "label": "Included item 3" },
+        { "type": "text", "id": "value_note", "label": "Value note (optional)", "info": "e.g. \"Over $60 if bought separately\"" },
+        { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop the Bundle" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "SM1C Hot Deals Bundles",
+      "blocks": [
+        { "type": "bundle" },
+        { "type": "bundle" },
+        { "type": "bundle" }
+      ]
+    }
+  ]
+}
+{% endschema %}

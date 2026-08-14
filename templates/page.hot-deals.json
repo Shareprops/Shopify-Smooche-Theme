@@ -1,0 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_hot_deals_hero": {
+      "type": "sm1c-bestsellers-hero",
+      "blocks": {
+        "trust_1": { "type": "trust_item", "settings": { "icon": "🔥", "label": "Limited-time bundles" } },
+        "trust_2": { "type": "trust_item", "settings": { "icon": "✦", "label": "Save vs. buying separately" } },
+        "trust_3": { "type": "trust_item", "settings": { "icon": "◫", "label": "Free shipping" } }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3"],
+      "settings": {
+        "badge_text": "For a limited time",
+        "heading": "Hot Deals",
+        "subtext": "Curated bundles that pair our best-loved products into complete routines — for less than buying each one on its own."
+      }
+    },
+    "sm1c_hot_deals_bundles": {
+      "type": "sm1c-hot-deals-bundles",
+      "blocks": {
+        "bundle_1": {
+          "type": "bundle",
+          "settings": {
+            "anchor_product": "collagen-peel-off-face-mask",
+            "badge_text": "MOST POPULAR",
+            "name": "The Complete Glow Ritual",
+            "description": "A full cleanse-treat-moisturize routine in one bundle — everything you need for glass skin, nothing you don't.",
+            "item_1": "Turmeric Kojic Cloth",
+            "item_2": "Collagen Peel-Off Face Mask",
+            "item_3": "Korean Collagen Moisturizing Stick",
+            "value_note": "Over $60 if bought separately",
+            "cta_label": "Shop the Bundle"
+          }
+        },
+        "bundle_2": {
+          "type": "bundle",
+          "settings": {
+            "anchor_product": "collagen-overnight-wrapping-peel-off-face-mask-brush-included",
+            "badge_text": "BEST VALUE",
+            "name": "The Overnight Recovery System",
+            "description": "Three zones, one overnight routine — face, forehead, and eyes all treated while you sleep.",
+            "item_1": "Collagen Overnight Wrapping Peel Off Face Mask",
+            "item_2": "Overnight Anti-Wrinkle Face Patches",
+            "item_3": "Gold Collagen Crystal Eye Masks",
+            "value_note": "Over $85 if bought separately",
+            "cta_label": "Shop the Bundle"
+          }
+        },
+        "bundle_3": {
+          "type": "bundle",
+          "settings": {
+            "anchor_product": "turmeric-collagen-face-mask",
+            "badge_text": "BRIGHTENING",
+            "name": "The Bright & Glow Trio",
+            "description": "A brightening ritual from cleanse to eyes — fade dullness and reveal a more even, radiant tone.",
+            "item_1": "Turmeric Kojic Cloth",
+            "item_2": "Turmeric Collagen Face Mask",
+            "item_3": "Collagen Eye Mask",
+            "value_note": "Over $70 if bought separately",
+            "cta_label": "Shop the Bundle"
+          }
+        }
+      },
+      "block_order": ["bundle_1", "bundle_2", "bundle_3"],
+      "settings": {
+        "eyebrow": "Bundle & Save",
+        "heading": "This Week's Hot Deals",
+        "subheading": "Curated routines at a better price than buying each piece on its own.",
+        "bg_color": "#fdfaf6",
+        "accent_color": "#E8637E"
+      }
+    }
+  },
+  "order": [
+    "sm1c_hot_deals_hero",
+    "sm1c_hot_deals_bundles"
+  ]
+}
