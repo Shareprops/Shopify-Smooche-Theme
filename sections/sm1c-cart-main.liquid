@@ -63,6 +63,34 @@
   font-weight: 600;
   margin-top: 8px;
 }
+#shopify-section-{{ section.id }} .sm1c-cart-item-compare {
+  text-decoration: line-through;
+  color: rgba(58, 46, 39, .5);
+  font-weight: 400;
+  margin-left: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-discount {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-discount span {
+  font-size: 11px;
+  font-weight: 700;
+  color: oklch(35% 0.15 145);
+  background: oklch(94% 0.05 145);
+  border-radius: 100px;
+  padding: 3px 9px;
+}
+#shopify-section-{{ section.id }} .sm1c-cart-item-total-compare {
+  display: block;
+  text-decoration: line-through;
+  color: rgba(58, 46, 39, .5);
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 2px;
+}
 #shopify-section-{{ section.id }} .sm1c-cart-item-qty {
   display: flex;
   align-items: center;
@@ -311,7 +339,19 @@
                   {%- unless variant_title_downcase == 'default title' or variant_title_downcase == 'n/a' or variant_title_downcase == blank -%}
                     <div class="sm1c-cart-item-variant">{{ item.variant.title }}</div>
                   {%- endunless -%}
-                  <div class="sm1c-cart-item-price">{{ item.final_price | money }}</div>
+                  <div class="sm1c-cart-item-price">
+                    {{ item.final_price | money }}
+                    {%- if item.original_price != item.final_price -%}
+                      <span class="sm1c-cart-item-compare">{{ item.original_price | money }}</span>
+                    {%- endif -%}
+                  </div>
+                  {%- if item.line_level_discount_allocations.size > 0 -%}
+                    <div class="sm1c-cart-item-discount">
+                      {%- for allocation in item.line_level_discount_allocations -%}
+                        <span>{{ allocation.discount_application.title }} · −{{ allocation.amount | money }}</span>
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
                   <div class="sm1c-cart-item-qty">
                     <div class="sm1c-cart-stepper" data-sm1c-stepper data-key="{{ item.key }}">
                       <button type="button" class="sm1c-cart-stepper-btn" data-sm1c-decrease aria-label="Decrease quantity">−</button>
@@ -330,7 +370,12 @@
                     <a class="sm1c-cart-remove" href="{{ item.url_to_remove }}" data-sm1c-remove-item data-key="{{ item.key }}">Remove</a>
                   </div>
                 </div>
-                <div class="sm1c-cart-item-total">{{ item.final_line_price | money }}</div>
+                <div class="sm1c-cart-item-total">
+                  {{ item.final_line_price | money }}
+                  {%- if item.original_line_price != item.final_line_price -%}
+                    <span class="sm1c-cart-item-total-compare">{{ item.original_line_price | money }}</span>
+                  {%- endif -%}
+                </div>
               </div>
             {%- endfor -%}
           </div>
