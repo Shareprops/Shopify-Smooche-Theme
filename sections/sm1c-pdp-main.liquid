@@ -950,37 +950,76 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feedback {
   margin-top: 26px;
-  background: oklch(97% 0.015 30);
+  background: linear-gradient(180deg, oklch(97% 0.02 20), oklch(96% 0.015 30));
+  border: 1px solid oklch(90% 0.03 15);
   border-radius: 18px;
-  padding: 22px;
+  padding: 24px;
+  box-shadow: 0 10px 30px -14px rgba(232, 99, 126, .35);
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-feedback-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 17px;
+  font-weight: 700;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  color: #C2385A;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-feedback-title svg {
+  color: #E8637E;
+  flex-shrink: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-fb-row {
+  margin-bottom: 18px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-fb-row:last-child {
+  margin-bottom: 0;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-fb-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-fb-label {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  margin-bottom: 6px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-fb-percent {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #E8637E;
+  flex-shrink: 0;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-fb-track {
-  height: 8px;
+  height: 10px;
   border-radius: 100px;
   background: oklch(88% 0.01 30);
-  margin-bottom: 16px;
   overflow: hidden;
-}
-#shopify-section-{{ section.id }} .sm1c-pdp-fb-track:last-child {
-  margin-bottom: 0;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-fb-fill {
   display: block;
   height: 100%;
+  width: 0;
   border-radius: 100px;
-  background: #E8637E;
+  background: linear-gradient(90deg, #E8637E, #F3A5B4);
+  animation: sm1c-fb-grow 1.1s cubic-bezier(.2,.8,.2,1) forwards;
+  animation-delay: .15s;
+}
+@keyframes sm1c-fb-grow {
+  from { width: 0; }
+  to { width: var(--sm1c-fb-target); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #shopify-section-{{ section.id }} .sm1c-pdp-fb-fill {
+    animation: none;
+    width: var(--sm1c-fb-target);
+  }
 }
 @media (max-width: 900px) {
   #shopify-section-{{ section.id }} .sm1c-pdp-grid {
@@ -1090,6 +1129,11 @@
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-urgency,
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feedback {
   background: var(--sm1c-surface);
+  border-color: var(--sm1c-border);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-feedback-title,
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-fb-percent {
+  color: #F3A5B4;
 }
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-pdp-sticky-atc {
   background: var(--sm1c-surface);
@@ -1577,20 +1621,29 @@
       {%- if feedback_bars_mf.size > 0 or feedback_blocks.size > 0 -%}
         <div class="sm1c-pdp-feedback">
           {%- if section.settings.feedback_title != blank -%}
-            <div class="sm1c-pdp-feedback-title">{{ section.settings.feedback_title }}</div>
+            <div class="sm1c-pdp-feedback-title">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M12 21s-6.6-4.35-9.3-8.1C1 10.2 1.6 6.6 4.6 5.1c2.3-1.15 4.7-.3 6 1.4l1.4 1.8 1.4-1.8c1.3-1.7 3.7-2.55 6-1.4 3 1.5 3.6 5.1 1.9 7.8C18.6 16.65 12 21 12 21Z"/></svg>
+              {{ section.settings.feedback_title }}
+            </div>
           {%- endif -%}
           {%- if feedback_bars_mf.size > 0 -%}
             {%- for bar in feedback_bars_mf -%}
-              <div>
-                <div class="sm1c-pdp-fb-label">{{ bar.label.value }}</div>
-                <div class="sm1c-pdp-fb-track"><div class="sm1c-pdp-fb-fill" style="width:{{ bar.percent.value }}%"></div></div>
+              <div class="sm1c-pdp-fb-row">
+                <div class="sm1c-pdp-fb-row-top">
+                  <span class="sm1c-pdp-fb-label">{{ bar.label.value }}</span>
+                  <span class="sm1c-pdp-fb-percent">{{ bar.percent.value }}%</span>
+                </div>
+                <div class="sm1c-pdp-fb-track"><div class="sm1c-pdp-fb-fill" style="--sm1c-fb-target:{{ bar.percent.value }}%"></div></div>
               </div>
             {%- endfor -%}
           {%- else -%}
             {%- for block in feedback_blocks -%}
-              <div {{ block.shopify_attributes }}>
-                <div class="sm1c-pdp-fb-label">{{ block.settings.label }}</div>
-                <div class="sm1c-pdp-fb-track"><div class="sm1c-pdp-fb-fill" style="width:{{ block.settings.percent }}%"></div></div>
+              <div class="sm1c-pdp-fb-row" {{ block.shopify_attributes }}>
+                <div class="sm1c-pdp-fb-row-top">
+                  <span class="sm1c-pdp-fb-label">{{ block.settings.label }}</span>
+                  <span class="sm1c-pdp-fb-percent">{{ block.settings.percent }}%</span>
+                </div>
+                <div class="sm1c-pdp-fb-track"><div class="sm1c-pdp-fb-fill" style="--sm1c-fb-target:{{ block.settings.percent }}%"></div></div>
               </div>
             {%- endfor -%}
           {%- endif -%}

@@ -151,6 +151,27 @@
             "point_3_icon": "check",
             "point_3_text": "Once verified, we'll process your refund."
           }
+        },
+        "fb_1": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Saw Visible Tightening After Their First Peel",
+            "percent": 91
+          }
+        },
+        "fb_2": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Said They'd Repurchase & Recommend It",
+            "percent": 88
+          }
+        },
+        "fb_3": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Noticed Smoother, Firmer-Feeling Skin",
+            "percent": 85
+          }
         }
       },
       "block_order": [
@@ -172,12 +193,15 @@
         "media_5",
         "acc_1",
         "acc_2",
-        "acc_3"
+        "acc_3",
+        "fb_1",
+        "fb_2",
+        "fb_3"
       ],
       "settings": {
         "hide_variant_picker": true,
-        "average_rating": "",
-        "rating_text": "",
+        "average_rating": "4.9",
+        "rating_text": "522 reviews",
         "short_description": "The viral one-piece peel for instant glass skin. Marine collagen and peptides lift away dirt and dullness while visibly tightening and smoothing — no rinsing, no sticky residue, just firmer, dewy skin in one satisfying peel.",
         "gift_banner_icon": "🎁",
         "gift_banner_text": "",
@@ -361,22 +385,25 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "title": "Cleanse & prep",
-            "body": "Start on clean, dry skin so the collagen gel makes full contact and the peel bonds evenly."
+            "title": "Apply an even layer",
+            "body": "Smooth the gel onto clean, dry skin — avoiding the eye area, eyebrows, hairline, and lips.",
+            "icon": "droplet"
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "title": "Peel away dullness",
-            "body": "In one satisfying motion, the mask lifts dirt, oil, and dead skin — no rinsing, no residue."
+            "title": "Wait 15 minutes",
+            "body": "The gel hardens into a single sheet, drawing out dirt, oil, and dullness as it sets.",
+            "icon": "clock"
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "title": "Reveal glass skin",
-            "body": "Skin looks instantly smoother and firmer, with a dewy, glass-skin finish that builds with every use."
+            "title": "Peel & reveal glass skin",
+            "body": "Peel off in one satisfying motion — no rinsing, no residue, just instantly smoother, firmer skin.",
+            "icon": "heart"
           }
         }
       },
@@ -389,7 +416,8 @@
         "heading": "Here's how you get",
         "heading_accent": "glass skin",
         "subheading": "One 15-minute ritual, twice a week — no rinsing, no mess, just visibly smoother skin every time you peel.",
-        "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_07_43_58_PM.png"
+        "image": "",
+        "image_asset": "Collagen Peel-Off Face Mask Before After.png"
       }
     },
     "sm1c_pdp_comparison": {
@@ -434,6 +462,14 @@
             "competitor_1": false,
             "competitor_2": false
           }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "feature": "30-day money-back guarantee",
+            "competitor_1": false,
+            "competitor_2": false
+          }
         }
       },
       "block_order": [
@@ -441,17 +477,19 @@
         "row_2",
         "row_3",
         "row_4",
-        "row_5"
+        "row_5",
+        "row_6"
       ],
       "settings": {
         "heading": "Peel-Off Masks",
         "heading_accent": "vs The Usual Options",
         "subheading": "Most masks either rinse off or leave residue behind. Serein's one-piece peel lifts away dullness and tightens skin — without either downside.",
         "brand_name": "Serein",
+        "brand_badge": "Most Loved",
         "competitor_1_name": "Rinse-Off Masks",
-        "competitor_1_price": "From $1.20/use",
+        "competitor_1_price": "The rinse-and-wait routine",
         "competitor_2_name": "Sticky Peel Masks",
-        "competitor_2_price": "From $0.95/use"
+        "competitor_2_price": "The mess after peeling"
       }
     },
     "sm1c_pdp_survey_stats": {
@@ -493,7 +531,7 @@
       "settings": {
         "heading": "What women told us in",
         "heading_accent": "our survey",
-        "subheading": "Formulated with botanical ingredients to support balance, confidence, and consistency over time.",
+        "subheading": "We asked customers to rate their skin before and after switching to the one-piece peel — here's what they reported.",
         "image": "shopify://shop_images/ChatGPT_Image_Aug_8_2026_07_43_49_PM.png"
       }
     },
@@ -503,37 +541,60 @@
         "ing_1": {
           "type": "ingredient",
           "settings": {
-            "name": "Vitamin E",
-            "tag": "HYDRATION",
-            "support_text": "Used to support: nourished, softer lips",
-            "description": ""
+            "name": "Hydrolyzed Marine Collagen",
+            "tag": "FIRMING",
+            "support_text": "Used to support: visibly plumper, tighter-looking skin",
+            "description": "Small-molecule collagen peptides that sit on the skin's surface to visibly plump and smooth fine dehydration lines."
           }
         },
         "ing_2": {
           "type": "ingredient",
           "settings": {
-            "name": "Peptide Complex",
-            "tag": "VOLUME",
-            "support_text": "Used to support: fullness & definition",
-            "description": ""
+            "name": "Tri-Peptide Complex",
+            "tag": "ELASTICITY",
+            "support_text": "Used to support: firmer, more resilient skin over time",
+            "description": "A blend of signal peptides that supports the skin's own collagen production for a firmer look with continued use."
           }
         },
         "ing_3": {
           "type": "ingredient",
           "settings": {
-            "name": "Shea Butter",
-            "tag": "MOISTURE",
-            "support_text": "Used to support: everyday comfort",
-            "description": ""
+            "name": "Niacinamide",
+            "tag": "BRIGHTENING",
+            "support_text": "Used to support: refined pores & a brighter tone",
+            "description": "Refines the look of pores and evens tone, leaving skin brighter and less congested after every peel."
+          }
+        },
+        "ing_4": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Centella Asiatica",
+            "tag": "CALMING",
+            "support_text": "Used to support: a gentle peel on sensitive skin",
+            "description": "A soothing botanical extract that keeps the peel gentle on sensitive, reactive, and post-breakout skin."
+          }
+        },
+        "ing_5": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "tag": "PROTECTION",
+            "support_text": "Used to support: locked-in moisture after peeling",
+            "description": "Protects freshly-detoxed skin from environmental stress while locking in moisture after the peel comes off."
           }
         }
       },
       "block_order": [
         "ing_1",
         "ing_2",
-        "ing_3"
+        "ing_3",
+        "ing_4",
+        "ing_5"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "What's Sealed",
+        "heading_accent": "Inside The Peel"
+      }
     },
     "sm1c_pdp_reviews": {
       "type": "sm1c-pdp-reviews",
@@ -610,36 +671,49 @@
         "q_1": {
           "type": "question",
           "settings": {
-            "question": "How do I use the Lip Plumper?",
-            "answer": ""
+            "question": "How do I use it?",
+            "answer": "<p>Apply an even layer to clean, dry skin, avoiding the eye area, eyebrows, hairline, and lips. Leave on for 15–20 minutes, until the layer looks matte, not tacky. Peel off from the edges in one motion, then follow with your usual moisturizer.</p>",
+            "icon": "droplet"
           }
         },
         "q_2": {
           "type": "question",
           "settings": {
             "question": "How soon will I see results?",
-            "answer": ""
+            "answer": "<p>Most people notice visibly tighter, smoother skin right after their very first peel. With consistent use 1–2 times a week, texture and tone keep improving over the following 2–4 weeks.</p>",
+            "icon": "clock"
           }
         },
         "q_3": {
           "type": "question",
           "settings": {
-            "question": "Is it safe for sensitive skin?",
-            "answer": ""
+            "question": "Is it safe for sensitive or acne-prone skin?",
+            "answer": "<p>Yes — the formula is alcohol-free and fragrance-free, and includes Centella Asiatica to keep the peel calming on reactive skin. We still recommend a patch test before your first full application.</p>",
+            "icon": "heart"
           }
         },
         "q_4": {
           "type": "question",
           "settings": {
-            "question": "Do you offer a money-back guarantee?",
-            "answer": ""
+            "question": "Will peeling it off hurt?",
+            "answer": "<p>No — the film releases from the outer layer of dead skin and residue, not your live skin. Most people describe a light, satisfying tug rather than any pain.</p>",
+            "icon": "shield"
           }
         },
         "q_5": {
           "type": "question",
           "settings": {
-            "question": "Can I subscribe and save?",
-            "answer": ""
+            "question": "How long does one bottle last?",
+            "answer": "<p>With 1–2 uses per week, a single 75ml bottle typically lasts 6–8 weeks, depending on how much product you apply per session.</p>",
+            "icon": "box"
+          }
+        },
+        "q_6": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer a money-back guarantee?",
+            "answer": "<p>Yes — refunds are available within 30 days of delivery for products that arrive damaged or expired. Just send us photos as proof; no need to ship anything back.</p>",
+            "icon": "refresh"
           }
         }
       },
@@ -648,7 +722,8 @@
         "q_2",
         "q_3",
         "q_4",
-        "q_5"
+        "q_5",
+        "q_6"
       ],
       "settings": {
         "heading": "Frequently Asked",

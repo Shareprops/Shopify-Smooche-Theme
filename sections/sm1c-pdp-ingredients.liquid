@@ -4,128 +4,154 @@
   background: oklch(94% 0.03 30);
   font-family: 'Work Sans', sans-serif;
 }
-#shopify-section-{{ section.id }} .sm1c-ing-photo {
-  height: 200px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 32px;
-  background: #eee;
+#shopify-section-{{ section.id }} .sm1c-ing-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1080px;
+  margin: 0 auto 32px;
+  flex-wrap: wrap;
 }
-#shopify-section-{{ section.id }} .sm1c-ing-photo img {
+#shopify-section-{{ section.id }} .sm1c-ing-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-title span {
+  color: #E8637E;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-cta {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #E8637E;
+  background: #fff;
+  border: 1.5px solid oklch(85% 0.06 15);
+  border-radius: 100px;
+  padding: 12px 22px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: oklch(90% 0.05 15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .sm1c-ing-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-#shopify-section-{{ section.id }} .sm1c-ing-list {
-  display: flex;
-  flex-direction: column;
-  max-width: 820px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-item {
-  border-bottom: 1px solid oklch(92% 0.01 30);
-}
-#shopify-section-{{ section.id }} .sm1c-ing-item:last-child {
-  border-bottom: none;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  list-style: none;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-summary::-webkit-details-marker {
-  display: none;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-item.has-description .sm1c-ing-summary {
-  cursor: pointer;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-item.has-description .sm1c-ing-summary::after {
-  content: "\02c5";
-  color: oklch(55% 0.03 30);
-  transition: transform .2s ease;
-  flex: none;
-  margin-left: 12px;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-item.has-description[open] .sm1c-ing-summary::after {
-  transform: rotate(180deg);
+#shopify-section-{{ section.id }} .sm1c-ing-avatar-letter {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-ing-name {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 #shopify-section-{{ section.id }} .sm1c-ing-tag {
+  display: inline-block;
   background: oklch(94% 0.03 30);
   color: #E8637E;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 100px;
-  margin-left: 6px;
-}
-#shopify-section-{{ section.id }} .sm1c-ing-support {
   font-size: 12px;
-  color: rgba(58, 46, 39, .8);
-  margin-top: 4px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 14px;
 }
 #shopify-section-{{ section.id }} .sm1c-ing-body {
-  padding: 0 24px 20px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
   color: rgba(58, 46, 39, .8);
+}
+@media (max-width: 700px) {
+  #shopify-section-{{ section.id }} .sm1c-ing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-ing-card {
+  background: var(--sm1c-surface);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-ing-cta {
+  background: var(--sm1c-surface);
+  border-color: var(--sm1c-border);
+}
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-ing-body {
+  color: rgba(240, 237, 232, .65);
 }
 {%- endstyle -%}
 
 <div class="sm1c-ing-wrap">
-  {%- if section.settings.image != blank -%}
-    <div class="sm1c-ing-photo">
-      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}
+  {%- if section.settings.heading != blank or section.settings.cta_text != blank -%}
+    <div class="sm1c-ing-head">
+      {%- if section.settings.heading != blank -%}
+        <div class="sm1c-ing-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
+      {%- endif -%}
+      {%- if section.settings.cta_text != blank -%}
+        <a class="sm1c-ing-cta" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_text }}</a>
+      {%- endif -%}
     </div>
   {%- endif -%}
-  <div class="sm1c-ing-list">
+  <div class="sm1c-ing-grid">
     {%- if product.metafields.custom.fabric_facts.value.size > 0 -%}
       {%- for fact in product.metafields.custom.fabric_facts.value -%}
-        <details class="sm1c-ing-item">
-          <summary class="sm1c-ing-summary">
-            <div>
-              <div class="sm1c-ing-name">
-                {{ fact.name.value }}
-                {%- if fact.tag.value != blank -%}
-                  <span class="sm1c-ing-tag">{{ fact.tag.value }}</span>
-                {%- endif -%}
-              </div>
-              {%- if fact.support_text.value != blank -%}
-                <div class="sm1c-ing-support">{{ fact.support_text.value }}</div>
-              {%- endif -%}
-            </div>
-          </summary>
-        </details>
+        <div class="sm1c-ing-card">
+          <div class="sm1c-ing-avatar">
+            <span class="sm1c-ing-avatar-letter">{{ fact.name.value | slice: 0 }}</span>
+          </div>
+          <div class="sm1c-ing-name">{{ fact.name.value }}</div>
+          {%- if fact.tag.value != blank -%}
+            <div class="sm1c-ing-tag">{{ fact.tag.value }}</div>
+          {%- endif -%}
+          {%- if fact.support_text.value != blank -%}
+            <div class="sm1c-ing-body">{{ fact.support_text.value }}</div>
+          {%- endif -%}
+        </div>
       {%- endfor -%}
     {%- else -%}
       {%- for block in section.blocks -%}
-        <details class="sm1c-ing-item{% if block.settings.description != blank %} has-description{% endif %}" {{ block.shopify_attributes }}>
-          <summary class="sm1c-ing-summary">
-            <div>
-              <div class="sm1c-ing-name">
-                {{ block.settings.name }}
-                {%- if block.settings.tag != blank -%}
-                  <span class="sm1c-ing-tag">{{ block.settings.tag }}</span>
-                {%- endif -%}
-              </div>
-              {%- if block.settings.support_text != blank -%}
-                <div class="sm1c-ing-support">{{ block.settings.support_text }}</div>
-              {%- endif -%}
-            </div>
-          </summary>
+        <div class="sm1c-ing-card" {{ block.shopify_attributes }}>
+          <div class="sm1c-ing-avatar">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 120 | image_tag: loading: 'lazy', alt: block.settings.name }}
+            {%- else -%}
+              <span class="sm1c-ing-avatar-letter">{{ block.settings.name | slice: 0 }}</span>
+            {%- endif -%}
+          </div>
+          <div class="sm1c-ing-name">{{ block.settings.name }}</div>
+          {%- if block.settings.tag != blank -%}
+            <div class="sm1c-ing-tag">{{ block.settings.tag }}</div>
+          {%- endif -%}
           {%- if block.settings.description != blank -%}
             <div class="sm1c-ing-body">{{ block.settings.description }}</div>
+          {%- elsif block.settings.support_text != blank -%}
+            <div class="sm1c-ing-body">{{ block.settings.support_text }}</div>
           {%- endif -%}
-        </details>
+        </div>
       {%- endfor -%}
     {%- endif -%}
   </div>
@@ -135,17 +161,21 @@
 {
   "name": "SM1C Ingredients",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Top photo" }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What's Sealed" },
+    { "type": "text", "id": "heading_accent", "label": "Heading accent word", "default": "Inside" },
+    { "type": "text", "id": "cta_text", "label": "CTA button text (optional)" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link (optional)" }
   ],
   "blocks": [
     {
       "type": "ingredient",
       "name": "Ingredient",
       "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (optional)", "info": "Falls back to a colored initial if left blank." },
         { "type": "text", "id": "name", "label": "Name", "default": "Vitamin E" },
         { "type": "text", "id": "tag", "label": "Tag label", "default": "HYDRATION" },
         { "type": "text", "id": "support_text", "label": "Support text", "default": "Used to support: nourished, softer lips" },
-        { "type": "textarea", "id": "description", "label": "Description (shown when expanded)" }
+        { "type": "textarea", "id": "description", "label": "Description", "info": "Shown instead of the support text above, if filled in." }
       ]
     }
   ],

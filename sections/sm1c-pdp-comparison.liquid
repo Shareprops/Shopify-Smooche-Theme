@@ -36,6 +36,19 @@
   border-radius: 16px 16px 0 0;
   text-align: center;
   padding: 22px 10px 16px;
+  position: relative;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-brand-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: #C2385A;
+  background: #fff;
+  border-radius: 100px;
+  padding: 4px 10px;
+  margin-bottom: 8px;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-head-brand-name {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -159,6 +172,9 @@
     <div class="sm1c-cmp-head">
       <div></div>
       <div class="sm1c-cmp-head-brand">
+        {%- if section.settings.brand_badge != blank -%}
+          <div class="sm1c-cmp-head-brand-badge">{{ section.settings.brand_badge }}</div>
+        {%- endif -%}
         <div class="sm1c-cmp-head-brand-name">{{ section.settings.brand_name }}</div>
         <div class="sm1c-cmp-head-brand-price">{{ product.selected_or_first_available_variant.price | money }}</div>
       </div>
@@ -215,6 +231,7 @@
     { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "vs The Usual Options" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Most serums try to force volume. Serein removes what blocks it — no stinging, no stimulants, just consistent results." },
     { "type": "text", "id": "brand_name", "label": "Brand column name", "default": "Serein" },
+    { "type": "text", "id": "brand_badge", "label": "Brand column badge (optional)", "info": "Small ribbon shown above the brand name, e.g. \"Most Loved\"." },
     { "type": "text", "id": "competitor_1_name", "label": "Competitor 1 name", "default": "Other Serums" },
     { "type": "text", "id": "competitor_1_price", "label": "Competitor 1 price note", "default": "From $3.67/unit" },
     { "type": "text", "id": "competitor_2_name", "label": "Competitor 2 name", "default": "Generic Balms" },

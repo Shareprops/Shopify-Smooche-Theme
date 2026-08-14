@@ -29,20 +29,45 @@
   border-top: 1px solid oklch(88% 0.01 30);
 }
 #shopify-section-{{ section.id }} .sm1c-faq-summary {
-  padding: 18px 0;
+  padding: 22px 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 14px;
-  font-weight: 600;
+  gap: 16px;
+  font-size: 17px;
+  font-weight: 700;
   cursor: pointer;
   list-style: none;
 }
 #shopify-section-{{ section.id }} .sm1c-faq-summary::-webkit-details-marker {
   display: none;
 }
+#shopify-section-{{ section.id }} .sm1c-faq-summary-text {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-icon {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: oklch(94% 0.03 30);
+  color: #E8637E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-icon svg {
+  width: 18px;
+  height: 18px;
+}
 #shopify-section-{{ section.id }} .sm1c-faq-summary::after {
   content: "+";
+  flex-shrink: 0;
   display: inline-block;
+  font-size: 20px;
+  color: #E8637E;
   transition: transform .3s ease;
 }
 #shopify-section-{{ section.id }} .sm1c-faq-item[open] .sm1c-faq-summary::after {
@@ -52,10 +77,22 @@
   overflow: hidden;
 }
 #shopify-section-{{ section.id }} .sm1c-faq-body {
-  padding: 0 0 18px;
-  font-size: 13px;
-  line-height: 1.6;
+  padding: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.65;
   color: rgba(58, 46, 39, .8);
+  max-width: 620px;
+}
+#shopify-section-{{ section.id }} .sm1c-faq-item.has-icon .sm1c-faq-body {
+  padding-left: 52px;
+}
+@media (max-width: 500px) {
+  #shopify-section-{{ section.id }} .sm1c-faq-summary {
+    font-size: 15px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-faq-item.has-icon .sm1c-faq-body {
+    padding-left: 0;
+  }
 }
 {%- endstyle -%}
 
@@ -65,14 +102,23 @@
     {%- if product.metafields.custom.faq_items.value.size > 0 -%}
       {%- for faq in product.metafields.custom.faq_items.value -%}
         <details class="sm1c-faq-item">
-          <summary class="sm1c-faq-summary">{{ faq.question.value }}</summary>
+          <summary class="sm1c-faq-summary">
+            <span class="sm1c-faq-summary-text">{{ faq.question.value }}</span>
+          </summary>
           <div class="sm1c-faq-body">{{ faq.answer.value | newline_to_br }}</div>
         </details>
       {%- endfor -%}
     {%- else -%}
       {%- for block in section.blocks -%}
-        <details class="sm1c-faq-item" {{ block.shopify_attributes }}>
-          <summary class="sm1c-faq-summary">{{ block.settings.question }}</summary>
+        <details class="sm1c-faq-item{% if block.settings.icon != blank %} has-icon{% endif %}" {{ block.shopify_attributes }}>
+          <summary class="sm1c-faq-summary">
+            <span class="sm1c-faq-summary-text">
+              {%- if block.settings.icon != blank -%}
+                <span class="sm1c-faq-icon">{%- render 'sm1c-pdp-icon', icon: block.settings.icon -%}</span>
+              {%- endif -%}
+              {{ block.settings.question }}
+            </span>
+          </summary>
           <div class="sm1c-faq-body">{{ block.settings.answer }}</div>
         </details>
       {%- endfor -%}
@@ -160,7 +206,27 @@
       "name": "Question",
       "settings": [
         { "type": "text", "id": "question", "label": "Question", "default": "How do I use this product?" },
-        { "type": "richtext", "id": "answer", "label": "Answer" }
+        { "type": "richtext", "id": "answer", "label": "Answer" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon (optional)",
+          "options": [
+            { "value": "", "label": "None" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": ""
+        }
       ]
     }
   ],

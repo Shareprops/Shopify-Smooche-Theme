@@ -39,10 +39,56 @@
   object-fit: cover;
   display: block;
 }
+#shopify-section-{{ section.id }} .sm1c-hiw-img-auto {
+  height: auto;
+  background: none;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-img-auto img.sm1c-hiw-img-contain {
+  height: auto;
+  object-fit: contain;
+}
 #shopify-section-{{ section.id }} .sm1c-hiw-steps {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 40px;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-step {
+  display: flex;
+  gap: 18px;
+  position: relative;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-step:not(.is-last)::after {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 46px;
+  bottom: -40px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, rgba(232, 99, 126, .45) 0, rgba(232, 99, 126, .45) 4px, transparent 4px, transparent 9px);
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-step-icon {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FCE4E9;
+  color: #E8637E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-step-icon svg {
+  width: 20px;
+  height: 20px;
+}
+#shopify-section-{{ section.id }} .sm1c-hiw-step-text {
+  flex: 1;
+  padding-top: 5px;
 }
 #shopify-section-{{ section.id }} .sm1c-hiw-step-title {
   font-size: 16px;
@@ -66,31 +112,50 @@
 :root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hiw-img {
   background: var(--sm1c-surface);
 }
+:root[data-sm1c-theme='dark'] #shopify-section-{{ section.id }} .sm1c-hiw-step-icon {
+  background: rgba(232, 99, 126, .18);
+}
 {%- endstyle -%}
 
 <div class="sm1c-hiw-wrap">
   <div class="sm1c-hiw-title">{{ section.settings.heading }} <span>{{ section.settings.heading_accent }}</span></div>
   <div class="sm1c-hiw-sub">{{ section.settings.subheading }}</div>
   <div class="sm1c-hiw-grid">
-    <div class="sm1c-hiw-img">
-      {%- assign hiw_image = product.metafields.custom.how_it_works_image.value | default: section.settings.image -%}
+    {%- assign hiw_image = product.metafields.custom.how_it_works_image.value | default: section.settings.image -%}
+    <div class="sm1c-hiw-img{% if hiw_image == blank and section.settings.image_asset != blank %} sm1c-hiw-img-auto{% endif %}">
       {%- if hiw_image != blank -%}
         {{ hiw_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: '' }}
+      {%- elsif section.settings.image_asset != blank -%}
+        <img src="{{ section.settings.image_asset | asset_url }}" loading="lazy" alt="" class="sm1c-hiw-img-contain">
       {%- endif -%}
     </div>
     <div class="sm1c-hiw-steps">
       {%- if product.metafields.custom.how_it_works_steps.value.size > 0 -%}
+        {%- assign hiw_step_count = product.metafields.custom.how_it_works_steps.value.size -%}
         {%- for step in product.metafields.custom.how_it_works_steps.value -%}
-          <div>
-            <div class="sm1c-hiw-step-title">{{ forloop.index }}. {{ step.title.value }}</div>
-            <div class="sm1c-hiw-step-body">{{ step.body.value }}</div>
+          <div class="sm1c-hiw-step{% if forloop.index == hiw_step_count %} is-last{% endif %}">
+            <div class="sm1c-hiw-step-icon"><span>{{ forloop.index }}</span></div>
+            <div class="sm1c-hiw-step-text">
+              <div class="sm1c-hiw-step-title">{{ step.title.value }}</div>
+              <div class="sm1c-hiw-step-body">{{ step.body.value }}</div>
+            </div>
           </div>
         {%- endfor -%}
       {%- else -%}
+        {%- assign hiw_step_count = section.blocks.size -%}
         {%- for block in section.blocks -%}
-          <div {{ block.shopify_attributes }}>
-            <div class="sm1c-hiw-step-title">{{ forloop.index }}. {{ block.settings.title }}</div>
-            <div class="sm1c-hiw-step-body">{{ block.settings.body }}</div>
+          <div class="sm1c-hiw-step{% if forloop.index == hiw_step_count %} is-last{% endif %}" {{ block.shopify_attributes }}>
+            <div class="sm1c-hiw-step-icon">
+              {%- if block.settings.icon != blank -%}
+                {%- render 'sm1c-pdp-icon', icon: block.settings.icon -%}
+              {%- else -%}
+                <span>{{ forloop.index }}</span>
+              {%- endif -%}
+            </div>
+            <div class="sm1c-hiw-step-text">
+              <div class="sm1c-hiw-step-title">{{ block.settings.title }}</div>
+              <div class="sm1c-hiw-step-body">{{ block.settings.body }}</div>
+            </div>
           </div>
         {%- endfor -%}
       {%- endif -%}
@@ -105,7 +170,8 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Here's how it" },
     { "type": "text", "id": "heading_accent", "label": "Heading accent word", "default": "works" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Designed to support real confidence and consistency, one simple daily ritual that fits your routine." },
-    { "type": "image_picker", "id": "image", "label": "Image" }
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_asset", "label": "Image (theme asset filename fallback)", "info": "Used only when no image is picked above. Filename of an image already uploaded to the theme's assets folder." }
   ],
   "blocks": [
     {
@@ -113,7 +179,28 @@
       "name": "Step",
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "We start with your foundation" },
-        { "type": "textarea", "id": "body", "label": "Body", "default": "Botanical actives support balance, confidence, and overall wellbeing." }
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Botanical actives support balance, confidence, and overall wellbeing." },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Optional. Leave blank to show the step number instead.",
+          "options": [
+            { "value": "", "label": "None (show step number)" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "box", "label": "Box" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": ""
+        }
       ]
     }
   ],

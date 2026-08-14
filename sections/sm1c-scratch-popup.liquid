@@ -296,13 +296,12 @@
 (function () {
   var root = document.getElementById('sm1c-scratch-{{ section.id }}');
   if (!root) return;
-  var LAST_SHOWN_KEY = 'sm1c_scratch_last_shown';
+  var STORAGE_KEY = 'sm1c_scratch_seen';
   var DELAY_MS = {{ section.settings.delay_seconds | default: 1.5 }} * 1000;
   var THRESHOLD = {{ section.settings.scratch_threshold | default: 55 }};
-  var REPEAT_MS = {{ section.settings.repeat_minutes | default: 2 }} * 60 * 1000;
 
   function markShown() {
-    try { localStorage.setItem(LAST_SHOWN_KEY, String(Date.now())); } catch (e) {}
+    try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
   }
 
   function hidePopup() {
@@ -502,10 +501,9 @@
     resizeCanvas();
   }
 
-  var lastShown = 0;
-  try { lastShown = parseInt(localStorage.getItem(LAST_SHOWN_KEY), 10) || 0; } catch (e) {}
-  var dueAgainAt = lastShown + REPEAT_MS;
-  if (Date.now() >= dueAgainAt) {
+  var alreadySeen = false;
+  try { alreadySeen = sessionStorage.getItem(STORAGE_KEY) === '1'; } catch (e) {}
+  if (!alreadySeen) {
     setTimeout(showPopup, DELAY_MS);
   }
 })();
@@ -523,8 +521,7 @@
     { "type": "text", "id": "code_15", "label": "Discount code — 2 items in cart", "default": "SCRATCH15" },
     { "type": "text", "id": "code_20", "label": "Discount code — 3+ items in cart", "default": "SCRATCH20" },
     { "type": "range", "id": "delay_seconds", "label": "Delay before showing (seconds)", "min": 0, "max": 10, "default": 4 },
-    { "type": "range", "id": "scratch_threshold", "label": "Scratch % required to reveal", "min": 20, "max": 90, "step": 5, "default": 55 },
-    { "type": "range", "id": "repeat_minutes", "label": "Show again after (minutes)", "info": "Popup reappears on a later page view once this many minutes have passed since it was last shown.", "min": 1, "max": 60, "default": 4 }
+    { "type": "range", "id": "scratch_threshold", "label": "Scratch % required to reveal", "min": 20, "max": 90, "step": 5, "default": 55 }
   ],
   "presets": [
     { "name": "SM1C Scratch to Win" }

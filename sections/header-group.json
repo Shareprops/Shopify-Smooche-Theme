@@ -38,8 +38,7 @@
         "code_15": "SCRATCH15",
         "code_20": "SCRATCH20",
         "delay_seconds": 4,
-        "scratch_threshold": 55,
-        "repeat_minutes": 4
+        "scratch_threshold": 55
       }
     }
   },
