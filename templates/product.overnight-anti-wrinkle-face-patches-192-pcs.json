@@ -1,0 +1,731 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_pdp_main": {
+      "type": "sm1c-pdp-main",
+      "blocks": {
+        "pill_1": {
+          "type": "pill_badge",
+          "settings": {
+            "icon": "🌙",
+            "label": "Overnight Wrinkle Technology"
+          }
+        },
+        "pill_2": {
+          "type": "pill_badge",
+          "settings": {
+            "icon": "🩹",
+            "label": "Hypoallergenic & Latex-Free"
+          }
+        },
+        "feat_1": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "😴",
+            "label": "Overnight Wrinkle Smoothing"
+          }
+        },
+        "feat_2": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🎯",
+            "label": "Targets Forehead & Fine Lines"
+          }
+        },
+        "feat_3": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🔄",
+            "label": "Reusable, Multi-Use Patches"
+          }
+        },
+        "feat_4": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🧴",
+            "label": "No Creams, No Mess"
+          }
+        },
+        "feat_5": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "📦",
+            "label": "192-Patch Supply"
+          }
+        },
+        "feat_6": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🌸",
+            "label": "Gentle On All Skin Types"
+          }
+        },
+        "badge_1": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "♡",
+            "label": "Non-invasive treatment"
+          }
+        },
+        "badge_2": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌿",
+            "label": "Hypoallergenic material"
+          }
+        },
+        "badge_3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "✦",
+            "label": "Visibly smoother mornings"
+          }
+        },
+        "media_1": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/0021767a474b856579aea8ea4abf.jpg" }
+        },
+        "media_2": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/8971099f49d3993cf9b25fbd06b4.jpg" }
+        },
+        "media_3": {
+          "type": "media_tile",
+          "settings": { "image": "shopify://shop_images/ChatGPTImageAug12_2026_02_53_37PM.png" }
+        },
+        "acc_1": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Product Details & How To Use",
+            "title_icon": "clock",
+            "point_1_icon": "check",
+            "point_1_text": "Apply a clean, dry patch directly onto your forehead or targeted area before bed.",
+            "point_2_icon": "clock",
+            "point_2_text": "Leave on overnight — the patch gently holds skin smooth while you sleep.",
+            "point_3_icon": "droplet",
+            "point_3_text": "Peel off in the morning and cleanse as usual — no residue left behind.",
+            "point_4_icon": "calendar",
+            "point_4_text": "Use nightly, or as often as fits your routine, for consistent results."
+          }
+        },
+        "acc_2": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Shipping",
+            "title_icon": "truck",
+            "point_1_icon": "truck",
+            "point_1_text": "Ships from within the United States — most orders arrive within 2 business days, up to 5 during holidays or unexpected delays.",
+            "point_2_icon": "gift",
+            "point_2_text": "Free shipping on every order.",
+            "point_3_icon": "mail",
+            "point_3_text": "You'll receive tracking by email as soon as your order leaves our warehouse."
+          }
+        },
+        "acc_3": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Return & Refund Policy",
+            "title_icon": "refresh",
+            "point_1_icon": "calendar",
+            "point_1_text": "Refunds are available within 30 days of delivery for products that arrive damaged or defective.",
+            "point_2_icon": "camera",
+            "point_2_text": "Send us photos as proof of the issue — no need to ship anything back.",
+            "point_3_icon": "check",
+            "point_3_text": "Once verified, we'll process your refund."
+          }
+        },
+        "fb_1": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Saw Smoother Skin By Morning",
+            "percent": 88
+          }
+        },
+        "fb_2": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Said Lines Looked Less Noticeable",
+            "percent": 85
+          }
+        },
+        "fb_3": {
+          "type": "feedback_bar",
+          "settings": {
+            "label": "Would Repurchase & Recommend It",
+            "percent": 89
+          }
+        }
+      },
+      "block_order": [
+        "pill_1",
+        "pill_2",
+        "feat_1",
+        "feat_2",
+        "feat_3",
+        "feat_4",
+        "feat_5",
+        "feat_6",
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "media_1",
+        "media_2",
+        "media_3",
+        "acc_1",
+        "acc_2",
+        "acc_3",
+        "fb_1",
+        "fb_2",
+        "fb_3"
+      ],
+      "settings": {
+        "hide_variant_picker": true,
+        "average_rating": "4.7",
+        "rating_text": "298 reviews",
+        "short_description": "Smooth, targeted patches that hold skin taut while you sleep — reducing the look of forehead lines and creases overnight, with zero creams and zero mess. One 192-patch pack covers months of nightly use.",
+        "gift_banner_icon": "🎁",
+        "gift_banner_text": "",
+        "best_results_text": "Best Results With Consistent Nightly Use",
+        "urgency_text": "",
+        "urgency_percent": 8,
+        "atc_label": "ADD TO CART",
+        "social_proof_text": "",
+        "feedback_title": "Feedback from the Serein Community"
+      }
+    },
+    "sm1c_trust_marquee": {
+      "type": "marquee",
+      "blocks": {
+        "icon_1": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free Shipping &amp; 2-Day Delivery</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_2": {
+          "type": "icon",
+          "settings": {
+            "icon": "lock",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>100% Secure Checkout</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_3": {
+          "type": "icon",
+          "settings": {
+            "icon": "return",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>30-Day Easy Returns</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_4": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "width": 20,
+            "link": "",
+            "open_in_new_tab": false,
+            "icon_color": "#f0e6df"
+          },
+          "blocks": {}
+        },
+        "text_4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Loved by 50,000+ Customers</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "text_color": "#f0e6df",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "icon_1",
+        "text_1",
+        "icon_2",
+        "text_2",
+        "icon_3",
+        "text_3",
+        "icon_4",
+        "text_4"
+      ],
+      "settings": {
+        "movement_direction": "normal",
+        "background_color": "#2e1810",
+        "padding-block-start": 16,
+        "padding-block-end": 16,
+        "gap_between_elements": 28
+      }
+    },
+    "sm1c_pdp_how_it_works": {
+      "type": "sm1c-pdp-how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Apply before bed",
+            "body": "Press a clean, dry patch onto your forehead or targeted area before you sleep.",
+            "icon": "check"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Let it work overnight",
+            "body": "The patch gently holds skin smooth, helping to ease the look of expression lines as you sleep.",
+            "icon": "clock"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Peel off & glow",
+            "body": "Remove in the morning to reveal visibly smoother, more relaxed-looking skin.",
+            "icon": "heart"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "Here's how you get",
+        "heading_accent": "smoother mornings",
+        "subheading": "One overnight patch, zero effort — hold skin smooth while you sleep and wake up to visibly softer lines.",
+        "image": "shopify://shop_images/0021767a474b856579aea8ea4abf.jpg"
+      }
+    },
+    "sm1c_pdp_comparison": {
+      "type": "sm1c-pdp-comparison",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "feature": "Visible results by morning",
+            "competitor_1": false,
+            "competitor_2": true
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "feature": "Zero needles, zero downtime",
+            "competitor_1": true,
+            "competitor_2": false
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "feature": "No creams or mess",
+            "competitor_1": false,
+            "competitor_2": true
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "feature": "Reusable, multi-night patches",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "feature": "Budget-friendly at-home routine",
+            "competitor_1": true,
+            "competitor_2": false
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "feature": "30-day money-back guarantee",
+            "competitor_1": false,
+            "competitor_2": false
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {
+        "heading": "Overnight Patches",
+        "heading_accent": "vs The Usual Options",
+        "subheading": "Most anti-wrinkle creams take weeks to show any change, and injectables mean needles and downtime. Serein's patches work while you sleep — no needles, no creams, no downtime.",
+        "brand_name": "Serein",
+        "brand_badge": "Most Loved",
+        "competitor_1_name": "Anti-Wrinkle Creams",
+        "competitor_1_price": "The weeks-long wait for results",
+        "competitor_2_name": "Injectable Treatments",
+        "competitor_2_price": "The needles and downtime"
+      }
+    },
+    "sm1c_pdp_survey_stats": {
+      "type": "sm1c-pdp-survey-stats",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "percent": 88,
+            "headline": "said their skin looked smoother by morning.",
+            "body": "In a post-purchase survey, customers reported visibly softer-looking forehead lines after their very first night.",
+            "bar_color": "#e8637e"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "percent": 85,
+            "headline": "said expression lines looked less noticeable with regular use.",
+            "body": "With nightly use, customers reported a gradual, visible softening of fine lines and creases over several weeks.",
+            "bar_color": "#2a6f6a"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "percent": 89,
+            "headline": "said they'd repurchase and recommend it to a friend.",
+            "body": "Customers cited the simple, mess-free overnight routine as their favorite part of using the patches.",
+            "bar_color": "#e8637e"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
+      "settings": {
+        "heading": "What women told us in",
+        "heading_accent": "our survey",
+        "subheading": "We asked customers to rate their skin before and after adding overnight patches to their routine — here's what they reported.",
+        "image": "shopify://shop_images/8971099f49d3993cf9b25fbd06b4.jpg"
+      }
+    },
+    "sm1c_pdp_ingredients": {
+      "type": "sm1c-pdp-ingredients",
+      "blocks": {
+        "ing_1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Medical-Grade Adhesive",
+            "tag": "SECURE HOLD",
+            "support_text": "Used to support: a patch that stays put all night",
+            "description": "A gentle, skin-safe adhesive keeps the patch smoothly in place through a full night's sleep without pulling or irritation."
+          }
+        },
+        "ing_2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hypoallergenic Backing",
+            "tag": "GENTLE",
+            "support_text": "Used to support: comfort on sensitive skin",
+            "description": "A soft, breathable material designed to sit comfortably against the skin without triggering common sensitivities."
+          }
+        },
+        "ing_3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Latex-Free Material",
+            "tag": "SAFE FOR MOST",
+            "support_text": "Used to support: safer everyday wear",
+            "description": "Free from latex, so the patches are a safer choice for the many people with latex sensitivities."
+          }
+        },
+        "ing_4": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Silicone-Free Construction",
+            "tag": "BREATHABLE",
+            "support_text": "Used to support: skin that can breathe overnight",
+            "description": "A silicone-free build that lets skin breathe throughout the night, rather than trapping heat and moisture."
+          }
+        },
+        "ing_5": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Reusable Design",
+            "tag": "LONG-LASTING",
+            "support_text": "Used to support: more nights per patch",
+            "description": "Built to be gently cleaned and reused multiple times, stretching the value of every patch in the pack."
+          }
+        }
+      },
+      "block_order": [
+        "ing_1",
+        "ing_2",
+        "ing_3",
+        "ing_4",
+        "ing_5"
+      ],
+      "settings": {
+        "heading": "What's Sealed",
+        "heading_accent": "Inside Every Patch"
+      }
+    },
+    "sm1c_pdp_reviews": {
+      "type": "sm1c-pdp-reviews",
+      "blocks": {
+        "rev_1": {
+          "type": "review",
+          "settings": {
+            "name": "Diane K.",
+            "age": "56",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "I was skeptical about a patch doing anything, but my forehead lines really do look softer in the morning."
+          }
+        },
+        "rev_2": {
+          "type": "review",
+          "settings": {
+            "name": "Renee T.",
+            "age": "48",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "192 patches means I don't have to think about running out for months. Great value."
+          }
+        },
+        "rev_3": {
+          "type": "review",
+          "settings": {
+            "name": "Carla M.",
+            "age": "42",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "So much easier than remembering a nightly cream routine — I just stick it on and go to sleep."
+          }
+        },
+        "rev_4": {
+          "type": "review",
+          "settings": {
+            "name": "Wendy S.",
+            "age": "61",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "My '11 lines' between my brows look noticeably less deep after a few weeks of consistent use."
+          }
+        },
+        "rev_5": {
+          "type": "review",
+          "settings": {
+            "name": "Beth A.",
+            "age": "39",
+            "verified": true,
+            "rating_text": "★★★★★",
+            "quote": "Comfortable enough that I forget it's even there while I sleep."
+          }
+        }
+      },
+      "block_order": [
+        "rev_1",
+        "rev_2",
+        "rev_3",
+        "rev_4",
+        "rev_5"
+      ],
+      "settings": {
+        "loved_by_prefix": "Loved by",
+        "loved_by_count": "50,000+",
+        "average_rating": "4.7",
+        "review_count": "298 reviews",
+        "accent_color": "#e8637e"
+      }
+    },
+    "sm1c_pdp_faq": {
+      "type": "sm1c-pdp-faq",
+      "blocks": {
+        "q_1": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use the patches?",
+            "answer": "<p>Apply a clean, dry patch directly onto your forehead or targeted area before bed, and leave it on overnight. In the morning, gently peel it off and cleanse as usual — no residue left behind.</p>",
+            "icon": "check"
+          }
+        },
+        "q_2": {
+          "type": "question",
+          "settings": {
+            "question": "How soon will I see results?",
+            "answer": "<p>Many people notice smoother-looking skin the very next morning. With consistent nightly use, expression lines and creases can look visibly softer over several weeks.</p>",
+            "icon": "clock"
+          }
+        },
+        "q_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can the patches be reused?",
+            "answer": "<p>Yes — each patch is designed to be gently cleaned and reused multiple times, so your 192-patch pack goes further than a single-use product.</p>",
+            "icon": "refresh"
+          }
+        },
+        "q_4": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe for sensitive skin?",
+            "answer": "<p>Yes — the patches are hypoallergenic, latex-free, and silicone-free. We still recommend testing on a small area first if you have known sensitivities.</p>",
+            "icon": "shield"
+          }
+        },
+        "q_5": {
+          "type": "question",
+          "settings": {
+            "question": "Where can I use them besides my forehead?",
+            "answer": "<p>While designed with the forehead in mind, many customers also use the patches on other expression-prone areas like between the brows or around the mouth.</p>",
+            "icon": "box"
+          }
+        },
+        "q_6": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer a money-back guarantee?",
+            "answer": "<p>Yes — refunds are available within 30 days of delivery for products that arrive damaged or defective. Just send us photos as proof; no need to ship anything back.</p>",
+            "icon": "refresh"
+          }
+        }
+      },
+      "block_order": [
+        "q_1",
+        "q_2",
+        "q_3",
+        "q_4",
+        "q_5",
+        "q_6"
+      ],
+      "settings": {
+        "heading": "Frequently Asked",
+        "heading_accent": "Questions"
+      }
+    }
+  },
+  "order": [
+    "sm1c_pdp_main",
+    "sm1c_trust_marquee",
+    "sm1c_pdp_how_it_works",
+    "sm1c_pdp_comparison",
+    "sm1c_pdp_survey_stats",
+    "sm1c_pdp_ingredients",
+    "sm1c_pdp_reviews",
+    "sm1c_pdp_faq"
+  ]
+}
