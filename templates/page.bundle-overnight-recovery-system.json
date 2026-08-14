@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_bundle_landing": {
+      "type": "sm1c-bundle-landing",
+      "blocks": {
+        "item_1": {
+          "type": "included_item",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPTImageAug7_2026_10_47_00PM.png",
+            "step_label": "Face",
+            "name": "Collagen Overnight Wrapping Peel Off Face Mask",
+            "description": "An overnight wrapping mask with an included brush, targeting sagging and dullness while you sleep."
+          }
+        },
+        "item_2": {
+          "type": "included_item",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPTImageAug12_2026_02_58_28PM.png",
+            "step_label": "Forehead",
+            "name": "Overnight Anti-Wrinkle Face Patches",
+            "description": "192 reusable patches that hold skin smooth overnight, easing the look of expression lines by morning."
+          }
+        },
+        "item_3": {
+          "type": "included_item",
+          "settings": {
+            "image": "shopify://shop_images/7c7aed7b4c2d83e50f8e2c2abad4.png",
+            "step_label": "Eyes",
+            "name": "Gold Collagen Crystal Eye Masks",
+            "description": "A melting crystal eye treatment that visibly brightens and de-puffs tired eyes in 20–30 minutes."
+          }
+        },
+        "trust_1": { "type": "trust_item", "settings": { "icon": "✦", "label": "Save vs. buying separately" } },
+        "trust_2": { "type": "trust_item", "settings": { "icon": "🚚", "label": "Free U.S. shipping" } },
+        "trust_3": { "type": "trust_item", "settings": { "icon": "🔒", "label": "30-day guarantee" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "trust_1", "trust_2", "trust_3"],
+      "settings": {
+        "eyebrow": "Limited-Time Bundle",
+        "heading": "The Overnight Recovery System",
+        "story": "Three zones, one overnight routine. While you sleep, this system works on your face, forehead, and eyes — so you wake up to visibly firmer, brighter, more rested-looking skin.",
+        "hero_image": "shopify://shop_images/ChatGPTImageAug7_2026_10_47_00PM.png",
+        "value_note": "Over $85 if bought separately",
+        "cta_link": "shopify://products/collagen-overnight-wrapping-peel-off-face-mask-brush-included",
+        "cta_label": "Buy This Bundle",
+        "included_heading": "What's Included",
+        "included_subheading": "A full-face overnight system — three zones, treated together.",
+        "footer_heading": "Ready for your overnight reset?",
+        "hero_bg_color": "#fdfaf6",
+        "accent_color": "#E8637E"
+      }
+    }
+  },
+  "order": ["sm1c_bundle_landing"]
+}

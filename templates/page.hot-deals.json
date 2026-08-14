@@ -29,6 +29,7 @@
         "bundle_1": {
           "type": "bundle",
           "settings": {
+            "page_link": "shopify://pages/bundle-complete-glow-ritual",
             "anchor_product": "collagen-peel-off-face-mask",
             "badge_text": "MOST POPULAR",
             "name": "The Complete Glow Ritual",
@@ -43,6 +44,7 @@
         "bundle_2": {
           "type": "bundle",
           "settings": {
+            "page_link": "shopify://pages/bundle-overnight-recovery-system",
             "anchor_product": "collagen-overnight-wrapping-peel-off-face-mask-brush-included",
             "badge_text": "BEST VALUE",
             "name": "The Overnight Recovery System",
@@ -57,6 +59,7 @@
         "bundle_3": {
           "type": "bundle",
           "settings": {
+            "page_link": "shopify://pages/bundle-bright-glow-trio",
             "anchor_product": "turmeric-collagen-face-mask",
             "badge_text": "BRIGHTENING",
             "name": "The Bright & Glow Trio",

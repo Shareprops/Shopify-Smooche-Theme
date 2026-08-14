@@ -174,9 +174,11 @@
     {%- for block in section.blocks -%}
       {%- liquid
         assign bundle_image = block.settings.image
-        assign bundle_url = '#'
+        assign bundle_url = block.settings.page_link | default: '#'
         if block.settings.anchor_product != blank
-          assign bundle_url = block.settings.anchor_product.url
+          if bundle_url == '#'
+            assign bundle_url = block.settings.anchor_product.url
+          endif
           if bundle_image == blank
             assign bundle_image = block.settings.anchor_product.featured_image
           endif
@@ -243,7 +245,8 @@
       "type": "bundle",
       "name": "Bundle",
       "settings": [
-        { "type": "product", "id": "anchor_product", "label": "Anchor product", "info": "The product page where this bundle's Pumper offer actually appears — the card links here and falls back to this product's photo." },
+        { "type": "url", "id": "page_link", "label": "Bundle story page link", "info": "Link to the dedicated bundle landing page. If left blank, falls back to the anchor product's page." },
+        { "type": "product", "id": "anchor_product", "label": "Anchor product", "info": "The product page where this bundle's Pumper offer actually appears — used as a fallback link and photo source." },
         { "type": "image_picker", "id": "image", "label": "Card image (optional)", "info": "Overrides the anchor product's photo." },
         { "type": "text", "id": "badge_text", "label": "Badge text", "default": "BUNDLE" },
         { "type": "text", "id": "name", "label": "Bundle name", "default": "The Complete Glow Ritual" },

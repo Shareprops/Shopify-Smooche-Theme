@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sm1c_bundle_landing": {
+      "type": "sm1c-bundle-landing",
+      "blocks": {
+        "item_1": {
+          "type": "included_item",
+          "settings": {
+            "image": "shopify://shop_images/749d7c284c15a97ad89f2af02a81_50903d5a-326e-4413-ab51-a6cd106fd6ce.png",
+            "step_label": "Step 1 — Cleanse",
+            "name": "Turmeric Kojic Cloth",
+            "description": "A gentle exfoliating cloth infused with turmeric and kojic acid to brighten and prep skin for treatment."
+          }
+        },
+        "item_2": {
+          "type": "included_item",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPTImageAug7_2026_10_47_00PM.png",
+            "step_label": "Step 2 — Treat",
+            "name": "Collagen Peel-Off Face Mask",
+            "description": "The viral one-piece peel that lifts away dullness and impurities while visibly tightening skin."
+          }
+        },
+        "item_3": {
+          "type": "included_item",
+          "settings": {
+            "image": "shopify://shop_images/224d61cf4660aeee1ce63da6dab3.jpg",
+            "step_label": "Step 3 — Moisturize",
+            "name": "Korean Collagen Moisturizing Stick",
+            "description": "A twist-up collagen stick that locks in hydration and smooths fine lines, anywhere you need it."
+          }
+        },
+        "trust_1": { "type": "trust_item", "settings": { "icon": "✦", "label": "Save vs. buying separately" } },
+        "trust_2": { "type": "trust_item", "settings": { "icon": "🚚", "label": "Free U.S. shipping" } },
+        "trust_3": { "type": "trust_item", "settings": { "icon": "🔒", "label": "30-day guarantee" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "trust_1", "trust_2", "trust_3"],
+      "settings": {
+        "eyebrow": "Limited-Time Bundle",
+        "heading": "The Complete Glow Ritual",
+        "story": "A full skincare ritual in one bundle — cleanse, treat, and moisturize with three of our most-loved products, working together for visibly smoother, glass-like skin.",
+        "hero_image": "shopify://shop_images/ChatGPTImageAug7_2026_10_47_00PM.png",
+        "value_note": "Over $60 if bought separately",
+        "cta_link": "shopify://products/collagen-peel-off-face-mask",
+        "cta_label": "Buy This Bundle",
+        "included_heading": "What's Included",
+        "included_subheading": "Three steps, one complete routine.",
+        "footer_heading": "Ready to start your ritual?",
+        "hero_bg_color": "#fdfaf6",
+        "accent_color": "#E8637E"
+      }
+    }
+  },
+  "order": ["sm1c_bundle_landing"]
+}
