@@ -17,7 +17,7 @@
           "settings": {
             "banner_image": "hero-banner-1.png",
             "alt_text": "Serein",
-            "link": "shopify://collections/frontpage"
+            "link": "shopify://collections/all"
           }
         },
         "slide_2": {
@@ -25,7 +25,7 @@
           "settings": {
             "banner_image": "hero-banner-2.png",
             "alt_text": "Serein",
-            "link": "shopify://collections/frontpage"
+            "link": "shopify://collections/all"
           }
         }
       },
@@ -216,7 +216,7 @@
         "heading": "Fuller lips, naturally.",
         "body": "Crafted from natural ingredients — hydrated, nourished volume, without harsh chemicals.",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/frontpage",
+        "button_link": "shopify://collections/all",
         "bg_color": "#f6e6dd"
       }
     }

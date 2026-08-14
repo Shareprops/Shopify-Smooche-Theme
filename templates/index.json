@@ -17,7 +17,7 @@
           "settings": {
             "banner_image": "hero-banner-1.png",
             "alt_text": "Serein",
-            "link": "shopify://collections/frontpage"
+            "link": "shopify://collections/all"
           }
         },
         "slide_2": {
@@ -25,7 +25,7 @@
           "settings": {
             "banner_image": "hero-banner-2.png",
             "alt_text": "Serein",
-            "link": "shopify://collections/frontpage"
+            "link": "shopify://collections/all"
           }
         }
       },
@@ -464,7 +464,7 @@
         "heading": "Simple Steps, Beautiful Skin",
         "body": "Curated routines for every concern. Find what your skin truly needs.",
         "button_label": "Build Your Ritual",
-        "button_link": "shopify://collections/frontpage",
+        "button_link": "shopify://collections/all",
         "bg_color": "#faf1e9",
         "accent_color": "#e8637e"
       }
@@ -519,7 +519,7 @@
         "heading_accent": "Money-Back Guarantee",
         "subtext": "If your order arrives damaged or expired, just send us photos within 30 days of delivery — we'll process your refund, no return shipping needed.",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/frontpage",
+        "button_link": "shopify://collections/all",
         "note": "Questions? Our team replies within 24 hours.",
         "bg_color": "#ffffff",
         "icon_bg": "#fbe9ec",
