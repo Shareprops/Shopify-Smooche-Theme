@@ -20,6 +20,19 @@
 #shopify-section-{{ section.id }} div:has(> .pmpr-branding-wrapper) {
   display: none !important;
 }
+#shopify-section-{{ section.id }} .sm1c-pdp-bundle-slot {
+  margin-top: 24px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-bundle-slot:empty {
+  display: none;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-bundle-slot .pmpr_bundle__root {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+#shopify-section-{{ section.id }} .sm1c-pdp-bundle-slot .pmpr_bundle__root:last-child {
+  margin-bottom: 0;
+}
 #shopify-section-{{ section.id }} .sm1c-pdp-wrap {
   font-family: 'Work Sans', sans-serif;
   color: #3A2E27;
@@ -1254,6 +1267,7 @@
           {%- endfor -%}
         {%- endif -%}
       </div>
+      <div class="sm1c-pdp-bundle-slot" data-sm1c-bundle-slot></div>
     </div>
 
     <div class="sm1c-pdp-info">
@@ -2117,6 +2131,53 @@
       new SM1CAccordion(el);
     });
   }
+})();
+</script>
+
+<script>
+/*
+  Pumper combo-bundle repositioning.
+
+  Pumper's "combo" bundle offer type (rendered as .pmpr_bundle__root, with a
+  matching hidden .pmpr_bundle__inActive_state sibling) renders on the page of
+  EVERY product that's a member of that combo — by design, not a
+  misconfiguration. On a product that belongs to multiple combos, this stacks
+  several bundle-buy boxes directly inside the buy box, ahead of the plain Add
+  to Cart button.
+
+  Pumper injects these elements asynchronously into the product form after its
+  own script runs, so we poll briefly for them, then move (not clone) them
+  into the .sm1c-pdp-bundle-slot container on the left column, below the
+  image gallery — visually separated from the buy box instead of crowding it.
+*/
+(function () {
+  var root = document.getElementById('shopify-section-{{ section.id }}');
+  if (!root) return;
+  var slot = root.querySelector('[data-sm1c-bundle-slot]');
+  if (!slot) return;
+
+  function moveBundleWidgets() {
+    var found = root.querySelectorAll('.pmpr_bundle__root, .pmpr_bundle__inActive_state');
+    found.forEach(function (el) {
+      if (el.closest('[data-sm1c-bundle-slot]')) return;
+      slot.appendChild(el);
+    });
+    return found.length > 0;
+  }
+
+  (function retry(attemptsLeft) {
+    var moved = moveBundleWidgets();
+    if (!moved && attemptsLeft > 0) {
+      setTimeout(function () { retry(attemptsLeft - 1); }, 400);
+    }
+  })(20); // Pumper's script loads async — retry for a few seconds if it isn't ready yet.
+
+  // Combo widgets can also be added/changed after an in-page Pumper re-render
+  // (e.g. after its own cart refresh); keep watching for late insertions.
+  var observer = new MutationObserver(function () {
+    moveBundleWidgets();
+  });
+  observer.observe(root, { childList: true, subtree: true });
 })();
 </script>
 
