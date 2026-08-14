@@ -659,7 +659,7 @@
           "type": "question",
           "settings": {
             "question": "How do I apply it?",
-            "answer": "<p>Twist the roll-on applicator and glide it directly onto clean or lipstick-topped lips. No brush, fingers, or mirror needed — just roll and go.</p>",
+            "answer": "<p>Twist the roll-on applicator and glide it directly onto clean or lipstick-topped lips. No brush, fingers, or mirror needed — just roll it on and go.</p>",
             "icon": "droplet"
           }
         },
@@ -667,23 +667,23 @@
           "type": "question",
           "settings": {
             "question": "Will it feel sticky?",
-            "answer": "<p>No — the lightweight oil formula settles in within seconds, leaving a smooth, glassy finish with zero tackiness.</p>",
-            "icon": "shield"
+            "answer": "<p>No — the lightweight oil settles in within seconds, leaving a smooth, glassy finish with zero tackiness. No heaviness, no blotting needed, unlike traditional glosses.</p>",
+            "icon": "check"
           }
         },
         "q_3": {
           "type": "question",
           "settings": {
             "question": "Does it add color?",
-            "answer": "<p>It's colorless and transparent by design, so it won't alter your natural lip color or stain your cup, mask, or clothing. It simply adds shine and a sheer glow.</p>",
-            "icon": "heart"
+            "answer": "<p>It's colorless and transparent by design, so it won't alter your natural lip color or transfer onto your cup, mask, or clothing. It simply adds shine and a sheer, glossy glow.</p>",
+            "icon": "camera"
           }
         },
         "q_4": {
           "type": "question",
           "settings": {
             "question": "How long does one roll-on last?",
-            "answer": "<p>With regular daily touch-ups, one roll-on typically lasts 6–8 weeks, depending on how often you reapply.</p>",
+            "answer": "<p>With regular daily touch-ups, one roll-on typically lasts 6–8 weeks, depending on how often you reapply throughout the day.</p>",
             "icon": "box"
           }
         },
@@ -691,8 +691,8 @@
           "type": "question",
           "settings": {
             "question": "Is it safe for sensitive lips?",
-            "answer": "<p>Yes — the formula is lightweight and nourishing, made to soften and condition even dry or sensitive lips. We still recommend a patch test if you have known sensitivities.</p>",
-            "icon": "heart"
+            "answer": "<p>Yes — the lightweight formula is made to soften and condition even dry or sensitive lips, with no harsh or drying ingredients. We still recommend a quick patch test if you have known sensitivities.</p>",
+            "icon": "shield"
           }
         },
         "q_6": {
