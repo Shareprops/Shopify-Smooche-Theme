@@ -1267,7 +1267,7 @@
           {%- endfor -%}
         {%- endif -%}
       </div>
-      <div class="sm1c-pdp-bundle-slot" data-sm1c-bundle-slot></div>
+      <div class="sm1c-pdp-bundle-slot sm1c-pdp-bundle-slot--desktop" data-sm1c-bundle-slot="desktop"></div>
     </div>
 
     <div class="sm1c-pdp-info">
@@ -1522,6 +1522,7 @@
       {%- endform -%}
 
       <div class="sm1c-pdp-free-shipping">Free Shipping For All Orders</div>
+      <div class="sm1c-pdp-bundle-slot sm1c-pdp-bundle-slot--mobile" data-sm1c-bundle-slot="mobile"></div>
 
       {%- if section.settings.social_proof_text != blank -%}
         <div class="sm1c-pdp-social">★★★★★ &nbsp;{{ section.settings.social_proof_text }}</div>
@@ -2147,20 +2148,29 @@
 
   Pumper injects these elements asynchronously into the product form after its
   own script runs, so we poll briefly for them, then move (not clone) them
-  into the .sm1c-pdp-bundle-slot container on the left column, below the
-  image gallery — visually separated from the buy box instead of crowding it.
+  into one of two .sm1c-pdp-bundle-slot containers depending on viewport:
+  on desktop, the left column below the image gallery; on mobile (where the
+  layout stacks to one column, same 900px breakpoint as .sm1c-pdp-grid),
+  below the "Free Shipping For All Orders" line instead, so it doesn't land
+  above the title/price/Add to Cart when everything stacks vertically.
 */
 (function () {
   var root = document.getElementById('shopify-section-{{ section.id }}');
   if (!root) return;
-  var slot = root.querySelector('[data-sm1c-bundle-slot]');
-  if (!slot) return;
+  var desktopSlot = root.querySelector('[data-sm1c-bundle-slot="desktop"]');
+  var mobileSlot = root.querySelector('[data-sm1c-bundle-slot="mobile"]');
+  if (!desktopSlot || !mobileSlot) return;
+  var mql = window.matchMedia('(max-width: 900px)');
+
+  function currentSlot() {
+    return mql.matches ? mobileSlot : desktopSlot;
+  }
 
   function moveBundleWidgets() {
+    var slot = currentSlot();
     var found = root.querySelectorAll('.pmpr_bundle__root, .pmpr_bundle__inActive_state');
     found.forEach(function (el) {
-      if (el.closest('[data-sm1c-bundle-slot]')) return;
-      slot.appendChild(el);
+      if (el.parentNode !== slot) slot.appendChild(el);
     });
     return found.length > 0;
   }
@@ -2178,6 +2188,14 @@
     moveBundleWidgets();
   });
   observer.observe(root, { childList: true, subtree: true });
+
+  // Move between slots if the viewport crosses the breakpoint (window resize,
+  // not just a fresh page load at a given size).
+  if (typeof mql.addEventListener === 'function') {
+    mql.addEventListener('change', moveBundleWidgets);
+  } else if (typeof mql.addListener === 'function') {
+    mql.addListener(moveBundleWidgets); // Safari < 14 fallback.
+  }
 })();
 </script>
 
