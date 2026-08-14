@@ -20,12 +20,6 @@
 #shopify-section-{{ section.id }} div:has(> .pmpr-branding-wrapper) {
   display: none !important;
 }
-{%- if section.settings.hide_pumper_bundle_widget -%}
-#shopify-section-{{ section.id }} div:has(> div > .pmpr-branding-wrapper),
-#shopify-section-{{ section.id }} div:has(> div > div > .pmpr-branding-wrapper) {
-  display: none !important;
-}
-{%- endif -%}
 #shopify-section-{{ section.id }} .sm1c-pdp-wrap {
   font-family: 'Work Sans', sans-serif;
   color: #3A2E27;
@@ -2255,13 +2249,6 @@
       "id": "hide_variant_picker",
       "label": "Hide native variant/package picker",
       "info": "Turn on only if a bundle/quantity app on this page provides its own variant selector that writes directly into the Add to Cart form.",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_pumper_bundle_widget",
-      "label": "Hide Pumper bundle widget on this product",
-      "info": "Safety-net for when Pumper's own product targeting shows a bundle offer on a page it shouldn't. Fix the targeting in Pumper when possible — this only hides the widget visually here, it doesn't stop Pumper from loading it.",
       "default": false
     },
     {
