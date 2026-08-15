@@ -2163,12 +2163,23 @@
   to Cart button.
 
   Pumper injects these elements asynchronously into the product form after its
-  own script runs, so we poll briefly for them, then move (not clone) them
-  into one of two .sm1c-pdp-bundle-slot containers depending on viewport:
-  on desktop, the left column below the image gallery; on mobile (where the
-  layout stacks to one column, same 900px breakpoint as .sm1c-pdp-grid),
-  below the "Free Shipping For All Orders" line instead, so it doesn't land
-  above the title/price/Add to Cart when everything stacks vertically.
+  own script runs, so we poll briefly for them, then move (not clone) them.
+
+  Preferred destination: the standalone "SM1C PDP Combo Bundles" section
+  (sm1c-pdp-combo-bundles.liquid) if the template includes it. That section
+  sits after the reviews, so a multi-product combo is only offered once the
+  shopper has read what the product does — a combo asks them to evaluate
+  products they may not know yet, unlike a quantity tier.
+
+  Fallback (template has no combo section): the original two
+  .sm1c-pdp-bundle-slot containers, chosen by viewport — on desktop the left
+  column below the image gallery; on mobile (where the layout stacks to one
+  column, same 900px breakpoint as .sm1c-pdp-grid) below the "Free Shipping
+  For All Orders" line, so it doesn't land above the title/price/Add to Cart.
+
+  NOTE: this moves ONLY Pumper combo widgets. The quantity tiers rendered by
+  this section's own `tier` blocks (Buy 1 / Buy 2 / Buy 3 of the same product)
+  stay in the buy box and are untouched.
 */
 (function () {
   var root = document.getElementById('shopify-section-{{ section.id }}');
@@ -2177,8 +2188,25 @@
   var mobileSlot = root.querySelector('[data-sm1c-bundle-slot="mobile"]');
   if (!desktopSlot || !mobileSlot) return;
   var mql = window.matchMedia('(max-width: 900px)');
+  var comboSection = null;
+  var comboSlot = null;
+
+  // Resolved lazily, never cached as null: this section renders before the
+  // combo section further down the page, so at the time this script first
+  // runs that element does not exist in the DOM yet. Looking it up on each
+  // pass means the first pass after the page finishes parsing finds it.
+  function resolveComboSlot() {
+    if (comboSlot) return comboSlot;
+    comboSection = document.querySelector('[data-sm1c-combo-section]');
+    comboSlot = comboSection ? comboSection.querySelector('[data-sm1c-combo-slot]') : null;
+    return comboSlot;
+  }
 
   function currentSlot() {
+    // The standalone section wins whenever the template includes it; it is a
+    // single destination, so viewport no longer decides placement.
+    var combo = resolveComboSlot();
+    if (combo) return combo;
     return mql.matches ? mobileSlot : desktopSlot;
   }
 
@@ -2188,6 +2216,11 @@
     found.forEach(function (el) {
       if (el.parentNode !== slot) slot.appendChild(el);
     });
+    // Reveal the standalone section only once a real widget is inside it, so
+    // products belonging to no combo don't render a stranded heading.
+    if (comboSection && comboSlot && comboSlot.querySelector('.pmpr_bundle__root')) {
+      comboSection.hidden = false;
+    }
     return found.length > 0;
   }
 
@@ -2197,6 +2230,15 @@
       setTimeout(function () { retry(attemptsLeft - 1); }, 400);
     }
   })(20); // Pumper's script loads async — retry for a few seconds if it isn't ready yet.
+
+  // If Pumper won the race and the widgets were already parked in a fallback
+  // slot before the combo section existed, these passes relocate them: the
+  // fallback slots live inside `root`, so the widgets are still discoverable
+  // and get moved on to the combo slot once it resolves.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', moveBundleWidgets);
+  }
+  window.addEventListener('load', moveBundleWidgets);
 
   // Combo widgets can also be added/changed after an in-page Pumper re-render
   // (e.g. after its own cart refresh); keep watching for late insertions.
@@ -2214,15 +2256,19 @@
   }
 
   // The combo bundle's own "Add to cart" button is a plain <button> (so it
-  // defaults to type="submit") sitting inside our #sm1c-pdp-form. Pumper's
-  // own script already AJAX-adds the combo items and opens its slide cart on
-  // click — that part works. But nothing stops the click from ALSO
-  // submitting the surrounding form natively, which sends the browser to the
-  // cart page at the same time the slide cart opens. We only need to block
-  // that native submission; Pumper's own listener still runs normally.
+  // defaults to type="submit"). While the widget sits inside #sm1c-pdp-form,
+  // Pumper's own script AJAX-adds the combo and opens its slide cart, but
+  // nothing stops the click from ALSO submitting the surrounding form
+  // natively, sending the browser to the cart page at the same time. We block
+  // only that native submission; Pumper's own listener still runs normally.
+  //
+  // Once the widget has been moved into the standalone combo section it is no
+  // longer inside any form, so there is no native submit to block — hence the
+  // closest('form') test rather than a fixed container check. Guarding on the
+  // form (instead of `root`) keeps this correct in both placements.
   document.addEventListener('click', function (event) {
     var btn = event.target.closest('.pmpr_bundle__add_to_cart');
-    if (!btn || !root.contains(btn)) return;
+    if (!btn || !btn.closest('form')) return;
     event.preventDefault();
   }, true);
 })();

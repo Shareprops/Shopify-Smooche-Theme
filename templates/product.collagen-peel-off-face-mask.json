@@ -665,6 +665,17 @@
         "accent_color": "#e8637e"
       }
     },
+    "sm1c_pdp_combo_bundles": {
+      "type": "sm1c-pdp-combo-bundles",
+      "settings": {
+        "eyebrow": "Bundle & Save",
+        "heading": "Pair it with the",
+        "heading_accent": "full ritual",
+        "subheading": "Now that you know how it works — add the products it works best with and save on the set.",
+        "bg_color": "#FDF4F1",
+        "accent_color": "#e8637e"
+      }
+    },
     "sm1c_pdp_faq": {
       "type": "sm1c-pdp-faq",
       "blocks": {
@@ -739,6 +750,7 @@
     "sm1c_pdp_survey_stats",
     "sm1c_pdp_ingredients",
     "sm1c_pdp_reviews",
+    "sm1c_pdp_combo_bundles",
     "sm1c_pdp_faq"
   ]
 }
