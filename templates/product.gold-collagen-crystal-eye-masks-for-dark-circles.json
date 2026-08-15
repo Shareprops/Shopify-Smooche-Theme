@@ -372,6 +372,32 @@
         "gap_between_elements": 28
       }
     },
+    "sm1c_pdp_why_it_works": {
+      "type": "sm1c-pdp-why-it-works",
+      "blocks": {
+        "benefit_1": { "type": "benefit_item", "settings": { "icon": "sparkle", "label": "98%+ absorption rate" } },
+        "benefit_2": { "type": "benefit_item", "settings": { "icon": "droplet", "label": "Dissolves from 2mm to 1mm" } },
+        "benefit_3": { "type": "benefit_item", "settings": { "icon": "shield", "label": "Combats dark circles & puffiness" } },
+        "benefit_4": { "type": "benefit_item", "settings": { "icon": "clock", "label": "20-30 minute treatment" } },
+        "benefit_5": { "type": "benefit_item", "settings": { "icon": "refresh", "label": "No rinsing needed" } },
+        "benefit_6": { "type": "benefit_item", "settings": { "icon": "layers", "label": "High-density plant collagen" } },
+        "chip_1": { "type": "trust_chip", "settings": { "icon": "layers", "label": "No sticky residue" } },
+        "chip_2": { "type": "trust_chip", "settings": { "icon": "leaf", "label": "Plant-derived collagen" } },
+        "chip_3": { "type": "trust_chip", "settings": { "icon": "trending-up", "label": "Visibly brighter under-eyes" } },
+        "chip_4": { "type": "trust_chip", "settings": { "icon": "sparkle", "label": "Melting crystal technology" } }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4", "benefit_5", "benefit_6", "chip_1", "chip_2", "chip_3", "chip_4"],
+      "settings": {
+        "eyebrow": "Backed By Real Results",
+        "heading": "Why This Crystal Mask",
+        "heading_accent": "Actually Works",
+        "image": "shopify://shop_images/e806e2704d29a2f655e96376a31d.png",
+        "stat_number": "90%",
+        "stat_label": "saw reduced puffiness after their first use",
+        "bg_color": "#FDF4F1",
+        "accent_color": "#E8637E"
+      }
+    },
     "sm1c_pdp_how_it_works": {
       "type": "sm1c-pdp-how-it-works",
       "blocks": {
@@ -737,6 +763,7 @@
   "order": [
     "sm1c_pdp_main",
     "sm1c_trust_marquee",
+    "sm1c_pdp_why_it_works",
     "sm1c_pdp_how_it_works",
     "sm1c_pdp_comparison",
     "sm1c_pdp_survey_stats",

@@ -372,6 +372,32 @@
         "gap_between_elements": 28
       }
     },
+    "sm1c_pdp_why_it_works": {
+      "type": "sm1c-pdp-why-it-works",
+      "blocks": {
+        "benefit_1": { "type": "benefit_item", "settings": { "icon": "sparkle", "label": "Brightens & evens skin tone" } },
+        "benefit_2": { "type": "benefit_item", "settings": { "icon": "refresh", "label": "Gentle daily exfoliation" } },
+        "benefit_3": { "type": "benefit_item", "settings": { "icon": "heart", "label": "Soft, skin-loving cotton" } },
+        "benefit_4": { "type": "benefit_item", "settings": { "icon": "trending-up", "label": "Fades dark spots" } },
+        "benefit_5": { "type": "benefit_item", "settings": { "icon": "shield", "label": "Calms irritation" } },
+        "benefit_6": { "type": "benefit_item", "settings": { "icon": "layers", "label": "Safe for face & body" } },
+        "chip_1": { "type": "trust_chip", "settings": { "icon": "shield", "label": "Safe for all skin types" } },
+        "chip_2": { "type": "trust_chip", "settings": { "icon": "leaf", "label": "Turmeric & kojic acid" } },
+        "chip_3": { "type": "trust_chip", "settings": { "icon": "trending-up", "label": "Visibly brighter, clearer skin" } },
+        "chip_4": { "type": "trust_chip", "settings": { "icon": "refresh", "label": "Reusable & eco-friendly" } }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4", "benefit_5", "benefit_6", "chip_1", "chip_2", "chip_3", "chip_4"],
+      "settings": {
+        "eyebrow": "Backed By Real Results",
+        "heading": "Why This Cleansing Cloth",
+        "heading_accent": "Actually Works",
+        "image": "shopify://shop_images/71e21801461a8005f5910f7d6ad5_3e0ed051-76ef-41df-8126-c97d0cd96a65.png",
+        "stat_number": "87%",
+        "stat_label": "said skin looked brighter after one week of use",
+        "bg_color": "#FDF4F1",
+        "accent_color": "#E8637E"
+      }
+    },
     "sm1c_pdp_how_it_works": {
       "type": "sm1c-pdp-how-it-works",
       "blocks": {
@@ -737,6 +763,7 @@
   "order": [
     "sm1c_pdp_main",
     "sm1c_trust_marquee",
+    "sm1c_pdp_why_it_works",
     "sm1c_pdp_how_it_works",
     "sm1c_pdp_comparison",
     "sm1c_pdp_survey_stats",

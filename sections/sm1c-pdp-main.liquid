@@ -234,12 +234,14 @@
   display: block;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-badges {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 14px;
   margin-top: 28px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-badge {
+  flex: 0 0 104px;
   text-align: center;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-badge-icon {

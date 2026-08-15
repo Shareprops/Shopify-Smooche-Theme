@@ -372,6 +372,33 @@
         "gap_between_elements": 28
       }
     },
+    "sm1c_pdp_why_it_works": {
+      "type": "sm1c-pdp-why-it-works",
+      "blocks": {
+        "benefit_1": { "type": "benefit_item", "settings": { "icon": "moon", "label": "Wear overnight while you sleep" } },
+        "benefit_2": { "type": "benefit_item", "settings": { "icon": "trending-up", "label": "Targets sagging & dullness" } },
+        "benefit_3": { "type": "benefit_item", "settings": { "icon": "sparkle", "label": "Zero sticky residue" } },
+        "benefit_4": { "type": "benefit_item", "settings": { "icon": "droplet", "label": "Deep hydration care" } },
+        "benefit_5": { "type": "benefit_item", "settings": { "icon": "leaf", "label": "Korean skincare-inspired formula" } },
+        "benefit_6": { "type": "benefit_item", "settings": { "icon": "refresh", "label": "Peels away clean in one motion" } },
+        "chip_1": { "type": "trust_chip", "settings": { "icon": "ban", "label": "No rinsing required" } },
+        "chip_2": { "type": "trust_chip", "settings": { "icon": "leaf", "label": "Clean ingredients" } },
+        "chip_3": { "type": "trust_chip", "settings": { "icon": "trending-up", "label": "Visibly firmer, glowing skin" } },
+        "chip_4": { "type": "trust_chip", "settings": { "icon": "flask", "label": "Marine collagen formula" } },
+        "chip_5": { "type": "trust_chip", "settings": { "icon": "layers", "label": "Includes application brush" } }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4", "benefit_5", "benefit_6", "chip_1", "chip_2", "chip_3", "chip_4", "chip_5"],
+      "settings": {
+        "eyebrow": "Backed By Real Results",
+        "heading": "Why This Overnight Mask",
+        "heading_accent": "Actually Works",
+        "image": "shopify://shop_images/9a1f447740c5ad61f48670634f59.jpg",
+        "stat_number": "89%",
+        "stat_label": "saw visibly firmer skin by morning",
+        "bg_color": "#FDF4F1",
+        "accent_color": "#E8637E"
+      }
+    },
     "sm1c_pdp_how_it_works": {
       "type": "sm1c-pdp-how-it-works",
       "blocks": {
@@ -737,6 +764,7 @@
   "order": [
     "sm1c_pdp_main",
     "sm1c_trust_marquee",
+    "sm1c_pdp_why_it_works",
     "sm1c_pdp_how_it_works",
     "sm1c_pdp_comparison",
     "sm1c_pdp_survey_stats",
