@@ -22,7 +22,7 @@
         "pill_2": {
           "type": "pill_badge",
           "settings": {
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\"><ellipse cx=\"12\" cy=\"16\" rx=\"5\" ry=\"4.2\" fill=\"currentColor\"/><circle cx=\"6\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"/><circle cx=\"10.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"15.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"18\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"/></svg>",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"none\"><ellipse cx=\"12\" cy=\"16\" rx=\"5\" ry=\"4.2\" fill=\"currentColor\"></ellipse><circle cx=\"6\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"></circle><circle cx=\"10.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"></circle><circle cx=\"15.5\" cy=\"7\" r=\"2.4\" fill=\"currentColor\"></circle><circle cx=\"18\" cy=\"10\" r=\"2.2\" fill=\"currentColor\"></circle></svg>",
             "label": "Vegan & Cruelty-Free"
           }
         },
@@ -91,15 +91,31 @@
         },
         "media_1": {
           "type": "media_tile",
-          "settings": { "image": "shopify://shop_images/0d440abc41e18bb08476b8ef2fc0.jpg" }
+          "settings": {
+            "video": "shopify://files/videos/WhatsApp Video 2026-08-05 at 10.51.55 PM.mp4",
+            "image": "shopify://shop_images/0d440abc41e18bb08476b8ef2fc0.jpg"
+          }
         },
         "media_2": {
           "type": "media_tile",
-          "settings": { "image": "shopify://shop_images/5ed58f8b43ba93567cfd7fe1019e.jpg" }
+          "settings": {
+            "video": "shopify://files/videos/WhatsApp Video 2026-08-05 at 10.51.54 PM.mp4",
+            "image": "shopify://shop_images/5ed58f8b43ba93567cfd7fe1019e.jpg"
+          }
         },
         "media_3": {
           "type": "media_tile",
-          "settings": { "image": "shopify://shop_images/87793f204c74acbbf4ddb1c9d0b7.jpg" }
+          "settings": {
+            "video": "shopify://files/videos/where_is_the_video_I_need_mut.mp4",
+            "image": "shopify://shop_images/87793f204c74acbbf4ddb1c9d0b7.jpg"
+          }
+        },
+        "media_tile_YreN7C": {
+          "type": "media_tile",
+          "settings": {
+            "video": "shopify://files/videos/Collagen_Overnight_Wrapping_Pe.mp4",
+            "image": "shopify://shop_images/87793f204c74acbbf4ddb1c9d0b7.jpg"
+          }
         },
         "media_4": {
           "type": "media_tile",
@@ -110,6 +126,7 @@
           "settings": {
             "title": "Product Details & How To Use",
             "title_icon": "droplet",
+            "body": "",
             "point_1_icon": "droplet",
             "point_1_text": "Roll a thin layer directly onto clean or bare lips — no mirror required.",
             "point_2_icon": "refresh",
@@ -117,7 +134,9 @@
             "point_3_icon": "check",
             "point_3_text": "Layer over lipstick for a glossy top coat, or wear alone for a sheer, natural shine.",
             "point_4_icon": "heart",
-            "point_4_text": "Formulated to soften and nourish lips while you wear it."
+            "point_4_text": "Formulated to soften and nourish lips while you wear it.",
+            "point_5_icon": "check",
+            "point_5_text": ""
           }
         },
         "acc_2": {
@@ -125,12 +144,17 @@
           "settings": {
             "title": "Shipping",
             "title_icon": "truck",
+            "body": "",
             "point_1_icon": "truck",
             "point_1_text": "Ships from within the United States — most orders arrive within 2 business days, up to 5 during holidays or unexpected delays.",
             "point_2_icon": "gift",
             "point_2_text": "Free shipping on every order.",
             "point_3_icon": "mail",
-            "point_3_text": "You'll receive tracking by email as soon as your order leaves our warehouse."
+            "point_3_text": "You'll receive tracking by email as soon as your order leaves our warehouse.",
+            "point_4_icon": "check",
+            "point_4_text": "",
+            "point_5_icon": "check",
+            "point_5_text": ""
           }
         },
         "acc_3": {
@@ -138,12 +162,17 @@
           "settings": {
             "title": "Return & Refund Policy",
             "title_icon": "refresh",
+            "body": "",
             "point_1_icon": "calendar",
             "point_1_text": "Refunds are available within 30 days of delivery for products that arrive damaged or defective.",
             "point_2_icon": "camera",
             "point_2_text": "Send us photos as proof of the issue — no need to ship anything back.",
             "point_3_icon": "check",
-            "point_3_text": "Once verified, we'll process your refund."
+            "point_3_text": "Once verified, we'll process your refund.",
+            "point_4_icon": "check",
+            "point_4_text": "",
+            "point_5_icon": "check",
+            "point_5_text": ""
           }
         },
         "fb_1": {
@@ -183,6 +212,7 @@
         "media_1",
         "media_2",
         "media_3",
+        "media_tile_YreN7C",
         "media_4",
         "acc_1",
         "acc_2",
@@ -195,15 +225,15 @@
         "hide_variant_picker": true,
         "average_rating": "4.8",
         "rating_text": "340 reviews",
-        "short_description": "A colorless, no-stain roll-on oil that glides on in seconds for glassy, non-sticky shine — infused with real fruit extracts to nourish and soften lips with every swipe.",
-        "gift_banner_icon": "🎁",
-        "gift_banner_text": "",
-        "best_results_text": "",
         "urgency_text": "",
         "urgency_percent": 8,
         "atc_label": "ADD TO CART",
         "social_proof_text": "",
-        "feedback_title": "Feedback from the Serein Community"
+        "feedback_title": "Feedback from the Serein Community",
+        "short_description": "A colorless, no-stain roll-on oil that glides on in seconds for glassy, non-sticky shine — infused with real fruit extracts to nourish and soften lips with every swipe.",
+        "gift_banner_icon": "🎁",
+        "gift_banner_text": "",
+        "best_results_text": ""
       }
     },
     "sm1c_trust_marquee": {
@@ -409,7 +439,8 @@
         "heading": "Here's how you get",
         "heading_accent": "glassy lips",
         "subheading": "One quick roll, anytime you need it — no mirror, no mess, just effortless shine that nourishes as it wears.",
-        "image": "shopify://shop_images/0d440abc41e18bb08476b8ef2fc0.jpg"
+        "image": "shopify://shop_images/0d440abc41e18bb08476b8ef2fc0.jpg",
+        "image_asset": ""
       }
     },
     "sm1c_pdp_comparison": {
@@ -585,7 +616,9 @@
       ],
       "settings": {
         "heading": "What's Sealed",
-        "heading_accent": "Inside The Roll-On"
+        "heading_accent": "Inside The Roll-On",
+        "cta_text": "",
+        "cta_link": ""
       }
     },
     "sm1c_pdp_reviews": {
@@ -719,7 +752,8 @@
       ],
       "settings": {
         "heading": "Frequently Asked",
-        "heading_accent": "Questions"
+        "heading_accent": "Questions",
+        "bg_color": "#fcf1ee"
       }
     }
   },
