@@ -103,7 +103,7 @@
         },
         "media_4": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/f373baca4ae8ab78559e25a4731e.png" }
         },
         "acc_1": {
           "type": "accordion_item",

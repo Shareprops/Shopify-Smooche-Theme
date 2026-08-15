@@ -91,19 +91,19 @@
         },
         "media_1": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/806feaa14c8e898e33248dc05e96.jpg" }
         },
         "media_2": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/806feaa14c8e898e33248dc05e96.jpg" }
         },
         "media_3": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/806feaa14c8e898e33248dc05e96.jpg" }
         },
         "media_4": {
           "type": "media_tile",
-          "settings": {}
+          "settings": { "image": "shopify://shop_images/806feaa14c8e898e33248dc05e96.jpg" }
         },
         "acc_1": {
           "type": "accordion_item",
