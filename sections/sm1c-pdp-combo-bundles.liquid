@@ -125,6 +125,7 @@
   background-color: #FBE9EC !important;
   border: 1.5px solid rgba(232, 99, 126, .3) !important;
   border-radius: 14px !important;
+  margin-bottom: 14px;
 }
 #shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__footer_text {
   font-weight: 700;
@@ -182,6 +183,11 @@
 @keyframes sm1c-combo-pulse {
   0%, 100% { box-shadow: 0 6px 16px -4px rgba(216, 68, 100, .55), 0 2px 4px rgba(216, 68, 100, .3); }
   50% { box-shadow: 0 6px 22px -2px rgba(216, 68, 100, .8), 0 2px 8px rgba(216, 68, 100, .45); }
+}
+
+/* Hide the "Powered by Pumper" branding badge that floats over the card. */
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr-branding-wrapper {
+  display: none !important;
 }
 
 @media (max-width: 749px) {
