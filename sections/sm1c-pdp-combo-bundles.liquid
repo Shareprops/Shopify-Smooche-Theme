@@ -60,15 +60,140 @@
   flex-direction: column;
   gap: 18px;
 }
-/* Pumper renders its own card chrome; give each combo room to breathe and
-   keep it from inheriting the centred text of the wrapper. */
+/* ------------------------------------------------------------------
+   Pumper widget restyling.
+
+   Out of the box the combo card has a TRANSPARENT background and only a
+   1px hairline shadow, so it dissolves into this section's tinted
+   background — and its product rows (#FFF5F4) are nearly the same colour
+   as the section itself (#FDF4F1). The result reads as flat pink-on-pink
+   with no focal point.
+
+   Pumper sets colours via INLINE styles driven by its own app settings,
+   so overriding those specific properties requires !important. Anything
+   it doesn't set inline (card, header, total) is overridden normally.
+   ------------------------------------------------------------------ */
 #shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__root {
   margin: 0;
   width: 100%;
+  /* Solid white lifts the card off the tinted section — the core fix. */
+  background: #fff;
+  border: 1.5px solid rgba(232, 99, 126, .28);
+  border-radius: 20px;
+  padding: 24px 22px 22px;
+  box-shadow: 0 18px 40px -22px rgba(43, 33, 29, .45), 0 2px 6px rgba(43, 33, 29, .05);
 }
+
+/* Bundle name — Pumper sets `font-family: inherit` inline (so it wants the
+   theme's face) alongside its own colour/size/weight. Take the typography
+   to match the theme's headings, but deliberately leave `color` alone so
+   the merchant keeps controlling it from Pumper's app settings. */
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__title_text {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1.2;
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__header::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  background: {{ section.settings.accent_color }};
+  margin: 12px auto 4px;
+}
+
+/* Product rows: nudged off the section tint so they read as items sitting
+   inside a white card rather than blending into the page. */
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__product {
+  background-color: #FFF8F6 !important;
+  border-color: rgba(58, 46, 39, .09) !important;
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__product_name_text {
+  font-weight: 600;
+  color: var(--sm1c-ink, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__price_text {
+  font-weight: 700;
+  color: var(--sm1c-ink, #2b211d);
+}
+
+/* "Buy all at" row — was flat grey (#F5F5F5), which clashed with the rose
+   palette and made the total look incidental. Treat it as the deal row. */
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__buy_all {
+  background-color: #FBE9EC !important;
+  border: 1.5px solid rgba(232, 99, 126, .3) !important;
+  border-radius: 14px !important;
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__footer_text {
+  font-weight: 700;
+  color: var(--sm1c-ink, #2b211d);
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__total_price_text {
+  /* Pumper sets `font-family: inherit` inline, so this needs !important. */
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 25px !important;
+  font-weight: 400 !important;
+  letter-spacing: -.02em;
+  color: var(--sm1c-ink, #2b211d) !important;
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__highlight_offer {
+  font-weight: 700 !important;
+  font-size: 10.5px !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 100px !important;
+}
+
+/* CTA — the flat 4px-radius, shadowless button was the weakest element on
+   the page. Match the primary Add to Cart in sm1c-pdp-main so this reads
+   as a real buy button. */
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__add_to_cart {
+  background: linear-gradient(135deg, #ED7C93 0%, #E8637E 45%, #D14C67 100%) !important;
+  border: none !important;
+  border-radius: 14px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: 17px 16px !important;
+  margin-top: 4px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px -4px rgba(216, 68, 100, .55), 0 2px 4px rgba(216, 68, 100, .3);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__add_to_cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -4px rgba(216, 68, 100, .65), 0 3px 8px rgba(216, 68, 100, .4);
+}
+#shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__add_to_cart:active {
+  transform: translateY(0) scale(.99);
+}
+@media (prefers-reduced-motion: no-preference) {
+  #shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__add_to_cart {
+    animation: sm1c-combo-pulse 2.6s ease-in-out infinite;
+  }
+  #shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__add_to_cart:hover {
+    animation: none;
+  }
+}
+@keyframes sm1c-combo-pulse {
+  0%, 100% { box-shadow: 0 6px 16px -4px rgba(216, 68, 100, .55), 0 2px 4px rgba(216, 68, 100, .3); }
+  50% { box-shadow: 0 6px 22px -2px rgba(216, 68, 100, .8), 0 2px 8px rgba(216, 68, 100, .45); }
+}
+
 @media (max-width: 749px) {
   #shopify-section-{{ section.id }} .sm1c-combo-wrap {
     padding: 48px 16px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__root {
+    padding: 20px 16px 18px;
+    border-radius: 18px;
+  }
+  #shopify-section-{{ section.id }} .sm1c-combo-slot .pmpr_bundle__total_price_text {
+    font-size: 22px !important;
   }
 }
 {%- endstyle -%}
