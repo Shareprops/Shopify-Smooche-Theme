@@ -90,6 +90,14 @@
   flex: 1;
   padding-top: 5px;
 }
+#shopify-section-{{ section.id }} .sm1c-hiw-step-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #E8637E;
+  margin-bottom: 4px;
+}
 #shopify-section-{{ section.id }} .sm1c-hiw-step-title {
   font-size: 16px;
   font-weight: 700;
@@ -130,12 +138,22 @@
       {%- endif -%}
     </div>
     <div class="sm1c-hiw-steps">
+      {%- comment -%}
+        The `feature_step` metaobject (used by the how_it_works_steps
+        metafield) only has title/body fields — no icon field exists to pull
+        from. Fall back to a fixed by-position icon sequence rather than a
+        bare step number, matching the icon choice every block-based product
+        already uses for steps 1/2/3 (droplet, clock, heart).
+      {%- endcomment -%}
+      {%- assign hiw_fallback_icons = 'droplet,clock,heart,sparkle,leaf' | split: ',' -%}
       {%- if product.metafields.custom.how_it_works_steps.value.size > 0 -%}
         {%- assign hiw_step_count = product.metafields.custom.how_it_works_steps.value.size -%}
         {%- for step in product.metafields.custom.how_it_works_steps.value -%}
+          {%- assign hiw_icon_index = forloop.index0 | modulo: hiw_fallback_icons.size -%}
           <div class="sm1c-hiw-step{% if forloop.index == hiw_step_count %} is-last{% endif %}">
-            <div class="sm1c-hiw-step-icon"><span>{{ forloop.index }}</span></div>
+            <div class="sm1c-hiw-step-icon">{%- render 'sm1c-pdp-icon', icon: hiw_fallback_icons[hiw_icon_index] -%}</div>
             <div class="sm1c-hiw-step-text">
+              <div class="sm1c-hiw-step-label">Step {{ forloop.index }}</div>
               <div class="sm1c-hiw-step-title">{{ step.title.value }}</div>
               <div class="sm1c-hiw-step-body">{{ step.body.value }}</div>
             </div>
@@ -144,15 +162,17 @@
       {%- else -%}
         {%- assign hiw_step_count = section.blocks.size -%}
         {%- for block in section.blocks -%}
+          {%- assign hiw_icon_index = forloop.index0 | modulo: hiw_fallback_icons.size -%}
           <div class="sm1c-hiw-step{% if forloop.index == hiw_step_count %} is-last{% endif %}" {{ block.shopify_attributes }}>
             <div class="sm1c-hiw-step-icon">
               {%- if block.settings.icon != blank -%}
                 {%- render 'sm1c-pdp-icon', icon: block.settings.icon -%}
               {%- else -%}
-                <span>{{ forloop.index }}</span>
+                {%- render 'sm1c-pdp-icon', icon: hiw_fallback_icons[hiw_icon_index] -%}
               {%- endif -%}
             </div>
             <div class="sm1c-hiw-step-text">
+              <div class="sm1c-hiw-step-label">Step {{ forloop.index }}</div>
               <div class="sm1c-hiw-step-title">{{ block.settings.title }}</div>
               <div class="sm1c-hiw-step-body">{{ block.settings.body }}</div>
             </div>
