@@ -847,21 +847,24 @@
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-media-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-top: 14px;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-media-tile {
-  height: 100px;
-  border-radius: 12px;
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
   overflow: hidden;
   background: #eee;
+  position: relative;
 }
-#shopify-section-{{ section.id }} .sm1c-pdp-media-tile img {
+#shopify-section-{{ section.id }} .sm1c-pdp-media-tile img,
+#shopify-section-{{ section.id }} .sm1c-pdp-media-tile video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 #shopify-section-{{ section.id }} .sm1c-pdp-accordion {
   margin-top: 28px;
@@ -1044,7 +1047,7 @@
     margin-top: 32px;
   }
   #shopify-section-{{ section.id }} .sm1c-pdp-media-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   #shopify-section-{{ section.id }} .sm1c-pdp-thumbs {
     flex-wrap: nowrap;
@@ -1567,19 +1570,32 @@
 
       {%- liquid
         assign media_blocks = section.blocks | where: 'type', 'media_tile'
-        assign has_media_image = false
+        assign has_media_content = false
         for block in media_blocks
-          if block.settings.image != blank
-            assign has_media_image = true
+          if block.settings.video != blank or block.settings.image != blank
+            assign has_media_content = true
           endif
         endfor
       -%}
-      {%- if has_media_image -%}
+      {%- if has_media_content -%}
         <div class="sm1c-pdp-media-grid">
           {%- for block in media_blocks -%}
-            {%- if block.settings.image != blank -%}
+            {%- if block.settings.video != blank -%}
               <div class="sm1c-pdp-media-tile" {{ block.shopify_attributes }}>
-                {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}
+                {{-
+                  block.settings.video
+                  | video_tag:
+                    autoplay: true,
+                    loop: true,
+                    muted: true,
+                    controls: false,
+                    preload: 'metadata',
+                    image_size: '400x'
+                -}}
+              </div>
+            {%- elsif block.settings.image != blank -%}
+              <div class="sm1c-pdp-media-tile" {{ block.shopify_attributes }}>
+                {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}
               </div>
             {%- endif -%}
           {%- endfor -%}
@@ -2462,7 +2478,8 @@
       "type": "media_tile",
       "name": "Video/photo tile",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" }
+        { "type": "video", "id": "video", "label": "Video (9:16 recommended)", "info": "Plays muted, looped, autoplay. Takes priority over the image below." },
+        { "type": "image_picker", "id": "image", "label": "Image (fallback if no video)" }
       ]
     },
     {
