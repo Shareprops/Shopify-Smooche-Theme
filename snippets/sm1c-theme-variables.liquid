@@ -32,4 +32,20 @@
     background: var(--sm1c-bg);
     color: var(--sm1c-text);
   }
+  /*
+    Guards against a small (~scrollbar-width) page-level horizontal
+    overflow caused by `position: fixed; left:0; right:0` elements that
+    also use `transform` for a show/hide animation (the scratch-to-win
+    popup, the mobile sticky Add to Cart bar). In that combination some
+    browsers size the fixed element against the full window width
+    (including the vertical scrollbar's reserved space) rather than the
+    visible content width, which registers as a few px of page-level
+    horizontal scroll. This does not affect any of the theme's internal
+    horizontal scrollers (image galleries, review rail, marquee, scratch
+    card swipe) — they all scroll their own container via overflow-x,
+    not the page itself.
+  */
+  html, body {
+    overflow-x: hidden;
+  }
 </style>
