@@ -28,15 +28,19 @@
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-head {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   align-items: end;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-head-brand {
   background: #E8637E;
   border-radius: 16px 16px 0 0;
   text-align: center;
-  padding: 22px 10px 16px;
+  padding: 24px 14px 22px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-head-brand-badge {
   display: inline-block;
@@ -48,7 +52,29 @@
   background: #fff;
   border-radius: 100px;
   padding: 4px 10px;
-  margin-bottom: 8px;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-brand-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-brand-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .sm1c-cmp-head-brand-icon-letter {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #E8637E;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-head-brand-name {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -60,7 +86,6 @@
   font-size: 12px;
   font-weight: 700;
   color: rgba(255, 255, 255, .85);
-  margin-top: 6px;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-head-col {
   text-align: center;
@@ -81,8 +106,8 @@
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  align-items: center;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-row:nth-child(odd) {
   background: oklch(94% 0.02 30);
@@ -94,8 +119,13 @@
   padding: 18px 20px;
   font-size: 14px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 #shopify-section-{{ section.id }} .sm1c-cmp-cell-smooche {
@@ -135,7 +165,7 @@
   }
   #shopify-section-{{ section.id }} .sm1c-cmp-head,
   #shopify-section-{{ section.id }} .sm1c-cmp-row {
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
   }
   #shopify-section-{{ section.id }} .sm1c-cmp-head > :last-child,
   #shopify-section-{{ section.id }} .sm1c-cmp-row > :last-child {
@@ -175,6 +205,13 @@
         {%- if section.settings.brand_badge != blank -%}
           <div class="sm1c-cmp-head-brand-badge">{{ section.settings.brand_badge }}</div>
         {%- endif -%}
+        <div class="sm1c-cmp-head-brand-icon">
+          {%- if section.settings.brand_icon != blank -%}
+            {{ section.settings.brand_icon | image_url: width: 104 | image_tag: loading: 'lazy', alt: section.settings.brand_name }}
+          {%- else -%}
+            <span class="sm1c-cmp-head-brand-icon-letter">{{ section.settings.brand_name | slice: 0 }}</span>
+          {%- endif -%}
+        </div>
         <div class="sm1c-cmp-head-brand-name">{{ section.settings.brand_name }}</div>
         <div class="sm1c-cmp-head-brand-price">{{ product.selected_or_first_available_variant.price | money }}</div>
       </div>
@@ -232,6 +269,7 @@
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Most serums try to force volume. Serein removes what blocks it — no stinging, no stimulants, just consistent results." },
     { "type": "text", "id": "brand_name", "label": "Brand column name", "default": "Serein" },
     { "type": "text", "id": "brand_badge", "label": "Brand column badge (optional)", "info": "Small ribbon shown above the brand name, e.g. \"Most Loved\"." },
+    { "type": "image_picker", "id": "brand_icon", "label": "Brand icon (optional)", "info": "Small circular icon/logo shown above the brand name. Falls back to the brand name's first letter." },
     { "type": "text", "id": "competitor_1_name", "label": "Competitor 1 name", "default": "Other Serums" },
     { "type": "text", "id": "competitor_1_price", "label": "Competitor 1 price note", "default": "From $3.67/unit" },
     { "type": "text", "id": "competitor_2_name", "label": "Competitor 2 name", "default": "Generic Balms" },
